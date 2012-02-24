@@ -6007,6 +6007,8 @@ def makemoves():
             if cmd == "":
                 listCommands()
                 continue
+            elif opt and not (opt & game.options):
+                huh()
             else:
                 break
         if cmd == "SRSCAN":                # srscan
