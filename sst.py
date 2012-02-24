@@ -5875,38 +5875,38 @@ commands = [
     ("TORPEDO",          0),
     ("PHOTONS",          0),
     ("MOVE",             0),
-    ("SHIELDS",           0),
+    ("SHIELDS",          0),
     ("DOCK",             0),
-    ("DAMAGES",           0),
+    ("DAMAGES",          0),
     ("CHART",            0),
     ("IMPULSE",          0),
     ("REST",             0),
     ("WARP",             0),
     ("SCORE",            0),
     ("SENSORS",          OPTION_PLANETS),
-    ("ORBIT",                OPTION_PLANETS),
+    ("ORBIT",            OPTION_PLANETS),
     ("TRANSPORT",        OPTION_PLANETS),
-    ("MINE",                OPTION_PLANETS),
-    ("CRYSTALS",          OPTION_PLANETS),
+    ("MINE",             OPTION_PLANETS),
+    ("CRYSTALS",         OPTION_PLANETS),
     ("SHUTTLE",          OPTION_PLANETS),
     ("PLANETS",          OPTION_PLANETS),
     ("REPORT",           0),
     ("COMPUTER",         0),
     ("COMMANDS",         0),
-    ("EMEXIT",                0),
-    ("PROBE",                OPTION_PROBE),
-    ("SAVE",                0),
-    ("FREEZE",                0),        # Synonym for SAVE
+    ("EMEXIT",           0),
+    ("PROBE",            OPTION_PROBE),
+    ("SAVE",             0),
+    ("FREEZE",           0),        # Synonym for SAVE
     ("ABANDON",          0),
     ("DESTRUCT",         0),
     ("DEATHRAY",         0),
     ("DEBUG",            0),
-    ("MAYDAY",                0),
-    ("SOS",                0),        # Synonym for MAYDAY
-    ("CALL",                0),        # Synonym for MAYDAY
-    ("QUIT",                0),
-    ("HELP",                0),
-    ("",                0),
+    ("MAYDAY",           0),
+    ("SOS",              0),        # Synonym for MAYDAY
+    ("CALL",             0),        # Synonym for MAYDAY
+    ("QUIT",             0),
+    ("HELP",             0),
+    ("",                 0),
 ]
 
 def listCommands():
