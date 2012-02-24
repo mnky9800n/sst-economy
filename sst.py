@@ -3114,12 +3114,12 @@ rows = linecount = 0        # for paging
 stdscr = None
 replayfp = None
 fullscreen_window = None
-srscan_window     = None
-report_window     = None
-status_window     = None
-lrscan_window     = None
-message_window    = None
-prompt_window     = None
+srscan_window     = None   # Short range scan
+report_window     = None   # Report legends for status window
+status_window     = None   # The status window itself
+lrscan_window     = None   # Long range scan
+message_window    = None   # Main window for scrolling text
+prompt_window     = None   # Prompt window at bottom of display
 curwnd = None
 
 def iostart():
