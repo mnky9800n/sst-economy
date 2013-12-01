@@ -14,4 +14,6 @@ Description: Super Star Trek, a timeless classic of computer games
 
 XBS-Logo: www/trek.png
 
-XBS-Project-Tag-List: games, retro
+XBS-Freecode-Tags: games, retro
+
+XBS-VC-Tag-Template: %(version)s
