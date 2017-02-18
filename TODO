@@ -2,11 +2,6 @@
 
 Short-term items:
 
-* Adjust the sst.spec wrt the build system changes
-
-* Complete, polish, improve, complete, polish, improve the
-  gettextization and the translation! Right now it just sucks.
-
 * Add the attacked inhabited planets to the status report
 
 * Status display should update after kills so Klingons Left is correct.
