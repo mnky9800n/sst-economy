@@ -4247,11 +4247,15 @@ def mayday():
         # There's one in this quadrant
         ddist = (game.base - game.sector).distance()
     else:
+        ibq = None	# Force base-quadrant game to persist past loop
         ddist = FOREVER
         for ibq in game.state.baseq:
             xdist = QUADSIZE * (ibq - game.quadrant).distance()
             if xdist < ddist:
                 ddist = xdist
+        if ibq is None:
+            prout(_("No starbases remain. You are alone in a hostile galaxy."))
+            return
         # Since starbase not in quadrant, set up new quadrant
         game.quadrant = ibq
         newqad()
