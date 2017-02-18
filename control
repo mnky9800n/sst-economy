@@ -1,10 +1,7 @@
 # This is not a real Debian control file, though the syntax is compatible.
 # It's project metadata for the shipper tool
 
-Package: sst
-XBS-Freshmeat-Name: strek
-
-Destinations: ~,berlios,freecode
+Package: super-star-trek
 
 Description: Super Star Trek, a timeless classic of computer games
  Save the Federation from the invading Klingons!  Visit exotic planets and
@@ -12,8 +9,16 @@ Description: Super Star Trek, a timeless classic of computer games
  This is the classic Super Star Trek game from the days of slow teletypes, 
  reloaded.
 
+Homepage: http://www.catb.org/~esr/super-star-trek
+
+XBS-HTML-Target: index.html
+
+XBS-Repository-URL: https://gitlab.com/esr/super-star-trek
+
+#XBS-OpenHub-URL: https://www.ohloh.net/p/super-star-trek
+
 XBS-Logo: www/trek.png
 
-XBS-Freecode-Tags: games, retro
-
 XBS-VC-Tag-Template: %(version)s
+
+XBS-Validate: make check
