@@ -489,7 +489,7 @@ def tryexit(enemy, look, irun):
                 game.state.kcmdr.append(iq)
                 break
     # report move out of quadrant.
-    return [(True, enemy, oldloc, ibq)]
+    return [(True, enemy, oldloc, iq)]
 
 # The bad-guy movement algorithm:
 #
@@ -1741,9 +1741,9 @@ def phasers():
     no = False
     itarg = True
     msgflag = True
-    rpow = 0
+    rpow = 0.0
     automode = "NOTSET"
-    key = 0
+    key = ""
     skip(1)
     # SR sensors and Computer are needed for automode
     if damaged(DSRSENS) or damaged(DCOMPTR):
@@ -2469,7 +2469,7 @@ def wait():
         if game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
             break
     game.resting = False
-    game.optime = 0
+    game.optime = 0.0
 
 def nova(nov):
     "Star goes nova."
@@ -2593,11 +2593,11 @@ def nova(nov):
     if dist == 0.0:
         return
     scourse = course(bearing=direc, distance=dist)
-    game.optime = scourse.time(warp=4)
+    game.optime = scourse.time(w=4)
     skip(1)
     prout(_("Force of nova displaces starship."))
     imove(scourse, noattack=True)
-    game.optime = scourse.time(warp=4)
+    game.optime = scourse.time(w=4)
     return
 
 def supernova(w):
@@ -2607,14 +2607,14 @@ def supernova(w):
         nq = copy.copy(w)
     else:
         # Scheduled supernova -- select star at random.
-        stars = 0
+        nstars = 0
         nq = Coord()
         for nq.i in range(GALSIZE):
             for nq.j in range(GALSIZE):
-                stars += game.state.galaxy[nq.i][nq.j].stars
+                nstars += game.state.galaxy[nq.i][nq.j].stars
         if stars == 0:
             return # nothing to supernova exists
-        num = randrange(stars) + 1
+        num = randrange(nstars) + 1
         for nq.i in range(GALSIZE):
             for nq.j in range(GALSIZE):
                 num -= game.state.galaxy[nq.i][nq.j].stars
@@ -3233,7 +3233,7 @@ def skip(i):
             else:
                 sys.stdout.write('\n')
 
-def proutn(line):
+def proutn(proutntline):
     "Utter a line with no following line feed."
     if game.options & OPTION_CURSES:
         (y, x) = curwnd.getyx()
@@ -3243,20 +3243,20 @@ def proutn(line):
             clrscr()
         # Uncomment this to debug curses problems
         if logfp:
-            logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(line)))
-        curwnd.addstr(line)
+            logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(proutntline)))
+        curwnd.addstr(proutntline)
         curwnd.refresh()
     else:
-        sys.stdout.write(line)
+        sys.stdout.write(proutntline)
         sys.stdout.flush()
 
-def prout(line):
-    proutn(line)
+def prout(proutline):
+    proutn(proutline)
     skip(1)
 
-def prouts(line):
+def prouts(proutsline):
     "Emit slowly!"
-    for c in line:
+    for c in proutsline:
         if not replayfp or replayfp.closed:        # Don't slow down replays
             time.sleep(0.03)
         proutn(c)
@@ -3270,24 +3270,24 @@ def prouts(line):
 def cgetline():
     "Get a line of input."
     if game.options & OPTION_CURSES:
-        line = curwnd.getstr() + "\n"
+        linein = curwnd.getstr() + "\n"
         curwnd.refresh()
     else:
         if replayfp and not replayfp.closed:
             while True:
-                line = replayfp.readline()
-                proutn(line)
-                if line == '':
+                linein = replayfp.readline()
+                proutn(linein)
+                if linein == '':
                     prout("*** Replay finished")
                     replayfp.close()
                     break
-                elif line[0] != "#":
+                elif linein[0] != "#":
                     break
         else:
-            line = eval(input()) + "\n"
+            linein = eval(input()) + "\n"
     if logfp:
-        logfp.write(line)
-    return line
+        logfp.write(linein)
+    return linein
 
 def setwnd(wnd):
     "Change windows -- OK for this to be a no-op in tty mode."
@@ -3847,10 +3847,10 @@ class course:
         return self.location.quadrant()
     def sector(self):
         return self.location.sector()
-    def power(self, warp):
-        return self.distance*(warp**3)*(game.shldup+1)
-    def time(self, warp):
-        return 10.0*self.distance/warp**2
+    def power(self, w):
+        return self.distance*(w**3)*(game.shldup+1)
+    def time(self, w):
+        return 10.0*self.distance/w**2
 
 def impulse():
     "Move under impulse power."
@@ -3862,10 +3862,10 @@ def impulse():
         return
     if game.energy > 30.0:
         try:
-            course = getcourse(isprobe=False)
+            icourse = getcourse(isprobe=False)
         except TrekError:
             return
-        power = 20.0 + 100.0*course.distance
+        power = 20.0 + 100.0*icourse.distance
     else:
         power = 30.0
     if power >= game.energy:
@@ -3882,7 +3882,7 @@ def impulse():
         scanner.chew()
         return
     # Make sure enough time is left for the trip
-    game.optime = course.distance/0.095
+    game.optime = icourse.distance/0.095
     if game.optime >= game.state.remtime:
         prout(_("First Officer Spock- \"Captain, our speed under impulse"))
         prout(_("power is only 0.95 sectors per stardate. Are you sure"))
@@ -3890,13 +3890,13 @@ def impulse():
         if not ja():
             return
     # Activate impulse engines and pay the cost
-    imove(course, noattack=False)
+    imove(icourse, noattack=False)
     game.ididit = True
     if game.alldone:
         return
-    power = 20.0 + 100.0*course.distance
+    power = 20.0 + 100.0*icourse.distance
     game.energy -= power
-    game.optime = course.distance/0.095
+    game.optime = icourse.distance/0.095
     if game.energy <= 0:
         finish(FNRG)
     return
@@ -5782,7 +5782,7 @@ def newqad():
             e.power = randreal(1175.0,  1575.0) + 125.0*game.skill
             game.iscate = (game.state.remkl > 1)
     # Put in Romulans if needed
-    for i in range(q.romulans):
+    for _i in range(q.romulans):
         Enemy('R', loc=dropin(), power=randreal(400.0,850.0)+50.0*game.skill)
     # If quadrant needs a starbase, put it in
     if q.starbase:
@@ -5838,10 +5838,10 @@ def newqad():
                 game.quad[QUADSIZE-1][QUADSIZE-1] = 'X'
     sortenemies()
     # And finally the stars
-    for i in range(q.stars):
+    for _i in range(q.stars):
         dropin('*')
     # Put in a few black holes
-    for i in range(1, 3+1):
+    for _i in range(1, 3+1):
         if withprob(0.5):
             dropin(' ')
     # Take out X's in corners if Tholian present
@@ -6004,6 +6004,8 @@ def makemoves():
             setwnd(message_window)
             clrscr()
             abandon_passed = False
+            cmd = ""	# Force cmd to persist after loop
+            opt = 0	# Force opt to persist after loop
             for (cmd, opt) in commands:
                 # commands after ABANDON cannot be abbreviated
                 if cmd == "ABANDON":
@@ -6142,27 +6144,27 @@ def makemoves():
     if game.idebug:
         prout("=== Ending")
 
-def cramen(type):
+def cramen(ch):
     "Emit the name of an enemy or feature."
-    if   type == 'R': s = _("Romulan")
-    elif type == 'K': s = _("Klingon")
-    elif type == 'C': s = _("Commander")
-    elif type == 'S': s = _("Super-commander")
-    elif type == '*': s = _("Star")
-    elif type == 'P': s = _("Planet")
-    elif type == 'B': s = _("Starbase")
-    elif type == ' ': s = _("Black hole")
-    elif type == 'T': s = _("Tholian")
-    elif type == '#': s = _("Tholian web")
-    elif type == '?': s = _("Stranger")
-    elif type == '@': s = _("Inhabited World")
+    if   ch == 'R': s = _("Romulan")
+    elif ch == 'K': s = _("Klingon")
+    elif ch == 'C': s = _("Commander")
+    elif ch == 'S': s = _("Super-commander")
+    elif ch == '*': s = _("Star")
+    elif ch == 'P': s = _("Planet")
+    elif ch == 'B': s = _("Starbase")
+    elif ch == ' ': s = _("Black hole")
+    elif ch == 'T': s = _("Tholian")
+    elif ch == '#': s = _("Tholian web")
+    elif ch == '?': s = _("Stranger")
+    elif ch == '@': s = _("Inhabited World")
     else: s = "Unknown??"
     return s
 
-def crmena(stars, enemy, loctype, w):
+def crmena(loud, enemy, loctype, w):
     "Emit the name of an enemy and his location."
     buf = ""
-    if stars:
+    if loud:
         buf += "***"
     buf += cramen(enemy) + _(" at ")
     if loctype == "quadrant":
@@ -6202,17 +6204,17 @@ class sstscanner:
         self.token = ''
         # Fill the token quue if nothing here
         while not self.inqueue:
-            line = cgetline()
+            sline = cgetline()
             if curwnd==prompt_window:
                 clrscr()
                 setwnd(message_window)
                 clrscr()
-            if line == '':
+            if sline == '':
                 return None
-            if not line:
+            if not sline:
                 continue
             else:
-                self.inqueue = line.lstrip().split() + ["\n"]
+                self.inqueue = sline.lstrip().split() + ["\n"]
         # From here on in it's all looking at the queue
         self.token = self.inqueue.pop(0)
         if self.token == "\n":
@@ -6244,22 +6246,22 @@ class sstscanner:
         return s.startswith(self.token)
     def int(self):
         # Round token value to nearest integer
-        return int(round(scanner.real))
+        return int(round(self.real))
     def getcoord(self):
         s = Coord()
-        scanner.nexttok()
-        if scanner.type != "IHREAL":
+        self.nexttok()
+        if self.type != "IHREAL":
             huh()
             return None
-        s.i = scanner.int()-1
-        scanner.nexttok()
-        if scanner.type != "IHREAL":
+        s.i = self.int()-1
+        self.nexttok()
+        if self.type != "IHREAL":
             huh()
             return None
-        s.j = scanner.int()-1
+        s.j = self.int()-1
         return s
     def __repr__(self):
-        return "<sstcanner: token=%s, type=%s, queue=%s>" % (scanner.token, scanner.type, scanner.inqueue)
+        return "<sstcanner: token=%s, type=%s, queue=%s>" % (self.token, self.type, self.inqueue)
 
 def ja():
     "Yes-or-no confirmation."
