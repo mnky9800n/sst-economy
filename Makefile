@@ -1,6 +1,6 @@
 # Makefile for the SST2K project
 
-VERS=$(shell sed <sst.py -n -e '/version *= *\(.*\)/s//\1/p')
+VERS=$(shell sed <sst.py -n -e '/version *= \"*\(.*\)\"/s//\1/p')
 
 MANDIR=/usr/share/man/man1
 BINDIR=/usr/bin
@@ -21,11 +21,7 @@ sst.html: doc/sst.xml
 	cd doc; xmlto html-nochunks sst.xml; mv sst.html ..
 
 sst-$(VERS).tar.gz: $(SOURCES) sst.6
-	mkdir sst-$(VERS)
-	cp $(SOURCES) sst-$(VERS)
-	tar -czf sst-$(VERS).tar.gz sst-$(VERS)
-	rm -fr sst-$(VERS)
-	ls -l sst-$(VERS).tar.gz
+	tar --transform='s:^:sst-$(VERS)/:' --show-transformed-names -cvzf cvs-fast-export-$(VERS).tar.gz $(SOURCES) sst.6
 
 dist: sst-$(VERS).tar.gz
 
