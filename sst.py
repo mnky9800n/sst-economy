@@ -81,7 +81,7 @@ class Coord:
     def __eq__(self, other):
         return other != None and self.i == other.i and self.j == other.j
     def __ne__(self, other):
-        return other == None or self.i != other.i or self.j != other.j
+        return other is None or self.i != other.i or self.j != other.j
     def __add__(self, other):
         return Coord(self.i+other.i, self.j+other.j)
     def __sub__(self, other):
@@ -126,7 +126,7 @@ class Coord:
         s.j = self.j + randrange(-1, 2)
         return s
     def __str__(self):
-        if self.i == None or self.j == None:
+        if self.i is None or self.j is None:
             return "Nowhere"
         return "%s - %s" % (self.i+1, self.j+1)
     __repr__ = __str__
@@ -1405,7 +1405,7 @@ def attack(torps_ok):
                 finish(FWON) # Klingons did themselves in!
             if game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova or game.alldone:
                 return # Supernova or finished
-            if hit == None:
+            if hit is None:
                 continue
         # incoming phaser or torpedo, shields may dissipate it
         if game.shldup or game.shldchg or game.condition == "docked":
@@ -1595,10 +1595,10 @@ def torps():
             break
         scanner.push(scanner.token)
         target.append(scanner.getcoord())
-        if target[-1] == None:
+        if target[-1] is None:
             return
         tcourse.append(targetcheck(target[-1]))
-        if tcourse[-1] == None:
+        if tcourse[-1] is None:
             return
     scanner.chew()
     if len(target) == 0:
@@ -1607,10 +1607,10 @@ def torps():
             proutn(_("Target sector for torpedo number %d- ") % (i+1))
             scanner.chew()
             target.append(scanner.getcoord())
-            if target[-1] == None:
+            if target[-1] is None:
                 return
             tcourse.append(targetcheck(target[-1]))
-            if tcourse[-1] == None:
+            if tcourse[-1] is None:
                 return
     game.ididit = True
     # Loop for moving <n> torpedoes
@@ -2334,7 +2334,7 @@ def events():
                 # supernova'ed, and which has some Klingons in it
                 w = randplace(GALSIZE)
                 q = game.state.galaxy[w.i][w.j]
-                if not (game.quadrant == w or q.planet == None or \
+                if not (game.quadrant == w or q.planet is None or \
                       not q.planet.inhabited or \
                       q.supernova or q.status!="secure" or q.klingons<=0):
                     break
@@ -2692,7 +2692,7 @@ def supernova(w):
     # If supernova destroys last Klingons give special message
     if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)==0 and not nq == game.quadrant:
         skip(2)
-        if w == None:
+        if w is None:
             prout(_("Lucky you!"))
         proutn(_("A supernova in %s has just destroyed the last Klingons.") % nq)
         finish(FWON)
@@ -2778,7 +2778,7 @@ def badpoints():
             3.0*game.abandoned
     if game.ship == 'F':
         badpt += 100.0
-    elif game.ship == None:
+    elif game.ship is None:
         badpt += 200.0
     return badpt
 
@@ -3110,7 +3110,7 @@ def plaque():
         fp.write(_(" Cheat level\n\n"))
     timestring = time.ctime()
     fp.write(_("                                                 This day of %.6s %.4s, %.8s\n\n") %
-                    (timestring+4, timestring+20, timestring+11))
+             (timestring+4, timestring+20, timestring+11))
     fp.write(_("                                                        Your score:  %d\n\n") % game.score)
     fp.write(_("                                                    Klingons per stardate:  %.2f\n") % game.perdate)
     fp.close()
@@ -3875,7 +3875,7 @@ def impulse():
         prout(_("require 20.0 units to engage, plus 100.0 units per"))
         if game.energy > 30:
             proutn(_("quadrant.  We can go, therefore, a maximum of %d") %
-                     int(0.01 * (game.energy-20.0)-0.05))
+                   int(0.01 * (game.energy-20.0)-0.05))
             prout(_(" quadrants.\""))
         else:
             prout(_("quadrant.  They are, therefore, useless.\""))
@@ -3918,7 +3918,7 @@ def warp(wcourse, involuntary):
             prout(_("  is repaired, I can only give you warp 4.\""))
             return
                # Read in course and distance
-        if wcourse==None:
+        if wcourse is None:
             try:
                 wcourse = getcourse(isprobe=False)
             except TrekError:
@@ -4035,7 +4035,7 @@ def setwarp():
     game.warpfac = scanner.real
     if game.warpfac <= oldfac or game.warpfac <= 6.0:
         prout(_("Helmsman Sulu- \"Warp factor %d, Captain.\"") %
-               int(game.warpfac))
+              int(game.warpfac))
         return
     if game.warpfac < 8.00:
         prout(_("Engineer Scott- \"Aye, but our maximum safe speed is warp 6.\""))
@@ -4342,10 +4342,10 @@ def abandon():
             prout(_("to nearest habitable planet."))
         elif q.planet != None and not damaged(DTRANSP):
             prout(_("Remainder of ship's complement beam down to %s.") %
-                    q.planet)
+                  q.planet)
         else:
             prout(_("Entire crew of %d left to die in outer space.") %
-                    game.state.crew)
+                  game.state.crew)
             game.casual += game.state.crew
             game.abandoned += game.state.crew
         # If at least one base left, give 'em the Faerie Queene
@@ -4467,7 +4467,7 @@ def sensor():
         if game.options & OPTION_TTY:
             prout(_("Short range sensors damaged."))
         return
-    if game.iplnet == None:
+    if game.iplnet is None:
         if game.options & OPTION_TTY:
             prout(_("Spock- \"No planet in this quadrant, Captain.\""))
         return
@@ -4888,7 +4888,7 @@ def report():
         prout(_("This is tournament game %d.") % game.tourn)
     prout(_("Your secret password is \"%s\"") % game.passwd)
     proutn(_("%d of %d Klingons have been killed") % (((game.inkling + game.incom + game.inscom) - (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)),
-           (game.inkling + game.incom + game.inscom)))
+                                                      (game.inkling + game.incom + game.inscom)))
     if game.incom - len(game.state.kcmdr):
         prout(_(", including %d Commander%s.") % (game.incom - len(game.state.kcmdr), (_("s"), "")[(game.incom - len(game.state.kcmdr))==1]))
     elif game.inkling - game.state.remkl + (game.inscom - game.state.nscrem) > 0:
@@ -5186,7 +5186,7 @@ def eta():
         huh()
         return
     dist = math.sqrt((w1.j-game.quadrant.j+(w2.j-game.sector.j)/(QUADSIZE*1.0))**2+
-                (w1.i-game.quadrant.i+(w2.i-game.sector.i)/(QUADSIZE*1.0))**2)
+                     (w1.i-game.quadrant.i+(w2.i-game.sector.i)/(QUADSIZE*1.0))**2)
     wfl = False
     if prompt:
         prout(_("Answer \"no\" if you don't know the value:"))
@@ -5366,34 +5366,34 @@ systnames = (
     _("Beta III"),                # TOS: "The Return of the Archons"
     _("Triacus"),                # TOS: "And the Children Shall Lead",
     _("Exo III"),                # TOS: "What Are Little Girls Made Of?" (Class P)
-#        # Others
-#    _("Hansen's Planet"),        # TOS: "The Galileo Seven"
-#    _("Taurus IV"),                # TOS: "The Galileo Seven" (class G)
-#    _("Antos IV (Doraphane)"),        # TOS: "Whom Gods Destroy", "Who Mourns for Adonais?"
-#    _("Izar"),                        # TOS: "Whom Gods Destroy"
-#    _("Tiburon"),                # TOS: "The Way to Eden"
-#    _("Merak II"),                # TOS: "The Cloud Minders"
-#    _("Coridan (Desotriana)"),        # TOS: "Journey to Babel"
-#    _("Iotia"),                # TOS: "A Piece of the Action"
+    #        # Others
+    #    _("Hansen's Planet"),        # TOS: "The Galileo Seven"
+    #    _("Taurus IV"),                # TOS: "The Galileo Seven" (class G)
+    #    _("Antos IV (Doraphane)"),        # TOS: "Whom Gods Destroy", "Who Mourns for Adonais?"
+    #    _("Izar"),                        # TOS: "Whom Gods Destroy"
+    #    _("Tiburon"),                # TOS: "The Way to Eden"
+    #    _("Merak II"),                # TOS: "The Cloud Minders"
+    #    _("Coridan (Desotriana)"),        # TOS: "Journey to Babel"
+    #    _("Iotia"),                # TOS: "A Piece of the Action"
 )
 
 device = (
-        _("S. R. Sensors"), \
-        _("L. R. Sensors"), \
-        _("Phasers"), \
-        _("Photon Tubes"), \
-        _("Life Support"), \
-        _("Warp Engines"), \
-        _("Impulse Engines"), \
-        _("Shields"), \
-        _("Subspace Radio"), \
-        _("Shuttle Craft"), \
-        _("Computer"), \
-        _("Navigation System"), \
-        _("Transporter"), \
-        _("Shield Control"), \
-        _("Death Ray"), \
-        _("D. S. Probe"), \
+    _("S. R. Sensors"), \
+    _("L. R. Sensors"), \
+    _("Phasers"), \
+    _("Photon Tubes"), \
+    _("Life Support"), \
+    _("Warp Engines"), \
+    _("Impulse Engines"), \
+    _("Shields"), \
+    _("Subspace Radio"), \
+    _("Shuttle Craft"), \
+    _("Computer"), \
+    _("Navigation System"), \
+    _("Transporter"), \
+    _("Shield Control"), \
+    _("Death Ray"), \
+    _("D. S. Probe"), \
 )
 
 def setup():
@@ -5511,7 +5511,7 @@ def setup():
     for i in range(game.inplan):
         while True:
             w = randplace(GALSIZE)
-            if game.state.galaxy[w.i][w.j].planet == None:
+            if game.state.galaxy[w.i][w.j].planet is None:
                 break
         new = Planet()
         new.quadrant = w
@@ -5634,7 +5634,7 @@ def choose():
             if thaw():
                 continue
             scanner.chew()
-            if game.passwd == None:
+            if game.passwd is None:
                 continue
             if not game.alldone:
                 game.thawed = True # No plaque if not finished
@@ -5809,7 +5809,7 @@ def newqad():
     # Put in THING if needed
     if thing == game.quadrant:
         Enemy(etype='?', loc=dropin(),
-                  power=randreal(6000,6500.0)+250.0*game.skill)
+              power=randreal(6000,6500.0)+250.0*game.skill)
         if not damaged(DSRSENS):
             skip(1)
             prout(_("Mr. Spock- \"Captain, this is most unusual."))
