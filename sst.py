@@ -3519,6 +3519,8 @@ def imove(icourse=None, noattack=False):
         # check for edge of galaxy
         kinks = 0
         while True:
+
+
             kink = False
             if icourse.final.i < 0:
                 icourse.final.i = -icourse.final.i
@@ -3827,16 +3829,14 @@ class course:
         if self.bearing < 0.0:
             self.bearing += 12.0
         self.angle = ((15.0 - self.bearing) * 0.5235988)
-        if origin is None:
-            self.origin = cartesian(game.quadrant, game.sector)
-        else:
-            self.origin = cartesian(game.quadrant, origin)
         self.increment = Coord(-math.sin(self.angle), math.cos(self.angle))
         bigger = max(abs(self.increment.i), abs(self.increment.j))
         self.increment /= bigger
         self.moves = int(round(10*self.distance*bigger))
         self.reset()
         self.final = (self.location + self.moves*self.increment).roundtogrid()
+        self.location = self.origin
+        self.nextlocation = None
     def reset(self):
         self.location = self.origin
         self.step = 0
