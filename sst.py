@@ -13,6 +13,13 @@ on how to modify (and how not to modify!) this code.
 """
 import os, sys, math, curses, time, readline, pickle, random, copy, gettext, getpass
 
+# This import only works on Unixes.  The intention is to enable
+# Ctrl-P, Ctrl-N, and friends in Cmd.
+try:
+    import readline
+except ImportError:
+    pass
+
 version = "2.1"
 
 docpath  	= (".", "../doc", "/usr/share/doc/sst")
@@ -5705,7 +5712,7 @@ def choose():
     game.state.remres = (game.inkling+4*game.incom)*game.intime
     game.inresor = game.state.remres
     if game.inkling > 50:
-        game.state.inbase += 1
+        game.inbase += 1
     return False
 
 def dropin(iquad=None):
