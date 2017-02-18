@@ -41,8 +41,12 @@ pylint:
 
 clean:
 	rm -f sst.6 sst.html
-	rm -f *.6 MANIFEST index.html SHIPPER.*
+	rm -f *.6 MANIFEST index.html
 
 release: sst-$(VERS).tar.gz sst.html
-	shipper -u -t; make clean
+	shipper version=$(VERS) | sh -e -x
+	cd www; upload
+
+refresh: sst.html
+	shipper -N -w version=$(VERS) | sh -e -x
 	cd www; upload
