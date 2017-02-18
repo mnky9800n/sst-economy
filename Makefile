@@ -35,7 +35,10 @@ check: #pylint
 pychecker:
 	@-pychecker --quiet --only --limit 50 sst.py
 
-PYLINTOPTS = --rcfile=/dev/null --reports=n --include-ids=y --disable=C0103,C0111,C0301,C0302,C0321,R0902,R0903,R0911,R0912,R0914,R0915,W0312,W0603
+COMMON_PYLINT = --rcfile=/dev/null --reports=n \
+	--msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" \
+	--dummy-variables-rgx='^_'
+PYLINTOPTS = $(COMMON_PYLINT) --disable=C0103,C0111,C0113,C1001,C0301,C0302,C0321,C0325,C0326,C0410,E1120,R0101,R0902,R0903,R0911,R0912,R0914,R0915,R0916,W0110,W0123,W0141,W0312,W0603,W0611
 pylint:
 	@pylint --output-format=parseable $(PYLINTOPTS) sst.py
 
