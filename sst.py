@@ -4941,7 +4941,7 @@ def report():
             proutn(_("An armed deep space probe is in "))
         else:
             proutn(_("A deep space probe is in "))
-        prout("Quadrant %s." % game.probec)
+        prout("Quadrant %s." % game.probe.quadrant())
     if game.icrystl:
         if game.cryprob <= .05:
             prout(_("Dilithium crystals aboard ship... not yet used."))
