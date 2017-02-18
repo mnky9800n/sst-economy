@@ -12,6 +12,7 @@ See the doc/HACKING file in the distribution for designers notes and advice
 on how to modify (and how not to modify!) this code.
 """
 import os, sys, math, curses, time, pickle, random, copy, gettext, getpass
+import getopt, socket, locale
 
 # This import only works on Unixes.  The intention is to enable
 # Ctrl-P, Ctrl-N, and friends in Cmd.
@@ -2234,16 +2235,16 @@ def events():
                 unschedule(FBATTAK)
                 unschedule(FCDBAS)
                 continue
+            ibq = None	# Force battle location to persist past loop
             try:
                 for ibq in game.state.baseq:
                     for cmdr in game.state.kcmdr:
                         if ibq == cmdr and ibq != game.quadrant and ibq != game.state.kscmdr:
                             raise JumpOut
-                else:
-                    # no match found -- try later
-                    schedule(FBATTAK, expran(0.3*game.intime))
-                    unschedule(FCDBAS)
-                    continue
+                # no match found -- try later
+                schedule(FBATTAK, expran(0.3*game.intime))
+                unschedule(FCDBAS)
+                continue
             except JumpOut:
                 pass
             # commander + starbase combination found -- launch attack
@@ -2398,8 +2399,8 @@ def events():
                             if q.klingons >= MAXKLQUAD or q.supernova:
                                 continue
                             raise JumpOut
-                    else:
-                        continue        # search for eligible quadrant failed
+                    # search for eligible quadrant failed
+                    continue
                 except JumpOut:
                     w = m
             # deliver the child
@@ -2558,33 +2559,37 @@ def nova(nov):
                 elif iquad == 'K': # kill klingon
                     deadkl(neighbor, iquad, neighbor)
                 elif iquad in ('C','S','R'): # Damage/destroy big enemies
+                    target = None
                     for ll in range(len(game.enemies)):
                         if game.enemies[ll].location == neighbor:
+                            target = game.enemies[ll]
                             break
-                    game.enemies[ll].power -= 800.0 # If firepower is lost, die
-                    if game.enemies[ll].power <= 0.0:
-                        deadkl(neighbor, iquad, neighbor)
-                        break
-                    newc = neighbor + neighbor - hits[-1]
-                    proutn(crmena(True, iquad, "sector", neighbor) + _(" damaged"))
-                    if not newc.valid_sector():
-                        # can't leave quadrant
-                        skip(1)
-                        break
-                    iquad1 = game.quad[newc.i][newc.j]
-                    if iquad1 == ' ':
-                        proutn(_(", blasted into ") + crmena(False, ' ', "sector", newc))
-                        skip(1)
-                        deadkl(neighbor, iquad, newc)
-                        break
-                    if iquad1 != '.':
-                        # can't move into something else
-                        skip(1)
-                        break
-                    proutn(_(", buffeted to Sector %s") % newc)
-                    game.quad[neighbor.i][neighbor.j] = '.'
-                    game.quad[newc.i][newc.j] = iquad
-                    game.enemies[ll].move(newc)
+                    if target is not None:
+                        target.power -= 800.0 # If firepower is lost, die
+                        if target.power <= 0.0:
+                            deadkl(neighbor, iquad, neighbor)
+                            continue	# neighbor loop
+                        # Else enemy gets flung by the blast wave
+                        newc = neighbor + neighbor - hits[-1]
+                        proutn(crmena(True, iquad, "sector", neighbor) + _(" damaged"))
+                        if not newc.valid_sector():
+                            # can't leave quadrant
+                            skip(1)
+                            continue
+                        iquad1 = game.quad[newc.i][newc.j]
+                        if iquad1 == ' ':
+                            proutn(_(", blasted into ") + crmena(False, ' ', "sector", newc))
+                            skip(1)
+                            deadkl(neighbor, iquad, newc)
+                            continue
+                        if iquad1 != '.':
+                            # can't move into something else
+                            skip(1)
+                            continue
+                        proutn(_(", buffeted to Sector %s") % newc)
+                        game.quad[neighbor.i][neighbor.j] = '.'
+                        game.quad[newc.i][newc.j] = iquad
+                        target.move(newc)
     # Starship affected by nova -- kick it away.
     dist = kount*0.1
     direc = ncourse[3*(bump.i+1)+bump.j+2]
@@ -3135,7 +3140,6 @@ def iostart():
     # for the older ones we probably need to set C locale, and python3
     # has no problems at all
     if sys.version_info[0] < 3:
-        import locale
         locale.setlocale(locale.LC_ALL, "")
     gettext.bindtextdomain("sst", "/usr/local/share/locale")
     gettext.textdomain("sst")
@@ -3562,9 +3566,11 @@ def imove(icourse=None, noattack=False):
             if iquad in ('T', 'K', 'C', 'S', 'R', '?'):
                 for enemy in game.enemies:
                     if enemy.location == game.sector:
-                        break
-                collision(rammed=False, enemy=enemy)
-                return True
+                        collision(rammed=False, enemy=enemy)
+                        return True
+                # This should not happen
+                prout(_("Which way did he go?"))
+                return False
             elif iquad == ' ':
                 skip(1)
                 prouts(_("***RED ALERT!  RED ALERT!"))
@@ -3653,7 +3659,7 @@ def dock(verbose):
         prout(crmshp() + _(" not adjacent to base."))
         return
     game.condition = "docked"
-    if "verbose":
+    if verbose:
         prout(_("Docked."))
     game.ididit = True
     if game.energy < game.inenrg:
@@ -3679,7 +3685,7 @@ def cartesian(loc1=None, loc2=None):
 
 def getcourse(isprobe):
     "Get a course and distance from the user."
-    key = 0
+    key = ""
     dquad = copy.copy(game.quadrant)
     navmode = "unspecified"
     itemp = "curt"
@@ -4367,12 +4373,13 @@ def abandon():
         while True:
             # position next to base by trial and error
             game.quad[game.sector.i][game.sector.j] = '.'
+            l = QUADSIZE
             for l in range(QUADSIZE):
                 game.sector = game.base.scatter()
                 if game.sector.valid_sector() and \
                        game.quad[game.sector.i][game.sector.j] == '.':
                     break
-            if l < QUADSIZE+1:
+            if l < QUADSIZE:
                 break # found a spot
             game.sector.i=QUADSIZE/2
             game.sector.j=QUADSIZE/2
@@ -6373,7 +6380,6 @@ def debugme():
         atover(True)
 
 if __name__ == '__main__':
-    import getopt, socket
     try:
         #global line, thing, game
         game = None
