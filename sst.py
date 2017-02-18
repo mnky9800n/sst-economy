@@ -11,7 +11,7 @@ Stas Sergeev, and Eric S. Raymond.
 See the doc/HACKING file in the distribution for designers notes and advice
 on how to modify (and how not to modify!) this code.
 """
-import os, sys, math, curses, time, readline, pickle, random, copy, gettext, getpass
+import os, sys, math, curses, time, pickle, random, copy, gettext, getpass
 
 # This import only works on Unixes.  The intention is to enable
 # Ctrl-P, Ctrl-N, and friends in Cmd.
@@ -3131,9 +3131,9 @@ curwnd = None
 
 def iostart():
     global stdscr, rows
-    "for some recent versions of python2, the following enables UTF8"
-    "for the older ones we probably need to set C locale, and the python3"
-    "has no problems at all"
+    # for some recent versions of python2, the following enables UTF8
+    # for the older ones we probably need to set C locale, and python3
+    # has no problems at all
     if sys.version_info[0] < 3:
         import locale
         locale.setlocale(locale.LC_ALL, "")
@@ -3163,7 +3163,7 @@ def iostart():
             curses.init_pair(curses.COLOR_YELLOW,  curses.COLOR_YELLOW, -1)
         global fullscreen_window, srscan_window, report_window, status_window
         global lrscan_window, message_window, prompt_window
-        (rows, columns)   = stdscr.getmaxyx()
+        (rows, _columns)   = stdscr.getmaxyx()
         fullscreen_window = stdscr
         srscan_window     = curses.newwin(12, 25, 0,       0)
         report_window     = curses.newwin(11, 0,  1,       25)
@@ -3218,9 +3218,9 @@ def pause_game():
 
 def skip(i):
     "Skip i lines.  Pause game if this would cause a scrolling event."
-    for dummy in range(i):
+    for _dummy in range(i):
         if game.options & OPTION_CURSES:
-            (y, x) = curwnd.getyx()
+            (y, _x) = curwnd.getyx()
             try:
                 curwnd.move(y+1, 0)
             except curses.error:
@@ -3237,7 +3237,7 @@ def proutn(line):
     "Utter a line with no following line feed."
     if game.options & OPTION_CURSES:
         (y, x) = curwnd.getyx()
-        (my, mx) = curwnd.getmaxyx()
+        (my, _mx) = curwnd.getmaxyx()
         if curwnd == message_window and y >= my - 2:
             pause_game()
             clrscr()
@@ -3612,7 +3612,7 @@ def imove(icourse=None, noattack=False):
         game.optime = scheduled(FTBEAM) - game.state.date + 1e-5
     # Move out
     game.quad[game.sector.i][game.sector.j] = '.'
-    for m in range(icourse.moves):
+    for _m in range(icourse.moves):
         icourse.nexttok()
         w = icourse.sector()
         if icourse.origin.quadrant() != icourse.location.quadrant():
@@ -5766,7 +5766,7 @@ def newqad():
     game.enemies = []
     if q.klingons:
         # Position ordinary Klingons
-        for i in range(game.klhere):
+        for _i in range(game.klhere):
             newkling()
         # If we need a commander, promote a Klingon
         for cmdr in game.state.kcmdr:
@@ -6369,7 +6369,7 @@ def debugme():
 if __name__ == '__main__':
     import getopt, socket
     try:
-        global line, thing, game
+        #global line, thing, game
         game = None
         thing = Thingy()
         game = Gamestate()
