@@ -2,7 +2,7 @@
 <!DOCTYPE book PUBLIC 
     "-//OASIS//DTD DocBook XML V4.1.2//EN" 
     "docbook/docbookxx.dtd"[
-<!ENTITY sst-site      "http://sst.berlios.de/">
+<!ENTITY sst-site      "http://catb.org/~esr/super-star-trek/">
 <!ENTITY retro         "http://catb.org/~esr/retro/">
 ]>
 <book>
@@ -1633,7 +1633,7 @@ Impulse engines require 20 units to warm up, plus 100 units per
 <para>The original Star Trek seems to have been written by Mike
 Mayfield at the beginning of the 1970s.  His first version was in
 BASIC for a Sigma 7 in 1971; in 1972 he rewrote it in Hewlett Packard
-BASIC. The source is inckuded in the SST2K repository.  In January
+BASIC. The source is included in the SST2K repository.  In January
 1975 it became part of the DECUS library under the name <ulink
 url='http://www.trailing-edge.com/~shoppa/decus/110174.html'>SPACWR</ulink>.</para>
 
@@ -1840,7 +1840,7 @@ better anyway.</para>
 </listitem>
 </itemizedlist>
 
-<para>My changes got merged into SST2K in 2005, and I work on it now.</para>
+<para>My changes got merged into SST2K in 2005.</para>
 
 </sect1>
 <sect1><title>Eric Raymond's story</title>

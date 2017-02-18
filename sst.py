@@ -212,22 +212,22 @@ class Event:
 # game options
 OPTION_ALL        = 0xffffffff
 OPTION_TTY        = 0x00000001        # old interface
-OPTION_CURSES        = 0x00000002        # new interface
-OPTION_IOMODES        = 0x00000003        # cover both interfaces
-OPTION_PLANETS        = 0x00000004        # planets and mining
-OPTION_THOLIAN        = 0x00000008        # Tholians and their webs (UT 1979 version)
-OPTION_THINGY        = 0x00000010        # Space Thingy can shoot back (Stas, 2005)
-OPTION_PROBE        = 0x00000020        # deep-space probes (DECUS version, 1980)
-OPTION_SHOWME        = 0x00000040        # bracket Enterprise in chart
-OPTION_RAMMING        = 0x00000080        # enemies may ram Enterprise (Almy)
-OPTION_MVBADDY        = 0x00000100        # more enemies can move (Almy)
-OPTION_BLKHOLE        = 0x00000200        # black hole may timewarp you (Stas, 2005)
-OPTION_BASE        = 0x00000400        # bases have good shields (Stas, 2005)
-OPTION_WORLDS        = 0x00000800        # logic for inhabited worlds (ESR, 2006)
-OPTION_AUTOSCAN        = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006)
-OPTION_PLAIN        = 0x01000000        # user chose plain game
-OPTION_ALMY        = 0x02000000        # user chose Almy variant
-OPTION_COLOR    = 0x04000000        # enable color display (experimental, ESR, 2010)
+OPTION_CURSES     = 0x00000002        # new interface
+OPTION_IOMODES    = 0x00000003        # cover both interfaces
+OPTION_PLANETS    = 0x00000004        # planets and mining
+OPTION_THOLIAN    = 0x00000008        # Tholians and their webs (UT 1979 version)
+OPTION_THINGY     = 0x00000010        # Space Thingy can shoot back (Stas, 2005)
+OPTION_PROBE      = 0x00000020        # deep-space probes (DECUS version, 1980)
+OPTION_SHOWME     = 0x00000040        # bracket Enterprise in chart
+OPTION_RAMMING    = 0x00000080        # enemies may ram Enterprise (Almy)
+OPTION_MVBADDY    = 0x00000100        # more enemies can move (Almy)
+OPTION_BLKHOLE    = 0x00000200        # black hole may timewarp you (Stas, 2005)
+OPTION_BASE       = 0x00000400        # bases have good shields (Stas, 2005)
+OPTION_WORLDS     = 0x00000800        # logic for inhabited worlds (ESR, 2006)
+OPTION_AUTOSCAN   = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006)
+OPTION_PLAIN      = 0x01000000        # user chose plain game
+OPTION_ALMY       = 0x02000000        # user chose Almy variant
+OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 
 # Define devices
 DSRSENS         = 0
@@ -5691,17 +5691,17 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
-        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS)
+        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR)
         game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
-        pass
+        # FIXME: color doesn not quite work yet
+        game.options &=~ OPTION_COLOR
     elif len(scanner.token):
         proutn(_("What is \"%s\"?") % scanner.token)
-    game.options &=~ OPTION_COLOR
     setpassword()
     if game.passwd == "debug":
         game.idebug = True
@@ -5924,6 +5924,7 @@ commands = [
     ("CALL",             0),        # Synonym for MAYDAY
     ("QUIT",             0),
     ("HELP",             0),
+    ("SCORE",            OPTION_ALMY),
     ("",                 0),
 ]
 
@@ -6131,6 +6132,8 @@ def makemoves():
             game.alldone = True                # quit the game
         elif cmd == "HELP":
             helpme()                        # get help
+        elif cmd == "SCORE":
+            score()                         # see current score
         while True:
             if game.alldone:
                 break                # Game has ended
