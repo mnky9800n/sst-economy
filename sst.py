@@ -23,7 +23,7 @@ except ImportError:
 
 version = "2.1"
 
-docpath  	= (".", "../doc", "/usr/share/doc/sst")
+docpath  	= (".", "doc/", "/usr/share/doc/sst/")
 
 def _(st):
     return gettext.gettext(st)
@@ -5054,13 +5054,20 @@ def chart():
 def sectscan(goodScan, i, j):
     "Light up an individual dot in a sector."
     if goodScan or (abs(i-game.sector.i)<= 1 and abs(j-game.sector.j) <= 1):
-        textcolor({"green":GREEN,
-                   "yellow":YELLOW,
-                   "red":RED,
-                   "docked":CYAN,
-                   "dead":BROWN}[game.condition])
-        if game.quad[i][j] != game.ship:
-            highvideo()
+        if game.quad[i][j] in ('E', 'F'):
+            textcolor({"green":GREEN,
+                       "yellow":YELLOW,
+                       "red":RED,
+                       "docked":CYAN,
+                       "dead":BROWN}[game.condition])
+        else:
+            textcolor({'?':LIGHTMAGENTA,
+                       'K':LIGHTRED,
+                       'S':LIGHTRED,
+                       'C':LIGHTRED,
+                       'R':LIGHTRED,
+                       'T':LIGHTRED,
+                       }.get(game.quad[i][j], DEFAULT))
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
     else:
@@ -5698,8 +5705,7 @@ def choose():
         game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR)
         game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
-        # FIXME: color doesn not quite work yet
-        game.options &=~ OPTION_COLOR
+        pass
     elif len(scanner.token):
         proutn(_("What is \"%s\"?") % scanner.token)
     setpassword()
@@ -5900,7 +5906,6 @@ commands = [
     ("IMPULSE",          0),
     ("REST",             0),
     ("WARP",             0),
-    ("SCORE",            0),
     ("SENSORS",          OPTION_PLANETS),
     ("ORBIT",            OPTION_PLANETS),
     ("TRANSPORT",        OPTION_PLANETS),
@@ -6071,8 +6076,6 @@ def makemoves():
                 hitme = True
         elif cmd == "WARP":                # warp
             setwarp()
-        elif cmd == "SCORE":                # score
-            score()
         elif cmd == "SENSORS":                # sensors
             sensor()
         elif cmd == "ORBIT":                # orbit
