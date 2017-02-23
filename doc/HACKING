@@ -212,6 +212,8 @@ and turned off if game type is "plain" or "almy".)
 
 10. I imported Tom Almy's SCORE command from his 2013 version.
 
+11. I added color.
+
 TESTING:
 
 This code has been designed to be tested.  A simple shellscript
