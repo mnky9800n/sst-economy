@@ -228,6 +228,7 @@ OPTION_AUTOSCAN   = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006
 OPTION_PLAIN      = 0x01000000        # user chose plain game
 OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
+OPTION_CAPTURE    = 0x80000000        # Enable BSD-Trek capture (Almy, 2013).
 
 # Define devices
 DSRSENS         = 0
@@ -394,6 +395,9 @@ class Gamestate:
         self.perdate = 0.0        # rate of kills
         self.idebug = False        # Debugging instrumentation enabled?
         self.statekscmdr = None # No SuperCommander coordinates yet.
+        self.brigcapacity = 400     # Enterprise brig capacity
+        self.brigfree = 400       # How many klingons can we put in the brig?
+        self.kcaptured = 0      # Total Klingons captured, for scoring.
     def recompute(self):
         # Stas thinks this should be (C expression):
         # game.state.remkl + len(game.state.kcmdr) > 0 ?
@@ -1983,7 +1987,67 @@ def phasers():
             game.shldup = False
     overheat(rpow)
 
-# Code from events,c begins here.
+
+def capture():
+    game.ididit = False # Nothing if we fail
+    Time = 0.0;
+
+    # Make sure there is room in the brig */
+    if game.brigfree == 0:
+        prout(_("Security reports the brig is already full."))
+        return;
+
+    if damaged(DRADIO):
+        prout(_("Uhura- \"We have no subspace radio communication, sir.\""))
+        return
+
+    if damaged(DTRANSP):
+        prout(_("Scotty- \"Transporter damaged, sir.\""))
+        return
+
+    # find out if there are any at all
+    if game.klhere < 1:
+        prout(_("Uhura- \"Getting no response, sir.\""))
+        return
+
+    # if there is more than one Klingon, find out which one */
+    #	Cruddy, just takes one at random.  Should ask the captain.
+    #	Nah, just select the weakest one since it is most likely to
+    #	surrender (Tom Almy mod)
+    klingons = [e for e in game.enemies if e.type == 'K']
+    weakest = sorted(klingons, key=lambda e: e.power)
+    Time = 0.05		# This action will take some time
+    game.ididit = True #  So any others can strike back
+
+    # check out that Klingon
+    # The algorithm isn't that great and could use some more
+    # intelligent design
+    # x = 300 + 25*skill;
+    x = game.energy / (weakest.power * len(klingons))
+    x *= 2.5;  # would originally have been equivalent of 1.4,
+               # but we want command to work more often, more humanely */
+    #prout(_("Prob = %d (%.4f)\n", i, x))
+    #	x = 100; // For testing, of course!
+    if x > randreal(100):
+        # guess what, he surrendered!!! */
+        prout(_("Klingon captain at %s surrenders.") % weakest.location)
+        i = randreal(200)
+        if i > 0:
+            prout(_("%d Klingons commit suicide rather than be taken captive.") % 200 - i)
+        if i > brigfree:
+            prout(_("%d Klingons die because there is no room for them in the brig.") % i-brigfree)
+            i = brigfree
+        brigfree -= i
+        prout(_("%d captives taken") % i)
+        deadkl(weakest.location, weakest.type, game.sector)
+        if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)<=0:
+            finish(FWON)
+        return
+
+	# big surprise, he refuses to surrender */
+	prout(_("Fat chance, captain!"))
+
+# Code from events.c begins here.
 
 # This isn't a real event queue a la BSD Trek yet -- you can only have one
 # event of each type active at any given time.  Mostly these means we can
@@ -2801,6 +2865,9 @@ def finish(ifin):
 
         prout(_("You have smashed the Klingon invasion fleet and saved"))
         prout(_("the Federation."))
+        if game.alive and game.brigcapacity-game.brigfree > 0:
+            game.kcaptured += game.brigcapacity-game.brigfree
+            prout(_("The %d captured Klingons are transferred to Star Fleet Command.") % (game.brigcapacity-game.brigfree))
         game.gamewon = True
         if game.alive:
             badpt = badpoints()
@@ -3002,6 +3069,7 @@ def score():
              + 20*(game.inrom - game.state.nromrem) \
              + 200*(game.inscom - game.state.nscrem) \
                  - game.state.nromrem \
+             + 3 * game.kcaptured \
              - badpoints()
     if not game.alive:
         game.score -= 200
@@ -3019,6 +3087,9 @@ def score():
     if game.incom - len(game.state.kcmdr):
         prout(_("%6d Klingon commanders destroyed       %5d") %
               (game.incom - len(game.state.kcmdr), 50*(game.incom - len(game.state.kcmdr))))
+    if game.kcaptured:
+        prout(_("%d Klingons captured                   %5d") %
+              (game.kcaptured, 3 * game.kcaptured))
     if game.inscom - game.state.nscrem:
         prout(_("%6d Super-Commander destroyed          %5d") %
               (game.inscom - game.state.nscrem, 200*(game.inscom - game.state.nscrem)))
@@ -3670,6 +3741,10 @@ def dock(verbose):
     game.torps = game.intorps
     game.lsupres = game.inlsr
     game.state.crew = FULLCREW
+    if game.brigcapacity-game.brigfree > 0:
+        prout(_("%d captured Klingons transferred to base") % (game.brigcapacity-game.brigfree))
+        game.kcaptured += game.brigcapacity-game.brigfree
+        game.brigfree = game.brigcapacity
     if not damaged(DRADIO) and \
         ((is_scheduled(FCDBAS) or game.isatb == 1) and not game.iseenit):
         # get attack report from base
@@ -4405,6 +4480,7 @@ def abandon():
     game.lsupres=game.inlsr=3.0
     game.shldup=False
     game.warpfac=5.0
+    game.brigfree = game.brigcapacity = 300
     return
 
 # Code from planets.c begins here.
@@ -4924,6 +5000,18 @@ def report():
         game.iseenit = True
     if game.casual:
         prout(_("%d casualt%s suffered so far.") % (game.casual, ("y", "ies")[game.casual!=1]))
+    if game.brigcapacity != game.brigfree:
+        embriggened = brigcapacity-brigfree
+        if embriggened == 1:
+            prout(_("1 Klingon in brig"))
+        else:
+            prout(_("%d Klingons in brig.") %  embriggened)
+        if game.kcaptured == 0:
+            pass
+        elif game.kcaptured == 1:
+            prout(_("1 captured Klingon turned in to Starfleet."))
+        else:
+            prout(_("%d captured Klingons turned in to Star Fleet.") % game.kcaptured)
     if game.nhelp:
         prout(_("There were %d call%s for help.") % (game.nhelp,  ("" , _("s"))[game.nhelp!=1]))
     if game.ship == 'E':
@@ -5698,7 +5786,7 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
@@ -5923,13 +6011,14 @@ commands = [
     ("ABANDON",          0),
     ("DESTRUCT",         0),
     ("DEATHRAY",         0),
+    ("CAPTURE",          OPTION_CAPTURE),
     ("DEBUG",            0),
     ("MAYDAY",           0),
     ("SOS",              0),        # Synonym for MAYDAY
     ("CALL",             0),        # Synonym for MAYDAY
     ("QUIT",             0),
     ("HELP",             0),
-    ("SCORE",            OPTION_ALMY),
+    ("SCORE",            0),
     ("",                 0),
 ]
 
@@ -6125,6 +6214,8 @@ def makemoves():
             deathray()
             if game.ididit:
                 hitme = True
+        elif cmd == "CAPTURE":
+            capture()
         elif cmd == "DEBUGCMD":                # What do we want for debug???
             debugme()
         elif cmd == "MAYDAY":                # Call for help

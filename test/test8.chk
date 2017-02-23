@@ -191,12 +191,12 @@ LEGAL COMMANDS ARE:
 SRSCAN       STATUS       REQUEST      LRSCAN       
 PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
 DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SCORE        SENSORS      ORBIT        TRANSPORT    
-MINE         CRYSTALS     SHUTTLE      PLANETS      REPORT       
-COMPUTER     COMMANDS     EMEXIT       PROBE        SAVE         
-FREEZE       ABANDON      DESTRUCT     DEATHRAY     DEBUG        
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      DEBUG        
 MAYDAY       SOS          CALL         QUIT         HELP         
-             
+SCORE                     
 COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

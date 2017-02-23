@@ -915,6 +915,22 @@ firing.</para>
 stars.</para>
 
 </sect1>
+<sect1><title>Capture</title>
+
+<literallayout>
+Mnemonic:  CAPTURE
+Shortest abbreviation:  CA
+Full commands:  CAPTURE
+</literallayout>
+
+<para>Ask a Klingon To surrender.</para>
+
+<para>The Subspace Radio is needed to ask a Klingon if he will kindly
+surrender.  The weakest Klingon from the ones in the quadrant is
+chosen. The probability of surrender is a function of that Klingon's
+remaining power, our power, etc.</para>
+
+</sect1>
 <sect1><title>Report</title>
 
 <literallayout>
@@ -1564,6 +1580,7 @@ orientation</quote>.</para>
  ABBREV    FULL COMMAND                           DEVICE USED
  ------    ------------                           -----------
  ABANDON   ABANDON                                shuttle craft
+ CA        CAPTURE                                subspace radio and transporter
  C         CHART                                  (none)
  CO        COMPUTER                               computer
  CR        CRYSTALS                               (none)
@@ -1778,6 +1795,8 @@ the algorithm.</para>
 
 <para>The DECUS version had a Deep Space Probe. Looked like a good idea
 so I implemented it based on its description.</para>
+
+<para>I imported CAPTURE from BSD Trek.</para>
 
 </sect1>
 <sect1><title>Stas Sergeev's story</title>

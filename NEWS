@@ -1,7 +1,7 @@
 			SST2K project news.
 
 2.2 @
-    Enable GNU readline keys. Added color.
+    Enable GNU readline keys. Added color. Added BSD Trek 'CAPTURE'.
 
 2.1 @ 2012-02-16
     Packaging fixes, pychecker cleanup, cope with Freshmeat name changes.
