@@ -915,6 +915,29 @@ firing.</para>
 stars.</para>
 
 </sect1>
+<sect1><title>Cloak</title>
+
+<literallayout>
+  Mnemonic:  CLOAK
+  Shortest abbreviation:  CLOAK
+  Full commands:  CLOAK ON
+                  CLOAK OFF
+</literallayout>
+
+<para>The cloaking device prevents your ship from being seen by any enemy
+vessels.  When the cloaking device is in use, your subspace radio will
+not receive transmissions, torpedoes will be less accurate, you cannot
+dock, and you cannot use your warp engines. Enemy ships will get a
+chance to attack you when you turn cloaking on.</para>
+
+<para>The Treaty of Algeron with the Romulans in Stardate 2311 prohibits the
+use of cloaking devices. If a Romulan ship observes you cloaking or
+uncloaking after this point in time you will be in violation, which
+will hurt your final score.</para>
+
+<para>The Faerie Queene does not have a cloaking device.</para>
+
+</sect1>
 <sect1><title>Capture</title>
 
 <literallayout>
@@ -925,11 +948,17 @@ Full commands:  CAPTURE
 
 <para>Ask a Klingon To surrender.</para>
 
-<para>The Subspace Radio is needed to ask a Klingon if he will kindly
-surrender.  The weakest Klingon from the ones in the quadrant is
-chosen. The probability of surrender is a function of that Klingon's
-remaining power, our power, etc.</para>
+<para>The capture command provides a more humane way to end a battle than
+just destroying the Klingon battleship with the crew aboard. Assuming
+the subspace radio and transporter are working, and there is room in
+the brig, this command will ask the captain of the weakest Klingon
+ship in the quadrant to surrender.  If the captain agrees, some of the
+crew will transport to your ship and the Klingon ship will be
+destroyed. This command does take time and you will be attacked by any
+other enemy ships if the surrender occurs.</para>
 
+<para>When you dock, any captured Klingons will be transferred to the base
+and you will be credited with the lives you save.</para>
 </sect1>
 <sect1><title>Report</title>
 

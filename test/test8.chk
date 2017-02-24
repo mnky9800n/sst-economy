@@ -194,9 +194,9 @@ DOCK         DAMAGES      CHART        IMPULSE      REST
 WARP         SENSORS      ORBIT        TRANSPORT    MINE         
 CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      DEBUG        
-MAYDAY       SOS          CALL         QUIT         HELP         
-SCORE                     
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
 COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

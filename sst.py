@@ -43,6 +43,9 @@ MINCMDR 	= 10		# Minimum number of Klingon commanders
 DOCKFAC		= 0.25		# Repair faster when docked
 PHASEFAC	= 2.0		# Unclear what this is, it was in the C version
 
+ALGERON		= 2311		# Date of the Treaty of Algeron
+
+
 DEFAULT      = -1
 BLACK        = 0
 BLUE         = 1
@@ -225,10 +228,11 @@ OPTION_BLKHOLE    = 0x00000200        # black hole may timewarp you (Stas, 2005)
 OPTION_BASE       = 0x00000400        # bases have good shields (Stas, 2005)
 OPTION_WORLDS     = 0x00000800        # logic for inhabited worlds (ESR, 2006)
 OPTION_AUTOSCAN   = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006)
+OPTION_CAPTURE    = 0x00002000        # Enable BSD-Trek capture (Almy, 2013).
+OPTION_CLOAK      = 0x80004000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_PLAIN      = 0x01000000        # user chose plain game
 OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
-OPTION_CAPTURE    = 0x80000000        # Enable BSD-Trek capture (Almy, 2013).
 
 # Define devices
 DSRSENS         = 0
@@ -239,15 +243,16 @@ DLIFSUP         = 4
 DWARPEN         = 5
 DIMPULS         = 6
 DSHIELD         = 7
-DRADIO         = 0
-DSHUTTL  = 9
-DCOMPTR  = 10
+DRADIO          = 8
+DSHUTTL         = 9
+DCOMPTR         = 10
 DNAVSYS         = 11
-DTRANSP  = 12
+DTRANSP         = 12
 DSHCTRL         = 13
-DDRAY         = 14
-DDSP         = 15
-NDEVICES = 16        # Number of devices
+DDRAY           = 14
+DDSP            = 15
+DCLOAK          = 16
+NDEVICES        = 17        # Number of devices
 
 SKILL_NONE        = 0
 SKILL_NOVICE        = 1
@@ -398,6 +403,9 @@ class Gamestate:
         self.brigcapacity = 400     # Enterprise brig capacity
         self.brigfree = 400       # How many klingons can we put in the brig?
         self.kcaptured = 0      # Total Klingons captured, for scoring.
+        self.iscloaked = False  # Cloaking device on?
+        self.ncviol = 0         # Algreon treaty violations
+        self.isviolreported = False # We have been warned
     def recompute(self):
         # Stas thinks this should be (C expression):
         # game.state.remkl + len(game.state.kcmdr) > 0 ?
@@ -429,6 +437,7 @@ FDRAY = 18
 FTRIBBLE = 19
 FHOLE = 20
 FCREW = 21
+FCLOAK = 22
 
 def withprob(p):
     return random.random() < p
@@ -906,6 +915,85 @@ def movetholian():
 
 # Code from battle.c begins here
 
+def cloak():
+    "Change cloaking-device status."
+    if game.ship == 'F':
+        prout(_("Ye Faerie Queene hath no cloaking device."));
+        return
+
+    key = scanner.nexttok()
+
+    if key == "IHREAL":
+        return
+
+    action = None
+    if key == "IHALPHA":
+        if scanner.sees("on"):
+            if game.iscloaked:
+                prout(_("The cloaking device has already been switched on."))
+                return
+            action = "CLON"
+        elif scanner.sees("off"):
+            if not game.iscloaked:
+                prout(_("The cloaking device has already been switched off."))
+                return
+            action = "CLOFF"
+        else:
+            huh()
+            return
+    else:
+        if not game.iscloaked:
+            proutn(_("Switch cloaking device on?"))
+            if not ja():
+                return
+            action = "CLON"
+        else:
+            proutn(_("Switch cloaking device off?"))
+            if not ja():
+                return
+            action = "CLOFF"
+    if action == None:
+        return;
+
+    if action == "CLOFF":
+        if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
+            prout(_("Spock- \"Captain, the Treaty of Algeron is in effect.\n   Are you sure this is wise?\""))
+            if not ja():
+                return;
+        prout("Engineer Scott- \"Aye, Sir.\"");
+        game.iscloaked = FALSE;
+        if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
+            prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
+            game.ncviol += 1
+            game.isviolreported = True
+
+            #if (neutz and game.state.date >= ALGERON) finish(FCLOAK);
+            return;
+
+    if action == "CLON":
+        if damage(DCLOAK):
+            prout(_("Engineer Scott- \"The cloaking device is damaged, Sir.\""))
+            return;
+
+        if game.condition == "docked":
+            prout(_("You cannot cloak while docked."))
+
+	if game.state.date >= ALGERON and not game.isviolreported:
+            prout(_("Spock- \"Captain, using the cloaking device is be a violation"))
+            prout(_("  of the Treaty of Algeron. Considering the alternatives,"))
+            proutn("  are you sure this is wise?");
+            if not ja():
+                return
+	prout(_("Engineer Scott- \"Cloaking device has engaging, Sir...\""))
+        attack(True)
+	prout(_("Engineer Scott- \"Cloaking device has engaged, Sir.\""))
+	game.iscloaked = True
+
+        if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
+            prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
+            game.ncviol += 1
+            game.isviolreported = True
+
 def doshield(shraise):
     "Change shield status."
     action = "NONE"
@@ -1031,6 +1119,7 @@ def randdevice():
         20,        # DSHCTRL: high-speed shield controller  2.0%
         10,        # DDRAY: death ray                         1.0%
         30,        # DDSP: deep-space probes                 3.0%
+        0,         # DCLOAK: the cloaking device             0.0
     )
     assert(sum(weights) == 1000)
     idx = randrange(1000)
@@ -1297,7 +1386,7 @@ def fry(hit):
         while True:
             j = randdevice()
             # Cheat to prevent shuttle damage unless on ship
-            if not (game.damage[j]<0.0 or (j == DSHUTTL and game.iscraft != "onship")):
+            if not (game.damage[j]<0.0 or (j == DSHUTTL and game.iscraft != "onship") or (j == DCLOAK and game.ship != 'E' or j == DDRAY)):
                 break
         cdam.append(j)
         extradm = (hit*game.damfac)/(ncrit*randreal(75, 100))
@@ -1315,10 +1404,15 @@ def fry(hit):
     if damaged(DSHIELD) and game.shldup:
         prout(_("***Shields knocked down."))
         game.shldup = False
+    if damaged(DCLOAK) and game.iscloaked:
+        prout(_("***Cloaking device rendered inoperative."))
+        game.iscloaked = False
 
 def attack(torps_ok):
     # bad guy attacks us
     # torps_ok == False forces use of phasers in an attack
+    if game.iscloaked:
+        return
     # game could be over at this point, check
     if game.alldone:
         return
@@ -1637,7 +1731,9 @@ def torps():
                 prout(_("***Photon tubes damaged by misfire."))
                 game.damage[DPHOTON] = game.damfac * randreal(1.0, 3.0)
             break
-        if game.shldup or game.condition == "docked":
+        if game.iscloaked:
+            dispersion *= 1.2
+        elif game.shldup or game.condition == "docked":
             dispersion *= 1.0 + 0.0001*game.shield
         torpedo(game.sector, tcourse[i], dispersion, number=i, nburst=n)
         if game.alldone or game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
@@ -1990,7 +2086,7 @@ def phasers():
 
 def capture():
     game.ididit = False # Nothing if we fail
-    Time = 0.0;
+    game.optime = 0.0;
 
     # Make sure there is room in the brig */
     if game.brigfree == 0:
@@ -2016,7 +2112,7 @@ def capture():
     #	surrender (Tom Almy mod)
     klingons = [e for e in game.enemies if e.type == 'K']
     weakest = sorted(klingons, key=lambda e: e.power)
-    Time = 0.05		# This action will take some time
+    game.optime = 0.05		# This action will take some time
     game.ididit = True #  So any others can strike back
 
     # check out that Klingon
@@ -2211,6 +2307,11 @@ def events():
                     prout("== Event %d fires" % evcode)
                 datemin = game.future[l].date
         xtime = datemin-game.state.date
+        if game.iscloaked:
+            game.energy -= xtime*500.0
+            if game.energy <= 0:
+                finish(FNRG)
+                return
         game.state.date = datemin
         # Decrement Federation resources and recompute remaining time
         game.state.remres -= (game.state.remkl+4*len(game.state.kcmdr))*xtime
@@ -2261,7 +2362,7 @@ def events():
             if game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
                 return
         elif evcode == FSPY: # Check with spy to see if SC should tractor beam
-            if game.state.nscrem == 0 or \
+            if game.state.nscrem == 0 or game.state.iscloaked or \
                 ictbeam or istract or \
                 game.condition == "docked" or game.isatb == 1 or game.iscate:
                 return
@@ -2282,7 +2383,7 @@ def events():
                 continue
             i = randrange(len(game.state.kcmdr))
             yank = (game.state.kcmdr[i]-game.quadrant).distance()
-            if istract or game.condition == "docked" or yank == 0:
+            if istract or game.condition == "docked" or game.iscloaked or yank == 0:
                 # Drats! Have to reschedule
                 schedule(FTBEAM,
                          game.optime + expran(1.5*game.intime/len(game.state.kcmdr)))
@@ -2844,7 +2945,8 @@ def badpoints():
             300*game.state.nworldkl + \
             45.0*game.nhelp +\
             100.0*game.state.basekl +\
-            3.0*game.abandoned
+            3.0*game.abandoned +\
+            100*game.ncviol
     if game.ship == 'F':
         badpt += 100.0
     elif game.ship is None:
@@ -2852,7 +2954,7 @@ def badpoints():
     return badpt
 
 def finish(ifin):
-    # end the game, with appropriate notfications
+    # end the game, with appropriate notifications
     igotit = False
     game.alldone = True
     skip(3)
@@ -2975,7 +3077,7 @@ def finish(ifin):
         prout(_("The %s has been cremated by its own phasers.") % crmshp())
     elif ifin == FLOST:
         prout(_("You and your landing party have been"))
-        prout(_("converted to energy, disipating through space."))
+        prout(_("converted to energy, dissipating through space."))
     elif ifin == FMINING:
         prout(_("You are left with your landing party on"))
         prout(_("a wild jungle planet inhabited by primitive cannibals."))
@@ -3018,8 +3120,16 @@ def finish(ifin):
     elif ifin == FHOLE:
         prout(_("Your ship is drawn to the center of the black hole."))
         prout(_("You are crushed into extremely dense matter."))
+    elif ifin == FCLOAK:
+        game.ncviol += 1
+        prout(_("You have violated the Treaty of Algeron."))
+        prout(_("The Romulan Empire can never trust you again."))
     elif ifin == FCREW:
         prout(_("Your last crew member has died."))
+    if ifin != FWON and ifin != FCLOAK and game.iscloaked:
+        prout(_("Your ship was cloaked so your subspace radio did not receive anything."))
+        prout(_("You may have missed some warning messages."))
+        skip(1)
     if game.ship == 'F':
         game.ship = None
     elif game.ship == 'E':
@@ -3120,6 +3230,12 @@ def score():
     if klship:
         prout(_("%6d ship(s) lost or destroyed          %5d") %
               (klship, -100*klship))
+    if game.ncviol > 0:
+        if ncviol == 1:
+            prout(_("1 Treaty of Algeron violation          -100"))
+        else:
+            prout(_("%6d Treaty of Algeron violations       %5d\n") %
+                  (ncviol, -100*ncviol))
     if not game.alive:
         prout(_("Penalty for getting yourself killed        -200"))
     if game.gamewon:
@@ -3574,8 +3690,8 @@ def imove(icourse=None, noattack=False):
 
     def newquadrant(noattack):
         # Leaving quadrant -- allow final enemy attack
-        # Don't do it if being pushed by Nova
-        if len(game.enemies) != 0 and not noattack:
+        # Don't set up attack if being pushed by nova or cloaked
+        if len(game.enemies) != 0 and not noattack and not game.iscloaked:
             newcnd()
             for enemy in game.enemies:
                 finald = (w - enemy.location).distance()
@@ -3685,10 +3801,16 @@ def imove(icourse=None, noattack=False):
         game.inorbit = False
     # If tractor beam is to occur, don't move full distance
     if game.state.date+game.optime >= scheduled(FTBEAM):
-        trbeam = True
-        game.condition = "red"
-        icourse.distance = icourse.distance*(scheduled(FTBEAM)-game.state.date)/game.optime + 0.1
-        game.optime = scheduled(FTBEAM) - game.state.date + 1e-5
+        if game.iscloaked:
+            # We can't be tractor beamed if cloaked,
+            # so move the event into the future
+            postpone(FTBEAM, game.optime + expran(1.5*game.intime/len(game.kcmdr)))
+            pass
+        else:
+            trbeam = True
+            game.condition = "red"
+            icourse.distance = icourse.distance*(scheduled(FTBEAM)-game.state.date)/game.optime + 0.1
+            game.optime = scheduled(FTBEAM) - game.state.date + 1e-5
     # Move out
     game.quad[game.sector.i][game.sector.j] = '.'
     for _m in range(icourse.moves):
@@ -3730,6 +3852,9 @@ def dock(verbose):
         return
     if not game.base.is_valid() or abs(game.sector.i-game.base.i) > 1 or abs(game.sector.j-game.base.j) > 1:
         prout(crmshp() + _(" not adjacent to base."))
+        return
+    if game.iscloaked:
+        prout(_("You cannot dock while cloaked."))
         return
     game.condition = "docked"
     if verbose:
@@ -3987,6 +4112,11 @@ def warp(wcourse, involuntary):
     blooey = False; twarp = False
     if not involuntary: # Not WARPX entry
         game.ididit = False
+        if game.iscloaked:
+            scanner.chew()
+            skip(1)
+            prout(_("Engineer Scott- \"The warp engines can not be used while cloaked, Sir.\""))
+            return
         if game.damage[DWARPEN] > 10.0:
             scanner.chew()
             skip(1)
@@ -5156,6 +5286,8 @@ def sectscan(goodScan, i, j):
                        'R':LIGHTRED,
                        'T':LIGHTRED,
                        }.get(game.quad[i][j], DEFAULT))
+        if game.iscloaked:
+            highvideo()
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
     else:
@@ -5171,6 +5303,8 @@ def status(req=0):
             newcnd()
         prstat(_("Condition"), _("%s, %i DAMAGES") % \
                (game.condition.upper(), sum([x > 0 for x in game.damage])))
+        if game.iscloaked:
+            prout(_(", CLOAKED"))
     if not req or req == 3:
         prstat(_("Position"), "%s , %s" % (game.quadrant, game.sector))
     if not req or req == 4:
@@ -5500,6 +5634,7 @@ device = (
     _("Shield Control"), \
     _("Death Ray"), \
     _("D. S. Probe"), \
+    _("Cloaking Device"), \
 )
 
 def setup():
@@ -5786,7 +5921,7 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
@@ -5808,7 +5943,7 @@ def choose():
         game.inplan += randrange(MAXUNINHAB/2, MAXUNINHAB+1)
     if game.options & OPTION_WORLDS:
         game.inplan += int(NINHAB)
-    game.state.nromrem = game.inrom = randrange(2 *game.skill)
+    game.state.nromrem = game.inrom = randrange(2 * game.skill)
     game.state.nscrem = game.inscom = (game.skill > SKILL_FAIR)
     game.state.remtime = 7.0 * game.length
     game.intime = game.state.remtime
@@ -5853,7 +5988,7 @@ def newqad():
     game.justin = True
     game.iplnet = None
     game.neutz = game.inorbit = game.landed = False
-    game.ientesc = game.iseenit = False
+    game.ientesc = game.iseenit = game.isviolreported = False
     # Create a blank quadrant
     game.quad = fill2d(QUADSIZE, lambda i, j: '.')
     if game.iscate:
@@ -6012,6 +6147,7 @@ commands = [
     ("DESTRUCT",         0),
     ("DEATHRAY",         0),
     ("CAPTURE",          OPTION_CAPTURE),
+    ("CLOAK",            OPTION_CLOAK),
     ("DEBUG",            0),
     ("MAYDAY",           0),
     ("SOS",              0),        # Synonym for MAYDAY
@@ -6090,6 +6226,11 @@ def helpme():
 
 def makemoves():
     "Command-interpretation loop."
+    def checkviol():
+        if game.irhere and game.state.date >= ALGERON and not game.isviolreported and game.iscloaked:
+            prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
+            game.ncviol += 1
+            game.isviolreported = True
     while True:         # command loop
         drawmaps(1)
         while True:        # get a command
@@ -6137,10 +6278,12 @@ def makemoves():
         elif cmd == "PHASERS":                # phasers
             phasers()
             if game.ididit:
+                checkviol()
                 hitme = True
         elif cmd in ("TORPEDO", "PHOTONS"):        # photon torpedos
             torps()
             if game.ididit:
+                checkviol()
                 hitme = True
         elif cmd == "MOVE":                # move under warp
             warp(wcourse=None, involuntary=False)
