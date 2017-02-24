@@ -2362,7 +2362,7 @@ def events():
             if game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
                 return
         elif evcode == FSPY: # Check with spy to see if SC should tractor beam
-            if game.state.nscrem == 0 or game.state.iscloaked or \
+            if game.state.nscrem == 0 or game.iscloaked or \
                 ictbeam or istract or \
                 game.condition == "docked" or game.isatb == 1 or game.iscate:
                 return
