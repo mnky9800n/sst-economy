@@ -1,6 +1,8 @@
 <!DOCTYPE refentry PUBLIC 
    "-//OASIS//DTD DocBook XML V4.1.2//EN"
-   "docbook/docbookx.dtd">
+"docbook/docbookx.dtd" [
+<!ENTITY projecthome      'http://www.catb.org/~esr/super-star-trek'>
+]>
 <refentry id='sst.6'>
 <refmeta>
 <refentrytitle>sst</refentrytitle>
@@ -37,10 +39,10 @@ invasion fleet and make the galaxy safe for democracy.</para>
 
 <para>This is one of the great early classic computer games from the
 1970s and still has a remarkable amount of play value. Run
-<command>sst</command> in a terminal window to start it.  Typing
-'comands' at the prompt will list all commands; help is available for
+<command>sst.py</command> in a terminal window to start it.  Typing
+'commands' at the prompt will list all commands; help is available for
 each one individually as well.  Full documentation is <ulink
-url='http://sst.berlios.de/sst-doc.html'>browseable</ulink>.  On
+url='&projecthome;/sst-doc.html'>browseable</ulink>.  On
 systems where <filename>/usr/share/doc/sst/</filename> is a legal
 filename, it will probably be installed there as well.</para>
 
@@ -100,7 +102,7 @@ simply 'Trek'.  It was resurrected by Tom Almy.  The screen-oriented
 interface is by Stas Sergeev. This version has been improved, cleaned
 up and documented by Eric S. Raymond
 <email>esr@snark.thyrsus.com</email>.  There is a <ulink
-url='https://developer.berlios.de/projects/sst/'>project
+url='&projecthome;'>project
 page</ulink>.</para>
 </refsect1>
 </refentry>
