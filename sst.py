@@ -21,6 +21,13 @@ try:
 except ImportError:
     pass
 
+# Prevent lossage under Python 3
+try:
+    my_input = raw_input
+except NameError:
+    my_input = input
+
+
 version = "2.1"
 
 docpath  	= (".", "doc/", "/usr/share/doc/sst/")
@@ -3404,7 +3411,7 @@ def pause_game():
         sys.stdout.write('\n')
         proutn(prompt)
         if not replayfp:
-            input()
+            my_input()
         sys.stdout.write('\n' * rows)
         linecount = 0
 
@@ -3476,7 +3483,7 @@ def cgetline():
                 elif linein[0] != "#":
                     break
         else:
-            linein = eval(input()) + "\n"
+            linein = my_input() + "\n"
     if logfp:
         logfp.write(linein)
     return linein
