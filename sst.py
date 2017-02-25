@@ -1801,6 +1801,9 @@ def hittem(hits):
     skip(1)
     kk = 0
     for wham in hits:
+        if not kk < len(game.enemies):
+            # Should never happen.
+            break
         if wham == 0:
             continue
         dustfac = randreal(0.9, 1.0)
@@ -1832,7 +1835,6 @@ def hittem(hits):
                 finish(FWON)
             if game.alldone:
                 return
-            kk -= 1        # don't do the increment
             continue
         else: # decide whether or not to emasculate klingon
             if kpow > 0 and withprob(0.9) and kpow <= randreal(0.4, 0.8)*kpini:
