@@ -274,8 +274,8 @@ def communicating():
     return not damaged(DRADIO) or game.condition=="docked"
 
 # Define future events
-FSPY        = 0        # Spy event happens always (no future[] entry)
-                # can cause SC to tractor beam Enterprise
+FSPY    = 0        # Spy event happens always (no future[] entry)
+                   # can cause SC to tractor beam Enterprise
 FSNOVA  = 1        # Supernova
 FTBEAM  = 2        # Commander tractor beams Enterprise
 FSNAP   = 3        # Snapshot for time warp
@@ -3889,7 +3889,7 @@ def dock(verbose):
         prout(_("%d captured Klingons transferred to base") % (game.brigcapacity-game.brigfree))
         game.kcaptured += game.brigcapacity-game.brigfree
         game.brigfree = game.brigcapacity
-    if not damaged(DRADIO) and \
+    if communicating() and \
         ((is_scheduled(FCDBAS) or game.isatb == 1) and not game.iseenit):
         # get attack report from base
         prout(_("Lt. Uhura- \"Captain, an important message from the starbase:\""))
@@ -5256,7 +5256,7 @@ def chart():
     scanner.chew()
     if (game.options & OPTION_AUTOSCAN):
         lrscan(silent=True)
-    if not damaged(DRADIO):
+    if communicating():
         rechart()
     if game.lastchart < game.state.date and game.condition == "docked":
         prout(_("Spock-  \"I revised the Star Chart from the starbase's records.\""))
@@ -5392,7 +5392,7 @@ def srscan():
             prout(_("  [Using Base's sensors]"))
     else:
         prout(_("     Short-range scan"))
-    if goodScan and not damaged(DRADIO):
+    if goodScan and communicating():
         game.state.chart[game.quadrant.i][game.quadrant.j].klingons = game.state.galaxy[game.quadrant.i][game.quadrant.j].klingons
         game.state.chart[game.quadrant.i][game.quadrant.j].starbase = game.state.galaxy[game.quadrant.i][game.quadrant.j].starbase
         game.state.chart[game.quadrant.i][game.quadrant.j].stars = game.state.galaxy[game.quadrant.i][game.quadrant.j].stars
