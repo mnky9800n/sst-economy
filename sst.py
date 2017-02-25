@@ -6286,6 +6286,7 @@ def makemoves():
                 huh()
             else:
                 break
+        prout("COMMAND> %s" % cmd)
         if cmd == "SRSCAN":                # srscan
             srscan()
         elif cmd == "STATUS":                # status
