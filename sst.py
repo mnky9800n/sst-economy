@@ -2148,7 +2148,7 @@ def capture():
         return
 
 	# big surprise, he refuses to surrender */
-	prout(_("Fat chance, captain!"))
+    prout(_("Fat chance, captain!"))
 
 # Code from events.c begins here.
 
@@ -3483,7 +3483,11 @@ def cgetline():
                 elif linein[0] != "#":
                     break
         else:
-            linein = my_input() + "\n"
+            try:
+                linein = my_input() + "\n"
+            except EOFError:
+                prout("")
+                sys.exit(0)
     if logfp:
         logfp.write(linein)
     return linein
