@@ -1,0 +1,23 @@
+# seed 1487996992
+# options regular medium good fancy
+# SST2K version 2.1
+# Tests capture and cloak
+# recorded by esr@snark on Sat Feb 25 06:40:00 2017
+help move
+
+
+m a 6 2 1 1
+
+m a 5 1 10 10
+phasers
+a
+1323
+m a 7 10
+cloak
+y
+phasers
+a
+189
+capture
+cloak off
+quit

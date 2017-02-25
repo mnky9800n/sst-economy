@@ -2127,20 +2127,22 @@ def capture():
     # intelligent design
     # x = 300 + 25*skill;
     x = game.energy / (weakest.power * len(klingons))
-    x *= 2.5;  # would originally have been equivalent of 1.4,
+    #prout(_("Stats: energy = %s, kpower = %s, klingons = %s")
+    #      % (game.energy, weakest.power, len(klingons))) 
+    x *= 2.5  # would originally have been equivalent of 1.4,
                # but we want command to work more often, more humanely */
-    #prout(_("Prob = %d (%.4f)\n", i, x))
+    #prout(_("Prob = %.4f" % x))
     #	x = 100; // For testing, of course!
-    if x > randreal(100):
+    if x < randreal(100):
         # guess what, he surrendered!!! */
         prout(_("Klingon captain at %s surrenders.") % weakest.location)
         i = randreal(200)
         if i > 0:
-            prout(_("%d Klingons commit suicide rather than be taken captive.") % 200 - i)
-        if i > brigfree:
-            prout(_("%d Klingons die because there is no room for them in the brig.") % i-brigfree)
-            i = brigfree
-        brigfree -= i
+            prout(_("%d Klingons commit suicide rather than be taken captive.") % (200 - i))
+        if i > game.brigfree:
+            prout(_("%d Klingons die because there is no room for them in the brig.") % (i-brigfree))
+            i = game.brigfree
+        game.brigfree -= i
         prout(_("%d captives taken") % i)
         deadkl(weakest.location, weakest.type, game.sector)
         if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)<=0:
@@ -3538,7 +3540,7 @@ def clrscr():
     linecount = 0
 
 def textcolor(color=DEFAULT):
-    if game.options & OPTION_COLOR:
+    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):
         if color == DEFAULT:
             curwnd.attrset(0)
         elif color ==  BLACK:
@@ -3575,7 +3577,7 @@ def textcolor(color=DEFAULT):
             curwnd.attron(curses.color_pair(curses.COLOR_WHITE) | curses.A_BOLD)
 
 def highvideo():
-    if game.options & OPTION_COLOR:
+    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):
         curwnd.attron(curses.A_REVERSE)
 
 #
