@@ -261,12 +261,12 @@ DDSP            = 15
 DCLOAK          = 16
 NDEVICES        = 17        # Number of devices
 
-SKILL_NONE        = 0
-SKILL_NOVICE        = 1
-SKILL_FAIR        = 2
-SKILL_GOOD        = 3
-SKILL_EXPERT        = 4
-SKILL_EMERITUS        = 5
+SKILL_NONE      = 0
+SKILL_NOVICE    = 1
+SKILL_FAIR      = 2
+SKILL_GOOD      = 3
+SKILL_EXPERT    = 4
+SKILL_EMERITUS  = 5
 
 def damaged(dev):
     return (game.damage[dev] != 0.0)
@@ -284,10 +284,10 @@ FCDBAS  = 5        # Commander destroys base
 FSCMOVE = 6        # Supercommander moves (might attack base)
 FSCDBAS = 7        # Supercommander destroys base
 FDSPROB = 8        # Move deep space probe
-FDISTR        = 9        # Emit distress call from an inhabited world
-FENSLV        = 10        # Inhabited word is enslaved */
-FREPRO        = 11        # Klingons build a ship in an enslaved system
-NEVENTS        = 12
+FDISTR  = 9        # Emit distress call from an inhabited world
+FENSLV  = 10       # Inhabited word is enslaved */
+FREPRO  = 11       # Klingons build a ship in an enslaved system
+NEVENTS = 12
 
 # Abstract out the event handling -- underlying data structures will change
 # when we implement stateful events
