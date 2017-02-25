@@ -421,6 +421,9 @@ class Gamestate:
         # after killing the last klingon when score is shown -- perhaps also
         # if the only remaining klingon is SCOM.
         self.state.remtime = self.state.remres/(self.state.remkl + 4*len(self.state.kcmdr))
+    def unwon(self):
+        "Are there Klingons remaining?"
+        return self.state.remkl + len(self.state.kcmdr) + self.state.nscrem
 
 FWON = 0
 FDEPLETE = 1
@@ -1507,7 +1510,7 @@ def attack(torps_ok):
             dispersion = (randreal()+randreal())*0.5 - 0.5
             dispersion += 0.002*enemy.power*dispersion
             hit = torpedo(enemy.location, pcourse, dispersion, number=1, nburst=1)
-            if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem) == 0:
+            if game.unwon() == 0:
                 finish(FWON) # Klingons did themselves in!
             if game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova or game.alldone:
                 return # Supernova or finished
@@ -1622,7 +1625,7 @@ def deadkl(w, etype, mv):
             unschedule(FSCDBAS)
     # For each kind of enemy, finish message to player
     prout(_(" destroyed."))
-    if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem) == 0:
+    if game.unwon() == 0:
         return
     game.recompute()
     # Remove enemy ship from arrays describing local conditions
@@ -1745,7 +1748,7 @@ def torps():
         torpedo(game.sector, tcourse[i], dispersion, number=i, nburst=n)
         if game.alldone or game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
             return
-    if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)<=0:
+    if game.unwon()<=0:
         finish(FWON)
 
 def overheat(rpow):
@@ -1825,7 +1828,7 @@ def hittem(hits):
         skip(1)
         if kpow == 0:
             deadkl(w, ienm, w)
-            if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)==0:
+            if game.unwon()==0:
                 finish(FWON)
             if game.alldone:
                 return
@@ -2145,7 +2148,7 @@ def capture():
         game.brigfree -= i
         prout(_("%d captives taken") % i)
         deadkl(weakest.location, weakest.type, game.sector)
-        if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)<=0:
+        if game.unwon()<=0:
             finish(FWON)
         return
 
@@ -2869,7 +2872,7 @@ def supernova(w):
     if game.quadrant == nq or communicating():
         game.state.galaxy[nq.i][nq.j].supernova = True
     # If supernova destroys last Klingons give special message
-    if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)==0 and not nq == game.quadrant:
+    if game.unwon()==0 and not nq == game.quadrant:
         skip(2)
         if w is None:
             prout(_("Lucky you!"))
@@ -2943,7 +2946,7 @@ def killrate():
         return 0
     else:
         starting = (game.inkling + game.incom + game.inscom)
-        remaining = (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)
+        remaining = game.unwon()
         return (starting - remaining)/elapsed
 
 def badpoints():
@@ -3037,7 +3040,7 @@ def finish(ifin):
         prout(_("conquered.  Your starship is now Klingon property,"))
         prout(_("and you are put on trial as a war criminal.  On the"))
         proutn(_("basis of your record, you are "))
-        if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)*3.0 > (game.inkling + game.incom + game.inscom):
+        if game.unwon()*3.0 > (game.inkling + game.incom + game.inscom):
             prout(_("acquitted."))
             skip(1)
             prout(_("LIVE LONG AND PROSPER."))
@@ -3144,7 +3147,7 @@ def finish(ifin):
     elif game.ship == 'E':
         game.ship = 'F'
     game.alive = False
-    if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem) != 0:
+    if game.unwon() != 0:
         goodies = game.state.remres/game.inresor
         baddies = (game.state.remkl + 2.0*len(game.state.kcmdr))/(game.inkling+2.0*game.incom)
         if goodies/baddies >= randreal(1.0, 1.5):
@@ -3170,7 +3173,7 @@ def finish(ifin):
 def score():
     "Compute player's score."
     timused = game.state.date - game.indate
-    if (timused == 0 or (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem) != 0) and timused < 5.0:
+    if (timused == 0 or game.unwon() != 0) and timused < 5.0:
         timused = 5.0
     game.perdate = killrate()
     ithperd = 500*game.perdate + 0.5
@@ -3614,7 +3617,7 @@ def put_srscan_sym(w, sym):
 def boom(w):
     "Enemy fall down, go boom."
     if game.options & OPTION_CURSES:
-        drawmaps(2)
+        drawmaps(0)
         setwnd(srscan_window)
         srscan_window.attron(curses.A_REVERSE)
         put_srscan_sym(w, game.quad[w.i][w.j])
@@ -4345,7 +4348,7 @@ def atover(igrab):
         # Repeat if another snova
         if not game.state.galaxy[game.quadrant.i][game.quadrant.j].supernova:
             break
-    if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)==0:
+    if game.unwon()==0:
         finish(FWON) # Snova killed remaining enemy.
 
 def timwrp():
@@ -5027,7 +5030,7 @@ def deathray():
         while len(game.enemies) > 0:
             deadkl(game.enemies[1].location, game.quad[game.enemies[1].location.i][game.enemies[1].location.j],game.enemies[1].location)
         prout(_("Ensign Chekov-  \"Congratulations, Captain!\""))
-        if (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem) == 0:
+        if game.unwon() == 0:
             finish(FWON)
         if (game.options & OPTION_PLAIN) == 0:
             prout(_("Spock-  \"Captain, I believe the `Experimental Death Ray'"))
@@ -5119,7 +5122,7 @@ def report():
     if game.tourn:
         prout(_("This is tournament game %d.") % game.tourn)
     prout(_("Your secret password is \"%s\"") % game.passwd)
-    proutn(_("%d of %d Klingons have been killed") % (((game.inkling + game.incom + game.inscom) - (game.state.remkl + len(game.state.kcmdr) + game.state.nscrem)),
+    proutn(_("%d of %d Klingons have been killed") % (((game.inkling + game.incom + game.inscom) - game.unwon()),
                                                       (game.inkling + game.incom + game.inscom)))
     if game.incom - len(game.state.kcmdr):
         prout(_(", including %d Commander%s.") % (game.incom - len(game.state.kcmdr), (_("s"), "")[(game.incom - len(game.state.kcmdr))==1]))
