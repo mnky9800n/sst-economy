@@ -3156,6 +3156,7 @@ def finish(ifin):
         prout(_("to think about pigeons."))
         game.gamewon = True
     score()
+    scanner.chew()	# Clean up leftovers
 
 def score():
     "Compute player's score."
@@ -5856,9 +5857,9 @@ def choose():
         game.tourn = game.length = 0
         game.thawed = False
         game.skill = SKILL_NONE
-        scanner.chew()
-#        if not scanner.inqueue: # Can start with command line options
-        proutn(_("Would you like a regular, tournament, or saved game? "))
+        # Do not chew here, we want to use command-line tokens
+        if not scanner.inqueue: # Can start with command line options
+            proutn(_("Would you like a regular, tournament, or saved game? "))
         scanner.nexttok()
         if scanner.sees("tournament"):
             while scanner.nexttok() == "IHEOL":
