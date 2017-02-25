@@ -943,12 +943,12 @@ def cloak():
             return
     else:
         if not game.iscloaked:
-            proutn(_("Switch cloaking device on?"))
+            proutn(_("Switch cloaking device on? "))
             if not ja():
                 return
             action = "CLON"
         else:
-            proutn(_("Switch cloaking device off?"))
+            proutn(_("Switch cloaking device off? "))
             if not ja():
                 return
             action = "CLOFF"
@@ -961,7 +961,7 @@ def cloak():
             if not ja():
                 return;
         prout("Engineer Scott- \"Aye, Sir.\"");
-        game.iscloaked = FALSE;
+        game.iscloaked = False;
         if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
             prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
             game.ncviol += 1
@@ -971,7 +971,7 @@ def cloak():
             return;
 
     if action == "CLON":
-        if damage(DCLOAK):
+        if damaged(DCLOAK):
             prout(_("Engineer Scott- \"The cloaking device is damaged, Sir.\""))
             return;
 
@@ -979,9 +979,9 @@ def cloak():
             prout(_("You cannot cloak while docked."))
 
 	if game.state.date >= ALGERON and not game.isviolreported:
-            prout(_("Spock- \"Captain, using the cloaking device is be a violation"))
+            prout(_("Spock- \"Captain, using the cloaking device is a violation"))
             prout(_("  of the Treaty of Algeron. Considering the alternatives,"))
-            proutn("  are you sure this is wise?");
+            proutn(_("  are you sure this is wise? "))
             if not ja():
                 return
 	prout(_("Engineer Scott- \"Cloaking device has engaging, Sir...\""))
@@ -2111,7 +2111,7 @@ def capture():
     #	Nah, just select the weakest one since it is most likely to
     #	surrender (Tom Almy mod)
     klingons = [e for e in game.enemies if e.type == 'K']
-    weakest = sorted(klingons, key=lambda e: e.power)
+    weakest = sorted(klingons, key=lambda e: e.power)[0]
     game.optime = 0.05		# This action will take some time
     game.ididit = True #  So any others can strike back
 
@@ -5274,6 +5274,8 @@ def sectscan(goodScan, i, j):
     "Light up an individual dot in a sector."
     if goodScan or (abs(i-game.sector.i)<= 1 and abs(j-game.sector.j) <= 1):
         if game.quad[i][j] in ('E', 'F'):
+            if game.iscloaked:
+                highvideo()
             textcolor({"green":GREEN,
                        "yellow":YELLOW,
                        "red":RED,
@@ -5287,8 +5289,6 @@ def sectscan(goodScan, i, j):
                        'R':LIGHTRED,
                        'T':LIGHTRED,
                        }.get(game.quad[i][j], DEFAULT))
-        if game.iscloaked:
-            highvideo()
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
     else:
@@ -6360,6 +6360,8 @@ def makemoves():
                 hitme = True
         elif cmd == "CAPTURE":
             capture()
+        elif cmd == "CLOAK":
+            cloak()
         elif cmd == "DEBUGCMD":                # What do we want for debug???
             debugme()
         elif cmd == "MAYDAY":                # Call for help
