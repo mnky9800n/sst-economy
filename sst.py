@@ -5354,8 +5354,7 @@ def status(req=0):
                % (int((100.0*game.shield)/game.inshld + 0.5), game.shield)
         prstat(_("Shields"), s+data)
     if not req or req == 9:
-        prstat(_("Klingons Left"), "%d" \
-               % (game.state.remkl+len(game.state.kcmdr)+game.state.nscrem))
+        prstat(_("Klingons Left"), "%d" % game.unwon())
     if not req or req == 10:
         if game.options & OPTION_WORLDS:
             plnet = game.state.galaxy[game.quadrant.i][game.quadrant.j].planet
