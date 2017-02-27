@@ -38,11 +38,11 @@ Shields lowered.
 ***Klingon at Sector 6 - 7 destroyed.
 753 unit hit on Commander at Sector 6 - 3
 ***Commander at Sector 6 - 3 destroyed.
-245 unit hit on Klingon at Sector 8 - 6
+261 unit hit on Klingon at Sector 8 - 6
 ***Klingon at Sector 8 - 6 destroyed.
-265 unit hit on Klingon at Sector 7 - 2
+280 unit hit on Klingon at Sector 7 - 2
 ***Klingon at Sector 7 - 2 destroyed.
-265 unit hit on Klingon at Sector 9 - 5
+255 unit hit on Klingon at Sector 9 - 5
 ***Klingon at Sector 9 - 5 destroyed.
 2175 expended on empty space.
 
@@ -82,14 +82,18 @@ It is stardate 2149.8.
 The Enterprise has been destroyed in battle.
 
 Dulce et decorum est pro patria mori.
-The Federation will be destroyed.
+As a result of your actions, a treaty with the Klingon
+Empire has been signed. The terms of the treaty are
+highly unfavorable to the Federation.
 
 
 Your score --
+     5 ordinary Klingons destroyed           50
+     1 Klingon commanders destroyed          50
   0.00 Klingons per stardate                  0
      1 ship(s) lost or destroyed           -100
 Penalty for getting yourself killed        -200
 
-TOTAL SCORE                                -300
+TOTAL SCORE                                -200
 
 May the Great Bird of the Galaxy roost upon your home planet.

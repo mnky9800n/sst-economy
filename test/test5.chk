@@ -209,36 +209,56 @@ COMMAND> move aut 8 5 2 2
 
 Ensign Chekov- "Course laid in, Captain."
 
-First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 267 percent of our
-  remaining time.  Are you sure this is wise?" n
+Entering Quadrant 8 - 5.
+COMMAND> n
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
 COMMAND> 
 COMMAND> move aut 6 7 2 2
 
 Ensign Chekov- "Course laid in, Captain."
 
-First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 267 percent of our
-  remaining time.  Are you sure this is wise?" y
-
 Entering Quadrant 6 - 7.
 
+[ANNOUNCEMENT ARRIVING...]
 
+Message from Starfleet Command       Stardate 4077.10
+     Supernova in Quadrant 3 - 1; caution advised.
 
-It is stardate 4075.7.
+[ANNOUNCEMENT ARRIVING...]
 
-Your time has run out and the Federation has been
-conquered.  Your starship is now Klingon property,
-and you are put on trial as a war criminal.  On the
-basis of your record, you are acquitted.
-
-LIVE LONG AND PROSPER.
-
-
-Your score --
-  0.00 Klingons per stardate                  0
-     4 stars destroyed by your action       -20
-
-TOTAL SCORE                                 -20
+Message from Starfleet Command       Stardate 4077.67
+     Supernova in Quadrant 5 - 7; caution advised.
+COMMAND> y
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
+COMMAND> n
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
+COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

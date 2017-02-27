@@ -1,8 +1,8 @@
 # seed 1329940672
 # options 
 # SST2K version 2.1
-# recorded by esr@snark on Wed Feb 22 14:57:52 2012
 # Tests game completion (loss)
+# recorded by esr@snark on Mon Feb 27 10:57:26 2017
 r
 s
 n
@@ -46,3 +46,5 @@ n
 move aut 9 9
 y
 n
+move aut 5  8 5 5
+y

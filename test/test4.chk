@@ -4,8 +4,8 @@ sst2k: seed set to 1329940672
 -SUPER- STAR TREK
 
 Would you like a regular, tournament, or saved game? # SST2K version 2.1
-# recorded by esr@snark on Wed Feb 22 14:57:52 2012
 # Tests game completion (loss)
+# recorded by esr@snark on Mon Feb 27 10:57:26 2017
 r
 Would you like a Short, Medium, or Long game? s
 Are you a Novice, Fair, Good, Expert, or Emeritus player? n
@@ -104,9 +104,18 @@ COMMAND> move aut 6 2 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 134 percent of our
-  remaining time.  Are you sure this is wise?" n
+Entering Quadrant 6 - 2.
+COMMAND> n
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
 COMMAND> 
 COMMAND> warp 7
 Engineer Scott- "Aye, but our maximum safe speed is warp 6."
@@ -117,29 +126,63 @@ COMMAND> move aut 2 6 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 93 percent of our
-  remaining time.  Are you sure this is wise?" y
-
 Entering Quadrant 2 - 6.
+COMMAND> y
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
 COMMAND> 
 COMMAND> move aut 5 8 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
 First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 1600 percent of our
+  a trip would require approximately 151 percent of our
   remaining time.  Are you sure this is wise?" n
 COMMAND> move aut 9 9
 
+COMMAND> y
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
+COMMAND> n
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE                     
+COMMAND> move aut 5  8 5 5
+
+Ensign Chekov- "Course laid in, Captain."
 
 First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 251 percent of our
+  a trip would require approximately 168 percent of our
   remaining time.  Are you sure this is wise?" y
 
+Entering Quadrant 5 - 8.
 
 
-It is stardate 3421.1.
+
+It is stardate 3423.8.
 
 Your time has run out and the Federation has been
 conquered.  Your starship is now Klingon property,
@@ -150,8 +193,9 @@ LIVE LONG AND PROSPER.
 
 
 Your score --
-  0.00 Klingons per stardate                  0
+     2 ordinary Klingons destroyed           20
+  0.20 Klingons per stardate                101
 
-TOTAL SCORE                                   0
+TOTAL SCORE                                 121
 
 May the Great Bird of the Galaxy roost upon your home planet.

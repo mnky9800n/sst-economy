@@ -80,27 +80,25 @@ Helmsman Sulu- "Aye, Sir."
 YOU HAVE ATTEMPTED TO CROSS THE NEGATIVE ENERGY BARRIER
 AT THE EDGE OF THE GALAXY.  THE THIRD TIME YOU TRY THIS,
 YOU WILL BE DESTROYED.
+
+Entering Quadrant 6 - 2.
 COMMAND> 
 COMMAND> m 2 5 2 2
 (Manual movement assumed.)
 
 Helmsman Sulu- "Aye, Sir."
 
-YOU HAVE ATTEMPTED TO CROSS THE NEGATIVE ENERGY BARRIER
-AT THE EDGE OF THE GALAXY.  THE THIRD TIME YOU TRY THIS,
-YOU WILL BE DESTROYED.
-
-Entering Quadrant 4 - 7.
+Entering Quadrant 1 - 4.
 
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2698.43
-     Supernova in Quadrant 4 - 2; caution advised.
+     Supernova in Quadrant 3 - 8; caution advised.
 
 [ANNOUNCEMENT ARRIVING...]
 
-Message from Starfleet Command       Stardate 2698.75
-     Supernova in Quadrant 4 - 3; caution advised.
+Message from Starfleet Command       Stardate 2699.95
+     Supernova in Quadrant 4 - 5; caution advised.
 COMMAND> 
 COMMAND> move 5 8 10 1
 (Manual movement assumed.)
@@ -108,7 +106,7 @@ COMMAND> move 5 8 10 1
 Helmsman Sulu- "Aye, Sir."
 
 Engineering to bridge--
-We don't have enough energy, but we could do it at warp 4,
+We don't have enough energy, but we could do it at warp 3,
 if you'll lower the shields.
 COMMAND> quit
 
