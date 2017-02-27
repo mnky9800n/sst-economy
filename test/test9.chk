@@ -99,54 +99,50 @@ Phasers locked on target. Energy available: 3062.93
 
 129 unit hit on Klingon at Sector 10 - 5
 ***Klingon at Sector 10 - 5 destroyed.
-205 unit hit on Klingon at Sector 3 - 3
-***Klingon at Sector 3 - 3 destroyed.
+218 unit hit on Klingon at Sector 5 - 8
+***Klingon at Sector 5 - 8 destroyed.
 158 unit hit on Klingon at Sector 4 - 8
 ***Klingon at Sector 4 - 8 destroyed.
 436 expended on empty space.
 
-101 unit hit from Klingon at 5 - 8
+79 unit hit from Klingon at 7 - 4
 
-80 unit hit from Klingon at 7 - 4
+40 unit hit from Klingon at 3 - 3
 
 
-Energy left 1557    shields down 100%,   torpedoes left 10
+Energy left 1619    shields down 100%,   torpedoes left 10
 COMMAND> m a 7 10
 
 
-95 unit hit from Klingon at 5 - 8
+62 unit hit from Klingon at 7 - 4
 
-64 unit hit from Klingon at 7 - 4
+35 unit hit from Klingon at 3 - 3
 
 
-Energy left 1398    shields down 100%,   torpedoes left 10
+Energy left 1520    shields down 100%,   torpedoes left 10
 COMMAND> cloak
 Switch cloaking device on? y
 Engineer Scott- "Cloaking device has engaging, Sir..."
 
-88 unit hit from Klingon at 5 - 8
+48 unit hit from Klingon at 7 - 4
 
-54 unit hit from Klingon at 7 - 4
+34 unit hit from Klingon at 3 - 3
 
 
-Energy left 1218    shields down 100%,   torpedoes left 10
+Energy left 1400    shields down 100%,   torpedoes left 10
 Engineer Scott- "Cloaking device has engaged, Sir."
 COMMAND> phasers
 
 Manual or automatic? a
-Phasers locked on target. Energy available: 1218.12
-189 units required. Units to fire= 189
+Phasers locked on target. Energy available: 1400.68
+231 units required. Units to fire= 189
 
-62 unit hit on Klingon at Sector 5 - 8
-***Klingon at Sector 5 - 8 destroyed.
-28 unit hit on Klingon at Sector 7 - 4
-***Mr. Spock-  "Captain, the vessel at Sector 7 - 4
-   has just lost its firepower."
-79 expended on empty space.
+58 unit hit on Klingon at Sector 7 - 4
+***Klingon at Sector 7 - 4 destroyed.
 COMMAND> capture
-Klingon captain at 7 - 4 surrenders.
-162 Klingons commit suicide rather than be taken captive.
-37 captives taken
+Klingon captain at 3 - 3 surrenders.
+46 Klingons commit suicide rather than be taken captive.
+153 captives taken
 ***Klingon at Sector 7 - 10 destroyed.
 COMMAND> cloak off
 Engineer Scott- "Aye, Sir."

@@ -1832,7 +1832,6 @@ def hittem(hits):
                 finish(FWON)
             if game.alldone:
                 return
-            kk -= 1        # don't do the increment
             continue
         else: # decide whether or not to emasculate klingon
             if kpow > 0 and withprob(0.9) and kpow <= randreal(0.4, 0.8)*kpini:
