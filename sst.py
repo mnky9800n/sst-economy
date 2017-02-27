@@ -934,6 +934,7 @@ def cloak():
     key = scanner.nexttok()
 
     if key == "IHREAL":
+        huh()
         return
 
     action = None
@@ -3277,24 +3278,9 @@ def plaque():
     winner = cgetline()
     # The 38 below must be 64 for 132-column paper
     nskip = 38 - len(winner)/2
-    fp.write("\n\n\n\n")
-    # --------DRAW ENTERPRISE PICTURE.
-    fp.write("                                       EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n" )
-    fp.write("                                      EEE                      E  : :                                         :  E\n" )
-    fp.write("                                    EE   EEE                   E  : :                   NCC-1701              :  E\n")
-    fp.write("EEEEEEEEEEEEEEEE        EEEEEEEEEEEEEEE  : :                              : E\n")
-    fp.write(" E                                     EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n")
-    fp.write("                      EEEEEEEEE               EEEEEEEEEEEEE                 E  E\n")
-    fp.write("                               EEEEEEE   EEEEE    E          E              E  E\n")
-    fp.write("                                      EEE           E          E            E  E\n")
-    fp.write("                                                       E         E          E  E\n")
-    fp.write("                                                         EEEEEEEEEEEEE      E  E\n")
-    fp.write("                                                      EEE :           EEEEEEE  EEEEEEEE\n")
-    fp.write("                                                    :E    :                 EEEE       E\n")
-    fp.write("                                                   .-E   -:-----                       E\n")
-    fp.write("                                                    :E    :                            E\n")
-    fp.write("                                                      EE  :                    EEEEEEEE\n")
-    fp.write("                                                       EEEEEEEEEEEEEEEEEEEEEEE\n")
+    # This is where the ASCII art picture was emitted.
+    # It got garbled somewhere in the chain of transmission to the Almy version.
+    # We should restore it if we can find old enough FORTRAN sources.
     fp.write("\n\n\n")
     fp.write(_("                                                       U. S. S. ENTERPRISE\n"))
     fp.write("\n\n\n\n")
