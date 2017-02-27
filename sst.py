@@ -709,7 +709,7 @@ def moveklings():
     return tacmoves
 
 def movescom(iq, avoid):
-    "Commander movement helper."
+    "Supercommander movement helper."
     # Avoid quadrants with bases if we want to avoid Enterprise
     if not welcoming(iq) or (avoid and iq in game.state.baseq):
         return False
@@ -1114,23 +1114,23 @@ def doshield(shraise):
 def randdevice():
     "Choose a device to damage, at random."
     weights = (
-        105,        # DSRSENS: short range scanners        10.5%
-        105,        # DLRSENS: long range scanners                10.5%
-        120,        # DPHASER: phasers                        12.0%
-        120,        # DPHOTON: photon torpedoes                12.0%
-        25,        # DLIFSUP: life support                         2.5%
-        65,        # DWARPEN: warp drive                         6.5%
-        70,        # DIMPULS: impulse engines                 6.5%
-        145,        # DSHIELD: deflector shields                14.5%
-        30,        # DRADIO:  subspace radio                 3.0%
-        45,        # DSHUTTL: shuttle                         4.5%
-        15,        # DCOMPTR: computer                         1.5%
-        20,        # NAVCOMP: navigation system                 2.0%
-        75,        # DTRANSP: transporter                         7.5%
+        105,       # DSRSENS: short range scanners         10.5%
+        105,       # DLRSENS: long range scanners          10.5%
+        120,       # DPHASER: phasers                      12.0%
+        120,       # DPHOTON: photon torpedoes             12.0%
+        25,        # DLIFSUP: life support                  2.5%
+        65,        # DWARPEN: warp drive                    6.5%
+        70,        # DIMPULS: impulse engines               6.5%
+        135,       # DSHIELD: deflector shields            13.5%
+        30,        # DRADIO:  subspace radio                3.0%
+        45,        # DSHUTTL: shuttle                       4.5%
+        15,        # DCOMPTR: computer                      1.5%
+        20,        # NAVCOMP: navigation system             2.0%
+        75,        # DTRANSP: transporter                   7.5%
         20,        # DSHCTRL: high-speed shield controller  2.0%
-        10,        # DDRAY: death ray                         1.0%
-        30,        # DDSP: deep-space probes                 3.0%
-        0,         # DCLOAK: the cloaking device             0.0
+        10,        # DDRAY: death ray                       1.0%
+        30,        # DDSP: deep-space probes                3.0%
+        10,        # DCLOAK: the cloaking device            1.0
     )
     assert(sum(weights) == 1000)
     idx = randrange(1000)
