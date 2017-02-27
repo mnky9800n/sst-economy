@@ -4013,15 +4013,20 @@ def getcourse(isprobe):
             iprompt = True
             key = scanner.nexttok()
         itemp = "verbose"
-        if key != "IHREAL":
+        if key == "IHREAL":
+            delta.j = scanner.real
+        else:
             huh()
             raise TrekError
-        delta.j = scanner.real
         key = scanner.nexttok()
-        if key != "IHREAL":
+        if key == "IHREAL":
+            delta.i = scanner.real
+        elif key == "IHEOL":
+            delta.i = 0
+            scanner.push("\n")
+        else:
             huh()
             raise TrekError
-        delta.i = scanner.real
     # Check for zero movement
     if delta.i == 0 and delta.j == 0:
         scanner.chew()
