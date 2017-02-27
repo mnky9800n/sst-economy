@@ -1607,16 +1607,16 @@ def deadkl(w, etype, mv):
         # Killed some type of Klingon
         game.state.galaxy[game.quadrant.i][game.quadrant.j].klingons -= 1
         game.klhere -= 1
-        if etype == 'C':
+        if type == 'C':
             game.state.kcmdr.remove(game.quadrant)
             unschedule(FTBEAM)
             if game.state.kcmdr:
                 schedule(FTBEAM, expran(1.0*game.incom/len(game.state.kcmdr)))
             if is_scheduled(FCDBAS) and game.battle == game.quadrant:
                 unschedule(FCDBAS)
-        elif etype ==  'K':
+        elif type ==  'K':
             game.state.remkl -= 1
-        elif etype ==  'S':
+        elif type ==  'S':
             game.state.nscrem -= 1
             game.state.kscmdr.invalidate()
             game.isatb = 0
@@ -1801,9 +1801,6 @@ def hittem(hits):
     skip(1)
     kk = 0
     for wham in hits:
-        if not kk < len(game.enemies):
-            # Should never happen.
-            break
         if wham == 0:
             continue
         dustfac = randreal(0.9, 1.0)
@@ -1835,6 +1832,7 @@ def hittem(hits):
                 finish(FWON)
             if game.alldone:
                 return
+            kk -= 1        # don't do the increment
             continue
         else: # decide whether or not to emasculate klingon
             if kpow > 0 and withprob(0.9) and kpow <= randreal(0.4, 0.8)*kpini:
@@ -4016,16 +4014,15 @@ def getcourse(isprobe):
             iprompt = True
             key = scanner.nexttok()
         itemp = "verbose"
-        if key == "IHREAL":
-            delta.j = scanner.real
-        else:
+        if key != "IHREAL":
             huh()
             raise TrekError
+        delta.j = scanner.real
         key = scanner.nexttok()
-        if key == "IHREAL":
-            delta.i = scanner.real
-        else:
-            delta.i = 0
+        if key != "IHREAL":
+            huh()
+            raise TrekError
+        delta.i = scanner.real
     # Check for zero movement
     if delta.i == 0 and delta.j == 0:
         scanner.chew()
@@ -6286,7 +6283,8 @@ def makemoves():
                 huh()
             else:
                 break
-        prout("COMMAND> %s" % cmd)
+        if game.options & OPTION_CURSES:
+            prout("COMMAND> %s" % cmd)
         if cmd == "SRSCAN":                # srscan
             srscan()
         elif cmd == "STATUS":                # status
