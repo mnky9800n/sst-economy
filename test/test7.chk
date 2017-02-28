@@ -179,9 +179,9 @@ Entering Quadrant 5 - 6.
 
 437 unit hit on the Enterprise from Klingon at Sector 6 - 8
 
-***CRITICAL HIT--Shields damaged.
+***CRITICAL HIT--Subspace Radio damaged.
 
-Energy left 3805    shields damaged, 100%,   torpedoes left 10
+Energy left 3805    shields down 100%,   torpedoes left 10
 
 Mc Coy-  "Sickbay to bridge.  We suffered 3 casualties
    in that last attack."
@@ -199,7 +199,7 @@ Torpedo missed.
 257 unit hit on the Enterprise from Klingon at Sector 6 - 8
 
 
-Energy left 3049    shields damaged, 100%,   torpedoes left 8
+Energy left 3049    shields down 100%,   torpedoes left 8
 
 Mc Coy-  "Sickbay to bridge.  We suffered 2 casualties
    in that last attack."
