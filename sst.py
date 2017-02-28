@@ -319,7 +319,9 @@ class Enemy:
         else:
             self.location = Coord()
             self.kdist = self.kavgd = None
-            game.enemies.remove(self)
+            # Guard prevents failure on Tholian or thingy
+            if self in game.enemies:
+                game.enemies.remove(self)
         return motion
     def __repr__(self):
         return "<%s,%s.%f>" % (self.type, self.location, self.power)        # For debugging
