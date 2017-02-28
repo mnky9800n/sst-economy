@@ -2608,7 +2608,7 @@ def wait():
         if key  != "IHEOL":
             break
         proutn(_("How long? "))
-    scanner.chew()
+        scanner.chew()
     if key != "IHREAL":
         huh()
         return
