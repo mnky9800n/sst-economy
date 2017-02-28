@@ -115,7 +115,7 @@ CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
 ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
 DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
+HELP         SCORE        CURSES                    
 COMMAND> 
 COMMAND> warp 7
 Engineer Scott- "Aye, but our maximum safe speed is warp 6."
@@ -137,14 +137,14 @@ CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
 ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
 DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
+HELP         SCORE        CURSES                    
 COMMAND> 
 COMMAND> move aut 5 8 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
 First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 151 percent of our
+  a trip would require approximately 135 percent of our
   remaining time.  Are you sure this is wise?" n
 COMMAND> move aut 9 9
 
@@ -158,7 +158,7 @@ CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
 ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
 DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
+HELP         SCORE        CURSES                    
 COMMAND> n
 LEGAL COMMANDS ARE:
 SRSCAN       STATUS       REQUEST      LRSCAN       
@@ -169,13 +169,13 @@ CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
 ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
 DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
+HELP         SCORE        CURSES                    
 COMMAND> move aut 5  8 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
 First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 168 percent of our
+  a trip would require approximately 145 percent of our
   remaining time.  Are you sure this is wise?" y
 
 Entering Quadrant 5 - 8.

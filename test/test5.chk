@@ -220,7 +220,7 @@ CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER
 COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
 ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
 DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
+HELP         SCORE        CURSES                    
 COMMAND> 
 COMMAND> move aut 6 7 2 2
 
@@ -237,28 +237,6 @@ Message from Starfleet Command       Stardate 4077.10
 
 Message from Starfleet Command       Stardate 4077.67
      Supernova in Quadrant 5 - 7; caution advised.
-COMMAND> y
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
-COMMAND> n
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE                     
 COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

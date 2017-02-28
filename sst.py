@@ -6161,6 +6161,7 @@ commands = [
     ("QUIT",             0),
     ("HELP",             0),
     ("SCORE",            0),
+    ("CURSES",            0),
     ("",                 0),
 ]
 
@@ -6381,6 +6382,9 @@ def makemoves():
             helpme()                        # get help
         elif cmd == "SCORE":
             score()                         # see current score
+        elif cmd == "CURSES":
+            game.options |= (OPTION_CURSES | OPTION_COLOR)
+            iostart()
         while True:
             if game.alldone:
                 break                # Game has ended

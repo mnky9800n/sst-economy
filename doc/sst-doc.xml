@@ -1491,6 +1491,17 @@ Full command:  HELP &lt;command&gt;
 providing the file is in the current directory.</para>
 
 </sect1>
+<sect1><title>Curses switch</title>
+
+<literallayout>
+Mnemonic:  CURSES
+Full command:  CURSES
+</literallayout>
+
+<para>Switch from tty to curses interface. Mainly useful for
+debugging, when continuing a replayed game.</para>
+
+</sect1>
 </chapter>
 <chapter><title>Miscellaneous Notes</title>
 
@@ -1645,7 +1656,8 @@ orientation</quote>.</para>
  ST        STATUS                                 (none)
  T         TRANSPORT                              transporter
  W         WARP &lt;FACTOR&gt;                          (none)
-
+ CU        CURSES                                 (none)
+ 
  L. R. Scan:   thousands digit:   supernova
                hundreds digit:    Klingons
                tens digit:        starbases
