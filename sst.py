@@ -2747,7 +2747,7 @@ def nova(nov):
                             deadkl(neighbor, iquad, neighbor)
                             continue	# neighbor loop
                         # Else enemy gets flung by the blast wave
-                        newc = neighbor + neighbor - hits[-1]
+                        newc = neighbor + neighbor - start
                         proutn(crmena(True, iquad, "sector", neighbor) + _(" damaged"))
                         if not newc.valid_sector():
                             # can't leave quadrant
@@ -5953,7 +5953,7 @@ def choose():
     game.state.nscrem = game.inscom = (game.skill > SKILL_FAIR)
     game.state.remtime = 7.0 * game.length
     game.intime = game.state.remtime
-    game.state.remkl = game.inkling = 2.0*game.intime*((game.skill+1 - 2*randreal())*game.skill*0.1+.15)
+    game.state.remkl = game.inkling = int(2.0*game.intime*((game.skill+1 - 2*randreal())*game.skill*0.1+.15))
     game.incom = min(MINCMDR, int(game.skill + 0.0625*game.inkling*randreal()))
     game.state.remres = (game.inkling+4*game.incom)*game.intime
     game.inresor = game.state.remres
