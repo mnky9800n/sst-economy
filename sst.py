@@ -3433,8 +3433,8 @@ def proutn(proutntline):
             pause_game()
             clrscr()
         # Uncomment this to debug curses problems
-        if logfp:
-            logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(proutntline)))
+        #if logfp:
+        #    logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(proutntline)))
         curwnd.addstr(proutntline)
         curwnd.refresh()
     else:
