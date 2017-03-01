@@ -20,8 +20,8 @@ sst.6: doc/sst.xml
 sst.html: doc/sst.xml
 	cd doc; xmlto html-nochunks sst.xml; mv sst.html ..
 
-sst-doc.html: sst-doc.xml
-	xmlto xhtml-nochunks ../doc/sst-doc.xml
+sst-doc.html: doc/sst-doc.xml
+	xmlto xhtml-nochunks doc/sst-doc.xml
 
 super-star-trek-$(VERS).tar.gz: $(SOURCES) sst.6
 	tar --transform='s:^:super-star-trek-$(VERS)/:' --show-transformed-names -cvzf super-star-trek-$(VERS).tar.gz $(SOURCES) sst.6
@@ -45,8 +45,10 @@ clean:
 	rm -f sst.6 sst.html
 	rm -f *.6 MANIFEST index.html
 
-release: sst-$(VERS).tar.gz sst.html sst-doc.html
-	shipper version=$(VERS) | sh -e -x
+SHIPPER = version=$(VERS) bkimage=lpt.jpg
+
+release: super-star-trek-$(VERS).tar.gz sst.html sst-doc.html
+	shipper $(SHIPPER) | sh -e -x
 
 refresh: sst.html
-	shipper -N -w version=$(VERS) | sh -e -x
+	shipper -N -w $(SHIPPER)  | sh -e -x
