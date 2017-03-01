@@ -45,7 +45,7 @@ clean:
 	rm -f sst.6 sst.html
 	rm -f *.6 MANIFEST index.html
 
-SHIPPER = version=$(VERS) bkimage=lpt.jpg
+SHIPPER = version=$(VERS) bkgimage=lpt.jpg
 
 release: super-star-trek-$(VERS).tar.gz sst.html sst-doc.html
 	shipper $(SHIPPER) | sh -e -x

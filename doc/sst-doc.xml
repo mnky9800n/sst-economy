@@ -2082,11 +2082,8 @@ the Austin crew begin work on the UT FORTRAN version.</para></listitem>
 things, notably a job change and the birth of his first
 child.</para></listitem>
 
-<listitem><para>c.1977 &mdash; Tom Almy translates the UT FORTAN
-version to PDP-11 FORTRAN.</para></listitem>
-
 <listitem><para>21 September 1978 &mdash; This was the date on the
-first version Tom Almy saw, on which he based his later C
+first FORTRAN version Tom Almy saw, on which he based his later C
 translation.</para></listitem>
 
 <listitem><para>1979 &mdash; Marc Newman adds Tholians, black holes,
@@ -2117,7 +2114,9 @@ this time.</para></listitem>
 <listitem><para>9 October 2006 &mdash; Translation to
 Python.</para></listitem>
 
-<listitem><para>22 February 2017 &mdash; Color added.</para></listitem>
+<listitem><para>1 March 2017 &mdash; Color added.
+Cloaking device and capture command added from BSD (via Almy's
+2013 version)</para></listitem>
 
 </itemizedlist>
 
