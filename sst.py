@@ -3506,7 +3506,7 @@ def setwnd(wnd):
                 legend = "prompt"
             else:
                 legend = "unknown"
-            logfp.write("#curses: setwnd(%s)\n" % legend)
+            #logfp.write("#curses: setwnd(%s)\n" % legend)
         curwnd = wnd
         # Some curses implementations get confused when you try this.
         try:
@@ -3710,8 +3710,6 @@ def imove(icourse=None, noattack=False):
         # check for edge of galaxy
         kinks = 0
         while True:
-
-
             kink = False
             if icourse.final.i < 0:
                 icourse.final.i = -icourse.final.i
@@ -5210,7 +5208,8 @@ def lrscan(silent):
                 if not silent and game.state.galaxy[x][y].supernova:
                     proutn(" ***")
                 elif not silent:
-                    proutn(" %3d" % (game.state.chart[x][y].klingons*100 + game.state.chart[x][y].starbase * 10 + game.state.chart[x][y].stars))
+                    cn = " %3d" % (game.state.chart[x][y].klingons*100 + game.state.chart[x][y].starbase * 10 + game.state.chart[x][y].stars)
+                    proutn(((3 - len(cn)) * '.') + cn)
         if not silent:
             prout(" ")
 
@@ -6102,6 +6101,9 @@ def newqad():
             game.quad[QUADSIZE-1][0] = '.'
         if game.quad[QUADSIZE-1][QUADSIZE-1]=='X':
             game.quad[QUADSIZE-1][QUADSIZE-1] = '.'
+    # This should guarantee that replay games don't lose info about the chart
+    if (game.options & OPTION_AUTOSCAN) or replayfp:
+        lrscan(silent=True)
 
 def setpassword():
     "Set the self-destruct password."
