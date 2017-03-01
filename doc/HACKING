@@ -56,7 +56,7 @@ however mine had some feature it didn't have. So I merged its
 features that I liked. I also took a peek at the DECUS version (a
 port, less sources, to the PDP-10), and some other variations.
 
-1, Compared to the original UT version, I've changed the "help"
+1. Compared to the original UT version, I've changed the "help"
 command to "call" and the "terminate" command to "quit" to better
 match user expectations. The DECUS version apparently made those
 changes as well as changing "freeze" to "save". However I like
