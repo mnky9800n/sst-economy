@@ -1180,7 +1180,7 @@ def collision(rammed, enemy):
         game.damage[dev] += game.optime + extradm
     game.shldup = False
     prout(_("***Shields are down."))
-    if game.state.remkl + len(game.state.kcmdr) + game.state.nscrem:
+    if game.unwon():
         announce()
         damagereport()
     else:
@@ -5733,7 +5733,7 @@ def setup():
         klumper = MAXKLQUAD
     while True:
         r = randreal()
-        klump = (1.0 - r*r)*klumper
+        klump = int((1.0 - r*r)*klumper)
         if klump > krem:
             klump = krem
         krem -= klump
@@ -5742,7 +5742,7 @@ def setup():
             if not game.state.galaxy[w.i][w.j].supernova and \
                game.state.galaxy[w.i][w.j].klingons + klump <= MAXKLQUAD:
                 break
-        game.state.galaxy[w.i][w.j].klingons += int(klump)
+        game.state.galaxy[w.i][w.j].klingons += klump
         if krem <= 0:
             break
     # Position Klingon Commander Ships
