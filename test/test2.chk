@@ -28,72 +28,26 @@ COMMAND> phasers
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
 Manual or automatic? auto
 Phasers locked on target. Energy available: 4800.00
-3064 units required. Units to fire= 4800
+1983 units required. Units to fire= 4800
 
 Shields lowered.
 
-219 unit hit on Klingon at Sector 4 - 7
-***Klingon at Sector 4 - 7 destroyed.
-276 unit hit on Klingon at Sector 6 - 7
-***Klingon at Sector 6 - 7 destroyed.
-753 unit hit on Commander at Sector 6 - 3
-***Commander at Sector 6 - 3 destroyed.
-261 unit hit on Klingon at Sector 8 - 6
-***Klingon at Sector 8 - 6 destroyed.
-280 unit hit on Klingon at Sector 7 - 2
-***Klingon at Sector 7 - 2 destroyed.
-255 unit hit on Klingon at Sector 9 - 5
-***Klingon at Sector 9 - 5 destroyed.
-2175 expended on empty space.
+241 unit hit on Klingon at Sector 4 - 4
+***Klingon at Sector 4 - 4 destroyed.
+278 unit hit on Klingon at Sector 6 - 3
+***Klingon at Sector 6 - 3 destroyed.
+239 unit hit on Klingon at Sector 1 - 7
+***Klingon at Sector 1 - 7 destroyed.
+375 unit hit on Klingon at Sector 5 - 9
+***Klingon at Sector 5 - 9 destroyed.
+342 unit hit on Klingon at Sector 1 - 2
+***Klingon at Sector 1 - 2 destroyed.
+248 unit hit on Klingon at Sector 7 - 8
+***Klingon at Sector 7 - 8 destroyed.
+2881 expended on empty space.
 
 Shields raised.
 Weapons officer Sulu-  "Phasers overheated, sir."
-
-
-
-
-It is stardate 2149.8.
-
-[CONTINUE?]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The Enterprise has been destroyed in battle.
-
-Dulce et decorum est pro patria mori.
-As a result of your actions, a treaty with the Klingon
-Empire has been signed. The terms of the treaty are
-highly unfavorable to the Federation.
-
-
-Your score --
-     5 ordinary Klingons destroyed           50
-     1 Klingon commanders destroyed          50
-  0.00 Klingons per stardate                  0
-     1 ship(s) lost or destroyed           -100
-Penalty for getting yourself killed        -200
-
-TOTAL SCORE                                -200
+COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

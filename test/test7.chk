@@ -219,17 +219,17 @@ It is stardate 3536.1.
 Your starship has been destroyed by a nova.
 That was a great shot.
 
-As a result of your actions, a treaty with the Klingon
-Empire has been signed. The terms of the treaty are
-favorable to the Federation.
-
-Congratulations!
+The Federation will be destroyed.
 
 
 Your score --
-     4 ordinary Klingons destroyed           40
-  0.76 Klingons per stardate                379
+     3 ordinary Klingons destroyed           30
+  0.57 Klingons per stardate                284
      2 stars destroyed by your action       -10
+     8 casualties incurred                   -8
+     1 ship(s) lost or destroyed           -100
+Penalty for getting yourself killed        -200
+
 [PRESS ENTER TO CONTINUE]
 
 
@@ -255,10 +255,6 @@ Your score --
 
 
 
-     8 casualties incurred                   -8
-     1 ship(s) lost or destroyed           -100
-Penalty for getting yourself killed        -200
-
-TOTAL SCORE                                 101
+TOTAL SCORE                                  -3
 
 May the Great Bird of the Galaxy roost upon your home planet.

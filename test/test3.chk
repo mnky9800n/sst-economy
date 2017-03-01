@@ -39,38 +39,41 @@ Ensign Chekov- "Course laid in, Captain."
 Enterprise is pulled to Quadrant 2 - 8, Sector 4 - 8
 Shields raised.
 
-33 unit hit on the Enterprise from Klingon at Sector 7 - 4
+29 unit hit on the Enterprise from Klingon at Sector 7 - 1
 
 
-Energy left 4764    shields up 78%,   torpedoes left 10
+Energy left 4768    shields up 81%,   torpedoes left 10
 COMMAND> torp 2
 Target sector for torpedo number 1- 7 4
 Target sector for torpedo number 2- 7 5
 
-Track for torpedo number 1-  5 - 7   6 - 6   6 - 5   
+Track for torpedo number 1-  5 - 7   5 - 6   6 - 5   
 7 - 4   
 ***Klingon at Sector 7 - 4 destroyed.
 
 Track for torpedo number 2-  5 - 7   6 - 6   7 - 5   
-***Commander at Sector 7 - 5 damaged-- displaced by blast to Sector 5 - 8 
+***Klingon at Sector 7 - 5 destroyed.
 
-66 unit hit on the Enterprise from Klingon at Sector 5 - 8
+38 unit hit on the Enterprise from Klingon at Sector 7 - 1
 
 
-Energy left 4697    shields up 70%,   torpedoes left 8
+Energy left 4730    shields up 76%,   torpedoes left 8
 COMMAND> phasers
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
 Manual or automatic? a
-Phasers locked on target. Energy available: 4497.40
-159 units required. Units to fire= 300
+Phasers locked on target. Energy available: 4530.26
+724 units required. Units to fire= 300
 
 Shields lowered.
 
-155 unit hit on Commander at Sector 5 - 8
-***Commander at Sector 5 - 8 destroyed.
+266 unit hit on Commander at Sector 7 - 1
+***Mr. Spock-  "Captain, the vessel at Sector 7 - 1
+   has just lost its firepower."
 
 Shields raised.
+
+Enemy attack reduces shield strength to 76%,   torpedoes left 8
 COMMAND> 
 COMMAND> m 7 7 5 5
 (Manual movement assumed.)
@@ -93,12 +96,7 @@ Entering Quadrant 1 - 4.
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2698.43
-     Supernova in Quadrant 3 - 8; caution advised.
-
-[ANNOUNCEMENT ARRIVING...]
-
-Message from Starfleet Command       Stardate 2699.95
-     Supernova in Quadrant 4 - 5; caution advised.
+     Supernova in Quadrant 8 - 5; caution advised.
 COMMAND> 
 COMMAND> move 5 8 10 1
 (Manual movement assumed.)

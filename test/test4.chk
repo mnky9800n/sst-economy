@@ -126,63 +126,15 @@ COMMAND> move aut 2 6 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 2 - 6.
-COMMAND> y
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
-COMMAND> 
-COMMAND> move aut 5 8 5 5
-
-Ensign Chekov- "Course laid in, Captain."
-
 First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 135 percent of our
-  remaining time.  Are you sure this is wise?" n
-COMMAND> move aut 9 9
-
-COMMAND> y
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
-COMMAND> n
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
-COMMAND> move aut 5  8 5 5
-
-Ensign Chekov- "Course laid in, Captain."
-
-First Officer Spock- "Captain, I compute that such
-  a trip would require approximately 145 percent of our
+  a trip would require approximately 221 percent of our
   remaining time.  Are you sure this is wise?" y
 
-Entering Quadrant 5 - 8.
+Entering Quadrant 2 - 6.
 
 
 
-It is stardate 3423.8.
+It is stardate 3422.7.
 
 Your time has run out and the Federation has been
 conquered.  Your starship is now Klingon property,
@@ -193,9 +145,9 @@ LIVE LONG AND PROSPER.
 
 
 Your score --
-     2 ordinary Klingons destroyed           20
-  0.20 Klingons per stardate                101
+     1 ordinary Klingons destroyed           10
+  0.11 Klingons per stardate                 57
 
-TOTAL SCORE                                 121
+TOTAL SCORE                                  67
 
 May the Great Bird of the Galaxy roost upon your home planet.

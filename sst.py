@@ -173,6 +173,9 @@ class Quadrant:
         self.supernova = False
         self.charted = False
         self.status = "secure"        # Could be "secure", "distressed", "enslaved"
+    def __str__(self):
+        return "<Quadrant: %(klingons)d>" % self.__dict__
+    __repr__ = __str__
 
 class Page:
     def __init__(self):
@@ -193,10 +196,9 @@ def fill2d(size, fillfun):
 
 class Snapshot:
     def __init__(self):
-        self.snap = False        # snapshot taken
+        self.snap = False       # snapshot taken
         self.crew = 0           # crew complement
-        self.remkl = 0          # remaining klingons
-        self.nscrem = 0                # remaining super commanders
+        self.nscrem = 0         # remaining super commanders
         self.starkl = 0         # destroyed stars
         self.basekl = 0         # destroyed bases
         self.nromrem = 0        # Romulans remaining
@@ -213,6 +215,10 @@ class Snapshot:
         self.galaxy = fill2d(GALSIZE, lambda i_unused, j_unused: Quadrant())
         # the starchart
         self.chart = fill2d(GALSIZE, lambda i_unused, j_unused: Page())
+    def traverse(self):
+        for i in range(GALSIZE):
+            for j in range(GALSIZE):
+                yield (i, j, self.galaxy[i][j])
 
 class Event:
     def __init__(self):
@@ -415,17 +421,19 @@ class Gamestate:
         self.iscloaked = False  # Cloaking device on?
         self.ncviol = 0         # Algreon treaty violations
         self.isviolreported = False # We have been warned
+    def remkl(self):
+        return sum([q.klingons for (_i, _j, q) in list(self.state.traverse())])
     def recompute(self):
         # Stas thinks this should be (C expression):
-        # game.state.remkl + len(game.state.kcmdr) > 0 ?
-        #        game.state.remres/(game.state.remkl + 4*len(game.state.kcmdr)) : 99
+        # game.remkl() + len(game.state.kcmdr) > 0 ?
+        #        game.state.remres/(game.remkl() + 4*len(game.state.kcmdr)) : 99
         # He says the existing expression is prone to divide-by-zero errors
         # after killing the last klingon when score is shown -- perhaps also
         # if the only remaining klingon is SCOM.
-        self.state.remtime = self.state.remres/(self.state.remkl + 4*len(self.state.kcmdr))
+        self.state.remtime = self.state.remres/(self.remkl() + 4*len(self.state.kcmdr))
     def unwon(self):
         "Are there Klingons remaining?"
-        return self.state.remkl + len(self.state.kcmdr) + self.state.nscrem
+        return self.remkl() + len(self.state.kcmdr) + self.state.nscrem
 
 FWON = 0
 FDEPLETE = 1
@@ -759,7 +767,7 @@ def supercommander():
     if game.idebug:
         prout("== SUPERCOMMANDER")
     # Decide on being active or passive
-    avoid = ((game.incom - len(game.state.kcmdr) + game.inkling - game.state.remkl)/(game.state.date+0.01-game.indate) < 0.1*game.skill*(game.skill+1.0) or \
+    avoid = ((game.incom - len(game.state.kcmdr) + game.inkling - game.remkl())/(game.state.date+0.01-game.indate) < 0.1*game.skill*(game.skill+1.0) or \
             (game.state.date-game.indate) < 3.0)
     if not game.iscate and avoid:
         # compute move away from Enterprise
@@ -1618,7 +1626,7 @@ def deadkl(w, etype, mv):
             if is_scheduled(FCDBAS) and game.battle == game.quadrant:
                 unschedule(FCDBAS)
         elif etype ==  'K':
-            game.state.remkl -= 1
+            pass
         elif etype ==  'S':
             game.state.nscrem -= 1
             game.state.kscmdr.invalidate()
@@ -2328,7 +2336,7 @@ def events():
                 return
         game.state.date = datemin
         # Decrement Federation resources and recompute remaining time
-        game.state.remres -= (game.state.remkl+4*len(game.state.kcmdr))*xtime
+        game.state.remres -= (game.remkl()+4*len(game.state.kcmdr))*xtime
         game.recompute()
         if game.state.remtime <= 0:
             finish(FDEPLETE)
@@ -2561,7 +2569,7 @@ def events():
             if q.klingons <= 0:
                 q.status = "secure"
                 continue
-            if game.state.remkl >= MAXKLGAME:
+            if game.remkl() >= MAXKLGAME:
                 continue                # full right now
             # reproduce one Klingon
             w = ev.quadrant
@@ -2583,7 +2591,6 @@ def events():
                 except JumpOut:
                     w = m
             # deliver the child
-            game.state.remkl += 1
             q.klingons += 1
             if game.quadrant == w:
                 game.klhere += 1
@@ -2839,7 +2846,6 @@ def supernova(w):
             stars()
             game.alldone = True
     # destroy any Klingons in supernovaed quadrant
-    kldead = game.state.galaxy[nq.i][nq.j].klingons
     game.state.galaxy[nq.i][nq.j].klingons = 0
     if nq == game.state.kscmdr:
         # did in the Supercommander!
@@ -2850,10 +2856,8 @@ def supernova(w):
     survivors = filter(lambda w: w != nq, game.state.kcmdr)
     comkills = len(game.state.kcmdr) - len(survivors)
     game.state.kcmdr = survivors
-    kldead -= comkills
     if not game.state.kcmdr:
         unschedule(FTBEAM)
-    game.state.remkl -= kldead
     # destroy Romulans and planets in supernovaed quadrant
     nrmdead = game.state.galaxy[nq.i][nq.j].romulans
     game.state.galaxy[nq.i][nq.j].romulans = 0
@@ -3151,7 +3155,7 @@ def finish(ifin):
     game.alive = False
     if game.unwon() != 0:
         goodies = game.state.remres/game.inresor
-        baddies = (game.state.remkl + 2.0*len(game.state.kcmdr))/(game.inkling+2.0*game.incom)
+        baddies = (game.remkl() + 2.0*len(game.state.kcmdr))/(game.inkling+2.0*game.incom)
         if goodies/baddies >= randreal(1.0, 1.5):
             prout(_("As a result of your actions, a treaty with the Klingon"))
             prout(_("Empire has been signed. The terms of the treaty are"))
@@ -3188,7 +3192,7 @@ def score():
         klship = 1
     else:
         klship = 2
-    game.score = 10*(game.inkling - game.state.remkl) \
+    game.score = 10*(game.inkling - game.remkl()) \
              + 50*(game.incom - len(game.state.kcmdr)) \
              + ithperd + iwon \
              + 20*(game.inrom - game.state.nromrem) \
@@ -3206,9 +3210,9 @@ def score():
     if game.state.nromrem and game.gamewon:
         prout(_("%6d Romulans captured                  %5d") %
               (game.state.nromrem, game.state.nromrem))
-    if game.inkling - game.state.remkl:
+    if game.inkling - game.remkl():
         prout(_("%6d ordinary Klingons destroyed        %5d") %
-              (game.inkling - game.state.remkl, 10*(game.inkling - game.state.remkl)))
+              (game.inkling - game.remkl(), 10*(game.inkling - game.remkl())))
     if game.incom - len(game.state.kcmdr):
         prout(_("%6d Klingon commanders destroyed       %5d") %
               (game.incom - len(game.state.kcmdr), 50*(game.incom - len(game.state.kcmdr))))
@@ -5115,7 +5119,7 @@ def report():
                                                       (game.inkling + game.incom + game.inscom)))
     if game.incom - len(game.state.kcmdr):
         prout(_(", including %d Commander%s.") % (game.incom - len(game.state.kcmdr), (_("s"), "")[(game.incom - len(game.state.kcmdr))==1]))
-    elif game.inkling - game.state.remkl + (game.inscom - game.state.nscrem) > 0:
+    elif game.inkling - game.remkl() + (game.inscom - game.state.nscrem) > 0:
         prout(_(", but no Commanders."))
     else:
         prout(".")
@@ -5954,7 +5958,7 @@ def choose():
     game.state.nscrem = game.inscom = (game.skill > SKILL_FAIR)
     game.state.remtime = 7.0 * game.length
     game.intime = game.state.remtime
-    game.state.remkl = game.inkling = int(2.0*game.intime*((game.skill+1 - 2*randreal())*game.skill*0.1+.15))
+    game.inkling = int(2.0*game.intime*((game.skill+1 - 2*randreal())*game.skill*0.1+.15))
     game.incom = min(MINCMDR, int(game.skill + 0.0625*game.inkling*randreal()))
     game.state.remres = (game.inkling+4*game.incom)*game.intime
     game.inresor = game.state.remres
@@ -6027,7 +6031,7 @@ def newqad():
             e = game.enemies[0]
             game.quad[e.location.i][e.location.j] = 'S'
             e.power = randreal(1175.0,  1575.0) + 125.0*game.skill
-            game.iscate = (game.state.remkl > 1)
+            game.iscate = (game.remkl() > 1)
     # Put in Romulans if needed
     for _i in range(q.romulans):
         Enemy('R', loc=dropin(), power=randreal(400.0,850.0)+50.0*game.skill)
