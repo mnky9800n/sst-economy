@@ -20,8 +20,8 @@ sst.6: doc/sst.xml
 sst.html: doc/sst.xml
 	cd doc; xmlto html-nochunks sst.xml; mv sst.html ..
 
-sst-$(VERS).tar.gz: $(SOURCES) sst.6
-	tar --transform='s:^:sst-$(VERS)/:' --show-transformed-names -cvzf cvs-fast-export-$(VERS).tar.gz $(SOURCES) sst.6
+super-star-trek-$(VERS).tar.gz: $(SOURCES) sst.6
+	tar --transform='s:^:super-star-trek-$(VERS)/:' --show-transformed-names -cvzf super-star-trek-$(VERS).tar.gz $(SOURCES) sst.6
 
 dist: sst-$(VERS).tar.gz
 
