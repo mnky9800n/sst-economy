@@ -86,8 +86,6 @@ class Coord:
         return self.i >= 0 and self.i < QUADSIZE and self.j >= 0 and self.j < QUADSIZE
     def invalidate(self):
         self.i = self.j = None
-    def is_valid(self):
-        return self.i != None and self.j != None
     def __eq__(self, other):
         return other != None and self.i == other.i and self.j == other.j
     def __ne__(self, other):
@@ -3855,7 +3853,7 @@ def dock(verbose):
     if game.inorbit:
         prout(_("You must first leave standard orbit."))
         return
-    if not game.base.is_valid() or abs(game.sector.i-game.base.i) > 1 or abs(game.sector.j-game.base.j) > 1:
+    if game.base is None or abs(game.sector.i-game.base.i) > 1 or abs(game.sector.j-game.base.j) > 1:
         prout(crmshp() + _(" not adjacent to base."))
         return
     if game.iscloaked:
@@ -4491,7 +4489,7 @@ def mayday():
             # found one -- finish up
             game.sector = w
             break
-    if not game.sector.is_valid():
+    if game.sector is None:
         prout(_("You have been lost in space..."))
         finish(FMATERIALIZE)
         return
@@ -4671,7 +4669,7 @@ def orbit():
     if damaged(DWARPEN) and damaged(DIMPULS):
         prout(_("Both warp and impulse engines damaged."))
         return
-    if not game.plnet.is_valid():
+    if game.plnet is None:
         prout("There is no planet in this sector.")
         return
     if abs(game.sector.i-game.plnet.i)>1 or abs(game.sector.j-game.plnet.j)>1:

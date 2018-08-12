@@ -1,5 +1,8 @@
 			SST2K project news.
 
+Repository head:
+    Crash bug fix when docking with no starbase in sector.
+
 2.2 @ 2017-03-01
     Added color. Added BSD Trek 'CAPTURE' and 'CLOAK' (from Tom Almy's
     2013 changes).  Many bug fixes.
