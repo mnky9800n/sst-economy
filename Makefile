@@ -8,7 +8,7 @@ BINDIR=/usr/bin
 DOCS    = README COPYING NEWS doc/HACKING doc/sst-doc.xml doc/sst-layer.xsl doc/sst.xml
 SOURCES = sst.py Makefile replay doc/makehelp.py control $(DOCS)
 
-all: sst-$(VERS).tar.gz
+all: super-star-trek-$(VERS).tar.gz
 
 install: sst.6
 	cp sst.py $(BINDIR)
