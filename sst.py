@@ -430,7 +430,7 @@ class Gamestate:
         self.state.remtime = self.state.remres/(self.remkl() + 4*len(self.state.kcmdr))
     def unwon(self):
         "Are there Klingons remaining?"
-        return self.remkl() + len(self.state.kcmdr) + self.state.nscrem
+        return self.remkl()
 
 FWON = 0
 FDEPLETE = 1
@@ -3189,7 +3189,8 @@ def score():
         klship = 1
     else:
         klship = 2
-    game.score = 10*(game.inkling - game.remkl()) \
+    dead_ordinaries= game.inkling - game.remkl() + len(game.state.kcmdr) + game.state.nscrem
+    game.score = 10*(dead_ordinaries)\
              + 50*(game.incom - len(game.state.kcmdr)) \
              + ithperd + iwon \
              + 20*(game.inrom - game.state.nromrem) \
@@ -3207,9 +3208,9 @@ def score():
     if game.state.nromrem and game.gamewon:
         prout(_("%6d Romulans captured                  %5d") %
               (game.state.nromrem, game.state.nromrem))
-    if game.inkling - game.remkl():
+    if dead_ordinaries:
         prout(_("%6d ordinary Klingons destroyed        %5d") %
-              (game.inkling - game.remkl(), 10*(game.inkling - game.remkl())))
+              (dead_ordinaries, 10*dead_ordinaries))
     if game.incom - len(game.state.kcmdr):
         prout(_("%6d Klingon commanders destroyed       %5d") %
               (game.incom - len(game.state.kcmdr), 50*(game.incom - len(game.state.kcmdr))))
