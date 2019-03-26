@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 """
 sst.py -- Super Star Trek 2K
 
@@ -996,16 +996,16 @@ def cloak():
         if game.condition == "docked":
             prout(_("You cannot cloak while docked."))
 
-	if game.state.date >= ALGERON and not game.isviolreported:
+        if game.state.date >= ALGERON and not game.isviolreported:
             prout(_("Spock- \"Captain, using the cloaking device is a violation"))
             prout(_("  of the Treaty of Algeron. Considering the alternatives,"))
             proutn(_("  are you sure this is wise? "))
             if not ja():
                 return
-	prout(_("Engineer Scott- \"Cloaking device has engaging, Sir...\""))
+        prout(_("Engineer Scott- \"Cloaking device has engaging, Sir...\""))
         attack(True)
-	prout(_("Engineer Scott- \"Cloaking device has engaged, Sir.\""))
-	game.iscloaked = True
+        prout(_("Engineer Scott- \"Cloaking device has engaged, Sir.\""))
+        game.iscloaked = True
 
         if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
             prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
@@ -2591,7 +2591,7 @@ def events():
             q.klingons += 1
             if game.quadrant == w:
                 game.klhere += 1
-                game.enemies.append(newkling())
+                newkling() # also adds it to game.enemies
             # recompute time left
             game.recompute()
             if communicating():
@@ -2937,9 +2937,9 @@ def kaboom():
     skip(1)
     if len(game.enemies) != 0:
         whammo = 25.0 * game.energy
-        for l in range(len(game.enemies)):
-            if game.enemies[l].power*game.enemies[l].kdist <= whammo:
-                deadkl(game.enemies[l].location, game.quad[game.enemies[l].location.i][game.enemies[l].location.j], game.enemies[l].location)
+        for e in game.enemies[::-1]:
+            if e.power*e.kdist <= whammo:
+                deadkl(e.location, game.quad[e.location.i][e.location.j], e.location)
     finish(FDILITHIUM)
 
 def killrate():
@@ -5018,7 +5018,7 @@ def deathray():
         prouts(_("Sulu- \"Captain!  It's working!\""))
         skip(2)
         while len(game.enemies) > 0:
-            deadkl(game.enemies[1].location, game.quad[game.enemies[1].location.i][game.enemies[1].location.j],game.enemies[1].location)
+            deadkl(game.enemies[-1].location, game.quad[game.enemies[-1].location.i][game.enemies[-1].location.j],game.enemies[-1].location)
         prout(_("Ensign Chekov-  \"Congratulations, Captain!\""))
         if game.unwon() == 0:
             finish(FWON)
