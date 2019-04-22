@@ -1,19 +1,19 @@
 			SST2K project news.
 
-2.3 @ 2018-08-12
+2.3: 2018-08-12::
     Crash bug fix when docking with no starbase in sector.
 
-2.2 @ 2017-03-01
+2.2: 2017-03-01::
     Added color. Added BSD Trek 'CAPTURE' and 'CLOAK' (from Tom Almy's
     2013 changes).  Many bug fixes.
 
-2.1 @ 2012-02-16
+2.1: 2012-02-16::
     Packaging fixes, pychecker cleanup, cope with Freshmeat name changes.
 
-2.0 @ 2010-11-30
+2.0: 2010-11-30::
     Game code moved to Python. Many bug fixes.
 
-1.0 @ 2004-06-06
+1.0: 2004-06-06::
     Initial release.
 
 
