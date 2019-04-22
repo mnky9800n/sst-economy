@@ -11,6 +11,8 @@ Stas Sergeev, and Eric S. Raymond.
 See the doc/HACKING file in the distribution for designers notes and advice
 on how to modify (and how not to modify!) this code.
 """
+from __future__ import print_function, division
+
 import os, sys, math, curses, time, pickle, random, copy, gettext, getpass
 import getopt, socket, locale
 
@@ -100,10 +102,16 @@ class Coord:
         return Coord(self.i*other, self.j*other)
     def __div__(self, other):
         return Coord(self.i/other, self.j/other)
+    def __truediv__(self, other):
+        return Coord(self.i/other, self.j/other)
+    def __floordiv__(self, other):
+        return Coord(self.i//other, self.j//other)
     def __mod__(self, other):
         return Coord(self.i % other, self.j % other)
-    def __rdiv__(self, other):
+    def __rtruediv__(self, other):
         return Coord(self.i/other, self.j/other)
+    def __rfloordiv__(self, other):
+        return Coord(self.i//other, self.j//other)
     def roundtogrid(self):
         return Coord(int(round(self.i)), int(round(self.j)))
     def distance(self, other=None):
@@ -116,16 +124,20 @@ class Coord:
         s = Coord()
         if self.i == 0:
             s.i = 0
+        elif s.i < 0:
+            s.i =-1
         else:
-            s.i = self.i / abs(self.i)
+            s.i = 1
         if self.j == 0:
             s.j = 0
+        elif s.j < 0:
+            s.j = -1
         else:
-            s.j = self.j / abs(self.j)
+            s.j = 1
         return s
     def quadrant(self):
         #print "Location %s -> %s" % (self, (self / QUADSIZE).roundtogrid())
-        return self.roundtogrid() / QUADSIZE
+        return self.roundtogrid() // QUADSIZE
     def sector(self):
         return self.roundtogrid() % QUADSIZE
     def scatter(self):
