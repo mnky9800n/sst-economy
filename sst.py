@@ -338,7 +338,7 @@ FSCMOVE = 6        # Supercommander moves (might attack base)
 FSCDBAS = 7        # Supercommander destroys base
 FDSPROB = 8        # Move deep space probe
 FDISTR  = 9        # Emit distress call from an inhabited world
-FENSLV  = 10       # Inhabited word is enslaved */
+FENSLV  = 10       # Inhabited word is enslaved
 FREPRO  = 11       # Klingons build a ship in an enslaved system
 NEVENTS = 12
 
@@ -2142,7 +2142,7 @@ def capture():
     game.ididit = False # Nothing if we fail
     game.optime = 0.0
 
-    # Make sure there is room in the brig */
+    # Make sure there is room in the brig
     if game.brigfree == 0:
         prout(_("Security reports the brig is already full."))
         return
@@ -2160,7 +2160,7 @@ def capture():
         prout(_("Uhura- \"Getting no response, sir.\""))
         return
 
-    # if there is more than one Klingon, find out which one */
+    # if there is more than one Klingon, find out which one
     #	Cruddy, just takes one at random.  Should ask the captain.
     #	Nah, just select the weakest one since it is most likely to
     #	surrender (Tom Almy mod)
@@ -2176,12 +2176,12 @@ def capture():
     x = game.energy / (weakest.power * len(klingons))
     #prout(_("Stats: energy = %s, kpower = %s, klingons = %s")
     #      % (game.energy, weakest.power, len(klingons)))
-    x *= 2.5  # would originally have been equivalent of 1.4,
-               # but we want command to work more often, more humanely */
+    x *= 2.5	# would originally have been equivalent of 1.4,
+    		# but we want command to work more often, more humanely
     #prout(_("Prob = %.4f" % x))
     #	x = 100; // For testing, of course!
     if x < rnd.real(100):
-        # guess what, he surrendered!!! */
+        # guess what, he surrendered!!!
         prout(_("Klingon captain at %s surrenders.") % weakest.location)
         i = rnd.real(200)
         if i > 0:
@@ -2196,7 +2196,7 @@ def capture():
             finish(FWON)
         return
 
-	# big surprise, he refuses to surrender */
+	# big surprise, he refuses to surrender
     prout(_("Fat chance, captain!"))
 
 # Code from events.c begins here.
