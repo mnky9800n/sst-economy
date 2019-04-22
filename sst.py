@@ -2862,7 +2862,9 @@ def supernova(w):
         game.iscate = False
         unschedule(FSCMOVE)
         unschedule(FSCDBAS)
-    survivors = filter(lambda w: w != nq, game.state.kcmdr)
+    # Changing this to [w for w in game.state.kcmdr if w != nq]
+    # causes regression-test failure
+    survivors = list(filter(lambda w: w != nq, game.state.kcmdr))
     comkills = len(game.state.kcmdr) - len(survivors)
     game.state.kcmdr = survivors
     if not game.state.kcmdr:
