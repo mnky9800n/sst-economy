@@ -483,6 +483,9 @@ def randreal(*args):
         v = args[0] + v*(args[1]-args[0])        # from [args[0], args[1])
     return v
 
+def randseed(n):
+    random.seed(n)
+
 # Code from ai.c begins here
 
 def welcoming(iq):
@@ -5888,9 +5891,9 @@ def choose():
                 scanner.chew()
                 continue # We don't want a blank entry
             game.tourn = int(round(scanner.real))
-            random.seed(scanner.real)
+            randseed(scanner.real)
             if logfp:
-                logfp.write("# random.seed(%d)\n" % scanner.real)
+                logfp.write("# randseed(%d)\n" % scanner.real)
             break
         if scanner.sees("saved") or scanner.sees("frozen"):
             if thaw():
@@ -6657,6 +6660,7 @@ if __name__ == '__main__':
         game = None
         thing = Thingy()
         game = Gamestate()
+        logfp = None
         game.options = OPTION_ALL &~ (OPTION_IOMODES | OPTION_PLAIN | OPTION_ALMY)
         if os.getenv("TERM"):
             game.options |= OPTION_CURSES
@@ -6716,7 +6720,7 @@ if __name__ == '__main__':
             logfp.write("# SST2K version %s\n" % version)
             logfp.write("# recorded by %s@%s on %s\n" % \
                     (getpass.getuser(),socket.gethostname(),time.ctime()))
-        random.seed(seed)
+        randseed(seed)
         scanner = sstscanner()
         for arg in arguments:
             scanner.append(arg)
