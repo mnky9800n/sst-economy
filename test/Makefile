@@ -1,6 +1,6 @@
 # Test-suite makefile for sst
 
-PYTHON=python
+PYTHON=python2
 
 all: regress
 	@echo "No diff output is good news."
