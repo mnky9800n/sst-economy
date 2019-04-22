@@ -31,9 +31,6 @@ dist: sst-$(VERS).tar.gz
 check: #pylint
 	cd test; make --quiet
 
-pychecker:
-	@-pychecker --quiet --only --limit 50 sst.py
-
 COMMON_PYLINT = --rcfile=/dev/null --reports=n \
 	--msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" \
 	--dummy-variables-rgx='^_'
