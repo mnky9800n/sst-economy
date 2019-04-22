@@ -89,7 +89,7 @@ class Coord:
     def invalidate(self):
         self.i = self.j = None
     def __eq__(self, other):
-        return other != None and self.i == other.i and self.j == other.j
+        return other is not None and self.i == other.i and self.j == other.j
     def __ne__(self, other):
         return other is None or self.i != other.i or self.j != other.j
     def __add__(self, other):
@@ -382,7 +382,7 @@ class Gamestate:
         self.thawed = False        # thawed game
         self.condition = None        # "green", "yellow", "red", "docked", "dead"
         self.iscraft = None        # "onship", "offship", "removed"
-        self.skill = None        # Player skill level
+        self.skill = SKILL_NONE        # Player skill level
         self.inkling = 0        # initial number of klingons
         self.inbase = 0                # initial number of bases
         self.incom = 0                # initial number of commanders
@@ -423,6 +423,7 @@ class Gamestate:
         self.score = 0.0        # overall score
         self.perdate = 0.0        # rate of kills
         self.idebug = False        # Debugging instrumentation enabled?
+        self.cdebug = False        # Debugging instrumentation for curses enabled?
         self.statekscmdr = None # No SuperCommander coordinates yet.
         self.brigcapacity = 400     # Enterprise brig capacity
         self.brigfree = 400       # How many klingons can we put in the brig?
@@ -947,7 +948,7 @@ def movetholian():
 def cloak():
     "Change cloaking-device status."
     if game.ship == 'F':
-        prout(_("Ye Faerie Queene hath no cloaking device."));
+        prout(_("Ye Faerie Queene hath no cloaking device."))
         return
 
     key = scanner.nexttok()
@@ -982,28 +983,28 @@ def cloak():
             if not ja():
                 return
             action = "CLOFF"
-    if action == None:
-        return;
+    if action is None:
+        return
 
     if action == "CLOFF":
         if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
             prout(_("Spock- \"Captain, the Treaty of Algeron is in effect.\n   Are you sure this is wise?\""))
             if not ja():
-                return;
-        prout("Engineer Scott- \"Aye, Sir.\"");
-        game.iscloaked = False;
+                return
+        prout("Engineer Scott- \"Aye, Sir.\"")
+        game.iscloaked = False
         if game.irhere and game.state.date >= ALGERON and not game.isviolreported:
             prout(_("The Romulan ship discovers you are breaking the Treaty of Algeron!"))
             game.ncviol += 1
             game.isviolreported = True
 
             #if (neutz and game.state.date >= ALGERON) finish(FCLOAK);
-            return;
+            return
 
     if action == "CLON":
         if damaged(DCLOAK):
             prout(_("Engineer Scott- \"The cloaking device is damaged, Sir.\""))
-            return;
+            return
 
         if game.condition == "docked":
             prout(_("You cannot cloak while docked."))
@@ -1298,8 +1299,8 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                         enemy.location = bumpto
                         game.quad[w.i][w.j] = '.'
                         game.quad[bumpto.i][bumpto.j] = iquad
-                        for enemy in game.enemies:
-                            enemy.kdist = enemy.kavgd = (game.sector-enemy.location).distance()
+                        for tenemy in game.enemies:
+                            tenemy.kdist = tenemy.kavgd = (game.sector-tenemy.location).distance()
                         sortenemies()
                     break
             else:
@@ -2115,12 +2116,12 @@ def phasers():
 
 def capture():
     game.ididit = False # Nothing if we fail
-    game.optime = 0.0;
+    game.optime = 0.0
 
     # Make sure there is room in the brig */
     if game.brigfree == 0:
         prout(_("Security reports the brig is already full."))
-        return;
+        return
 
     if damaged(DRADIO):
         prout(_("Uhura- \"We have no subspace radio communication, sir.\""))
@@ -2150,7 +2151,7 @@ def capture():
     # x = 300 + 25*skill;
     x = game.energy / (weakest.power * len(klingons))
     #prout(_("Stats: energy = %s, kpower = %s, klingons = %s")
-    #      % (game.energy, weakest.power, len(klingons))) 
+    #      % (game.energy, weakest.power, len(klingons)))
     x *= 2.5  # would originally have been equivalent of 1.4,
                # but we want command to work more often, more humanely */
     #prout(_("Prob = %.4f" % x))
@@ -2162,7 +2163,7 @@ def capture():
         if i > 0:
             prout(_("%d Klingons commit suicide rather than be taken captive.") % (200 - i))
         if i > game.brigfree:
-            prout(_("%d Klingons die because there is no room for them in the brig.") % (i-brigfree))
+            prout(_("%d Klingons die because there is no room for them in the brig.") % (i-game.brigfree))
             i = game.brigfree
         game.brigfree -= i
         prout(_("%d captives taken") % i)
@@ -2612,7 +2613,7 @@ def events():
                     prout(_("launched a warship from %s.") % q.planet)
                 else:
                     prout(_("Uhura- Starfleet reports increased Klingon activity"))
-                    if q.planet != None:
+                    if q.planet is not None:
                         proutn(_("near %s ") % q.planet)
                     prout(_("in Quadrant %s.") % w)
 
@@ -2803,7 +2804,7 @@ def nova(nov):
 def supernova(w):
     "Star goes supernova."
     num = 0; npdead = 0
-    if w != None:
+    if w is not None:
         nq = copy.copy(w)
     else:
         # Scheduled supernova -- select star at random.
@@ -2865,7 +2866,7 @@ def supernova(w):
     # Changing this to [w for w in game.state.kcmdr if w != nq]
     # causes regression-test failure
     survivors = list(filter(lambda w: w != nq, game.state.kcmdr))
-    comkills = len(game.state.kcmdr) - len(survivors)
+    #comkills = len(game.state.kcmdr) - len(survivors)
     game.state.kcmdr = survivors
     if not game.state.kcmdr:
         unschedule(FTBEAM)
@@ -2881,7 +2882,7 @@ def supernova(w):
     # Destroy any base in supernovaed quadrant
     game.state.baseq = [x for x in game.state.baseq if x != nq]
     # If starship caused supernova, tally up destruction
-    if w != None:
+    if w is not None:
         game.state.starkl += game.state.galaxy[nq.i][nq.j].stars
         game.state.basekl += game.state.galaxy[nq.i][nq.j].starbase
         game.state.nplankl += npdead
@@ -3262,11 +3263,11 @@ def score():
         prout(_("%6d ship(s) lost or destroyed          %5d") %
               (klship, -100*klship))
     if game.ncviol > 0:
-        if ncviol == 1:
+        if game.ncviol == 1:
             prout(_("1 Treaty of Algeron violation          -100"))
         else:
             prout(_("%6d Treaty of Algeron violations       %5d\n") %
-                  (ncviol, -100*ncviol))
+                  (game.ncviol, -100*game.ncviol))
     if not game.alive:
         prout(_("Penalty for getting yourself killed        -200"))
     if game.gamewon:
@@ -3448,9 +3449,8 @@ def proutn(proutntline):
         if curwnd == message_window and y >= my - 2:
             pause_game()
             clrscr()
-        # Uncomment this to debug curses problems
-        #if logfp:
-        #    logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(proutntline)))
+        if logfp and game.cdebug:
+            logfp.write("#curses: at %s proutn(%s)\n" % ((y, x), repr(proutntline)))
         curwnd.addstr(proutntline)
         curwnd.refresh()
     else:
@@ -3504,8 +3504,7 @@ def setwnd(wnd):
     "Change windows -- OK for this to be a no-op in tty mode."
     global curwnd
     if game.options & OPTION_CURSES:
-        # Uncomment this to debug curses problems
-        if logfp:
+        if game.cdebug and logfp:
             if wnd == fullscreen_window:
                 legend = "fullscreen"
             elif wnd == srscan_window:
@@ -3522,7 +3521,7 @@ def setwnd(wnd):
                 legend = "prompt"
             else:
                 legend = "unknown"
-            #logfp.write("#curses: setwnd(%s)\n" % legend)
+            logfp.write("#curses: setwnd(%s)\n" % legend)
         curwnd = wnd
         # Some curses implementations get confused when you try this.
         try:
@@ -3823,7 +3822,6 @@ def imove(icourse=None, noattack=False):
             # We can't be tractor beamed if cloaked,
             # so move the event into the future
             postpone(FTBEAM, game.optime + expran(1.5*game.intime/len(game.kcmdr)))
-            pass
         else:
             trbeam = True
             game.condition = "red"
@@ -4578,7 +4576,7 @@ def abandon():
         if not (game.options & OPTION_WORLDS) and not damaged(DTRANSP):
             prout(_("Remainder of ship's complement beam down"))
             prout(_("to nearest habitable planet."))
-        elif q.planet != None and not damaged(DTRANSP):
+        elif q.planet is not None and not damaged(DTRANSP):
             prout(_("Remainder of ship's complement beam down to %s.") %
                   q.planet)
         else:
@@ -5154,7 +5152,7 @@ def report():
     if game.casual:
         prout(_("%d casualt%s suffered so far.") % (game.casual, ("y", "ies")[game.casual!=1]))
     if game.brigcapacity != game.brigfree:
-        embriggened = brigcapacity-brigfree
+        embriggened = game.brigcapacity-game.brigfree
         if embriggened == 1:
             prout(_("1 Klingon in brig"))
         else:
@@ -5311,7 +5309,7 @@ def sectscan(goodScan, i, j):
                        'C':LIGHTRED,
                        'R':LIGHTRED,
                        'T':LIGHTRED,
-                       }.get(game.quad[i][j], DEFAULT))
+                      }.get(game.quad[i][j], DEFAULT))
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
     else:
@@ -5582,7 +5580,7 @@ def thaw():
         fp = open(scanner.token, "rb")
     except IOError:
         prout(_("Can't thaw game in %s") % scanner.token)
-        return
+        return True
     game = pickle.load(fp)
     fp.close()
     scanner.chew()
@@ -5868,7 +5866,7 @@ def setup():
     clrscr()
     setwnd(message_window)
     newqad()
-    if len(game.enemies) - (thing == game.quadrant) - (game.tholian != None):
+    if len(game.enemies) - (thing == game.quadrant) - (game.tholian is not None):
         game.shldup = True
     if game.neutz:        # bad luck to start in a Romulan Neutral Zone
         attack(torps_ok=False)
@@ -6129,7 +6127,7 @@ def setpassword():
             proutn(_("Please type in a secret password- "))
             scanner.nexttok()
             game.passwd = scanner.token
-            if game.passwd != None:
+            if game.passwd is not None:
                 break
     else:
         game.passwd = ""
@@ -6665,7 +6663,7 @@ if __name__ == '__main__':
         else:
             game.options |= OPTION_TTY
         seed = int(time.time())
-        (options, arguments) = getopt.getopt(sys.argv[1:], "r:s:txV")
+        (options, arguments) = getopt.getopt(sys.argv[1:], "cr:s:txV")
         replay = False
         for (switch, val) in options:
             if switch == '-r':
@@ -6694,6 +6692,8 @@ if __name__ == '__main__':
                 game.options &=~ OPTION_CURSES
             elif switch == '-x':
                 game.idebug = True
+            elif switch == '-c':	# Enable curses debugging - undocumented
+                game.cdebug = True
             elif switch == '-V':
                 print("SST2K", version)
                 raise SystemExit(0)
