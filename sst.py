@@ -45,11 +45,17 @@ import random
 class randomizer:
     @staticmethod
     def withprob(p):
-        return random.random() < p
+        b = random.random() < p
+        if logfp:
+            logfp.write("#withprob(%.2f) -> %s\n" % (p, b))
+        return b
 
     @staticmethod
     def randrange(*args):
-        return random.randrange(*args)
+        s = random.randrange(*args)
+        if logfp:
+            logfp.write("#randrange%s -> %s\n" % (args, s))
+        return s
 
     @staticmethod
     def real(*args):
@@ -58,10 +64,14 @@ class randomizer:
             v *= args[0]                 # from [0, args[0])
         elif len(args) == 2:
             v = args[0] + v*(args[1]-args[0])        # from [args[0], args[1])
+        if logfp:
+            logfp.write("#real%s -> %f\n" % (args, v))
         return v
 
     @staticmethod
     def seed(n):
+        if logfp:
+            logfp.write("#seed(%d)\n" % n)
         random.seed(n)
 
 GALSIZE 	= 8		# Galaxy size in quadrants
