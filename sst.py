@@ -2775,7 +2775,8 @@ def nova(nov):
                         finish(FNOVA)
                         return
                     # add in course nova contributes to kicking starship
-                    bump += (game.sector-hits[-1]).sgn()
+                    if hits:
+                        bump += (game.sector-hits[-1]).sgn()
                 elif iquad == 'K': # kill klingon
                     deadkl(neighbor, iquad, neighbor)
                 elif iquad in ('C','S','R'): # Damage/destroy big enemies
