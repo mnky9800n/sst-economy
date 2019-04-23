@@ -518,8 +518,8 @@ def welcoming(iq):
 def tryexit(enemy, look, irun):
     "A bad guy attempts to bug out."
     iq = Coord()
-    iq.i = game.quadrant.i+(look.i+(QUADSIZE-1))/QUADSIZE - 1
-    iq.j = game.quadrant.j+(look.j+(QUADSIZE-1))/QUADSIZE - 1
+    iq.i = game.quadrant.i+(look.i+(QUADSIZE-1))//QUADSIZE - 1
+    iq.j = game.quadrant.j+(look.j+(QUADSIZE-1))//QUADSIZE - 1
     if not welcoming(iq):
         return False
     if enemy.type == 'R':
@@ -604,7 +604,7 @@ def movebaddy(enemy):
     irun = False
     # This should probably be just (game.quadrant in game.state.kcmdr) + (game.state.kscmdr==game.quadrant)
     if game.skill >= SKILL_EXPERT:
-        nbaddys = (((game.quadrant in game.state.kcmdr)*2 + (game.state.kscmdr==game.quadrant)*2+game.klhere*1.23+game.irhere*1.5)/2.0)
+        nbaddys = int(((game.quadrant in game.state.kcmdr)*2 + (game.state.kscmdr==game.quadrant)*2+game.klhere*1.23+game.irhere*1.5)/2.0)
     else:
         nbaddys = (game.quadrant in game.state.kcmdr) + (game.state.kscmdr==game.quadrant)
     old_dist = enemy.kdist
@@ -1211,7 +1211,7 @@ def collision(rammed, enemy):
     # In the pre-SST2K version, all devices got equiprobably damaged,
     # which was silly.  Instead, pick up to half the devices at
     # random according to our weighting table,
-    ncrits = rnd.randrange(NDEVICES/2)
+    ncrits = rnd.randrange(NDEVICES//2)
     while ncrits > 0:
         ncrits -= 1
         dev = randdevice()
