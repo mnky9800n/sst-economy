@@ -38,20 +38,20 @@ def _(st):
 
 # This is all encapsulated not just for logging but because someday
 # we'll probably want to replace it with something like an LCG that
-# can be forward-ported off Python
+# can be forward-ported off Python.
 
 import random
 
 class randomizer:
     @staticmethod
     def withprob(p):
-        b = random.random() < p
+        v = random.random()
         if logfp:
-            logfp.write("#withprob(%.2f) -> %s\n" % (p, b))
-        return b
+            logfp.write("#withprob(%.2f) -> %s\n" % (p, v < p))
+        return v < p
 
     @staticmethod
-    def randrange(*args):
+    def integer(*args):
         s = random.randrange(*args)
         if logfp:
             logfp.write("#randrange%s -> %s\n" % (args, s))
@@ -1177,7 +1177,7 @@ def randdevice():
         10,        # DCLOAK: the cloaking device            1.0
     )
     assert(sum(weights) == 1000)
-    idx = rnd.randrange(1000)
+    idx = rnd.integer(1000)
     wsum = 0
     for (i, w) in enumerate(weights):
         wsum += w
@@ -1204,14 +1204,14 @@ def collision(rammed, enemy):
     skip(1)
     deadkl(enemy.location, enemy.type, game.sector)
     proutn("***" + crmshp() + " heavily damaged.")
-    icas = rnd.randrange(10, 30)
+    icas = rnd.integer(10, 30)
     prout(_("***Sickbay reports %d casualties") % icas)
     game.casual += icas
     game.state.crew -= icas
     # In the pre-SST2K version, all devices got equiprobably damaged,
     # which was silly.  Instead, pick up to half the devices at
     # random according to our weighting table,
-    ncrits = rnd.randrange(NDEVICES//2)
+    ncrits = rnd.integer(NDEVICES//2)
     while ncrits > 0:
         ncrits -= 1
         dev = randdevice()
@@ -1294,7 +1294,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
             for enemy in game.enemies:
                 if w == enemy.location:
                     kp = math.fabs(enemy.power)
-                    h1 = 700.0 + rnd.randrange(100) - \
+                    h1 = 700.0 + rnd.integer(100) - \
                         1000.0 * (w-origin).distance() * math.fabs(math.sin(bullseye-track.angle))
                     h1 = math.fabs(h1)
                     if kp < h1:
@@ -1399,7 +1399,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
             prout(_("***Torpedo absorbed by Tholian web."))
             return None
         elif iquad == 'T':  # Hit a Tholian
-            h1 = 700.0 + rnd.randrange(100) - \
+            h1 = 700.0 + rnd.integer(100) - \
                 1000.0 * (w-origin).distance() * math.fabs(math.sin(bullseye-track.angle))
             h1 = math.fabs(h1)
             if h1 >= 600:
@@ -1618,7 +1618,7 @@ def attack(torps_ok):
     prout(_("%d%%,   torpedoes left %d") % (percent, game.torps))
     # Check if anyone was hurt
     if hitmax >= 200 or hittot >= 500:
-        icas = rnd.randrange(int(hittot * 0.015))
+        icas = rnd.integer(int(hittot * 0.015))
         if icas >= 2:
             skip(1)
             prout(_("Mc Coy-  \"Sickbay to bridge.  We suffered %d casualties") % icas)
@@ -1825,7 +1825,7 @@ def checkshctrl(rpow):
     prouts(_("Sulu-  \"Captain! Shield malfunction! Phaser fire contained!\""))
     skip(2)
     prout(_("Lt. Uhura-  \"Sir, all decks reporting damage.\""))
-    icas = rnd.randrange(int(hit*0.012))
+    icas = rnd.integer(int(hit*0.012))
     skip(1)
     fry(0.8*hit)
     if icas:
@@ -2437,7 +2437,7 @@ def events():
             if not game.state.kcmdr:
                 unschedule(FTBEAM)
                 continue
-            i = rnd.randrange(len(game.state.kcmdr))
+            i = rnd.integer(len(game.state.kcmdr))
             yank = (game.state.kcmdr[i]-game.quadrant).distance()
             if istract or game.condition == "docked" or game.iscloaked or yank == 0:
                 # Drats! Have to reschedule
@@ -2839,7 +2839,7 @@ def supernova(w):
                 nstars += game.state.galaxy[nq.i][nq.j].stars
         if stars == 0:
             return # nothing to supernova exists
-        num = rnd.randrange(nstars) + 1
+        num = rnd.integer(nstars) + 1
         for nq.i in range(GALSIZE):
             for nq.j in range(GALSIZE):
                 num -= game.state.galaxy[nq.i][nq.j].stars
@@ -2860,7 +2860,7 @@ def supernova(w):
     else:
         ns = Coord()
         # we are in the quadrant!
-        num = rnd.randrange(game.state.galaxy[nq.i][nq.j].stars) + 1
+        num = rnd.integer(game.state.galaxy[nq.i][nq.j].stars) + 1
         for ns.i in range(QUADSIZE):
             for ns.j in range(QUADSIZE):
                 if game.quad[ns.i][ns.j]=='*':
@@ -4614,7 +4614,7 @@ def abandon():
         game.nprobes = 0 # No probes
         prout(_("You are captured by Klingons and released to"))
         prout(_("the Federation in a prisoner-of-war exchange."))
-        nb = rnd.randrange(len(game.state.baseq))
+        nb = rnd.integer(len(game.state.baseq))
         # Set up quadrant and position FQ adjacient to base
         if not game.quadrant == game.state.baseq[nb]:
             game.quadrant = game.state.baseq[nb]
@@ -5699,7 +5699,7 @@ def setup():
     game.quadrant = randplace(GALSIZE)
     game.sector = randplace(QUADSIZE)
     game.torps = game.intorps = 10
-    game.nprobes = rnd.randrange(2, 5)
+    game.nprobes = rnd.integer(2, 5)
     game.warpfac = 5.0
     for i in range(NDEVICES):
         game.damage[i] = 0.0
@@ -5732,7 +5732,7 @@ def setup():
         for j in range(GALSIZE):
             # Can't have more stars per quadrant than fit in one decimal digit,
             # if we do the chart representation will break.
-            k = rnd.randrange(1, min(10, QUADSIZE**2/10))
+            k = rnd.integer(1, min(10, QUADSIZE**2/10))
             game.instar += k
             game.state.galaxy[i][j].stars = k
     # Locate star bases in galaxy
@@ -5809,7 +5809,7 @@ def setup():
             new.name = systnames[i]
             new.inhabited = True
         else:
-            new.pclass = ("M", "N", "O")[rnd.randrange(0, 3)]
+            new.pclass = ("M", "N", "O")[rnd.integer(0, 3)]
             if rnd.withprob(0.33):
                 new.crystals = "present"
             new.known = "unknown"
@@ -5982,13 +5982,13 @@ def choose():
         prout("=== Debug mode enabled.")
     # Use parameters to generate initial values of things
     game.damfac = 0.5 * game.skill
-    game.inbase = rnd.randrange(BASEMIN, BASEMAX+1)
+    game.inbase = rnd.integer(BASEMIN, BASEMAX+1)
     game.inplan = 0
     if game.options & OPTION_PLANETS:
-        game.inplan += rnd.randrange(MAXUNINHAB/2, MAXUNINHAB+1)
+        game.inplan += rnd.integer(MAXUNINHAB/2, MAXUNINHAB+1)
     if game.options & OPTION_WORLDS:
         game.inplan += int(NINHAB)
-    game.state.nromrem = game.inrom = rnd.randrange(2 * game.skill)
+    game.state.nromrem = game.inrom = rnd.integer(2 * game.skill)
     game.state.nscrem = game.inscom = (game.skill > SKILL_FAIR)
     game.state.remtime = 7.0 * game.length
     game.intime = game.state.remtime
@@ -6111,7 +6111,7 @@ def newqad():
                 if game.quad[w.i][w.j] == '.':
                     break
             game.tholian = Enemy(etype='T', loc=w,
-                                 power=rnd.randrange(100, 500) + 25.0*game.skill)
+                                 power=rnd.integer(100, 500) + 25.0*game.skill)
             # Reserve unoccupied corners
             if game.quad[0][0]=='.':
                 game.quad[0][0] = 'X'
@@ -6155,9 +6155,9 @@ def setpassword():
                 break
     else:
         game.passwd = ""
-        game.passwd += chr(ord('a')+rnd.randrange(26))
-        game.passwd += chr(ord('a')+rnd.randrange(26))
-        game.passwd += chr(ord('a')+rnd.randrange(26))
+        game.passwd += chr(ord('a')+rnd.integer(26))
+        game.passwd += chr(ord('a')+rnd.integer(26))
+        game.passwd += chr(ord('a')+rnd.integer(26))
 
 # Code from sst.c begins here
 
@@ -6495,8 +6495,8 @@ def expran(avrage):
 def randplace(size):
     "Choose a random location."
     w = Coord()
-    w.i = rnd.randrange(size)
-    w.j = rnd.randrange(size)
+    w.i = rnd.integer(size)
+    w.j = rnd.integer(size)
     return w
 
 class sstscanner:
