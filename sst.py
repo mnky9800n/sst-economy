@@ -38,7 +38,8 @@ def _(st):
 
 # This is all encapsulated not just for logging but because someday
 # we'll probably want to replace it with something like an LCG that
-# can be forward-ported off Python.
+# can be forward-ported off Python.  Thee only function we need is one to
+# return a variate uniformly-distributed over [0, 1).
 
 import random
 
