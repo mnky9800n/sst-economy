@@ -1,26 +1,47 @@
-# seed 1329869600
-# options 
-# SST2K version 2.1
-# recorded by esr@snark on Tue Feb 21 19:13:20 2012
-# Tests tractor beam and supernova
-r
-s
+# seed 1556102474
+# options regular short good fancy
+# SST2K version 2.4
+# Test Tholian boxing us in followed by death by tractor beam
+# recorded by esr@snark on Wed Apr 24 09:48:31 2019
+chart
+sh down
+m a 3 1 1 10
+m a 10 10
+sh up
+m a 4 1 1 10
+laser auto
+p a
+1883
+p a
+600
+m a 9 10
+torp 1 9 1
+chart
+sh down
+m 4 2 1 10
+chart
+rep
+sh up
+m 3 5 1 10
+sh down
+m 3 5 1 10
+sh up
+torp 2 8 2 4 9
+p a
+1771
+0
+m 8 8
+warp 2
+m a 8 8
+torp 2 10 1
+m a 4 8 1 5
 n
+m a 4 8 1 5
 
-
-move aut 4 1
-
-move aut 7 1 5 5
-torp 2
-7 4
-7 5
-phasers
-a
-300
-
-m 7 7 5 5
-
-m 2 5 2 2
-
-move 5 8 10 1
-quit
+n
+torp 2 8 3
+lrscan
+srscan
+chart
+m a 4 8 1 6
+y

@@ -1,12 +1,14 @@
-# seed 1329775764
-# options 
-# recorded by esr@snark on Mon Feb 20 17:09:24 2012
-# Tests auto phaser fire
-r
-s
-g
-f
-phasers
-auto
-4800
+# seed 1556101787
+# options regular short good fancy
+# SST2K version 2.4
+# Test critical hit on sensors
+# recorded by esr@snark on Wed Apr 24 06:29:47 2019
+chart
+m a 3 6
+m a 7 8 10 20
+m a 7 8 10 10
+chart
+m a 1 10
+m a 6 8 10 10
 quit
+n

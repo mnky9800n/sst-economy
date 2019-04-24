@@ -2,79 +2,165 @@
 
 -SUPER- STAR TREK
 
-Would you like a regular, tournament, or saved game? # SST2K version 2.1
-# recorded by esr@snark on Tue Feb 21 19:13:20 2012
-# Tests tractor beam and supernova
-r
-Would you like a Short, Medium, or Long game? s
-Are you a Novice, Fair, Good, Expert, or Emeritus player? n
-Choose your game style (plain, almy, fancy or just press enter): 
 
 
-It is stardate 2693. The Federation is being attacked by
-a deadly Klingon invasion force. As captain of the United
-Starship U.S.S. Enterprise, it is your mission to seek out
-and destroy this invasion force of 5 battle cruisers.
-You have an initial allotment of 7 stardates to complete
-your mission.  As you proceed you may be given more time.
+Stardate 2412.
 
-You will have 3 supporting starbases.
-Starbase locations-  5 - 5  7 - 5  3 - 2  
+16 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+7 stardates.
+2 starbases in 6 - 3  3 - 6  
 
-The Enterprise is currently in Quadrant 7 - 3 Sector 7 - 7
+The Enterprise is currently in Quadrant 2 - 1 Sector 9 - 10
 
 Good Luck!
-COMMAND> 
-COMMAND> move aut 4 1
+  YOU'LL NEED IT.
+COMMAND> # SST2K version 2.4
+# Test Tholian boxing us in followed by death by tractor beam
+# recorded by esr@snark on Wed Apr 24 09:48:31 2019
+chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 |   8    4  ...  ...  ...  ...  ...  ...   |
+2 |<  4>   7  ...  ...  ...  ...  ...  ...   |
+3 |   9    3  ...  ...  ...  .1.  ...  ...   |
+4 | ...  ...  ...  ...  ...  ...  ...  ...   |
+5 | ...  ...  ...  ...  ...  ...  ...  ...   |
+6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  ...  ...  ...  ...   |
 
-COMMAND> 
-COMMAND> move aut 7 1 5 5
+COMMAND> sh down
+Shields already down.
+COMMAND> m a 3 1 1 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-[ANNOUNCEMENT ARRIVING...]
+Entering Quadrant 3 - 1.
+COMMAND> m a 10 10
 
-***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 2 - 8, Sector 4 - 8
+COMMAND> sh up
 Shields raised.
+COMMAND> m a 4 1 1 10
 
-29 unit hit on the Enterprise from Klingon at Sector 7 - 1
+Ensign Chekov- "Course laid in, Captain."
 
+Entering Quadrant 4 - 1.
 
-Energy left 4768    shields up 81%,   torpedoes left 10
-COMMAND> torp 2
-Target sector for torpedo number 1- 7 4
-Target sector for torpedo number 2- 7 5
+Enemy attack reduces shield strength to 87%,   torpedoes left 10
 
-Track for torpedo number 1-  5 - 7   5 - 6   6 - 5   
-7 - 4   
-***Klingon at Sector 7 - 4 destroyed.
-
-Track for torpedo number 2-  5 - 7   6 - 6   7 - 5   
-***Klingon at Sector 7 - 5 destroyed.
-
-38 unit hit on the Enterprise from Klingon at Sector 7 - 1
-
-
-Energy left 4730    shields up 76%,   torpedoes left 8
-COMMAND> phasers
+Enemy attack reduces shield strength to 78%,   torpedoes left 10
+COMMAND> laser auto
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
+DEBUG        MAYDAY       SOS          CALL         QUIT         
+HELP         SCORE        CURSES                    
+COMMAND> p a
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
-Manual or automatic? a
-Phasers locked on target. Energy available: 4530.26
-724 units required. Units to fire= 300
+Phasers locked on target. Energy available: 4587.50
+1883 units required. Units to fire= 1883
 
 Shields lowered.
 
-266 unit hit on Commander at Sector 7 - 1
-***Mr. Spock-  "Captain, the vessel at Sector 7 - 1
-   has just lost its firepower."
+221 unit hit on Klingon at Sector 2 - 5
+***Klingon at Sector 2 - 5 destroyed.
+180 unit hit on Klingon at Sector 5 - 3
+***Klingon at Sector 5 - 3 destroyed.
+242 unit hit on Klingon at Sector 10 - 6
+***Klingon at Sector 10 - 6 destroyed.
+44 unit hit on Klingon at Sector 10 - 4
+926 expended on empty space.
 
 Shields raised.
 
-Enemy attack reduces shield strength to 76%,   torpedoes left 8
-COMMAND> 
-COMMAND> m 7 7 5 5
+Enemy attack reduces shield strength to 76%,   torpedoes left 10
+COMMAND> p a
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Phasers locked on target. Energy available: 2504.50
+600 units required. Units to fire= 600
+
+Shields lowered.
+
+101 unit hit on Klingon at Sector 10 - 4
+***Klingon at Sector 10 - 4 destroyed.
+60 unit hit on Klingon at Sector 9 - 1
+204 expended on empty space.
+
+Shields raised.
+
+Enemy attack reduces shield strength to 76%,   torpedoes left 10
+COMMAND> m a 9 10
+
+
+Enemy attack reduces shield strength to 76%,   torpedoes left 10
+COMMAND> torp 1 9 1
+
+Torpedo track- 9 - 9   9 - 8   9 - 7   
+9 - 6   9 - 5   9 - 4   9 - 3   9 - 2   
+9 - 1   
+***Klingon at Sector 9 - 1 destroyed.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 |   8    4  ...  ...  ...  ...  ...  ...   |
+2 |   4    7  ...  ...  ...  ...  ...  ...   |
+3 |   9    3  ...  ...  ...  .1.  ...  ...   |
+4 |<  3>   4  ...  ...  ...  ...  ...  ...   |
+5 |   3    3  ...  ...  ...  ...  ...  ...   |
+6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+
+COMMAND> sh down
+Shields lowered.
+COMMAND> m 4 2 1 10
+(Manual movement assumed.)
+
+Helmsman Sulu- "Aye, Sir."
+
+Entering Quadrant 2 - 5.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 |   8    4  ...    8    2    6  ...  ...   |
+2 |   4    7  ...    1 <  6>   5  ...  ...   |
+3 |   9    3  ...    5    8   14  ...  ...   |
+4 |   3    4  ...  ...  ...  ...  ...  ...   |
+5 |   3    3  ...  ...  ...  ...  ...  ...   |
+6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+
+COMMAND> rep
+You were playing a short good game.
+Your secret password is "aox"
+5 of 16 Klingons have been killed, but no Commanders.
+The Super Commander has not been destroyed.
+There are 2 bases.
+No Starbase is currently under attack.
+You have 4 deep space probes.
+
+COMMAND> sh up
+Shields raised.
+COMMAND> m 3 5 1 10
+(Manual movement assumed.)
+
+Helmsman Sulu- "Aye, Sir."
+
+Engineering to bridge--
+We haven't the energy to go that far with the shields up.
+COMMAND> sh down
+Shields lowered.
+COMMAND> m 3 5 1 10
 (Manual movement assumed.)
 
 Helmsman Sulu- "Aye, Sir."
@@ -83,21 +169,69 @@ YOU HAVE ATTEMPTED TO CROSS THE NEGATIVE ENERGY BARRIER
 AT THE EDGE OF THE GALAXY.  THE THIRD TIME YOU TRY THIS,
 YOU WILL BE DESTROYED.
 
-Entering Quadrant 6 - 2.
-COMMAND> 
-COMMAND> m 2 5 2 2
-(Manual movement assumed.)
+[ANNOUNCEMENT ARRIVING...]
 
-Helmsman Sulu- "Aye, Sir."
+Message from Starfleet Command       Stardate 2416.51
+     Supernova in Quadrant 3 - 6; caution advised.
 
-Entering Quadrant 1 - 4.
+[ANNOUNCEMENT ARRIVING...]
+Lt. Uhura-  "Captain, Starfleet Intelligence reports
+   the Super-commander is in Quadrant 3 - 1,
+[ANNOUNCEMENT ARRIVING...]
+
+Message from Starfleet Command       Stardate 2416.77
+     Supernova in Quadrant 8 - 2; caution advised.
 
 [ANNOUNCEMENT ARRIVING...]
 
-Message from Starfleet Command       Stardate 2698.43
-     Supernova in Quadrant 8 - 5; caution advised.
-COMMAND> 
-COMMAND> move 5 8 10 1
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 4 - 7, Sector 4 - 9
+[CONTINUE?]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Shields raised.
+
+61 unit hit from Klingon at 8 - 2
+
+
+Energy left 360    shields up 70%,   torpedoes left 9
+COMMAND> sh up
+Shields already up.
+COMMAND> torp 2 8 2 4 9
+
+Spock-  "Bridge to sickbay.  Dr. McCoy,
+  I recommend an immediate review of
+  the Captain's psychological profile."
+COMMAND> p a
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Phasers locked on target. Energy available: 160.98
+1771 units required. Units to fire= 1771
+Energy available= 160.98
+1771 units required. Units to fire= 0
+COMMAND> m 8 8
 (Manual movement assumed.)
 
 Helmsman Sulu- "Aye, Sir."
@@ -105,6 +239,151 @@ Helmsman Sulu- "Aye, Sir."
 Engineering to bridge--
 We don't have enough energy, but we could do it at warp 3,
 if you'll lower the shields.
-COMMAND> quit
+COMMAND> warp 2
+Helmsman Sulu- "Warp factor 2, Captain."
+COMMAND> m a 8 8
+
+Tholian moving from 10 - 10 to 10 - 1
+
+83 unit hit from Klingon at 8 - 2
+
+
+Energy left 277    shields up 63%,   torpedoes left 9
+COMMAND> torp 2 10 1
+
+Track for torpedo number 1-  8 - 7   9 - 6   
+Star at Sector 9 - 6 novas.
+
+Track for torpedo number 2-  8 - 7   9 - 6   9 - 5   
+9 - 4   9 - 3   10 - 2   
+
+***Torpedo absorbed by Tholian web.
+Tholian moving from 10 - 1 to 1 - 1
+
+100 unit hit from Klingon at 8 - 2
+
+
+Energy left 171    shields up 58%,   torpedoes left 7
+COMMAND> m a 4 8 1 5
+
+Ensign Chekov- "Course laid in, Captain."
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 157 percent of our
+  remaining time.  Are you sure this is wise?" n
+COMMAND> m a 4 8 1 5
+
+Ensign Chekov- "Course laid in, Captain."
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 157 percent of our
+  remaining time.  Are you sure this is wise?" 
+Please answer with "y" or "n": n
+COMMAND> torp 2 8 3
+
+Track for torpedo number 1-  8 - 7   8 - 6   8 - 5   
+8 - 4   8 - 3   8 - 2   
+***Commander at Sector 8 - 2 destroyed.
+
+Track for torpedo number 2-  8 - 7   8 - 6   8 - 5   
+8 - 4   8 - 3   8 - 2   8 - 1   
+
+***Torpedo absorbed by Tholian web.
+Tholian moving from 1 - 1 to 1 - 10
+
+Enemy attack reduces shield strength to 58%,   torpedoes left 5
+COMMAND> lrscan
+Long-range scan
+  *** 109   9 
+    4   1   6 
+    6   4 108 
+COMMAND> srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  # #   # # # # # # T 
+ 2  # . . . . . . . . . 
+ 3  # . . . . . . . . . 
+ 4  # . . . . . . . . . 
+ 5  # . . . . . . . . . 
+ 6  # . . . . . . . . . 
+ 7  # . . . . . . . . . 
+ 8  # . . . . . . E . * 
+ 9  # . . . . . . . . . 
+10  # # # # # # # # # # 
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 |   8    4  ...    8    2  106  ...  ...   |
+2 |   4    7  ...    1    6    5  ...  ...   |
+3 |   9    3  ...    5    8  ***  109    9   |
+4 |   3    4  ...  ...  ...    4 <  1>   6   |
+5 |   3    3  ...  ...  ...    6    4  108   |
+6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ***  ...  ...  ...  ...  ...  ...   |
+
+COMMAND> m a 4 8 1 6
+
+Ensign Chekov- "Course laid in, Captain."
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 132 percent of our
+  remaining time.  Are you sure this is wise?" y
+Tholian moving from 1 - 10 to 10 - 10
+
+Enemy attack reduces shield strength to 58%,   torpedoes left 5
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 5 - 8, Sector 5 - 4
+
+213 unit hit from Klingon at 6 - 8
+
+
+
+
+It is stardate 2418.6.
+
+The Enterprise has been destroyed in battle.
+
+Dulce et decorum est pro patria mori.
+The Federation will be destroyed.
+
+
+Your score --
+     5 ordinary Klingons destroyed           50
+     1 Klingon commanders destroyed          50
+  1.06 Klingons per stardate                529
+[CONTINUE?]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     1 stars destroyed by your action        -5
+     1 ship(s) lost or destroyed           -100
+Penalty for getting yourself killed        -200
+
+TOTAL SCORE                                 320
 
 May the Great Bird of the Galaxy roost upon your home planet.
