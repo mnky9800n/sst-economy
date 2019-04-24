@@ -836,7 +836,7 @@ def supercommander():
         sc = game.state.kscmdr
         for (i, base) in enumerate(game.state.baseq):
             basetbl.append((i, (base - sc).distance()))
-        if game.state.baseq > 1:
+        if len(game.state.baseq) > 1:
             basetbl.sort(key=lambda x: x[1])
         # look for nearest base without a commander, no Enterprise, and
         # without too many Klingons, and not already under attack.
