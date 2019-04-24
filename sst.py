@@ -36,44 +36,57 @@ docpath  	= (".", "doc/", "/usr/share/doc/sst/")
 def _(st):
     return gettext.gettext(st)
 
-# This is all encapsulated not just for logging but because someday
-# we'll probably want to replace it with something like an LCG that
-# can be forward-ported off Python.  Thee only function we need is one to
-# return a variate uniformly-distributed over [0, 1).
-
-import random
+# Rolling our own LCG because Python changed its incompatibly in 3.2.
+# Thus, we need to have our own to be 2/3 polyglot, which will also
+# be helpful when we forwrard-port.
 
 class randomizer:
+    # LCG PRNG parameters tested against
+    # Knuth vol. 2. by the authors of ADVENT 
+    LCG_A = 1093
+    LCG_C = 221587
+    LCG_M = 1048576
+
+    @staticmethod
+    def random():
+        old_x = game.lcg_x
+        game.lcg_x = (randomizer.LCG_A * game.lcg_x + randomizer.LCG_C) % randomizer.LCG_M
+        return old_x / randomizer.LCG_M;
+
     @staticmethod
     def withprob(p):
-        v = random.random()
-        if logfp:
-            logfp.write("#withprob(%.2f) -> %s\n" % (p, v < p))
+        v = randomizer.random()
+        #if logfp:
+        #    logfp.write("#withprob(%.2f) -> %s\n" % (p, v < p))
         return v < p
 
     @staticmethod
     def integer(*args):
-        s = random.randrange(*args)
-        if logfp:
-            logfp.write("#randrange%s -> %s\n" % (args, s))
-        return s
+        v = randomizer.random()
+        if len(args) == 1:
+            v = int(v * args[0])
+        else:
+            v = args[0] + int(v * (args[1] - args[0]))
+        #if logfp:
+        #    logfp.write("#integer%s -> %s\n" % (args, v))
+        return int(v)
 
     @staticmethod
     def real(*args):
-        v = random.random()
+        v = randomizer.random()
         if len(args) == 1:
             v *= args[0]                 # from [0, args[0])
         elif len(args) == 2:
             v = args[0] + v*(args[1]-args[0])        # from [args[0], args[1])
-        if logfp:
-            logfp.write("#real%s -> %f\n" % (args, v))
+        #if logfp:
+        #    logfp.write("#real%s -> %f\n" % (args, v))
         return v
 
     @staticmethod
     def seed(n):
-        if logfp:
-            logfp.write("#seed(%d)\n" % n)
-        random.seed(n)
+        #if logfp:
+        #    logfp.write("#seed(%d)\n" % n)
+        game.lcg_x = n % randomizer.LCG_M
 
 GALSIZE 	= 8		# Galaxy size in quadrants
 NINHAB  	= (GALSIZE * GALSIZE // 2)	# Number of inhabited worlds
@@ -470,6 +483,7 @@ class Gamestate:
         self.iscloaked = False  # Cloaking device on?
         self.ncviol = 0         # Algreon treaty violations
         self.isviolreported = False # We have been warned
+        self.lcg_x = 0		# LCG generator value
     def remkl(self):
         return sum([q.klingons for (_i, _j, q) in list(self.state.traverse())])
     def recompute(self):
