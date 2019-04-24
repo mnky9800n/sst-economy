@@ -1,5 +1,8 @@
 			SST2K project news.
 
+Repository head::
+    Now runs identically under Python 2 and Python 3.
+
 2.4: 2019-04-22::
     Fixes for deathray, formatting, double-counting in score logic.
 
