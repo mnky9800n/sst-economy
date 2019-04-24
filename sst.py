@@ -2072,6 +2072,7 @@ def phasers():
             prout(_("Manual-fire-must-be-used"))
             skip(1)
     elif automode == "MANUAL":
+        print("****HERE WE ARE*** %d" % len(game.enemies))
         rpow = 0.0
         for k in range(len(game.enemies)):
             aim = game.enemies[k].location
@@ -2087,7 +2088,6 @@ def phasers():
                 scanner.chew()
                 key = "IHEOL"
                 hits[k] = 0 # prevent overflow -- thanks to Alexei Voitenko
-                k += 1
                 continue
             if key == "IHEOL":
                 scanner.chew()
@@ -2117,7 +2117,8 @@ def phasers():
                 # abort out
                 scanner.chew()
                 return
-            hits[k] = scanner.real
+            print("k is %d" % k)
+            hits.append(scanner.real)
             rpow += scanner.real
             # If total requested is too much, inform and start over
             if rpow > avail:
@@ -2125,7 +2126,6 @@ def phasers():
                 scanner.chew()
                 return
             key = scanner.nexttok() # scan for next value
-            k += 1
         if rpow == 0.0:
             # zero energy -- abort
             scanner.chew()
