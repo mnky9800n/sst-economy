@@ -532,7 +532,6 @@ Lt. Uhura-  "Captain, Starfleet Intelligence reports
    the Super-commander is in Quadrant 6 - 6,
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   the Super-commander is in Quadrant 7 - 5,
 [CONTINUE?]
 
 
@@ -558,6 +557,7 @@ Lt. Uhura-  "Captain, Starfleet Intelligence reports
 
 
 
+   the Super-commander is in Quadrant 7 - 5,
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
@@ -648,10 +648,8 @@ Shields raised.
 COMMAND> p m
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
-****HERE WE ARE*** 1
 Energy available= 349.34
 (0)  units to fire at Commander at Sector 2 - 3-  349
-k is 0
 
 Shields lowered.
 

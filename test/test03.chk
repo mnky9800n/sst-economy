@@ -243,7 +243,6 @@ COMMAND> warp 2
 Helmsman Sulu- "Warp factor 2, Captain."
 COMMAND> m a 8 8
 
-Tholian moving from 10 - 10 to 10 - 1
 
 83 unit hit from Klingon at 8 - 2
 
@@ -258,7 +257,6 @@ Track for torpedo number 2-  8 - 7   9 - 6   9 - 5
 9 - 4   9 - 3   10 - 2   
 
 ***Torpedo absorbed by Tholian web.
-Tholian moving from 10 - 1 to 1 - 1
 
 100 unit hit from Klingon at 8 - 2
 
@@ -289,7 +287,6 @@ Track for torpedo number 2-  8 - 7   8 - 6   8 - 5
 8 - 4   8 - 3   8 - 2   8 - 1   
 
 ***Torpedo absorbed by Tholian web.
-Tholian moving from 1 - 1 to 1 - 10
 
 Enemy attack reduces shield strength to 58%,   torpedoes left 5
 COMMAND> lrscan
@@ -329,7 +326,6 @@ Ensign Chekov- "Course laid in, Captain."
 First Officer Spock- "Captain, I compute that such
   a trip would require approximately 132 percent of our
   remaining time.  Are you sure this is wise?" y
-Tholian moving from 1 - 10 to 10 - 10
 
 Enemy attack reduces shield strength to 58%,   torpedoes left 5
 
