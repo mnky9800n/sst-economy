@@ -176,7 +176,8 @@ Message from Starfleet Command       Stardate 2416.51
 
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   the Super-commander is in Quadrant 3 - 1,
+   the Super-commander is in Quadrant 3 - 1.
+
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2416.77
@@ -185,7 +186,6 @@ Message from Starfleet Command       Stardate 2416.77
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 4 - 7, Sector 4 - 9
 [CONTINUE?]
 
 
@@ -211,6 +211,7 @@ Enterprise is pulled to Quadrant 4 - 7, Sector 4 - 9
 
 
 
+Enterprise is pulled to Quadrant 4 - 7, Sector 4 - 9
 Shields raised.
 
 61 unit hit from Klingon at 8 - 2

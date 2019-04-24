@@ -803,7 +803,7 @@ def movescom(iq, avoid):
             if communicating():
                 announce()
                 prout(_("Lt. Uhura-  \"Captain, Starfleet Intelligence reports"))
-                proutn(_("   a planet in Quadrant %s has been destroyed") % game.state.kscmdr)
+                prout(_("   a planet in Quadrant %s has been destroyed") % game.state.kscmdr)
                 prout(_("   by the Super-commander.\""))
             break
     return True # looks good!
@@ -909,7 +909,7 @@ def supercommander():
                 prout(_("Lt. Uhura-  \"Captain, the starbase in Quadrant %s") \
                       % game.state.kscmdr)
                 prout(_("   reports that it is under attack from the Klingon Super-commander."))
-                proutn(_("   It can survive until stardate %d.\"") \
+                prout(_("   It can survive until stardate %d.\"") \
                        % int(scheduled(FSCDBAS)))
                 if not game.resting:
                     return
@@ -927,7 +927,7 @@ def supercommander():
         return
     announce()
     prout(_("Lt. Uhura-  \"Captain, Starfleet Intelligence reports"))
-    proutn(_("   the Super-commander is in Quadrant %s,") % game.state.kscmdr)
+    prout(_("   the Super-commander is in Quadrant %s.") % game.state.kscmdr)
     return
 
 def movetholian():
