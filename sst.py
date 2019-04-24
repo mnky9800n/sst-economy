@@ -952,7 +952,6 @@ def movetholian():
         game.tholian.move(None)
         prout("***Internal error: Tholian in a bad spot.")
         return
-    print("Tholian moving from %s to %s" % (game.tholian.location, tid))
     # do nothing if we are blocked
     if game.quad[tid.i][tid.j] not in ('.', '#'):
         return
@@ -2074,7 +2073,6 @@ def phasers():
             prout(_("Manual-fire-must-be-used"))
             skip(1)
     elif automode == "MANUAL":
-        print("****HERE WE ARE*** %d" % len(game.enemies))
         rpow = 0.0
         for k in range(len(game.enemies)):
             aim = game.enemies[k].location
@@ -2119,7 +2117,6 @@ def phasers():
                 # abort out
                 scanner.chew()
                 return
-            print("k is %d" % k)
             hits.append(scanner.real)
             rpow += scanner.real
             # If total requested is too much, inform and start over
@@ -3883,7 +3880,7 @@ def imove(icourse=None, noattack=False):
             newquadrant(noattack)
             break
         elif check_collision(w):
-            print("Collision detected")
+            prout(_("Collision detected"))
             break
         else:
             game.sector = w
