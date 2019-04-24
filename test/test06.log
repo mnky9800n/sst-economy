@@ -1,0 +1,35 @@
+# seed 1556121767
+# options regular short good fancy
+# SST2K version 2.4
+# Tesr shuttle landing with no crystals
+# recorded by esr@snark on Wed Apr 24 12:02:47 2019
+chart
+p a
+148
+chart
+sh up
+sh down
+m a 7 10
+chart
+m a 7 7 1 1
+chart
+probe
+y
+n
+a
+7 1
+chart
+m a 8 6 1 1
+chart
+m a 2 5
+m a 2 9
+m a 4 9
+orbit
+beam
+shuttle
+crystals
+shuttle
+
+
+quit
+n
