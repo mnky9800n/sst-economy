@@ -29,7 +29,7 @@ super-star-trek-$(VERS).tar.gz: $(SOURCES) sst.6
 dist: sst-$(VERS).tar.gz
 
 check: #pylint
-	cd test; make --quiet
+	cd test; $(MAKE) --quiet
 
 COMMON_PYLINT = --rcfile=/dev/null --reports=n \
 	--msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" \
