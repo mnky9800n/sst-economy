@@ -119,8 +119,8 @@ class JumpOut(Exception):
 
 class Coord:
     def __init__(self, x=None, y=None):
-        self.i = x
-        self.j = y
+        self.i = x	# Row
+        self.j = y	# Column
     def valid_quadrant(self):
         return self.i >= 0 and self.i < GALSIZE and self.j >= 0 and self.j < GALSIZE
     def valid_sector(self):
@@ -164,12 +164,12 @@ class Coord:
         if self.i == 0:
             s.i = 0
         elif s.i < 0:
-            s.i =-1
+            s.i = -1
         else:
             s.i = 1
         if self.j == 0:
             s.j = 0
-        elif s.j < 0:
+        elif self.j < 0:
             s.j = -1
         else:
             s.j = 1
