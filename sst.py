@@ -1738,7 +1738,11 @@ def torps():
             proutn(_("Number of torpedoes to fire- "))
             continue        # Go back around to get a number
         else: # key == "IHREAL"
-            n = scanner.int()
+            try:
+                n = scanner.int()
+            except TypeError:
+                huh()
+                return
             if n <= 0: # abort command
                 scanner.chew()
                 return
