@@ -176,7 +176,7 @@ class Coord:
         s = Coord()
         if self.i == 0:
             s.i = 0
-        elif s.i < 0:
+        elif self.i < 0:
             s.i = -1
         else:
             s.i = 1
@@ -950,6 +950,7 @@ def movetholian():
         game.tholian.move(None)
         prout("***Internal error: Tholian in a bad spot.")
         return
+    print("Tholian moving from %s to %s" % (game.tholian.location, tid))
     # do nothing if we are blocked
     if game.quad[tid.i][tid.j] not in ('.', '#'):
         return
