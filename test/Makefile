@@ -1,8 +1,12 @@
 # Test-suite makefile for sst
 
-PYTHON=python2
+PYTHON=python
 
-all: regress
+all:
+	@echo "With Python 2:"
+	@make -e PYTHON=python2 regress
+	@echo "With Python 3:"
+	@make -e PYTHON=python3 regress
 	@echo "No diff output is good news."
 
 .SUFFIXES: .log .chk

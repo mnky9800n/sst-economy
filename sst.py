@@ -12,6 +12,8 @@ See the doc/HACKING file in the distribution for designers notes and advice
 on how to modify (and how not to modify!) this code.
 """
 from __future__ import print_function, division
+# Runs under Python 2 an Python 3. Preserve this property!
+# SPDX-License-Identifier: BSD-2-clause
 
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
 import getopt, socket, locale
