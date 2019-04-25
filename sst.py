@@ -6054,6 +6054,7 @@ def newqad():
     game.iplnet = None
     game.neutz = game.inorbit = game.landed = False
     game.ientesc = game.iseenit = game.isviolreported = False
+    game.tholian = None
     # Create a blank quadrant
     game.quad = fill2d(QUADSIZE, lambda i, j: '.')
     if game.iscate:
