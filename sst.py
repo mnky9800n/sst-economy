@@ -309,6 +309,7 @@ OPTION_CLOAK      = 0x80004000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_PLAIN      = 0x01000000        # user chose plain game
 OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
+OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
 
 # Define devices
 DSRSENS         = 0
@@ -5324,6 +5325,8 @@ def chart():
                 show = ".1."
             elif game.state.galaxy[i][j].charted:
                 show = "%3d" % (game.state.chart[i][j].klingons*100 + game.state.chart[i][j].starbase * 10 + game.state.chart[i][j].stars)
+                if (game.options & OPTION_DOTFILL):
+                    show = show.replace(" ", ".")
             else:
                 show = "..."
             proutn(show)
@@ -5986,11 +5989,11 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
-        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR)
+        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL)
         game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
         pass

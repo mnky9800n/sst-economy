@@ -1,5 +1,8 @@
 			SST2K project news.
 
+Repository head::
+    Fixed a longstanding bug in the chart display.
+
 2.5: 2019-04-24::
     Now runs identically under Python 2 and Python 3.
 
