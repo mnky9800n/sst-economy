@@ -44,7 +44,7 @@ def _(st):
 
 class randomizer:
     # LCG PRNG parameters tested against
-    # Knuth vol. 2. by the authors of ADVENT 
+    # Knuth vol. 2. by the authors of ADVENT
     LCG_A = 1093
     LCG_C = 221587
     LCG_M = 1048576
@@ -53,7 +53,7 @@ class randomizer:
     def random():
         old_x = game.lcg_x
         game.lcg_x = (randomizer.LCG_A * game.lcg_x + randomizer.LCG_C) % randomizer.LCG_M
-        return old_x / randomizer.LCG_M;
+        return old_x / randomizer.LCG_M
 
     @staticmethod
     def withprob(p):
@@ -196,8 +196,8 @@ class Coord:
         return self.roundtogrid() % QUADSIZE
     def scatter(self):
         s = Coord()
-        s.i = self.i + rnd.range(-1, 2)
-        s.j = self.j + rnd.range(-1, 2)
+        s.i = self.i + rnd.integer(-1, 2)
+        s.j = self.j + rnd.integer(-1, 2)
         return s
     def __str__(self):
         if self.i is None or self.j is None:
