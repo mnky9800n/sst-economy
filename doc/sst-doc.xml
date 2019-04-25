@@ -2118,6 +2118,11 @@ Python.</para></listitem>
 Cloaking device and capture command added from BSD (via Almy's
 2013 version)</para></listitem>
 
+<listitem><para>25 March 2019 &mdash; At long last, chart entries are
+uniformy dot-filled. (Suppressed in the plain and almy
+interface styles.)</para></listitem>
+
+
 </itemizedlist>
 
 <para>One as-yet unanswered question is when the code changed from
