@@ -1,0 +1,31 @@
+# seed 1556198837
+# options regular short good fancy
+# SST2K version 2.5
+# Test that escaping a quadrant with a Tholian in it removes him.
+# recorded by esr@snark on Thu Apr 25 09:27:17 2019
+
+m a 8 10
+
+sh up
+m a 7 2 7 1
+
+torp 1 9 8
+torp 1 2 7
+
+sh down
+
+m a 2 7 1 10
+
+sh up
+
+m a 1 6 10 10
+m a 0 10
+m a 9 10
+torp 2 9 5
+torp 1 8 9
+torp 2 8 9
+
+m a 1 7 9 1
+
+sh down
+quit
