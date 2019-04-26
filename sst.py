@@ -5356,6 +5356,9 @@ def sectscan(goodScan, i, j):
                        'C':LIGHTRED,
                        'R':LIGHTRED,
                        'T':LIGHTRED,
+                       '@':LIGHTGREEN,
+                       'P':LIGHTGREEN,
+                       '?':MAGENTA,
                       }.get(game.quad[i][j], DEFAULT))
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
