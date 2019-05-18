@@ -17,6 +17,7 @@ from __future__ import print_function, division
 
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
 import getopt, socket, locale
+import codecs
 
 # This import only works on Unixes.  The intention is to enable
 # Ctrl-P, Ctrl-N, and friends in Cmd.
@@ -3522,7 +3523,7 @@ def prouts(proutsline):
 def cgetline():
     "Get a line of input."
     if game.options & OPTION_CURSES:
-        linein = curwnd.getstr() + "\n"
+        linein = codecs.decode(curwnd.getstr()) + "\n"
         curwnd.refresh()
     else:
         if replayfp and not replayfp.closed:
