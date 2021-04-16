@@ -2859,7 +2859,7 @@ def supernova(w):
         for nq.i in range(GALSIZE):
             for nq.j in range(GALSIZE):
                 nstars += game.state.galaxy[nq.i][nq.j].stars
-        if stars == 0:
+        if nstars == 0:
             return # nothing to supernova exists
         num = rnd.integer(nstars) + 1
         for nq.i in range(GALSIZE):
@@ -5359,7 +5359,6 @@ def sectscan(goodScan, i, j):
                        'T':LIGHTRED,
                        '@':LIGHTGREEN,
                        'P':LIGHTGREEN,
-                       '?':MAGENTA,
                       }.get(game.quad[i][j], DEFAULT))
         proutn("%c " % game.quad[i][j])
         textcolor(DEFAULT)
