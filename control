@@ -47,4 +47,4 @@ XBS-Logo: trek.png
 
 XBS-VC-Tag-Template: %(version)s
 
-XBS-Validate: make pylint check
+XBS-Validate: make check
