@@ -2,11 +2,20 @@
 
 PYTHON=python
 
+TAPFILTER=cat
+ifeq (,$(command -v tapview))
+	TAPFILTER=tapview
+else
+	ifeq (,$(command -v tappy))
+		TAPFILTER=tappy
+	endif
+endif
+
 all:
 	@echo "With Python 2:"
-	@$(MAKE) -e PYTHON=python2 regress
+	@$(MAKE) -e PYTHON=python2 regress | $(TAPFILTER)
 	@echo "With Python 3:"
-	@$(MAKE) -e PYTHON=python3 regress
+	@$(MAKE) -e PYTHON=python3 regress | $(TAPFILTER)
 	@echo "No diff output is good news."
 
 .SUFFIXES: .log .chk
@@ -24,14 +33,13 @@ buildregress:
 	    fi \
 	done
 regress:
+	echo "1..$$(ls *.log | wc -l)"
 	@for test in $(TESTLOADS); \
 	do \
 	    if [ ! -f $${test}.tst ] ; \
 	    then \
-		(if echo -n "$${test}: " >&2; grep 'Test' $${test}.log >&2;\
-		$(PYTHON) ../sst.py -r $${test}.log >/tmp/regress 2>&1; \
-		then diff -u $${test}.chk /tmp/regress; \
-		else echo "*** Nonzero return status on $${test}!"; exit 1; fi;) \
+		legend=$$(sed -n -e '/# Test/s//Test/p' <$${test}.log); \
+		../sst.py -r "$${test}.log" | ./tapdiffer "$${legend}" "$${test}.chk"; \
 	    fi \
 	done
 	@rm -f /tmp/regress
