@@ -2,6 +2,8 @@
 
 Repository head::
     Fixed a longstanding bug in the chart display.
+    Minor port fixes for recent Python 23 versions.
+    Test suite is TAPified.
 
 2.5: 2019-04-24::
     Now runs identically under Python 2 and Python 3.

@@ -2,20 +2,23 @@
 
 PYTHON=python
 
-TAPFILTER=cat
+# The tests output TAP (Test Anything Proocol)
+# If you have either of these TAP viwers installed,
+# S good ing will happen.
+TAPVIEWER=cat
 ifeq (,$(command -v tapview))
-	TAPFILTER=tapview
+	TAPVIEWER=tapview
 else
 	ifeq (,$(command -v tappy))
-		TAPFILTER=tappy
+		TAPVIEWER=tappy
 	endif
 endif
 
 all:
 	@echo "With Python 2:"
-	@$(MAKE) -e PYTHON=python2 regress | $(TAPFILTER)
+	@$(MAKE) -e PYTHON=python2 regress | $(TAPVIEWER)
 	@echo "With Python 3:"
-	@$(MAKE) -e PYTHON=python3 regress | $(TAPFILTER)
+	@$(MAKE) -e PYTHON=python3 regress | $(TAPVIEWER)
 	@echo "No diff output is good news."
 
 .SUFFIXES: .log .chk
