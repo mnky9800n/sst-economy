@@ -1,6 +1,6 @@
 			SST2K project news.
 
-Repository head::
+2.6: 2021-04-16::
     Fixed a longstanding bug in the chart display.
     Minor port fixes for recent Python 23 versions.
     Test suite is TAPified.

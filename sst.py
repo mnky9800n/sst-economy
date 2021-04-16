@@ -32,7 +32,7 @@ try:
 except NameError:
     my_input = input
 
-version = "2.5"
+version = "2.6"
 
 docpath  	= (".", "doc/", "/usr/share/doc/sst/")
 
