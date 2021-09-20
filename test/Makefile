@@ -1,6 +1,6 @@
 # Test-suite makefile for sst
 
-PYTHON=python
+PYTHON=python3
 
 # The tests output TAP (Test Anything Proocol)
 # If you have either of these TAP viwers installed,

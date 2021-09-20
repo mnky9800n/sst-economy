@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Generate an on-line help file for SST 2K from the text generated from
 # the XML documentation.
