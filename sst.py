@@ -15,6 +15,9 @@ from __future__ import print_function, division
 # Runs under Python 2 an Python 3. Preserve this property!
 # SPDX-License-Identifier: BSD-2-clause
 
+# pylint: disable=line-too-long,superfluous-parens,too-many-lines,invalid-name,missing-function-docstring,missing-class-docstring,multiple-statements,too-many-branches,too-many-statements,too-many-locals,too-many-nested-blocks,too-many-return-statements,too-many-instance-attributes,global-statement,no-else-break,no-else-return,no-else-continue,too-few-public-methods,too-many-boolean-expressions
+
+# pylint: disable=multiple-imports
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
 import getopt, socket, locale
 import codecs
@@ -22,6 +25,7 @@ import codecs
 # This import only works on Unixes.  The intention is to enable
 # Ctrl-P, Ctrl-N, and friends in Cmd.
 try:
+    # pylint: disable=unused-import
     import readline
 except ImportError:
     pass
@@ -1246,7 +1250,6 @@ def collision(rammed, enemy):
         damagereport()
     else:
         finish(FWON)
-    return
 
 def torpedo(origin, bearing, dispersion, number, nburst):
     "Let a photon torpedo fly"
@@ -1331,7 +1334,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                     bumpto = displacement.sector()
                     if not bumpto.valid_sector():
                         prout(_(" damaged but not destroyed."))
-                        return
+                        return None
                     if game.quad[bumpto.i][bumpto.j] == ' ':
                         prout(_(" buffeted into black hole."))
                         deadkl(w, iquad, bumpto)
@@ -1902,6 +1905,7 @@ def hittem(hits):
                 return
             continue
         else: # decide whether or not to emasculate klingon
+            # pylint: disable=chained-comparison
             if kpow > 0 and rnd.withprob(0.9) and kpow <= rnd.real(0.4, 0.8)*kpini:
                 prout(_("***Mr. Spock-  \"Captain, the vessel at Sector %s")%w)
                 prout(_("   has just lost its firepower.\""))
@@ -2873,7 +2877,7 @@ def supernova(w):
             proutn("=== Super nova here?")
             if ja():
                 nq = game.quadrant
-    if not nq == game.quadrant or game.justin:
+    if nq != game.quadrant or game.justin:
         # it isn't here, or we just entered (treat as enroute)
         if communicating():
             skip(1)
@@ -2936,7 +2940,7 @@ def supernova(w):
     if game.quadrant == nq or communicating():
         game.state.galaxy[nq.i][nq.j].supernova = True
     # If supernova destroys last Klingons give special message
-    if game.unwon()==0 and not nq == game.quadrant:
+    if game.unwon()==0 and nq != game.quadrant:
         skip(2)
         if w is None:
             prout(_("Lucky you!"))
@@ -3699,7 +3703,7 @@ def tracktorpedo(w, step, i, n, iquad):
             else:
                 skip(1)
                 proutn(_("Torpedo track- "))
-        elif step==4 or step==9:
+        elif step in {4, 9}:
             skip(1)
         proutn("%s   " % w)
     else:
@@ -3707,7 +3711,7 @@ def tracktorpedo(w, step, i, n, iquad):
             if i != 0 and step == 1:
                 drawmaps(2)
                 time.sleep(0.4)
-            if (iquad=='.') or (iquad==' '):
+            if iquad in {'.', ' '}:
                 put_srscan_sym(w, '+')
                 #sound(step*10)
                 #time.sleep(0.1)
@@ -3901,7 +3905,6 @@ def imove(icourse=None, noattack=False):
     newcnd()
     drawmaps(0)
     setwnd(message_window)
-    return
 
 def dock(verbose):
     "Dock our ship at a starbase."
@@ -5161,6 +5164,7 @@ def attackreport(curt):
 def report():
     # report on general game status
     scanner.chew()
+    # pylint: disable=consider-using-ternary
     s1 = (game.thawed and _("thawed ")) or ""
     s2 = {1:"short", 2:"medium", 4:"long"}[game.length]
     s3 = (None, _("novice"), _("fair"),
@@ -6665,7 +6669,7 @@ def debugme():
             proutn(legends[i])
             if is_scheduled(i):
                 proutn("%.2f" % (scheduled(i)-game.state.date))
-                if i == FENSLV or i == FREPRO:
+                if i in {FENSLV, FREPRO}:
                     ev = findevent(i)
                     proutn(" in %s" % ev.quadrant)
             else:
@@ -6678,7 +6682,7 @@ def debugme():
                 scanner.chew()
             elif key == "IHREAL":
                 ev = schedule(i, scanner.real)
-                if i == FENSLV or i == FREPRO:
+                if i in {FENSLV, FREPRO}:
                     scanner.chew()
                     proutn("In quadrant- ")
                     key = scanner.nexttok()
@@ -6720,14 +6724,17 @@ if __name__ == '__main__':
         replay = False
         for (switch, val) in options:
             if switch == '-r':
+                # pylint: disable=raise-missing-from
                 try:
                     replayfp = open(val, "r")
                 except IOError:
                     sys.stderr.write("sst: can't open replay file %s\n" % val)
                     raise SystemExit(1)
+                # pylint: disable=raise-missing-from
                 try:
                     line = replayfp.readline().strip()
                     (leader, __, seed) = line.split()
+                    # pylint: disable=eval-used
                     seed = eval(seed)
                     line = replayfp.readline().strip()
                     arguments += line.split()[2:]
