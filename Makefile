@@ -32,7 +32,7 @@ check: pylint
 	cd test; $(MAKE) --quiet
 
 pylint:
-	@pylint sst.py
+	@pylint --score=n sst.py
 
 clean:
 	rm -f sst.6 sst.html
