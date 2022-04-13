@@ -4,7 +4,7 @@
 #
 # Usage: tapdiffer LEGEND CHECKFILE
 #
-# Output is a TAP report, ok if the diff is empty and not ok otherwisw.
+# Output is a TAP report, ok if the diff is empty and not ok otherwise.
 # A nonempty diff is shipped as a TAP YAML block following "not ok" 
 # unless QUIET=1 in the environment.
 #
