@@ -15,7 +15,7 @@ from __future__ import print_function, division
 # Runs under Python 2 an Python 3. Preserve this property!
 # SPDX-License-Identifier: BSD-2-clause
 
-# pylint: disable=line-too-long,superfluous-parens,too-many-lines,invalid-name,missing-function-docstring,missing-class-docstring,multiple-statements,too-many-branches,too-many-statements,too-many-locals,too-many-nested-blocks,too-many-return-statements,too-many-instance-attributes,global-statement,no-else-break,no-else-return,no-else-continue,too-few-public-methods,too-many-boolean-expressions
+# pylint: disable=line-too-long,superfluous-parens,too-many-lines,invalid-name,missing-function-docstring,missing-class-docstring,multiple-statements,too-many-branches,too-many-statements,too-many-locals,too-many-nested-blocks,too-many-return-statements,too-many-instance-attributes,global-statement,no-else-break,no-else-return,no-else-continue,too-few-public-methods,too-many-boolean-expressions,consider-using-f-string,consider-using-enumerate,consider-using-with,unspecified-encoding
 
 # pylint: disable=multiple-imports
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
@@ -677,10 +677,8 @@ def movebaddy(enemy):
     nsteps = abs(int(motion))
     if motion > 0 and nsteps > mdist:
         nsteps = mdist # don't overshoot
-    if nsteps > QUADSIZE:
-        nsteps = QUADSIZE # This shouldn't be necessary
-    if nsteps < 1:
-        nsteps = 1 # This shouldn't be necessary
+    nsteps = min(nsteps, QUADSIZE) # This shouldn't be necessary
+    nsteps = max(nsteps, 1) # This shouldn't be necessary
     if game.idebug:
         proutn("NSTEPS = %d:" % nsteps)
     # Compute preferred values of delta X and Y
@@ -726,7 +724,7 @@ def movebaddy(enemy):
             elif (game.options & OPTION_RAMMING) and game.quad[look.i][look.j] != '.':
                 # See if enemy should ram ship
                 if game.quad[look.i][look.j] == game.ship and \
-                    (enemy.type == 'C' or enemy.type == 'S'):
+                    enemy.type in ('C', 'S'):
                     collision(rammed=True, enemy=enemy)
                     return []
                 if krawli != m.i and m.j != 0:
@@ -1589,8 +1587,7 @@ def attack(torps_ok):
             propor = pfac * game.shield
             if game.condition == "docked":
                 propor *= 2.1
-            if propor < 0.1:
-                propor = 0.1
+            propor = max(propor, 0.1)
             hitsh = propor*chgfac*hit+1.0
             absorb = 0.8*hitsh
             if absorb > game.shield:
@@ -5517,8 +5514,7 @@ def eta():
                 prout(_("We'll never make it, sir."))
                 scanner.chew()
                 return
-            if twarp < 1.0:
-                twarp = 1.0
+            twarp = max(twarp, 1.0)
             break
         scanner.chew()
         proutn(_("Warp factor? "))
@@ -5797,13 +5793,11 @@ def setup():
     # Position ordinary Klingon Battle Cruisers
     krem = game.inkling
     klumper = 0.25*game.skill*(9.0-game.length)+1.0
-    if klumper > MAXKLQUAD:
-        klumper = MAXKLQUAD
+    klumper = min(klumper, MAXKLQUAD)
     while True:
         r = rnd.real()
         klump = int((1.0 - r*r)*klumper)
-        if klump > krem:
-            klump = krem
+        klump = min(klump, krem)
         krem -= klump
         while True:
             w = randplace(GALSIZE)
