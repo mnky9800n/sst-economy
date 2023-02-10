@@ -1,0 +1,11 @@
+image: ubuntu
+
+before_script:
+  - apt-get update
+  - apt-get -qy upgrade
+  - apt-get -y install make python2 python3 pylint
+
+test:
+  script:
+  - echo "Running as ${USER:-root}"
+  - make check
