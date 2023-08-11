@@ -1330,12 +1330,13 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                     displacement = course(track.bearing+rnd.real(-2.4, 2.4), distance=2**0.5, origin=w)
                     displacement.nexttok()
                     bumpto = displacement.sector()
-                    if not bumpto.valid_sector():
-                        prout(_(" damaged but not destroyed."))
-                        return None
                     if game.quad[bumpto.i][bumpto.j] == ' ':
                         prout(_(" buffeted into black hole."))
                         deadkl(w, iquad, bumpto)
+                        return None
+                    if not bumpto.valid_sector():
+                        prout(_(" damaged but not destroyed."))
+                        return None
                     if game.quad[bumpto.i][bumpto.j] != '.':
                         prout(_(" damaged but not destroyed."))
                     else:

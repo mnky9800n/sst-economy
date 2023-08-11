@@ -1,0 +1,88 @@
+
+
+-SUPER- STAR TREK
+
+
+
+Stardate 3104.
+
+25 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+14 stardates.
+3 starbases in 5 - 5  4 - 3  8 - 5  
+
+The Enterprise is currently in Quadrant 1 - 6 Sector 9 - 5
+
+Good Luck!
+  YOU'LL NEED IT.
+COMMAND> # SST2K version 2.7
+# Test behavior when emy is buffered into black hole
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 16:43:02 2023
+chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ..4 <..7> ..5  ...   |
+2 | ...  ...  ...  ...  ..4  ..3  ..5  ...   |
+3 | ...  ...  ...  ...  ...  ...  ...  ...   |
+4 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+5 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+6 | ...  ...  ...  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+
+COMMAND> probe
+2 probes left
+Are you sure you want to fire a probe? y
+Arm NOVAMAX warhead? n
+Manual or automatic- a
+Target quadrant or quadrant&sector- 1 1
+
+Ensign Chekov-  "The deep space probe is launched, Captain."
+COMMAND> 
+COMMAND> m a 2 8 5 1
+
+Ensign Chekov- "Course laid in, Captain."
+
+Enterprise blocked by object at 10 - 9;
+Emergency stop required 153 units of energy.
+Collision detected
+
+Lt. Uhura-  "The deep space probe is now in Quadrant 1 - 5."
+
+Lt. Uhura-  "The deep space probe is now in Quadrant 1 - 4."
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 1 - 8, Sector 6 - 2
+Shields raised.
+
+Enemy attack reduces shield strength to 91%,   torpedoes left 10
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ..5  ..4  ..7  ..5 <104>  |
+2 | ...  ...  ...  ...  ..4  ..3  ..5  101   |
+3 | ...  ...  ...  ...  ...  ...  ...  ...   |
+4 | ...  ...  .1.  ...  ...  ...  ...  ...   |
+5 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+6 | ...  ...  ...  ...  ...  ...  ...  ...   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+
+COMMAND> sh up
+Shields already up.
+COMMAND> torp 2 5 10 5 10
+
+Track for torpedo number 1-  6 - 3   6 - 4   6 - 5   
+6 - 6   5 - 7   5 - 8   5 - 9   5 - 10   
+***Commander at Sector 5 - 10 buffeted into black hole.
+***Commander at Sector 4 - 1 destroyed.
+
+Track for torpedo number 2-  6 - 3   6 - 4   6 - 5   
+5 - 6   5 - 7   5 - 8   5 - 9   5 - 10   
+Torpedo missed.
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
