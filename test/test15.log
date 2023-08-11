@@ -1,0 +1,14 @@
+# seed 1691766356
+# options regular medium good fancy
+# SST2K version 2.7
+# Test encounter with Romulan and multiline torpedo firing
+# recorded by esr@snark on Fri Aug 11 11:05:56 2023
+m a 5 9
+m a 4 3
+torp
+3
+1 6
+1 6
+1 6
+quit
+n
