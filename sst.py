@@ -544,9 +544,9 @@ def tryexit(enemy, look, irun):
     iq.i = game.quadrant.i+(look.i+(QUADSIZE-1))//QUADSIZE - 1
     iq.j = game.quadrant.j+(look.j+(QUADSIZE-1))//QUADSIZE - 1
     if not welcoming(iq):
-        return False
+        return []
     if enemy.type == 'R':
-        return False # Romulans cannot escape!
+        return [] # Romulans cannot escape!
     if not irun:
         # avoid intruding on another commander's territory
         if enemy.type == 'C':
@@ -2518,7 +2518,7 @@ def events():
         elif evcode == FCDBAS: # Commander succeeds in destroying base
             if evcode == FCDBAS:
                 unschedule(FCDBAS)
-                if not game.state.baseq() \
+                if not game.state.baseq \
                        or not game.state.galaxy[game.battle.i][game.battle.j].starbase:
                     game.battle.invalidate()
                     continue
@@ -2564,7 +2564,7 @@ def events():
                 pdest.charted = True
             game.probe.moves -= 1 # One less to travel
             if game.probe.arrived() and game.isarmed and pdest.stars:
-                supernova(game.probe)                # fire in the hole!
+                supernova(game.probe.quadrant())                # fire in the hole!
                 unschedule(FDSPROB)
                 if game.state.galaxy[pquad.i][pquad.j].supernova:
                     return
@@ -3868,7 +3868,7 @@ def imove(icourse=None, noattack=False):
         if game.iscloaked:
             # We can't be tractor beamed if cloaked,
             # so move the event into the future
-            postpone(FTBEAM, game.optime + expran(1.5*game.intime/len(game.kcmdr)))
+            postpone(FTBEAM, game.optime + expran(1.5*game.intime/len(game.state.kcmdr)))
         else:
             trbeam = True
             game.condition = "red"
@@ -4566,7 +4566,8 @@ def mayday():
             break
         prout(_("fails."))
         textcolor(DEFAULT)
-        curses.delay_output(500)
+        if game.options & OPTION_CURSES:
+            curses.delay_output(500)
     if m > 3:
         game.quad[game.sector.i][game.sector.j]='?'
         game.alive = False
