@@ -1,0 +1,20 @@
+# seed 1691779887
+# options regular medium good fancy
+# SST2K version 2.7
+# Test behavior of Tholian
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 14:51:27 2023
+srscan
+m a 1 10
+# Observe that the Tolian doesn't spin a web..
+srscan
+m a 6 10
+# ... until it can be done without hitting the E
+srscan
+# Move out of quadrant and then back
+m a 4 5 1 6
+m a 1 1
+m a 4 4 1 10
+# Look for the Tholian; the web should be gone.
+srscan
+quit
+n

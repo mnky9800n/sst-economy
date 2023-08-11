@@ -1,0 +1,104 @@
+
+
+-SUPER- STAR TREK
+
+
+
+Stardate 2302.
+
+27 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+14 stardates.
+4 starbases in 6 - 2  2 - 5  3 - 6  2 - 6  
+
+The Enterprise is currently in Quadrant 4 - 4 Sector 1 - 7
+
+Good Luck!
+  YOU'LL NEED IT.
+COMMAND> # SST2K version 2.7
+# Test behavior of Tholian
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 14:51:27 2023
+srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  T . . . . . E . . . 
+ 2  . . . . . . * .   . 
+ 3  * . . . . . . . . . 
+ 4  . . . . . . . . . . 
+ 5  . . . . . . . . . . 
+ 6  . . . . . . . . . . 
+ 7  . . . . . . . . . . 
+ 8  . . . . . * . . . . 
+ 9  . . . . . * . . . . 
+10  . . . . . . . * . . 
+COMMAND> m a 1 10
+
+
+Enemy attack reduces shield strength to 100%,   torpedoes left 10
+COMMAND> # Observe that the Tolian doesn't spin a web..
+srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  T . . . . . . . . E 
+ 2  . . . . . . * .   . 
+ 3  * . . . . . . . . . 
+ 4  . . . . . . . . . . 
+ 5  . . . . . . . . . . 
+ 6  . . . . . . . . . . 
+ 7  . . . . . . . . . . 
+ 8  . . . . . * . . . . 
+ 9  . . . . . * . . . . 
+10  . . . . . . . * . . 
+COMMAND> m a 6 10
+
+
+Enemy attack reduces shield strength to 100%,   torpedoes left 10
+COMMAND> # ... until it can be done without hitting the E
+srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  # # # # # # # # # T 
+ 2  . . . . . . * .   . 
+ 3  * . . . . . . . . . 
+ 4  . . . . . . . . . . 
+ 5  . . . . . . . . . . 
+ 6  . . . . . . . . . E 
+ 7  . . . . . . . . . . 
+ 8  . . . . . * . . . . 
+ 9  . . . . . * . . . . 
+10  . . . . . . . * . . 
+COMMAND> # Move out of quadrant and then back
+m a 4 5 1 6
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 4 - 5.
+COMMAND> m a 1 1
+
+COMMAND> m a 4 4 1 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 4 - 4.
+
+Enemy attack reduces shield strength to 100%,   torpedoes left 10
+
+Enemy attack reduces shield strength to 100%,   torpedoes left 10
+COMMAND> # Look for the Tholian; the web should be gone.
+srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  T . . . * . . . . E 
+ 2  . . . .   . . . . . 
+ 3  . . . . . . . . .   
+ 4  . . . . * . . . . . 
+ 5  . . . . . . . . . . 
+ 6  . . . . . . . . . . 
+ 7  . . . . . . . . . . 
+ 8  . . . . . * . . . . 
+ 9  . . . * . . . . . . 
+10  . . . . . . * . . . 
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
