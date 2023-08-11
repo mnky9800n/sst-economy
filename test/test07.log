@@ -33,4 +33,4 @@ warp 4
 m a 8 8 1 1
 sh down
 m a 8 8 1 1
-n
+quit
