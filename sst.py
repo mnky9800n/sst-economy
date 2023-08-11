@@ -142,9 +142,9 @@ class Coord:
         self.i = x	# Row
         self.j = y	# Column
     def valid_quadrant(self):
-        return self.i >= 0 and self.i < GALSIZE and self.j >= 0 and self.j < GALSIZE
+        return (self.i is not None) and (self.j is not None) and (self.i >= 0) and (self.i < GALSIZE) and (self.j >= 0) and (self.j < GALSIZE)
     def valid_sector(self):
-        return self.i >= 0 and self.i < QUADSIZE and self.j >= 0 and self.j < QUADSIZE
+        return (self.i is not None) and (self.j is not None) and (self.i >= 0) and (self.i < QUADSIZE) and (self.j >= 0) and (self.j < QUADSIZE)
     def invalidate(self):
         self.i = self.j = None
     def __eq__(self, other):
@@ -3912,7 +3912,10 @@ def dock(verbose):
     if game.inorbit:
         prout(_("You must first leave standard orbit."))
         return
-    if game.base is None or abs(game.sector.i-game.base.i) > 1 or abs(game.sector.j-game.base.j) > 1:
+    if game.base is None or not game.base.valid_sector():
+        prout(_("No starbase available for docking in this quadrant."))
+        return
+    if (abs(game.sector.i-game.base.i) > 1) or (abs(game.sector.j-game.base.j) > 1):
         prout(crmshp() + _(" not adjacent to base."))
         return
     if game.iscloaked:
