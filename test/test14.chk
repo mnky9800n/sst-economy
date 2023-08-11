@@ -1,0 +1,77 @@
+
+
+-SUPER- STAR TREK
+
+Would you like a regular, tournament, or saved game? # SST2K version 2.7
+# Test death by black hole
+# recorded by esr@snark on Fri Aug 11 10:49:27 2023
+r
+Would you like a Short, Medium, or Long game? s
+Are you a Novice, Fair, Good, Expert, or Emeritus player? n
+Choose your game style (plain, almy, fancy or just press enter): fancy
+
+
+It is stardate 3221. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 4 battle cruisers.
+You have an initial allotment of 7 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 2 supporting starbases.
+Starbase locations-  1 - 4  4 - 4  
+
+The Enterprise is currently in Quadrant 4 - 6 Sector 4 - 10
+
+Good Luck!
+COMMAND> lrscan
+Long-range scan
+    8   7   6 
+    4   7   7 
+    3 107   4 
+COMMAND> srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  . . . . . * . . . . 
+ 2  . . .   . . . . . * 
+ 3  . . . * . . . * . * 
+ 4  . . .   . . . . . E 
+ 5  . . . . . . . . . . 
+ 6  . . . . . . . . . . 
+ 7  . @ . * . . . . . . 
+ 8  . . . . . . . . . . 
+ 9  . . . . . . . . . . 
+10  . . . * . . . . . . 
+COMMAND> move
+Manual or automatic- a
+Destination sector or quadrant&sector- 4 5 1 1
+
+Ensign Chekov- "Course laid in, Captain."
+
+Enterprise blocked by object at 3 - 4;
+Emergency stop required 125 units of energy.
+Collision detected
+COMMAND> m a 1 1 4 5
+
+Ensign Chekov- "Course laid in, Captain."
+
+***RED ALERT!  RED ALERT!
+***Enterprise pulled into black hole at Sector 2 - 4
+
+
+It is stardate 3222.3.
+
+Your ship is drawn to the center of the black hole.
+You are crushed into extremely dense matter.
+The Federation will be destroyed.
+
+
+Your score --
+  0.00 Klingons per stardate                  0
+     1 ship(s) lost or destroyed           -100
+Penalty for getting yourself killed        -200
+
+TOTAL SCORE                                -299
+Collision detected
+
+May the Great Bird of the Galaxy roost upon your home planet.
