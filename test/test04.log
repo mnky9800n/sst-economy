@@ -1,0 +1,21 @@
+# seed 1556116333
+# options regular short good fancy
+# SST2K version 2.4
+# Test starbase destruction, planet destruction, docking after destruction.
+# recorded by esr@snark on Fri Aug 11 08:59:1 3 2023
+chart
+m a 3 7 1 2
+sh up
+torp 1 7 9
+p a
+199
+sh down
+chart
+m a 2 10
+
+m 7 4 1 1
+torp 3 2 1 2 1 2 1
+torp 1 8 10
+m a 6 10
+dock
+quit
