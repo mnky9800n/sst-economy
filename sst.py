@@ -6772,7 +6772,7 @@ if __name__ == '__main__':
             logfp.write("# options %s\n" % " ".join(arguments))
             logfp.write("# SST2K version %s\n" % version)
             logfp.write("# recorded by %s@%s on %s\n" % \
-                    (getpass.getuser(),socket.gethostname(),time.ctime()))
+                    (getpass.getuser(),socket.getfqdn(),time.ctime()))
         rnd.seed(seed)
         scanner = sstscanner()
         for arg in arguments:

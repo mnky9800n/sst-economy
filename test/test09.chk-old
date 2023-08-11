@@ -18,7 +18,7 @@ Good Luck!
   YOU'LL NEED IT.
 COMMAND> # SST2K version 2.5
 # Test that escaping a quadrant with a Tholian in it removes him.
-# recorded by esr@snark on Thu Apr 25 09:27:17 2019
+# recorded by esr@snark.thyrsus.com on Thu Apr 25 09:27:17 2019
 
 COMMAND> m a 8 10
 
