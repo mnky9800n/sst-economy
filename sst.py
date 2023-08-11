@@ -1327,7 +1327,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                         deadkl(w, iquad, w)
                         return None
                     proutn(crmena(True, iquad, "sector", w))
-                    displacement = course(track.bearing+rnd.real(-2.4, 2.4), distance=2**0.5)
+                    displacement = course(track.bearing+rnd.real(-2.4, 2.4), distance=2**0.5, origin=w)
                     displacement.nexttok()
                     bumpto = displacement.sector()
                     if not bumpto.valid_sector():
