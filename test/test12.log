@@ -1,0 +1,19 @@
+# seed 1691778615
+# options regular medium good fancy
+# SST2K version 2.7
+# Test dilithium mining
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 14:30:15 2023
+status
+sensors
+m a 3 10
+m a 6 10
+m a 6 2
+orbit
+sh down
+crystals
+shu down
+mine
+shu up
+status
+quit
+n
