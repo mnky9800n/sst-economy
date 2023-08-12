@@ -35,7 +35,7 @@ pylint:
 	@pylint --score=n sst
 
 clean:
-	rm -f sst.6 sst.html
+	rm -f sst.6 sst.html sst-doc.html
 	rm -f *.6 MANIFEST index.html
 
 SHIPPER = version=$(VERS) bkgimage=lpt.jpg
