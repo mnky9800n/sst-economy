@@ -1,0 +1,706 @@
+
+
+-SUPER- STAR TREK
+
+
+
+Stardate 3034.
+
+31 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+14 stardates.
+5 starbases in 5 - 8  3 - 1  6 - 8  2 - 1  3 - 2  
+
+The Enterprise is currently in Quadrant 5 - 1 Sector 10 - 3
+
+Good Luck!
+  YOU'LL NEED IT.
+COMMAND> # SST2K version 2.7
+# Test supercommander destruction.
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 17:23:51 2023
+sh up
+Shields already up.
+COMMAND> phasers
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Manual or automatic? a
+Phasers locked on target. Energy available: 4800.00
+2695 units required. Units to fire= 2695
+
+Shields lowered.
+
+277 unit hit on Klingon at Sector 5 - 3
+***Klingon at Sector 5 - 3 destroyed.
+440 unit hit on Klingon at Sector 3 - 5
+***Klingon at Sector 3 - 5 destroyed.
+474 unit hit on Klingon at Sector 2 - 1
+***Klingon at Sector 2 - 1 destroyed.
+882 expended on empty space.
+
+Shields raised.
+Weapons officer Sulu-  "Phasers overheated, sir."
+
+Enemy attack reduces shield strength to 95%,   torpedoes left 10
+COMMAND> srscan
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+ 1  . . . . . . . . . K 
+ 2  . * . . * . . . . . 
+ 3  . . . . . . . K . * 
+ 4  . . . . . . . . . . 
+ 5  * * . . @ . . . . . 
+ 6  . . * . . . . . . . 
+ 7  . . . . . . . . . . 
+ 8  . . . . . . . . * . 
+ 9  . . . . . . . . * . 
+10  . . E . . . . . . . 
+COMMAND> m a 5 8
+
+
+Enemy attack reduces shield strength to 89%,   torpedoes left 10
+COMMAND> torp 2 3 8 1 10
+
+Track for torpedo number 1-  4 - 8   3 - 8   
+***Klingon at Sector 3 - 8 destroyed.
+
+Track for torpedo number 2-  4 - 9   3 - 9   2 - 10   
+1 - 10   
+***Klingon at Sector 1 - 10 destroyed.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ...  ...  ...  ...  ...   |
+3 | .1.  .1.  ...  ...  ...  ...  ...  ...   |
+4 | ..4  ..6  ...  ...  ...  ...  ...  ...   |
+5 |<..8> ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ...  ...  ...  ...  ...  .1.   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+
+COMMAND> m a 3 2 10 8
+
+Ensign Chekov- "Course laid in, Captain."
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 3 - 5, Sector 8 - 2
+
+102 unit hit from Klingon at 8 - 3
+
+
+Energy left 1758    shields up 62%,   torpedoes left 8
+COMMAND> torp 2 8 3 8 3
+
+Track for torpedo number 1-  8 - 3   
+***Commander at Sector 8 - 3 uses anti-photon device;
+   torpedo neutralized.
+
+Track for torpedo number 2-  8 - 3   
+***Commander at Sector 8 - 3 damaged-- displaced by blast to Sector 7 - 4 
+
+52 unit hit from Klingon at 7 - 4
+
+
+Energy left 1706    shields up 59%,   torpedoes left 6
+COMMAND> phasers
+
+Phaser control damaged.
+COMMAND> torp 1 7 4
+
+Torpedo track- 7 - 3   7 - 4   
+***Commander at Sector 7 - 4 destroyed.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ..7  ..1  101  ...  ...   |
+3 | .1.  .1.  ...  ..8 <..1> ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ...  ...  ...  ...  ...  .1.   |
+7 | ...  ...  ...  ...  ...  ...  ...  ...   |
+8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+
+COMMAND> m a 7 3 8 1
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 7 - 3.
+
+[ANNOUNCEMENT ARRIVING...]
+
+Message from Starfleet Command       Stardate 3036.12
+     Supernova in Quadrant 6 - 3; caution advised.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ..7  ..1  101  ...  ...   |
+3 | .1.  .1.  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ...  ..8 <..6> ..5  ...  ...  ...  ...   |
+8 | ...  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 7 1 1 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 7 - 1.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ..7  ..1  101  ...  ...   |
+3 | .1.  .1.  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 |<..7> ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> sh d
+Shields lowered.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ..7  ..1  101  ...  ...   |
+3 | .1.  .1.  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 |<..7> ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 3 1 10 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Engineering to bridge--
+We don't have enough energy, but we could do it at warp 4.
+COMMAND> warp 4
+Helmsman Sulu- "Warp factor 4, Captain."
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .1.  ...  ...  ..7  ..1  101  ...  ...   |
+3 | .1.  .1.  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 |<..7> ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 3 1 10 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 3 - 1.
+
+[ANNOUNCEMENT ARRIVING...]
+Lt. Uhura-  "Captain, Starfleet Intelligence reports
+   the Super-commander is in Quadrant 2 - 2.
+
+[ANNOUNCEMENT ARRIVING...]
+Lt. Uhura-  "Captain, Starfleet Intelligence reports
+   the Super-commander is in Quadrant 2 - 2.
+COMMAND> m a 6 6
+
+COMMAND> dock
+Docked.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ...  ...  ...  ...  ...  ...  ...  ...   |
+2 | .16  ..2  ...  107  ..1  101  ...  ...   |
+3 |<.15> .19  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ..6  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 2 1 1 6
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 2 - 1.
+
+[ANNOUNCEMENT ARRIVING...]
+
+Message from Starfleet Command       Stardate 3039.83
+     Supernova in Quadrant 4 - 2; caution advised.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ...  ...  ...  ...   |
+2 |<.16> ..2  ...  107  ..1  101  ...  ...   |
+3 | .15  .19  ...  ..8  ..1  ..2  ...  ...   |
+4 | ..4  ***  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 2 10
+
+
+Enterprise blocked by object at 1 - 8;
+Emergency stop required 106 units of energy.
+Collision detected
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 2 - 6, Sector 5 - 8
+Shields raised.
+
+Enemy attack reduces shield strength to 94%,   torpedoes left 10
+COMMAND> torpedo 2 1 1 1 1
+
+Track for torpedo number 1-  4 - 7   4 - 6   3 - 5   
+3 - 4   2 - 3   1 - 2   1 - 1   
+***Commander at Sector 1 - 1 damaged-- displaced by blast to Sector 10 - 1 
+
+Track for torpedo number 2-  4 - 7   4 - 6   3 - 5   
+3 - 4   2 - 3   1 - 2   1 - 1   
+Torpedo missed.
+
+Enemy attack reduces shield strength to 92%,   torpedoes left 8
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ...  ..7  ..1 <101> ..9  ...   |
+3 | .15  .19  ...  108  ..1  ..2  ..7  ...   |
+4 | ..4  ***  ...  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 3 4 5 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 3 - 4.
+
+106 unit hit from Klingon at 6 - 8
+
+
+Energy left 4615    shields up 54%,   torpedoes left 8
+
+370 unit hit from Klingon at 6 - 8
+
+***CRITICAL HIT--Computer damaged.
+
+Energy left 4244    shields up 40%,   torpedoes left 8
+
+Mc Coy-  "Sickbay to bridge.  We suffered 3 casualties
+   in that last attack."
+COMMAND> phasers
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Battle computer damaged, manual fire only.
+
+Shields raised.
+COMMAND> torpedo 3 6 8 5 8 6 8
+
+Track for torpedo number 1-  6 - 9   6 - 8   
+***Super-commander at Sector 6 - 8 damaged-- displaced by blast to Sector 6 - 7 
+
+Track for torpedo number 2-  5 - 9   5 - 8   5 - 7   
+5 - 6   
+Star at Sector 5 - 6 novas.
+***Super-commander at Sector 6 - 7 destroyed.
+
+Track for torpedo number 3-  6 - 9   6 - 8   7 - 7   
+7 - 6   8 - 5   8 - 4   9 - 3   9 - 2   
+Star at Sector 9 - 2 novas.
+***Star at Sector 10 - 3 novas.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ...   |
+3 | .15  .19  ..3 <..5> ..1  ..2  ..7  ...   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 6 1
+
+COMMAND> chart 
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ...   |
+3 | .15  .19  ..3 <..5> ..1  ..2  ..7  ...   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  104  ..4  ...  ...  ...  ...   |
+
+COMMAND> m 3 2 5 10
+(Manual movement assumed.)
+
+Helmsman Sulu- "Aye, Sir."
+Uhura- Captain, Vulcan (T'Khasi) in Quadrant 2 - 6 reports it is under attack
+by a Klingon invasion fleet.
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 8 - 3, Sector 1 - 4
+
+179 unit hit from Klingon at 5 - 10
+
+
+Energy left 3480    shields up 36%,   torpedoes left 5
+COMMAND> torpedo 2 5 10 5 10
+
+Track for torpedo number 1-  2 - 5   2 - 6   3 - 7   
+4 - 8   4 - 9   5 - 10   
+***Commander at Sector 5 - 10 damaged-- displaced by blast to Sector 4 - 1 
+
+Track for torpedo number 2-  2 - 5   2 - 6   3 - 7   
+4 - 8   4 - 9   5 - 10   
+Torpedo missed.
+
+167 unit hit from Klingon at 4 - 1
+
+
+Energy left 3313    shields up 33%,   torpedoes left 3
+COMMAND> torpedo 2 4 1 4 1
+
+Track for torpedo number 1-  2 - 3   3 - 2   4 - 1   
+***Commander at Sector 4 - 1 destroyed.
+
+Track for torpedo number 2-  2 - 3   3 - 2   4 - 1   
+Torpedo missed.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ...   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ...   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8 <..4> ..4  ...  ...  ...  ...   |
+
+COMMAND> sh d
+Shields lowered.
+COMMAND> m a 8 1 9 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Enterprise blocked by object at 3 - 1;
+Emergency stop required 80 units of energy.
+Collision detected
+COMMAND> m a 2 1
+
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ...   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ...   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8 <..4> ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 3 1 10 10
+
+Ensign Chekov- "Course laid in, Captain."
+
+[ANNOUNCEMENT ARRIVING...]
+
+***Enterprise caught in long range tractor beam--
+Enterprise is pulled to Quadrant 2 - 6, Sector 6 - 8
+Shields raised.
+
+359 unit hit from Klingon at 5 - 2
+
+***CRITICAL HIT--Shields damaged.
+***Shields knocked down.
+
+Energy left 2651    shields damaged, 27%,   torpedoes left 1
+
+Mc Coy-  "Sickbay to bridge.  We suffered 4 casualties
+   in that last attack."
+COMMAND> torpedo 2 5 2 5 2
+
+1 torpedoes left.
+Number of torpedoes to fire- 1
+Target sector for torpedo number 1- 5 2
+
+Torpedo track- 6 - 7   6 - 6   5 - 5   
+5 - 4   5 - 3   5 - 2   
+***Commander at Sector 5 - 2 damaged-- displaced by blast to Sector 4 - 1 
+
+116 unit hit from Klingon at 4 - 1
+
+
+Energy left 2535    shields damaged, 27%,   torpedoes left 0
+COMMAND> phasers
+
+Battle computer damaged, manual fire only.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  ...   |
+2 | .16  ..2  ..6  ..7  ..1 <101> ..9  ...   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ...   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 2 8 1 6
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 2 - 8.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  107   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9 <..9>  |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ..5   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 3 8
+
+COMMAND> m a 10 7
+
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  107   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9 <..9>  |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ..5   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ...  ...   |
+5 | ..8  ..5  ...  ...  ...  ...  ...  .1.   |
+6 | ..3  ..6  ***  ..6  ...  ...  ...  .1.   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 5 8 1 7
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 5 - 8.
+COMMAND> m a 7 3
+
+COMMAND> dock
+Docked.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  107   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ..9   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ..5   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ..3  ..9   |
+5 | ..8  ..5  ...  ...  ...  ...  ..8 <.14>  |
+6 | ..3  ..6  ***  ..6  ...  ...  603  517   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> rest
+How long? 3
+0 stardates left.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  107   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ..9   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ..5   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ..3  ..9   |
+5 | ..8  ..5  ...  ...  ...  ...  ..8 <.14>  |
+6 | ..3  ..6  ***  ..6  ...  ...  603  517   |
+7 | ..7  ..8  ..6  ..5  ...  ...  ...  ...   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 6 8 1 3
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant 6 - 8.
+
+312 unit hit from Klingon at 2 - 2
+
+***CRITICAL HIT--Transporter damaged.
+302 unit hit from Klingon at 3 - 2
+
+***CRITICAL HIT--D. S. Probe damaged.
+71 unit hit from Klingon at 9 - 7
+
+75 unit hit from Klingon at 8 - 9
+
+71 unit hit from Klingon at 8 - 10
+
+
+Energy left 4166    shields down 100%,   torpedoes left 10
+
+Mc Coy-  "Sickbay to bridge.  We suffered 5 casualties
+   in that last attack."
+
+221 unit hit from Klingon at 2 - 2
+
+[CONTINUE?]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+220 unit hit from Klingon at 3 - 2
+
+63 unit hit from Klingon at 9 - 7
+
+79 unit hit from Klingon at 8 - 9
+
+43 unit hit from Klingon at 8 - 10
+
+
+Energy left 3538    shields down 100%,   torpedoes left 10
+
+Mc Coy-  "Sickbay to bridge.  We suffered 5 casualties
+   in that last attack."
+COMMAND> sh up
+Shields raised.
+
+Enemy attack reduces shield strength to 84%,   torpedoes left 10
+COMMAND> phasers
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Manual or automatic? a
+Phasers locked on target. Energy available: 3262.69
+1085 units required. Units to fire= 1085
+
+Shields lowered.
+
+86 unit hit on Klingon at Sector 2 - 2
+***Klingon at Sector 2 - 2 destroyed.
+104 unit hit on Klingon at Sector 3 - 2
+***Klingon at Sector 3 - 2 destroyed.
+150 unit hit on Klingon at Sector 9 - 7
+***Klingon at Sector 9 - 7 destroyed.
+36 unit hit on Klingon at Sector 8 - 9
+***Mr. Spock-  "Captain, the vessel at Sector 8 - 9
+   has just lost its firepower."
+518 expended on empty space.
+
+Shields raised.
+
+Enemy attack reduces shield strength to 84%,   torpedoes left 10
+COMMAND> m a 5 7
+
+
+Enemy attack reduces shield strength to 83%,   torpedoes left 10
+COMMAND> phasers
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Manual or automatic? a
+Phasers locked on target. Energy available: 1905.28
+196 units required. Units to fire= 196
+
+Shields lowered.
+
+89 unit hit on Klingon at Sector 8 - 9
+***Klingon at Sector 8 - 9 destroyed.
+
+Shields raised.
+
+Enemy attack reduces shield strength to 82%,   torpedoes left 10
+COMMAND> torpedo 1 8 10
+
+Torpedo track- 6 - 8   7 - 9   8 - 10   
+***Klingon at Sector 8 - 10 destroyed.
+COMMAND> m a 10 7
+
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 80 percent of our
+  remaining time.  Are you sure this is wise?" n
+COMMAND> warp 2
+Helmsman Sulu- "Warp factor 2, Captain."
+COMMAND> m a 10 7
+
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 321 percent of our
+  remaining time.  Are you sure this is wise?" n
+COMMAND> warp 3
+Helmsman Sulu- "Warp factor 3, Captain."
+COMMAND> m a 10 7
+
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 143 percent of our
+  remaining time.  Are you sure this is wise?" n
+COMMAND> warp 5
+Helmsman Sulu- "Warp factor 5, Captain."
+COMMAND> m a 10 7
+
+COMMAND> m a 10 4
+
+COMMAND> dock
+Docked.
+COMMAND> chart
+       STAR CHART FOR THE KNOWN GALAXY
+      1    2    3    4    5    6    7    8
+1 | ..1  ..6  ...  ...  ..1  ..8  ..7  107   |
+2 | .16  ..2  ..6  ..7  ..1  101  ..9  ..9   |
+3 | .15  .19  ..3  ..5  ..1  ..2  ..7  ..5   |
+4 | ..4  ***  ..3  ..2  ..6  ..3  ..3  ..9   |
+5 | ..8  ..5  ...  ...  ...  ...  ..8  .14   |
+6 | ..3  ..6  ***  ..6  ...  ...  603 <.17>  |
+7 | ..7  ..8  ..6  ..5  ...  ...  ..3  ..6   |
+8 | ..9  ..8  ..4  ..4  ...  ...  ...  ...   |
+
+COMMAND> m a 9 3
+
+
+First Officer Spock- "Captain, I compute that such
+  a trip would require approximately 81 percent of our
+  remaining time.  Are you sure this is wise?" n
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
