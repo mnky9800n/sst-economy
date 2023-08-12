@@ -1,7 +1,8 @@
 			SST2K project news.
 
 Repository head::
-    Fix for enemy dispersion on torpedo hits. 
+    Fix for enemy dispersion on torpedo hits.
+    Re-conorm to the documentation by removing the .py estension from sst.
 
 2.7: 2021-09-20::
     Ubuntu has abolished /usr/bin/python, change shebang to python3.

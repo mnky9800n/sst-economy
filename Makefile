@@ -1,17 +1,17 @@
 # Makefile for the SST2K project
 
-VERS=$(shell sed <sst.py -n -e '/version *= \"*\(.*\)\"/s//\1/p')
+VERS=$(shell sed <sst -n -e '/version *= \"*\(.*\)\"/s//\1/p')
 
 MANDIR=/usr/share/man/man1
 BINDIR=/usr/bin
 
 DOCS    = README COPYING NEWS doc/HACKING doc/sst-doc.xml doc/sst-layer.xsl doc/sst.xml
-SOURCES = sst.py Makefile replay doc/makehelp.py control $(DOCS)
+SOURCES = sst Makefile replay doc/makehelp.py control $(DOCS)
 
 all: super-star-trek-$(VERS).tar.gz
 
 install: sst.6
-	cp sst.py $(BINDIR)
+	cp sst $(BINDIR)
 	gzip <sst.6 >$(MANDIR)/sst.6.gz
 
 sst.6: doc/sst.xml
@@ -32,7 +32,7 @@ check: pylint
 	cd test; $(MAKE) --quiet
 
 pylint:
-	@pylint --score=n sst.py
+	@pylint --score=n sst
 
 clean:
 	rm -f sst.6 sst.html

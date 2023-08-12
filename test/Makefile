@@ -12,7 +12,7 @@ all:
 .SUFFIXES: .log .chk
 
 .log.chk:
-	../sst.py -r $< >$@ 2>&1
+	../sst -r $< >$@ 2>&1
 
 TESTLOADS := $(shell ls *.log | sed '/.log/s///')
 buildregress:
@@ -20,7 +20,7 @@ buildregress:
 	    if [ ! -f $${test}.tst ] ; \
 	    then \
 		    echo "Remaking $${test}.chk"; \
-		    rm -f $${test}.chk && ../sst.py -r $${test}.log >$${test}.chk 2>&1; \
+		    rm -f $${test}.chk && ../sst -r $${test}.log >$${test}.chk 2>&1; \
 	    fi \
 	done
 regress:
@@ -30,7 +30,7 @@ regress:
 	    if [ ! -f $${test}.tst ] ; \
 	    then \
 		legend=$$(sed -n -e '/# Test/s//Test/p' <$${test}.log); \
-		../sst.py -r "$${test}.log" | ./tapdiffer "$${legend}" "$${test}.chk"; \
+		../sst -r "$${test}.log" | ./tapdiffer "$${legend}" "$${test}.chk"; \
 	    fi \
 	done
 	@rm -f /tmp/regress
