@@ -1,0 +1,105 @@
+# seed 1691831923
+# options regular medium novice fancy
+# SST2K version 2.7
+# Test game-win condition
+# recorded by esr@snark.thyrsus.com on Sat Aug 12 05:18:43 2023
+chart
+probe
+y
+n
+a
+1 1
+chart
+m a 7 4 1 10
+chart
+m a 3 1
+chart
+m a 7 3 3 10
+phasers
+a
+326
+m a 6 10
+dock
+chart
+m a 1 10
+xhart
+chart
+m a 7 4 1 10
+chart
+m a 2 9
+chart
+m a 7 2 2 10
+chart
+sh up
+chart
+m a 5 2 10 10
+chart
+chart 6 2 1 10
+n a 6 2 1 10
+chart
+m a 6 2 1 10
+m a 1 9
+torp 2 5 9 5 9
+phasers
+a
+386
+chart
+probe
+y
+n
+a
+6 8
+chart
+sh s
+n
+y
+m a 1 5
+m 5 3
+chart
+m a 10 10
+chart
+m a 5 7 1 10
+chart
+m a 7 7 1 10
+chart
+chart 5 4 10 10
+chart
+m a 5 4 10 10
+phasers
+a
+490
+torp 1 3 8
+chart
+m a 1 5
+sh up
+chart
+m a 3 4 10 5
+chart
+m a 1 1
+sh up
+chart
+m a 2 4 10 1
+phasers
+torpedo 2
+8 5 4 9
+4 9
+torp 1
+4 9
+m a 2 10
+sh d
+warp 4
+m a 2 10
+dock
+chart
+m a 1 1
+m a 10 2
+chart
+m a 5 1 1 10
+phasers
+a
+532
+torp 1 2 7
+phasers
+a
+101
+n
