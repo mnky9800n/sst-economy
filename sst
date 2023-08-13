@@ -4009,39 +4009,35 @@ def getcourse(isprobe):
             scanner.chew()
             iprompt = True
             key = scanner.nexttok()
-        if key != "IHREAL":
-            huh()
+        scanner.push(scanner.token)	# Something IHREAL or IHALPHA awaits us
+        first = scanner.getcoord()
+        if first is None:
             raise TrekError
-        xi = int(round(scanner.real))-1
-        key = scanner.nexttok()
-        if key != "IHREAL":
-            huh()
-            raise TrekError
-        xj = int(round(scanner.real))-1
-        key = scanner.nexttok()
-        if key == "IHREAL":
-            # both quadrant and sector specified
-            xk = int(round(scanner.real))-1
-            key = scanner.nexttok()
-            if key != "IHREAL":
-                huh()
+        scanner.nexttok()
+        if scanner.type == "IHEOL":
+            second = None
+        else:
+            scanner.push(scanner.token)
+            second = scanner.getcoord()
+            if second is None:
                 raise TrekError
-            xl = int(round(scanner.real))-1
-            dquad.i = xi
-            dquad.j = xj
-            dsect.i = xk
-            dsect.j = xl
+        scanner.chew()
+        if second is not None:
+            dquad.i = first.i
+            dquad.j = first.j
+            dsect.i = second.i
+            dsect.j = second.j
         else:
             # only one pair of numbers was specified
             if isprobe:
                 # only quadrant specified -- go to center of dest quad
-                dquad.i = xi
-                dquad.j = xj
-                dsect.j = dsect.i = 4        # preserves 1-origin behavior
+                dquad.i = first.i
+                dquad.j = first.j
+                dsect.j = dsect.i = (QUADSIZE/2)-1        # preserves 1-origin behavior
             else:
                 # only sector specified
-                dsect.i = xi
-                dsect.j = xj
+                dsect.i = first.i
+                dsect.j = first.j
             itemp = "normal"
         if not dquad.valid_quadrant() or not dsect.valid_sector():
             huh()
@@ -6539,7 +6535,7 @@ class sstscanner:
         # Get a token from the user
         self.real = 0.0
         self.token = ''
-        # Fill the token quue if nothing here
+        # Fill the token queue if nothing here
         while not self.inqueue:
             sline = cgetline()
             if curwnd==prompt_window:
