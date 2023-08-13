@@ -1,18 +1,18 @@
 #! /bin/sh
 # tapview - a TAP (Test Anything Protocol) viewer in pure POSIX shell
 #
-# Copyright by Eric S. Raymond
+# SPDX-FileCopyrightText: Eric S. Raymond <esr@thyrsus.com>
+# SPDX-License-Identifier: MIT-0
 #
 # This code is intended to be embedded in your project. The author
 # grants permission for it to be distributed under the prevailing
 # license of your project if you choose, provided that license is
-# OSD-compliant; otherwise the following SPDX tag incorporates a
-# license by reference.
+# OSD-compliant; otherwise the following SPDX tag incorporates the
+# MIT No Attribution license by reference.
 #
-# SPDX-License-Identifier: BSD-2-Clause
-#
-# This is version 1.6
 # A newer version may be available at https://gitlab.com/esr/tapview
+# Check your last commit dqte for this file against the commit list
+# there to see if it might be a good idea to update.
 #
 OK="."
 FAIL="F"
@@ -20,13 +20,16 @@ SKIP="s"
 TODO_NOT_OK="x"
 TODO_OK="u"
 
+LF='
+'
+
 ship_char() {
     # shellcheck disable=SC2039
     printf '%s' "$1"	# https://www.etalabs.net/sh_tricks.html
 }
 
 ship_line() {
-    report="${report}${1}\n"
+    report="${report}${1}$LF"
 }
 
 ship_error() {
@@ -35,7 +38,7 @@ ship_error() {
     then
 	echo ""
     fi
-    report="${report}${1}\n"
+    report="${report}${1}$LF"
     echo "${report}"
     exit 1
 }
@@ -76,6 +79,10 @@ context_pop () {
     elif [ "$(context_get plan)" != "" ] && [ "$(context_get expect)" -gt "$(context_get count)" ]
     then
 	ship_line "Expected $(context_get expect) tests but only ${testcount} ran."
+	status=1
+     elif [ "$(context_get plan)" != "" ] && [ "$(context_get expect)" -lt "$(context_get count)" ]
+    then
+	ship_line "${testcount} ran but $(context_get expect) expected."
 	status=1
     fi
 }
