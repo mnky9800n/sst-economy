@@ -6779,7 +6779,6 @@ if __name__ == '__main__':
             game.options |= OPTION_TTY
         seed = int(time.time())
         (options, arguments) = getopt.getopt(sys.argv[1:], "cr:s:txV")
-        replay = False
         for (switch, val) in options:
             if switch == '-r':
                 # pylint: disable=raise-missing-from
@@ -6796,7 +6795,6 @@ if __name__ == '__main__':
                     seed = eval(seed)
                     line = replayfp.readline().strip()
                     arguments += line.split()[2:]
-                    replay = True
                 except ValueError:
                     sys.stderr.write("sst: replay file %s is ill-formed\n"% val)
                     raise SystemExit(1)
@@ -6829,7 +6827,7 @@ if __name__ == '__main__':
             sys.exit(1)
         if logfp:
             logfp.write("# seed %s\n" % seed)
-            logfp.write("# options %s\n" % " ".join(arguments))
+            logfp.write("# arguments %s\n" % " ".join(arguments))
             logfp.write("# SST2K version %s\n" % version)
             logfp.write("# recorded by %s@%s on %s\n" % \
                     (getpass.getuser(),socket.getfqdn(),time.ctime()))
@@ -6849,7 +6847,7 @@ if __name__ == '__main__':
                     game.alldone = False
                 else:
                     makemoves()
-                if replay:
+                if replayfp:
                     break
                 skip(1)
                 stars()
