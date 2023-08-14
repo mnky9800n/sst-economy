@@ -19,9 +19,9 @@ You have an initial allotment of 7 stardates to complete
 your mission.  As you proceed you may be given more time.
 
 You will have 2 supporting starbases.
-Starbase locations-  1 - 4  4 - 4  
+Starbase locations-  a4  d4  
 
-The Enterprise is currently in Quadrant 4 - 6 Sector 4 - 10
+The Enterprise is currently in Quadrant d6 Sector d10
 
 Good Luck!
 COMMAND> lrscan
@@ -32,23 +32,23 @@ Long-range scan
 COMMAND> srscan
      Short-range scan
     1 2 3 4 5 6 7 8 9 10
- 1  . . . . . * . . . . 
- 2  . . .   . . . . . * 
- 3  . . . * . . . * . * 
- 4  . . .   . . . . . E 
- 5  . . . . . . . . . . 
- 6  . . . . . . . . . . 
- 7  . @ . * . . . . . . 
- 8  . . . . . . . . . . 
- 9  . . . . . . . . . . 
-10  . . . * . . . . . . 
+a   . . . . . * . . . . 
+b   . . .   . . . . . * 
+c   . . . * . . . * . * 
+d   . . .   . . . . . E 
+e   . . . . . . . . . . 
+f   . . . . . . . . . . 
+g   . @ . * . . . . . . 
+h   . . . . . . . . . . 
+i   . . . . . . . . . . 
+j   . . . * . . . . . . 
 COMMAND> move
 Manual or automatic- a
 Destination sector or quadrant&sector- 4 5 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Enterprise blocked by object at 3 - 4;
+Enterprise blocked by object at c4;
 Emergency stop required 125 units of energy.
 Collision detected
 COMMAND> m a 1 1 4 5
@@ -56,7 +56,7 @@ COMMAND> m a 1 1 4 5
 Ensign Chekov- "Course laid in, Captain."
 
 ***RED ALERT!  RED ALERT!
-***Enterprise pulled into black hole at Sector 2 - 4
+***Enterprise pulled into black hole at Sector b4
 
 
 It is stardate 3222.3.

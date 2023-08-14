@@ -10,9 +10,9 @@ Stardate 4778.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-4 starbases in 7 - 4  1 - 1  1 - 2  1 - 4  
+4 starbases in g4  a1  a2  a4  
 
-The Enterprise is currently in Quadrant 2 - 6 Sector 5 - 9
+The Enterprise is currently in Quadrant b6 Sector e9
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,31 +22,31 @@ COMMAND> # SST2K version 2.4
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | .1.  .1.  ...  .1.  107  ..3  ..2  ...   |
-2 | ...  ...  ...  ...  ..7 <..9> ..5  ...   |
-3 | ...  ...  ...  ...  ..8  ..7  207  ...   |
-4 | ...  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  .1.  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | .1.  .1.  ...  .1.  107  ..3  ..2  ...   |
+b | ...  ...  ...  ...  ..7 <..9> ..5  ...   |
+c | ...  ...  ...  ...  ..8  ..7  207  ...   |
+d | ...  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  .1.  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> m a 3 7 1 2
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 3 - 7.
+Entering Quadrant c7.
 
-144 unit hit from Klingon at 5 - 7
+144 unit hit from Klingon at e7
 
-94 unit hit from Klingon at 8 - 9
+94 unit hit from Klingon at h9
 
 
 Energy left 4761    shields down 100%,   torpedoes left 10
 
-99 unit hit from Klingon at 5 - 7
+99 unit hit from Klingon at e7
 
-69 unit hit from Klingon at 8 - 9
+69 unit hit from Klingon at h9
 
 
 Energy left 4592    shields down 100%,   torpedoes left 10
@@ -56,9 +56,9 @@ Shields raised.
 Enemy attack reduces shield strength to 96%,   torpedoes left 10
 COMMAND> torp 1 7 9
 
-Torpedo track- 2 - 3   3 - 4   4 - 5   
-5 - 6   5 - 7   
-***Klingon at Sector 5 - 7 destroyed.
+Torpedo track- b3   c4   d5   
+e6   e7   
+***Klingon at Sector e7 destroyed.
 
 Enemy attack reduces shield strength to 94%,   torpedoes left 9
 COMMAND> p a
@@ -69,8 +69,8 @@ Phasers locked on target. Energy available: 4258.58
 
 Shields lowered.
 
-143 unit hit on Klingon at Sector 8 - 9
-***Klingon at Sector 8 - 9 destroyed.
+143 unit hit on Klingon at Sector h9
+***Klingon at Sector h9 destroyed.
 
 Shields raised.
 COMMAND> sh down
@@ -78,29 +78,29 @@ Shields lowered.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | .1.  .1.  ...  .1.  107  ..3  ..2  ...   |
-2 | ...  ...  ...  ...  ..7  ..9  ..5  ..4   |
-3 | ...  ...  ...  ...  ..8  ..7 <..7> 106   |
-4 | ...  ...  ...  ...  ...  ..1  ..1  ..2   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  .1.  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | .1.  .1.  ...  .1.  107  ..3  ..2  ...   |
+b | ...  ...  ...  ...  ..7  ..9  ..5  ..4   |
+c | ...  ...  ...  ...  ..8  ..7 <..7> 106   |
+d | ...  ...  ...  ...  ...  ..1  ..1  ..2   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  .1.  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> m a 2 10
 
 
-Enterprise blocked by object at 1 - 5;
+Enterprise blocked by object at a5;
 Emergency stop required 124 units of energy.
 Collision detected
 
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   the Super-commander is in Quadrant 1 - 5.
+   the Super-commander is in Quadrant a5.
 
 [ANNOUNCEMENT ARRIVING...]
 
-Lt. Uhura-  "Captain, the starbase in Quadrant 7 - 4
+Lt. Uhura-  "Captain, the starbase in Quadrant g4
    reports that it is under attack and that it can
    hold out only until stardate 4782."
 COMMAND> 
@@ -116,32 +116,32 @@ YOU WILL BE DESTROYED.
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 7 - 4, Sector 9 - 10
+Enterprise is pulled to Quadrant g4, Sector i10
 Shields raised.
 
 Enemy attack reduces shield strength to 91%,   torpedoes left 9
 COMMAND> torp 3 2 1 2 1 2 1
 
-Track for torpedo number 1-  8 - 9   7 - 8   7 - 7   
-6 - 6   5 - 5   4 - 4   4 - 3   3 - 2   
-2 - 1   
-***Commander at Sector 2 - 1 damaged-- displaced by blast to Sector 1 - 1 
+Track for torpedo number 1-  h9   g8   g7   
+f6   e5   d4   d3   c2   
+b1   
+***Commander at Sector b1 damaged-- displaced by blast to Sector a1 
 
-Track for torpedo number 2-  8 - 9   8 - 8   7 - 7   
-6 - 6   5 - 5   5 - 4   4 - 3   3 - 2   
-3 - 1   
+Track for torpedo number 2-  h9   h8   g7   
+f6   e5   e4   d3   c2   
+c1   
 Torpedo missed.
 
-Track for torpedo number 3-  8 - 9   7 - 8   7 - 7   
-6 - 6   5 - 5   4 - 4   3 - 3   2 - 2   
-***Inhabited World at Sector 2 - 2 destroyed.
+Track for torpedo number 3-  h9   g8   g7   
+f6   e5   d4   c3   b2   
+***Inhabited World at Sector b2 destroyed.
 The torpedo destroyed an inhabited planet.
 
 Enemy attack reduces shield strength to 90%,   torpedoes left 6
 COMMAND> torp 1 8 10
 
-Torpedo track- 8 - 10   7 - 10   6 - 10   
-5 - 10   
+Torpedo track- h10   g10   f10   
+e10   
 
 ***STARBASE DESTROYED..
 

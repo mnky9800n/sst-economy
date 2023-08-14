@@ -10,9 +10,9 @@ Stardate 2412.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-2 starbases in 6 - 3  3 - 6  
+2 starbases in f3  c6  
 
-The Enterprise is currently in Quadrant 2 - 1 Sector 9 - 10
+The Enterprise is currently in Quadrant b1 Sector i10
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,14 +22,14 @@ COMMAND> # SST2K version 2.4
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ..8  ..4  ...  ...  ...  ...  ...  ...   |
-2 |<..4> ..7  ...  ...  ...  ...  ...  ...   |
-3 | ..9  ..3  ...  ...  ...  .1.  ...  ...   |
-4 | ...  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ..8  ..4  ...  ...  ...  ...  ...  ...   |
+b |<..4> ..7  ...  ...  ...  ...  ...  ...   |
+c | ..9  ..3  ...  ...  ...  .1.  ...  ...   |
+d | ...  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  .1.  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> sh down
 Shields already down.
@@ -37,7 +37,7 @@ COMMAND> m a 3 1 1 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 3 - 1.
+Entering Quadrant c1.
 COMMAND> m a 10 10
 
 COMMAND> sh up
@@ -46,7 +46,7 @@ COMMAND> m a 4 1 1 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 4 - 1.
+Entering Quadrant d1.
 
 Enemy attack reduces shield strength to 87%,   torpedoes left 10
 
@@ -59,13 +59,13 @@ Phasers locked on target. Energy available: 4587.50
 
 Shields lowered.
 
-221 unit hit on Klingon at Sector 2 - 5
-***Klingon at Sector 2 - 5 destroyed.
-180 unit hit on Klingon at Sector 5 - 3
-***Klingon at Sector 5 - 3 destroyed.
-242 unit hit on Klingon at Sector 10 - 6
-***Klingon at Sector 10 - 6 destroyed.
-44 unit hit on Klingon at Sector 10 - 4
+221 unit hit on Klingon at Sector b5
+***Klingon at Sector b5 destroyed.
+180 unit hit on Klingon at Sector e3
+***Klingon at Sector e3 destroyed.
+242 unit hit on Klingon at Sector j6
+***Klingon at Sector j6 destroyed.
+44 unit hit on Klingon at Sector j4
 926 expended on empty space.
 
 Shields raised.
@@ -79,9 +79,9 @@ Phasers locked on target. Energy available: 2504.50
 
 Shields lowered.
 
-101 unit hit on Klingon at Sector 10 - 4
-***Klingon at Sector 10 - 4 destroyed.
-60 unit hit on Klingon at Sector 9 - 1
+101 unit hit on Klingon at Sector j4
+***Klingon at Sector j4 destroyed.
+60 unit hit on Klingon at Sector i1
 204 expended on empty space.
 
 Shields raised.
@@ -93,21 +93,21 @@ COMMAND> m a 9 10
 Enemy attack reduces shield strength to 76%,   torpedoes left 10
 COMMAND> torp 1 9 1
 
-Torpedo track- 9 - 9   9 - 8   9 - 7   
-9 - 6   9 - 5   9 - 4   9 - 3   9 - 2   
-9 - 1   
-***Klingon at Sector 9 - 1 destroyed.
+Torpedo track- i9   i8   i7   
+i6   i5   i4   i3   i2   
+i1   
+***Klingon at Sector i1 destroyed.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ..8  ..4  ...  ...  ...  ...  ...  ...   |
-2 | ..4  ..7  ...  ...  ...  ...  ...  ...   |
-3 | ..9  ..3  ...  ...  ...  .1.  ...  ...   |
-4 |<..3> ..4  ...  ...  ...  ...  ...  ...   |
-5 | ..3  ..3  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ..8  ..4  ...  ...  ...  ...  ...  ...   |
+b | ..4  ..7  ...  ...  ...  ...  ...  ...   |
+c | ..9  ..3  ...  ...  ...  .1.  ...  ...   |
+d |<..3> ..4  ...  ...  ...  ...  ...  ...   |
+e | ..3  ..3  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  .1.  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> sh down
 Shields lowered.
@@ -116,18 +116,18 @@ COMMAND> m 4 2 1 10
 
 Helmsman Sulu- "Aye, Sir."
 
-Entering Quadrant 2 - 5.
+Entering Quadrant b5.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ..8  ..4  ...  ..8  ..2  ..6  ...  ...   |
-2 | ..4  ..7  ...  ..1 <..6> ..5  ...  ...   |
-3 | ..9  ..3  ...  ..5  ..8  .14  ...  ...   |
-4 | ..3  ..4  ...  ...  ...  ...  ...  ...   |
-5 | ..3  ..3  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ..8  ..4  ...  ..8  ..2  ..6  ...  ...   |
+b | ..4  ..7  ...  ..1 <..6> ..5  ...  ...   |
+c | ..9  ..3  ...  ..5  ..8  .14  ...  ...   |
+d | ..3  ..4  ...  ...  ...  ...  ...  ...   |
+e | ..3  ..3  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  .1.  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> rep
 You were playing a short good game.
@@ -161,16 +161,16 @@ YOU WILL BE DESTROYED.
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2416.51
-     Supernova in Quadrant 3 - 6; caution advised.
+     Supernova in Quadrant c6; caution advised.
 
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   the Super-commander is in Quadrant 3 - 1.
+   the Super-commander is in Quadrant c1.
 
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2416.77
-     Supernova in Quadrant 8 - 2; caution advised.
+     Supernova in Quadrant h2; caution advised.
 
 [ANNOUNCEMENT ARRIVING...]
 
@@ -200,10 +200,10 @@ Message from Starfleet Command       Stardate 2416.77
 
 
 
-Enterprise is pulled to Quadrant 4 - 7, Sector 4 - 9
+Enterprise is pulled to Quadrant d7, Sector d9
 Shields raised.
 
-61 unit hit from Klingon at 8 - 2
+61 unit hit from Klingon at h2
 
 
 Energy left 360    shields up 70%,   torpedoes left 9
@@ -234,21 +234,21 @@ Helmsman Sulu- "Warp factor 2, Captain."
 COMMAND> m a 8 8
 
 
-83 unit hit from Klingon at 8 - 2
+83 unit hit from Klingon at h2
 
 
 Energy left 277    shields up 63%,   torpedoes left 9
 COMMAND> torp 2 10 1
 
-Track for torpedo number 1-  8 - 7   9 - 6   
-Star at Sector 9 - 6 novas.
+Track for torpedo number 1-  h7   i6   
+Star at Sector i6 novas.
 
-Track for torpedo number 2-  8 - 7   9 - 6   9 - 5   
-9 - 4   9 - 3   10 - 2   
+Track for torpedo number 2-  h7   i6   i5   
+i4   i3   j2   
 
 ***Torpedo absorbed by Tholian web.
 
-100 unit hit from Klingon at 8 - 2
+100 unit hit from Klingon at h2
 
 
 Energy left 171    shields up 58%,   torpedoes left 7
@@ -269,12 +269,12 @@ First Officer Spock- "Captain, I compute that such
 Please answer with "y" or "n": n
 COMMAND> torp 2 8 3
 
-Track for torpedo number 1-  8 - 7   8 - 6   8 - 5   
-8 - 4   8 - 3   8 - 2   
-***Commander at Sector 8 - 2 destroyed.
+Track for torpedo number 1-  h7   h6   h5   
+h4   h3   h2   
+***Commander at Sector h2 destroyed.
 
-Track for torpedo number 2-  8 - 7   8 - 6   8 - 5   
-8 - 4   8 - 3   8 - 2   8 - 1   
+Track for torpedo number 2-  h7   h6   h5   
+h4   h3   h2   h1   
 
 ***Torpedo absorbed by Tholian web.
 
@@ -287,27 +287,27 @@ Long-range scan
 COMMAND> srscan
      Short-range scan
     1 2 3 4 5 6 7 8 9 10
- 1  # #   # # # # # # T 
- 2  # . . . . . . . . . 
- 3  # . . . . . . . . . 
- 4  # . . . . . . . . . 
- 5  # . . . . . . . . . 
- 6  # . . . . . . . . . 
- 7  # . . . . . . . . . 
- 8  # . . . . . . E . * 
- 9  # . . . . . . . . . 
-10  # # # # # # # # # # 
+a   # #   # # # # # # T 
+b   # . . . . . . . . . 
+c   # . . . . . . . . . 
+d   # . . . . . . . . . 
+e   # . . . . . . . . . 
+f   # . . . . . . . . . 
+g   # . . . . . . . . . 
+h   # . . . . . . E . * 
+i   # . . . . . . . . . 
+j   # # # # # # # # # # 
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ..8  ..4  ...  ..8  ..2  106  ...  ...   |
-2 | ..4  ..7  ...  ..1  ..6  ..5  ...  ...   |
-3 | ..9  ..3  ...  ..5  ..8  ***  109  ..9   |
-4 | ..3  ..4  ...  ...  ...  ..4 <..1> ..6   |
-5 | ..3  ..3  ...  ...  ...  ..6  ..4  108   |
-6 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ***  ...  ...  ...  ...  ...  ...   |
+a | ..8  ..4  ...  ..8  ..2  106  ...  ...   |
+b | ..4  ..7  ...  ..1  ..6  ..5  ...  ...   |
+c | ..9  ..3  ...  ..5  ..8  ***  109  ..9   |
+d | ..3  ..4  ...  ...  ...  ..4 <..1> ..6   |
+e | ..3  ..3  ...  ...  ...  ..6  ..4  108   |
+f | ...  ...  .1.  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ***  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> m a 4 8 1 6
 
@@ -322,9 +322,9 @@ Enemy attack reduces shield strength to 58%,   torpedoes left 5
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 5 - 8, Sector 5 - 4
+Enterprise is pulled to Quadrant e8, Sector e4
 
-213 unit hit from Klingon at 6 - 8
+213 unit hit from Klingon at f8
 
 
 

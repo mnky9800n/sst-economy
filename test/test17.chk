@@ -10,9 +10,9 @@ Stardate 3997.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 14 stardates.
-5 starbases in 3 - 5  3 - 2  6 - 6  2 - 1  7 - 8  
+5 starbases in c5  c2  f6  b1  g8  
 
-The Enterprise is currently in Quadrant 6 - 3 Sector 8 - 10
+The Enterprise is currently in Quadrant f3 Sector h10
 
 Good Luck!
   YOU'LL NEED IT.
@@ -31,44 +31,44 @@ YOU WILL BE DESTROYED.
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 6 - 2, Sector 1 - 5
+Enterprise is pulled to Quadrant f2, Sector a5
 Shields raised.
 
 Enemy attack reduces shield strength to 89%,   torpedoes left 10
 COMMAND> m a 1 9
 
 
-28 unit hit from Klingon at 7 - 9
+28 unit hit from Klingon at g9
 
 
 Energy left 4755    shields up 81%,   torpedoes left 10
 COMMAND> srscan
      Short-range scan
     1 2 3 4 5 6 7 8 9 10
- 1    * . . . . . . E . 
- 2  . . . . . . . . . . 
- 3  . . . . . . . . . . 
- 4  * . . . . * . . . . 
- 5  . . . . . . . . . . 
- 6  . . . . . . . . . . 
- 7  . . . . . . . . C . 
- 8  . . . . . . . . . . 
- 9  . . . . P . . . * . 
-10  .   . . . . . * * . 
+a     * . . . . . . E . 
+b   . . . . . . . . . . 
+c   . . . . . . . . . . 
+d   * . . . . * . . . . 
+e   . . . . . . . . . . 
+f   . . . . . . . . . . 
+g   . . . . . . . . C . 
+h   . . . . . . . . . . 
+i   . . . . P . . . * . 
+j   .   . . . . . * * . 
 COMMAND> 
 COMMAND> torp 3 7 9 7 9 7 9
 
-Track for torpedo number 1-  2 - 9   3 - 9   4 - 9   
-5 - 9   6 - 9   7 - 9   
-***Commander at Sector 7 - 9 damaged-- displaced by blast to Sector 8 - 8 
+Track for torpedo number 1-  b9   c9   d9   
+e9   f9   g9   
+***Commander at Sector g9 damaged-- displaced by blast to Sector h8 
 
-Track for torpedo number 2-  2 - 9   3 - 9   4 - 9   
-5 - 9   6 - 9   7 - 9   8 - 9   9 - 9   
-Star at Sector 9 - 9 novas.
-***Commander at Sector 8 - 8 destroyed.
+Track for torpedo number 2-  b9   c9   d9   
+e9   f9   g9   h9   i9   
+Star at Sector i9 novas.
+***Commander at Sector h8 destroyed.
 
 ***RED ALERT!  RED ALERT!
-***Incipient supernova detected at Sector 4 - 1
+***Incipient supernova detected at Sector d1
 
 ***Emergency automatic override attempts to hurl Enterprise
 safely out of quadrant.
@@ -78,7 +78,7 @@ YOU HAVE ATTEMPTED TO CROSS THE NEGATIVE ENERGY BARRIER
 AT THE EDGE OF THE GALAXY.  THE THIRD TIME YOU TRY THIS,
 YOU WILL BE DESTROYED.
 
-Entering Quadrant 8 - 3.
+Entering Quadrant h3.
 COMMAND> quit
 
 May the Great Bird of the Galaxy roost upon your home planet.

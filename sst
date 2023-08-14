@@ -130,6 +130,9 @@ class TrekError(Exception):
 class JumpOut(Exception):
     pass
 
+def letterize(n):
+    return chr(ord('a') + n - 1)
+
 class Coord:
     def __init__(self, x=None, y=None):
         self.i = x	# Row
@@ -200,6 +203,8 @@ class Coord:
     def __str__(self):
         if self.i is None or self.j is None:
             return "Nowhere"
+        if (game.options & OPTION_ALPHAMERIC):
+            return letterize(self.i + 1) + str(self.j + 1)
         return "%s - %s" % (self.i+1, self.j+1)
     __repr__ = __str__
 
@@ -308,6 +313,7 @@ OPTION_PLAIN      = 0x01000000        # user chose plain game
 OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
+OPTION_ALPHAMERIC = 0x10000000        # Alpha Y coordinates (ESR, 2023)
 
 option_names = {
     "ALL": OPTION_ALL,
@@ -5332,7 +5338,10 @@ def chart():
         prout(_("(Last surveillance update %d stardates ago).") % ((int)(game.state.date-game.lastchart)))
     prout("      1    2    3    4    5    6    7    8")
     for i in range(GALSIZE):
-        proutn("%d |" % (i+1))
+        if (game.options & OPTION_ALPHAMERIC):
+            proutn("%c |" % letterize(i+1))
+        else:
+            proutn("%d |" % (i+1))
         for j in range(GALSIZE):
             if (game.options & OPTION_SHOWME) and i == game.quadrant.i and j == game.quadrant.j:
                 proutn("<")
@@ -5471,7 +5480,10 @@ def srscan():
     if game.condition != "docked":
         newcnd()
     for i in range(QUADSIZE):
-        proutn("%2d  " % (i+1))
+        if (game.options & OPTION_ALPHAMERIC):
+            proutn("%c   " % letterize(i+1))
+        else:
+            proutn("%2d  " % (i+1))
         for j in range(QUADSIZE):
             sectscan(goodScan, i, j)
         skip(1)
@@ -6043,11 +6055,11 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
-        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL)
+        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
         pass
@@ -6639,6 +6651,15 @@ class sstscanner:
     def getcoord(self):
         s = Coord()
         self.nexttok()
+        if (game.options & OPTION_ALPHAMERIC):
+            if (self.type == "IHALPHA") and (self.token[0] in "abcdefghij") and (self.token[1] in "0123456789"):
+                s.i = ord(self.token[0]) - ord("a")
+                try:
+                    s.j = int(self.token[-1:])-1
+                except TypeError:
+                    huh()
+                    return None
+                return s
         if self.type != "IHREAL":
             huh()
             return None

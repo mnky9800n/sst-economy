@@ -10,9 +10,9 @@ Stardate 3135.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 14 stardates.
-5 starbases in 4 - 7  1 - 6  3 - 2  8 - 7  4 - 2  
+5 starbases in d7  a6  c2  h7  d2  
 
-The Enterprise is currently in Quadrant 3 - 7 Sector 3 - 9
+The Enterprise is currently in Quadrant c7 Sector c9
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,7 +22,7 @@ COMMAND> # SST2K version 2.7
 status
 Stardate      3135.8, Time Left 14.00
 Condition     GREEN, 0 DAMAGES
-Position      3 - 7 , 3 - 9
+Position      c7 , c9
 Life Support  ACTIVE
 Warp Factor   5.0
 Energy        5000.00
@@ -31,9 +31,9 @@ Shields       DOWN, 100% 2500.0 units
 Klingons Left 37
 Sector is uninhabited
 COMMAND> sensors
-Spock-  "Sensor scan for Quadrant 3 - 7-
+Spock-  "Sensor scan for Quadrant c7-
 
-         Planet at Sector 6 - 1 is of class O.
+         Planet at Sector f1 is of class O.
          Readings indicate dilithium crystals present."
 COMMAND> m a 3 10
 
@@ -41,7 +41,7 @@ COMMAND> m a 3 10
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 3135.83
-     Supernova in Quadrant 5 - 1; caution advised.
+     Supernova in Quadrant e1; caution advised.
 COMMAND> m a 6 10
 
 COMMAND> m a 6 2
@@ -76,7 +76,7 @@ Trip complete.
 COMMAND> status
 Stardate      3137.4, Time Left 11.28
 Condition     GREEN, 0 DAMAGES
-Position      3 - 7 , 6 - 2
+Position      c7 , f2
 Life Support  ACTIVE
 Warp Factor   5.0
 Energy        4850.00 (have crystals)

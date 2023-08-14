@@ -383,12 +383,29 @@ described by an example.</para>
      10  . . . . . . . . . .  Time Left     3.72
 </screen>
 
+In fancy mode, the display will use letters for Y coordinates.
+
+<screen>
+         1 2 3 4 5 6 7 8 9 10
+      a  * . . . . R . . . .  Stardate      2516.3
+      b  . . . E . . . . . .  Condition     RED  
+      c  . . . . . * . B . .  Position      e1, b4
+      d  . . . S . . . . . .  Life Support  DAMAGED, Reserves=2.30
+      e  . . . . . . . K . .  Warp Factor   5.0
+      f  . K .   . . . . * .  Energy        2176.24
+      g  . . . . . P . . . .  Torpedoes     3
+      h  . . . . * . . . . .  Shields       UP, 42% 1050.0 units
+      i  . * . . * . . . C .  Klingons Left 12
+      j  . . . . . . . . . .  Time Left     3.72
+</screen>
+
+
 <para>The left part is a picture of the quadrant.  The E at sector 2 -
-4 represents the Enterprise; the B at sector 3 - 8 is a starbase.
-There are ordinary Klingons (K) at sectors 5 - 8 and 6 - 2, and a
-Klingon Commander (C) at 9 - 9.  The (GULP)
-<quote>Super-commander</quote> (S) is occupies sector 4 - 4, and a
-Romulan (R) is at 1 - 6.  An uninhabited planet (P) is at sector 7 - 6
+4 (or b4) represents the Enterprise; the B at sector 3 - 8 (or c8) is a starbase.
+There are ordinary Klingons (K) at sectors 5 - 8 (e8) and 6 - 2 (f2), and a
+Klingon Commander (C) at 9 - 9 (i9).  The (GULP)
+<quote>Super-commander</quote> (S) is occupies sector 4 - 4 (d4), and a
+Romulan (R) is at 1 - 6 (a6).  An uninhabited planet (P) is at sector 7 - 6 (g6)
 (if it were inhabited, it would display as a '@').  There are
 also a large number of stars (*). The periods (.) are just empty
 space&mdash;they are printed to help you get your bearings.  Sector 6
@@ -733,6 +750,23 @@ the current quadrant, the shortest command would be</para>
 <para>and it will be done.  In automatic mode, either two or four numbers
 must be supplied.</para>
 
+<para> If your game is in "fancy" mode, there ia a way to input
+coordinates that avoids any need to remember thet the Y coordinate
+comes first.  Y values may be given as lowercase letters starting with
+a = 1. So for example:
+
+<screen>
+	a1 = 1 - 1
+	c5 = 3 - 5
+	f2 = 6 - 2
+</screen>
+
+The previous move xommand could be expressed as 
+
+<screen>
+	m a c7 e8
+</screen>
+
 <para>Automatic mode utilizes the ship's <quote>battle
 computer.</quote> If the computer is damaged, manual movement must be
 used.</para>
@@ -1059,6 +1093,14 @@ you can enter</para>
 
 <para>to aim between two sectors.  However, sector numbers must be 1 to 10
 inclusive.</para>
+
+<para>In fancy mode, you can write "PHO 3 2 6 1 10 4 7" as
+
+<screen>
+     pho 3 b6 a10 d7
+</screen>
+
+Fractional Y coordinates are not supported.
 
 </sect1>
 <sect1><title>Dock at Starbase</title>
@@ -2136,6 +2178,10 @@ Cloaking device and capture command added from BSD (via Almy's
 <listitem><para>25 March 2019 &mdash; At long last, chart entries are
 uniformly dot-filled. (Suppressed in the plain and almy
 interface styles.)</para></listitem>
+
+<listitem><para>25 August 2023 &mdash; Coordinates optionally in
+alphameric mode, e.g "b3" rather than "2 - 3". (Suppressed in the
+plain and almy interface styles.)</para></listitem>
 
 
 </itemizedlist>

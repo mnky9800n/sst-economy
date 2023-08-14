@@ -10,9 +10,9 @@ Stardate 4340.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-3 starbases in 4 - 8  7 - 5  2 - 2  
+3 starbases in d8  g5  b2  
 
-The Enterprise is currently in Quadrant 8 - 8 Sector 10 - 3
+The Enterprise is currently in Quadrant h8 Sector j3
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,14 +22,14 @@ COMMAND> # SST2K version 2.4
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  ...   |
-3 | ...  ...  ...  ...  ...  ...  ...  ...   |
-4 | ...  ...  ...  ...  ...  ...  ...  .1.   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  .1.  ...  ..8  ..1   |
-8 | ...  ...  ...  ...  ...  ...  ..8 <..9>  |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  ...   |
+c | ...  ...  ...  ...  ...  ...  ...  ...   |
+d | ...  ...  ...  ...  ...  ...  ...  .1.   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  .1.  ...  ..8  ..1   |
+h | ...  ...  ...  ...  ...  ...  ..8 <..9>  |
 
 COMMAND> m a 3 6
 
@@ -40,23 +40,23 @@ COMMAND> m a 7 8 10 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 7 - 8.
+Entering Quadrant g8.
 
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 4340.41
-     Supernova in Quadrant 3 - 8; caution advised.
+     Supernova in Quadrant c8; caution advised.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  ...   |
-3 | ...  ...  ...  ...  ...  ...  ...  ***   |
-4 | ...  ...  ...  ...  ...  ...  ...  .1.   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ..9  107   |
-7 | ...  ...  ...  ...  .1.  ...  ..8 <..1>  |
-8 | ...  ...  ...  ...  ...  ...  ..8  ..9   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  ...   |
+c | ...  ...  ...  ...  ...  ...  ...  ***   |
+d | ...  ...  ...  ...  ...  ...  ...  .1.   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ..9  107   |
+g | ...  ...  ...  ...  .1.  ...  ..8 <..1>  |
+h | ...  ...  ...  ...  ...  ...  ..8  ..9   |
 
 COMMAND> m a 1 10
 
@@ -64,9 +64,9 @@ COMMAND> m a 6 8 10 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 6 - 8.
+Entering Quadrant f8.
 
-606 unit hit from Klingon at 7 - 7
+606 unit hit from Klingon at g7
 
 ***CRITICAL HIT--L. R. Sensors and S. R. Sensors damaged.
 

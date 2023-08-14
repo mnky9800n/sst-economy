@@ -3,6 +3,7 @@
 Repository head::
     Fix for enemy dispersion on torpedo hits.
     Re-conform to the documentation by removing the .py estension from sst.
+    Fancy-mode coordinates can have the Y as a letter, e,g. "c4" = "3 - 4".
 
 2.7: 2021-09-20::
     Ubuntu has abolished /usr/bin/python, change shebang to python3.

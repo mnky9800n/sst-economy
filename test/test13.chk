@@ -10,9 +10,9 @@ Stardate 2535.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-3 starbases in 5 - 1  6 - 3  3 - 5  
+3 starbases in e1  f3  c5  
 
-The Enterprise is currently in Quadrant 2 - 2 Sector 7 - 3
+The Enterprise is currently in Quadrant b2 Sector g3
 
 Good Luck!
   YOU'LL NEED IT.
@@ -21,34 +21,34 @@ COMMAND> # SST2K version 2.5
 # recorded by esr@snark.thyrsus.com on Fri Apr 26 11:21:47 2019
 torp 3 7 4 8 4 9 2
 
-Track for torpedo number 1-  7 - 4   
-***Klingon at Sector 7 - 4 destroyed.
+Track for torpedo number 1-  g4   
+***Klingon at Sector g4 destroyed.
 
-Track for torpedo number 2-  8 - 4   
-***Klingon at Sector 8 - 4 destroyed.
+Track for torpedo number 2-  h4   
+***Klingon at Sector h4 destroyed.
 
-Track for torpedo number 3-  8 - 3   9 - 2   
-***Klingon at Sector 9 - 2 destroyed.
+Track for torpedo number 3-  h3   i2   
+***Klingon at Sector i2 destroyed.
 
-38 unit hit from Klingon at 4 - 9
+38 unit hit from Klingon at d9
 
 
 Energy left 4961    shields up 76%,   torpedoes left 7
 COMMAND> 
 COMMAND> torp 3 6 6 8 10 10 8
 
-Track for torpedo number 1-  7 - 4   6 - 5   6 - 6   
-***Klingon at Sector 6 - 6 destroyed.
+Track for torpedo number 1-  g4   f5   f6   
+***Klingon at Sector f6 destroyed.
 
-Track for torpedo number 2-  7 - 4   7 - 5   8 - 6   
-8 - 7   8 - 8   8 - 9   8 - 10   
-***Klingon at Sector 8 - 10 destroyed.
+Track for torpedo number 2-  g4   g5   h6   
+h7   h8   h9   h10   
+***Klingon at Sector h10 destroyed.
 
-Track for torpedo number 3-  8 - 4   8 - 5   9 - 6   
-9 - 7   10 - 8   
-***Klingon at Sector 10 - 8 destroyed.
+Track for torpedo number 3-  h4   h5   i6   
+i7   j8   
+***Klingon at Sector j8 destroyed.
 
-70 unit hit from Klingon at 4 - 9
+70 unit hit from Klingon at d9
 
 
 Energy left 4890    shields up 69%,   torpedoes left 4
@@ -61,8 +61,8 @@ Phasers locked on target. Energy available: 4690.82
 
 Shields lowered.
 
-442 unit hit on Commander at Sector 4 - 9
-***Commander at Sector 4 - 9 destroyed.
+442 unit hit on Commander at Sector d9
+***Commander at Sector d9 destroyed.
 
 Shields raised.
 COMMAND> 
@@ -78,21 +78,21 @@ COMMAND> m a 1 2 10 7
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 1 - 2.
+Entering Quadrant a2.
 
-157 unit hit from Klingon at 7 - 4
+157 unit hit from Klingon at g4
 
 
 Energy left 3604    shields up 58%,   torpedoes left 4
 
-185 unit hit from Klingon at 7 - 4
+185 unit hit from Klingon at g4
 
 
 Energy left 3419    shields up 49%,   torpedoes left 4
 COMMAND> torp 1 7 4
 
-Torpedo track- 9 - 6   8 - 5   7 - 4   
-***Commander at Sector 7 - 4 destroyed.
+Torpedo track- i6   h5   g4   
+***Commander at Sector g4 destroyed.
 COMMAND> 
 COMMAND> rep
 You were playing a short good game.
@@ -108,8 +108,8 @@ COMMAND> m a 5 2 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 5 - 2.
-Uhura- Captain, Medusa in Quadrant 6 - 2 reports it is under attack
+Entering Quadrant e2.
+Uhura- Captain, Medusa in Quadrant f2 reports it is under attack
 by a Klingon invasion fleet.
 COMMAND> 
 COMMAND> sh down 
@@ -120,11 +120,11 @@ COMMAND> m a 10 5
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2537.73
-     Supernova in Quadrant 4 - 3; caution advised.
+     Supernova in Quadrant d3; caution advised.
 
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   a planet in Quadrant 7 - 6 has been destroyed
+   a planet in Quadrant g6 has been destroyed
    by the Super-commander."
 COMMAND> sh up
 Shields raised.
@@ -133,15 +133,15 @@ COMMAND> m a 6 2 1 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 6 - 2.
+Entering Quadrant f2.
 
-333 unit hit from Klingon at 3 - 3
+333 unit hit from Klingon at c3
 
 ***CRITICAL HIT--Cloaking Device damaged.
 
 Energy left 2098    shields up 39%,   torpedoes left 3
 
-321 unit hit from Klingon at 3 - 3
+321 unit hit from Klingon at c3
 
 ***CRITICAL HIT--Phasers damaged.
 
@@ -150,9 +150,9 @@ Energy left 1776    shields up 32%,   torpedoes left 3
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 7 - 6, Sector 3 - 10
+Enterprise is pulled to Quadrant g6, Sector c10
 
-670 unit hit from Klingon at 3 - 7
+670 unit hit from Klingon at c7
 
 ***CRITICAL HIT--Warp Engines and Photon Tubes damaged.
 [CONTINUE?]
@@ -193,14 +193,14 @@ Phaser control damaged.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ..2  ..4  ..8  ...  ...  ...  ...  ...   |
-2 | ..1  ..6  ..2  ...  ...  ...  ...  ...   |
-3 | ..7  ..4  ..6  ...  .1.  ...  ...  ...   |
-4 | ..6  ..9  ***  ...  ...  ...  ...  ...   |
-5 | .14  ..8  ..7  ...  ...  ...  ...  ...   |
-6 | ..2  106  312  ...  ..6  ..1  ..2  ...   |
-7 | ..8  ..4  ..1  ...  ..4 <101> ..7  ...   |
-8 | ...  ...  ...  ...  ..3  ..9  ..9  ...   |
+a | ..2  ..4  ..8  ...  ...  ...  ...  ...   |
+b | ..1  ..6  ..2  ...  ...  ...  ...  ...   |
+c | ..7  ..4  ..6  ...  .1.  ...  ...  ...   |
+d | ..6  ..9  ***  ...  ...  ...  ...  ...   |
+e | .14  ..8  ..7  ...  ...  ...  ...  ...   |
+f | ..2  106  312  ...  ..6  ..1  ..2  ...   |
+g | ..8  ..4  ..1  ...  ..4 <101> ..7  ...   |
+h | ...  ...  ...  ...  ..3  ..9  ..9  ...   |
 
 COMMAND> m a 1 1
 
@@ -212,14 +212,14 @@ COMMAND> m a 6 6 10 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 6 - 6.
+Entering Quadrant f6.
 
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 7 - 6, Sector 10 - 5
+Enterprise is pulled to Quadrant g6, Sector j5
 
-252 unit hit from Klingon at 2 - 5
+252 unit hit from Klingon at b5
 
 ***CRITICAL HIT--Shields damaged.
 ***Shields knocked down.
@@ -237,15 +237,15 @@ COMMAND> m a 8 6 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 8 - 6.
+Entering Quadrant h6.
 
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 7 - 6, Sector 5 - 7
+Enterprise is pulled to Quadrant g6, Sector e7
 (Shields not currently useable.)
 
-805 unit hit from Klingon at 10 - 7
+805 unit hit from Klingon at j7
 
 ***CRITICAL HIT--Shuttle Craft and L. R. Sensors damaged.
 

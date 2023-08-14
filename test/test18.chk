@@ -10,9 +10,9 @@ Stardate 3104.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 14 stardates.
-3 starbases in 5 - 5  4 - 3  8 - 5  
+3 starbases in e5  d3  h5  
 
-The Enterprise is currently in Quadrant 1 - 6 Sector 9 - 5
+The Enterprise is currently in Quadrant a6 Sector i5
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,14 +22,14 @@ COMMAND> # SST2K version 2.7
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..4 <..7> ..5  ...   |
-2 | ...  ...  ...  ...  ..4  ..3  ..5  ...   |
-3 | ...  ...  ...  ...  ...  ...  ...  ...   |
-4 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  .1.  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+a | ...  ...  ...  ...  ..4 <..7> ..5  ...   |
+b | ...  ...  ...  ...  ..4  ..3  ..5  ...   |
+c | ...  ...  ...  ...  ...  ...  ...  ...   |
+d | ...  ...  .1.  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  .1.  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  .1.  ...  ...  ...   |
 
 COMMAND> probe
 2 probes left
@@ -44,44 +44,44 @@ COMMAND> m a 2 8 5 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Enterprise blocked by object at 10 - 9;
+Enterprise blocked by object at j9;
 Emergency stop required 153 units of energy.
 Collision detected
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 1 - 5."
+Lt. Uhura-  "The deep space probe is now in Quadrant a5."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 1 - 4."
+Lt. Uhura-  "The deep space probe is now in Quadrant a4."
 
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 1 - 8, Sector 6 - 2
+Enterprise is pulled to Quadrant a8, Sector f2
 Shields raised.
 
 Enemy attack reduces shield strength to 91%,   torpedoes left 10
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ..5  ..4  ..7  ..5 <104>  |
-2 | ...  ...  ...  ...  ..4  ..3  ..5  101   |
-3 | ...  ...  ...  ...  ...  ...  ...  ...   |
-4 | ...  ...  .1.  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  .1.  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  .1.  ...  ...  ...   |
+a | ...  ...  ...  ..5  ..4  ..7  ..5 <104>  |
+b | ...  ...  ...  ...  ..4  ..3  ..5  101   |
+c | ...  ...  ...  ...  ...  ...  ...  ...   |
+d | ...  ...  .1.  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  .1.  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  .1.  ...  ...  ...   |
 
 COMMAND> sh up
 Shields already up.
 COMMAND> torp 2 5 10 5 10
 
-Track for torpedo number 1-  6 - 3   6 - 4   6 - 5   
-6 - 6   5 - 7   5 - 8   5 - 9   5 - 10   
-***Commander at Sector 5 - 10 buffeted into black hole.
-***Commander at Sector 4 - 1 destroyed.
+Track for torpedo number 1-  f3   f4   f5   
+f6   e7   e8   e9   e10   
+***Commander at Sector e10 buffeted into black hole.
+***Commander at Sector d1 destroyed.
 
-Track for torpedo number 2-  6 - 3   6 - 4   6 - 5   
-5 - 6   5 - 7   5 - 8   5 - 9   5 - 10   
+Track for torpedo number 2-  f3   f4   f5   
+e6   e7   e8   e9   e10   
 Torpedo missed.
 COMMAND> quit
 

@@ -10,9 +10,9 @@ Stardate 2736.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-2 starbases in 1 - 6  3 - 5  
+2 starbases in a6  c5  
 
-The Enterprise is currently in Quadrant 6 - 6 Sector 6 - 9
+The Enterprise is currently in Quadrant f6 Sector f9
 
 Good Luck!
   YOU'LL NEED IT.
@@ -29,16 +29,16 @@ COMMAND> m a 5 6 10 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 5 - 6.
+Entering Quadrant e6.
 
-35 unit hit from Klingon at 3 - 4
+35 unit hit from Klingon at c4
 
 
 Energy left 4826    shields up 79%,   torpedoes left 10
 
-30 unit hit from Romulan at 5 - 9
+30 unit hit from Romulan at e9
 
-59 unit hit from Klingon at 3 - 4
+59 unit hit from Klingon at c4
 
 
 Energy left 4735    shields up 69%,   torpedoes left 10
@@ -50,10 +50,10 @@ Phasers locked on target. Energy available: 4500.37
 
 Shields lowered.
 
-336 unit hit on Romulan at Sector 5 - 9
-***Romulan at Sector 5 - 9 destroyed.
-319 unit hit on Commander at Sector 3 - 4
-***Mr. Spock-  "Captain, the vessel at Sector 3 - 4
+336 unit hit on Romulan at Sector e9
+***Romulan at Sector e9 destroyed.
+319 unit hit on Commander at Sector c4
+***Mr. Spock-  "Captain, the vessel at Sector c4
    has just lost its firepower."
 477 expended on empty space.
 
@@ -61,10 +61,10 @@ Shields raised.
 
 Enemy attack reduces shield strength to 69%,   torpedoes left 10
 COMMAND> capture
-Klingon captain at 3 - 4 surrenders.
+Klingon captain at c4 surrenders.
 47 Klingons commit suicide rather than be taken captive.
 152 captives taken
-***Klingon at Sector 10 - 5 destroyed.
+***Klingon at Sector j5 destroyed.
 COMMAND> 
 COMMAND> 
 COMMAND> sh down
@@ -77,7 +77,7 @@ COMMAND> m a 1 8
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2737.23
-     Supernova in Quadrant 5 - 4; caution advised.
+     Supernova in Quadrant e4; caution advised.
 COMMAND> sh up
 Shields raised.
 COMMAND> 
@@ -85,28 +85,28 @@ COMMAND> m a 4 6 10 8
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 4 - 6.
+Entering Quadrant d6.
 
-108 unit hit from Klingon at 9 - 10
+108 unit hit from Klingon at i10
 
-31 unit hit from Klingon at 1 - 8
+31 unit hit from Klingon at a8
 
-25 unit hit from Klingon at 1 - 7
+25 unit hit from Klingon at a7
 
-24 unit hit from Klingon at 1 - 5
+24 unit hit from Klingon at a5
 
-32 unit hit from Klingon at 2 - 2
+32 unit hit from Klingon at b2
 
 
 Energy left 2767    shields up 56%,   torpedoes left 10
 
-104 unit hit from Klingon at 9 - 10
+104 unit hit from Klingon at i10
 
-22 unit hit from Klingon at 1 - 8
+22 unit hit from Klingon at a8
 
-21 unit hit from Klingon at 1 - 7
+21 unit hit from Klingon at a7
 
-32 unit hit from Klingon at 1 - 5
+32 unit hit from Klingon at a5
 [CONTINUE?]
 
 
@@ -133,32 +133,32 @@ Energy left 2767    shields up 56%,   torpedoes left 10
 
 
 
-18 unit hit from Klingon at 2 - 2
+18 unit hit from Klingon at b2
 
 
 Energy left 2568    shields up 48%,   torpedoes left 10
 COMMAND> torp 3 9 10 1 8 1 7
 
-Track for torpedo number 1-  9 - 9   9 - 10   
-***Klingon at Sector 9 - 10 destroyed.
+Track for torpedo number 1-  i9   i10   
+***Klingon at Sector i10 destroyed.
 
-Track for torpedo number 2-  9 - 8   8 - 8   7 - 8   
-6 - 8   
+Track for torpedo number 2-  i8   h8   g8   
+f8   
 
-***Black hole at Sector 6 - 8 swallows torpedo.
+***Black hole at Sector f8 swallows torpedo.
 
-Track for torpedo number 3-  9 - 8   8 - 8   7 - 8   
-6 - 8   
+Track for torpedo number 3-  i8   h8   g8   
+f8   
 
-***Black hole at Sector 6 - 8 swallows torpedo.
+***Black hole at Sector f8 swallows torpedo.
 
-17 unit hit from Klingon at 1 - 8
+17 unit hit from Klingon at a8
 
-19 unit hit from Klingon at 1 - 7
+19 unit hit from Klingon at a7
 
-25 unit hit from Klingon at 1 - 5
+25 unit hit from Klingon at a5
 
-20 unit hit from Klingon at 2 - 2
+20 unit hit from Klingon at b2
 
 
 Energy left 2460    shields up 46%,   torpedoes left 7
@@ -170,18 +170,18 @@ Phasers locked on target. Energy available: 2260.19
 
 Shields lowered.
 
-103 unit hit on Klingon at Sector 1 - 8
-***Klingon at Sector 1 - 8 destroyed.
-94 unit hit on Klingon at Sector 1 - 7
-***Klingon at Sector 1 - 7 destroyed.
-46 unit hit on Klingon at Sector 1 - 5
+103 unit hit on Klingon at Sector a8
+***Klingon at Sector a8 destroyed.
+94 unit hit on Klingon at Sector a7
+***Klingon at Sector a7 destroyed.
+46 unit hit on Klingon at Sector a5
 425 expended on empty space.
 
 Shields raised.
 
-9 unit hit from Klingon at 1 - 5
+9 unit hit from Klingon at a5
 
-13 unit hit from Klingon at 2 - 2
+13 unit hit from Klingon at b2
 
 
 Energy left 1279    shields up 45%,   torpedoes left 7
@@ -193,14 +193,14 @@ Phasers locked on target. Energy available: 1079.13
 
 Shields lowered.
 
-87 unit hit on Klingon at Sector 1 - 5
-***Klingon at Sector 1 - 5 destroyed.
-30 unit hit on Klingon at Sector 2 - 2
+87 unit hit on Klingon at Sector a5
+***Klingon at Sector a5 destroyed.
+30 unit hit on Klingon at Sector b2
 110 expended on empty space.
 
 Shields raised.
 
-5 unit hit from Klingon at 2 - 2
+5 unit hit from Klingon at b2
 
 
 Energy left 777    shields up 45%,   torpedoes left 7
@@ -212,8 +212,8 @@ Phasers locked on target. Energy available: 577.72
 
 Shields lowered.
 
-25 unit hit on Klingon at Sector 2 - 2
-***Klingon at Sector 2 - 2 destroyed.
+25 unit hit on Klingon at Sector b2
+***Klingon at Sector b2 destroyed.
 
 Shields raised.
 COMMAND> 
@@ -223,7 +223,7 @@ COMMAND> m a 8 1
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 2737.64
-     Supernova in Quadrant 3 - 6; caution advised.
+     Supernova in Quadrant c6; caution advised.
 COMMAND> 
 COMMAND> m a 3 5 10 10
 
@@ -232,7 +232,7 @@ Ensign Chekov- "Course laid in, Captain."
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 5 - 6, Sector 5 - 1
+Enterprise is pulled to Quadrant e6, Sector e1
 COMMAND> 
 COMMAND> 
 COMMAND> m a 3 5 10 10
@@ -247,7 +247,7 @@ COMMAND> m a 3 5 10 10
 
 Ensign Chekov- "Course laid in, Captain."
 
-Enterprise blocked by object at 2 - 1;
+Enterprise blocked by object at b1;
 Emergency stop required 125 units of energy.
 Collision detected
 

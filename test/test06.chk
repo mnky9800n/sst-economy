@@ -10,9 +10,9 @@ Stardate 3292.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-5 starbases in 3 - 6  4 - 1  6 - 8  2 - 8  2 - 2  
+5 starbases in c6  d1  f8  b8  b2  
 
-The Enterprise is currently in Quadrant 6 - 6 Sector 3 - 3
+The Enterprise is currently in Quadrant f6 Sector c3
 
 Good Luck!
   YOU'LL NEED IT.
@@ -22,33 +22,33 @@ COMMAND> # SST2K version 2.4
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
-7 | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
+g | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> p a
 
 Phasers locked on target. Energy available: 5000.00
 148 units required. Units to fire= 148
 
-130 unit hit on Tholian at Sector 1 - 1
-***Tholian at Sector 1 - 1 destroyed.
+130 unit hit on Tholian at Sector a1
+***Tholian at Sector a1 destroyed.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
-7 | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
+g | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> sh up
 Shields raised.
@@ -59,36 +59,36 @@ COMMAND> m a 7 10
 
 [ANNOUNCEMENT ARRIVING...]
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   a planet in Quadrant 6 - 3 has been destroyed
+   a planet in Quadrant f3 has been destroyed
    by the Super-commander."
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
-7 | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
-8 | ...  ...  ...  ...  ...  ...  ...  ...   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5 <..3> ..6  .1.   |
+g | ...  ...  ...  ...  ..5  ..5  ..1  ...   |
+h | ...  ...  ...  ...  ...  ...  ...  ...   |
 
 COMMAND> m a 7 7 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 7 - 7.
+Entering Quadrant g7.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
-7 | ...  ...  ...  ...  ..5  ..5 <..1> ..7   |
-8 | ...  ...  ...  ...  ...  ..6  ..9  ..6   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
+g | ...  ...  ...  ...  ..5  ..5 <..1> ..7   |
+h | ...  ...  ...  ...  ...  ..6  ..9  ..6   |
 
 COMMAND> probe
 4 probes left
@@ -101,48 +101,48 @@ Ensign Chekov-  "The deep space probe is launched, Captain."
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
-7 | ...  ...  ...  ...  ..5  ..5 <..1> ..7   |
-8 | ...  ...  ...  ...  ...  ..6  ..9  ..6   |
+a | ...  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
+g | ...  ...  ...  ...  ..5  ..5 <..1> ..7   |
+h | ...  ...  ...  ...  ...  ..6  ..9  ..6   |
 
 COMMAND> m a 8 6 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 8 - 6.
+Entering Quadrant h6.
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 6."
+Lt. Uhura-  "The deep space probe is now in Quadrant g6."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 5."
+Lt. Uhura-  "The deep space probe is now in Quadrant g5."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 4."
+Lt. Uhura-  "The deep space probe is now in Quadrant g4."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 3."
+Lt. Uhura-  "The deep space probe is now in Quadrant g3."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 2."
+Lt. Uhura-  "The deep space probe is now in Quadrant g2."
 
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 3293.58
-     Supernova in Quadrant 1 - 1; caution advised.
+     Supernova in Quadrant a1; caution advised.
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 1."
+Lt. Uhura-  "The deep space probe is now in Quadrant g1."
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ***  ...  ...  ...  ...  ...  ...  ...   |
-2 | ...  .1.  ...  ...  ...  ...  ...  .1.   |
-3 | ...  ...  ...  ...  ...  .1.  ...  ...   |
-4 | .1.  ...  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
-6 | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
-7 | ..1  ..8  ..3  ..3  ..5  ..5  ..1  ..7   |
-8 | ...  ...  ...  ...  ..4 <..6> ..9  ..6   |
+a | ***  ...  ...  ...  ...  ...  ...  ...   |
+b | ...  .1.  ...  ...  ...  ...  ...  .1.   |
+c | ...  ...  ...  ...  ...  .1.  ...  ...   |
+d | .1.  ...  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ..6  ..2  ..1  ...   |
+f | ...  ...  ...  ...  ..5  ..3  ..6  .12   |
+g | ..1  ..8  ..3  ..3  ..5  ..5  ..1  ..7   |
+h | ...  ...  ...  ...  ..4 <..6> ..9  ..6   |
 
 COMMAND> m a 2 5
 

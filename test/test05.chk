@@ -10,9 +10,9 @@ Stardate 5021.
 An unknown number of Romulans.
 And one (GULP) Super-Commander.
 7 stardates.
-2 starbases in 4 - 2  8 - 7  
+2 starbases in d2  h7  
 
-The Enterprise is currently in Quadrant 2 - 6 Sector 7 - 7
+The Enterprise is currently in Quadrant b6 Sector g7
 
 Good Luck!
   YOU'LL NEED IT.
@@ -21,46 +21,46 @@ COMMAND> # Test deep-space probes
 chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ...   |
-2 | ...  ...  ...  ...  ..4 <..5> ..4  ...   |
-3 | ...  ...  ...  ...  ..2  ..4  ..7  ...   |
-4 | ...  .1.  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ...   |
+b | ...  ...  ...  ...  ..4 <..5> ..4  ...   |
+c | ...  ...  ...  ...  ..2  ..4  ..7  ...   |
+d | ...  .1.  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  .1.  ...   |
 
 COMMAND> m a 1 10
 
 COMMAND> s hup
      Short-range scan
     1 2 3 4 5 6 7 8 9 10
- 1  . * . . . . . @ . E 
- 2  . . . . . . .   . . 
- 3  . . . .   . . . . . 
- 4  . . . . . . . . . . 
- 5  . . . . * . . . . . 
- 6  . . . . . . . . . . 
- 7  . . . . . . . . * . 
- 8  . . . . *   . . . . 
- 9  . * . . . . . . . . 
-10  . . . . . . . . . . 
+a   . * . . . . . @ . E 
+b   . . . . . . .   . . 
+c   . . . .   . . . . . 
+d   . . . . . . . . . . 
+e   . . . . * . . . . . 
+f   . . . . . . . . . . 
+g   . . . . . . . . * . 
+h   . . . . *   . . . . 
+i   . * . . . . . . . . 
+j   . . . . . . . . . . 
 COMMAND> m a 2 7 1 1
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 2 - 7.
+Entering Quadrant b7.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ...  ...  ...  ...  ..4  ..5 <..4> ..2   |
-3 | ...  ...  ...  ...  ..2  ..4  ..7  ..7   |
-4 | ...  .1.  ...  ...  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ...  ...  ...  ...  ..4  ..5 <..4> ..2   |
+c | ...  ...  ...  ...  ..2  ..4  ..7  ..7   |
+d | ...  .1.  ...  ...  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  .1.  ...   |
 
 COMMAND> probe
 2 probes left
@@ -81,17 +81,17 @@ YOU HAVE ATTEMPTED TO CROSS THE NEGATIVE ENERGY BARRIER
 AT THE EDGE OF THE GALAXY.  THE THIRD TIME YOU TRY THIS,
 YOU WILL BE DESTROYED.
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 6."
+Lt. Uhura-  "The deep space probe is now in Quadrant b6."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 5."
+Lt. Uhura-  "The deep space probe is now in Quadrant b5."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 4."
+Lt. Uhura-  "The deep space probe is now in Quadrant b4."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 3."
+Lt. Uhura-  "The deep space probe is now in Quadrant b3."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 2."
+Lt. Uhura-  "The deep space probe is now in Quadrant b2."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 2 - 1."
+Lt. Uhura-  "The deep space probe is now in Quadrant b1."
 
 [ANNOUNCEMENT ARRIVING...]
 
@@ -124,19 +124,19 @@ Lt. Uhura-  "The deep space probe has left the galaxy."
 
 
 Lt. Uhura-  "Captain, Starfleet Intelligence reports
-   a planet in Quadrant 1 - 3 has been destroyed
+   a planet in Quadrant a3 has been destroyed
    by the Super-commander."
 
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 3 - 3, Sector 6 - 8
+Enterprise is pulled to Quadrant c3, Sector f8
 
 Enemy attack reduces shield strength to 85%,   torpedoes left 10
 COMMAND> m a 6 10
 
 
-52 unit hit from Klingon at 1 - 8
+52 unit hit from Klingon at a8
 
 
 Energy left 3399    shields up 75%,   torpedoes left 10
@@ -144,37 +144,37 @@ Energy left 3399    shields up 75%,   torpedoes left 10
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 5024.18
-     Supernova in Quadrant 2 - 6; caution advised.
+     Supernova in Quadrant b6; caution advised.
 COMMAND> torp 2 1 8 1 8
 
-Track for torpedo number 1-  5 - 10   4 - 9   3 - 9   
-2 - 9   1 - 8   
-***Commander at Sector 1 - 8 damaged-- displaced by blast to Sector 10 - 7 
+Track for torpedo number 1-  e10   d9   c9   
+b9   a8   
+***Commander at Sector a8 damaged-- displaced by blast to Sector j7 
 
-Track for torpedo number 2-  5 - 10   4 - 9   3 - 9   
-2 - 8   1 - 8   
+Track for torpedo number 2-  e10   d9   c9   
+b8   a8   
 Torpedo missed.
 
-21 unit hit from Klingon at 10 - 7
+21 unit hit from Klingon at j7
 
 
 Energy left 3328    shields up 73%,   torpedoes left 8
 COMMAND> torp 1 10 7
 
-Torpedo track- 7 - 9   8 - 9   9 - 8   
-10 - 7   
-***Commander at Sector 10 - 7 destroyed.
+Torpedo track- g9   h9   i8   
+j7   
+***Commander at Sector j7 destroyed.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
-3 | ...  ..3 <..6> ..6  ..2  ..4  ..7  ..7   |
-4 | ...  .15  ..6  ..1  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ...  ...  ...  ...  ...  ...  ...   |
-7 | ...  ...  ...  ...  ...  ...  ...  ...   |
-8 | ...  ...  ...  ...  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
+c | ...  ..3 <..6> ..6  ..2  ..4  ..7  ..7   |
+d | ...  .15  ..6  ..1  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ...  ...  ...  ...  ...  ...  ...   |
+g | ...  ...  ...  ...  ...  ...  ...  ...   |
+h | ...  ...  ...  ...  ...  ...  .1.  ...   |
 
 COMMAND> m a 10 6
 
@@ -182,43 +182,43 @@ COMMAND> m a 10 6
 [ANNOUNCEMENT ARRIVING...]
 
 ***Enterprise caught in long range tractor beam--
-Enterprise is pulled to Quadrant 7 - 3, Sector 3 - 2
+Enterprise is pulled to Quadrant g3, Sector c2
 
-63 unit hit from Klingon at 10 - 6
+63 unit hit from Klingon at j6
 
 
 Energy left 3148    shields up 67%,   torpedoes left 7
 COMMAND> torp 2 10 6
 
-Track for torpedo number 1-  4 - 3   5 - 3   6 - 4   
-7 - 4   8 - 5   9 - 5   10 - 6   
-***Commander at Sector 10 - 6 damaged-- displaced by blast to Sector 10 - 7 
+Track for torpedo number 1-  d3   e3   f4   
+g4   h5   i5   j6   
+***Commander at Sector j6 damaged-- displaced by blast to Sector j7 
 
-Track for torpedo number 2-  4 - 3   5 - 3   6 - 4   
-7 - 4   8 - 5   9 - 5   10 - 6   
+Track for torpedo number 2-  d3   e3   f4   
+g4   h5   i5   j6   
 Torpedo missed.
 
 Enemy attack reduces shield strength to 66%,   torpedoes left 5
 COMMAND> torp 2 10 7 10 7
 
-Track for torpedo number 1-  4 - 3   5 - 4   6 - 4   
-7 - 5   8 - 6   9 - 7   10 - 8   
+Track for torpedo number 1-  d3   e4   f4   
+g5   h6   i7   j8   
 Torpedo missed.
 
-Track for torpedo number 2-  4 - 3   5 - 3   6 - 4   
-7 - 5   8 - 5   9 - 6   10 - 7   
-***Commander at Sector 10 - 7 destroyed.
+Track for torpedo number 2-  d3   e3   f4   
+g5   h5   i6   j7   
+***Commander at Sector j7 destroyed.
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
-3 | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
-4 | ...  .15  ..6  ..1  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
-7 | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
-8 | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
+c | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
+d | ...  .15  ..6  ..1  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
+g | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
+h | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
 
 COMMAND> probe
 1 probe left.
@@ -231,14 +231,14 @@ Beg your pardon, Captain?
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
-3 | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
-4 | ...  .15  ..6  ..1  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
-7 | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
-8 | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
+c | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
+d | ...  .15  ..6  ..1  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
+g | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
+h | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
 
 COMMAND> probe
 1 probe left.
@@ -251,35 +251,35 @@ Ensign Chekov-  "The deep space probe is launched, Captain."
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
-3 | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
-4 | ...  .15  ..6  ..1  ...  ...  ...  ...   |
-5 | ...  ...  ...  ...  ...  ...  ...  ...   |
-6 | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
-7 | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
-8 | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
+c | ...  ..3  ..6  ..6  ..2  ..4  ..7  ..7   |
+d | ...  .15  ..6  ..1  ...  ...  ...  ...   |
+e | ...  ...  ...  ...  ...  ...  ...  ...   |
+f | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
+g | ...  ..8 <..1> ..8  ...  ...  ...  ...   |
+h | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
 
 COMMAND> m a 5 3 5 5
 
 Ensign Chekov- "Course laid in, Captain."
 
-Entering Quadrant 5 - 3.
+Entering Quadrant e3.
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 4."
+Lt. Uhura-  "The deep space probe is now in Quadrant g4."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 5."
+Lt. Uhura-  "The deep space probe is now in Quadrant g5."
 
 [ANNOUNCEMENT ARRIVING...]
 
 Message from Starfleet Command       Stardate 5024.61
-     Supernova in Quadrant 3 - 8; caution advised.
+     Supernova in Quadrant c8; caution advised.
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 6."
+Lt. Uhura-  "The deep space probe is now in Quadrant g6."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 7."
+Lt. Uhura-  "The deep space probe is now in Quadrant g7."
 
-Lt. Uhura-  "The deep space probe is now in Quadrant 7 - 8."
+Lt. Uhura-  "The deep space probe is now in Quadrant g8."
 
 [ANNOUNCEMENT ARRIVING...]
 
@@ -287,14 +287,14 @@ Lt. Uhura-  "The deep space probe has left the galaxy."
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
-1 | ...  ...  ...  ...  ..8  ..5  106  ..5   |
-2 | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
-3 | ...  ..3  ..6  ..6  ..2  ..4  ..7  ***   |
-4 | ...  .15  ..6  ..1  ...  ...  ...  ...   |
-5 | ...  ..1 <..6> ..7  ...  ...  ...  ...   |
-6 | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
-7 | ...  ..8  ..1  ..8  602  ..5  ..4  ..3   |
-8 | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
+a | ...  ...  ...  ...  ..8  ..5  106  ..5   |
+b | ..4  ..9  ..3  ..5  ..4  ***  ..4  ..2   |
+c | ...  ..3  ..6  ..6  ..2  ..4  ..7  ***   |
+d | ...  .15  ..6  ..1  ...  ...  ...  ...   |
+e | ...  ..1 <..6> ..7  ...  ...  ...  ...   |
+f | ...  ..8  ..2  ..5  ...  ...  ...  ...   |
+g | ...  ..8  ..1  ..8  602  ..5  ..4  ..3   |
+h | ...  ..5  ..7  ..9  ...  ...  .1.  ...   |
 
 COMMAND> quit
 
