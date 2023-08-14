@@ -29,7 +29,7 @@ super-star-trek-$(VERS).tar.gz: $(SOURCES) sst.6
 dist: sst-$(VERS).tar.gz
 
 check: pylint
-	cd test; $(MAKE) --quiet
+	@cd test >/dev/null; $(MAKE) --quiet
 
 pylint:
 	@pylint --score=n sst

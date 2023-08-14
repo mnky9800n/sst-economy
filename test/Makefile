@@ -1,13 +1,7 @@
 # Test-suite makefile for sst
 
-PYTHON=python3
-
 all:
-	@echo "With Python 2:"
-	@$(MAKE) -e PYTHON=python2 regress | ./tapview
-	@echo "With Python 3:"
-	@$(MAKE) -e PYTHON=python3 regress | ./tapview
-	@echo "No diff output is good news."
+	@$(MAKE) regress | ./tapview
 
 .SUFFIXES: .log .chk
 
@@ -15,10 +9,10 @@ all:
 	../sst -r $< >$@ 2>&1
 
 TESTLOADS := $(shell ls *.log | sed '/.log/s///')
-buildregress:
+rebuild:
 	@for test in $(TESTLOADS); do \
 	    if [ ! -f $${test}.tst ] ; \
-	    then \
+    then \
 		    echo "Remaking $${test}.chk"; \
 		    rm -f $${test}.chk && ../sst -r $${test}.log >$${test}.chk 2>&1; \
 	    fi \
