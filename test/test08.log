@@ -22,7 +22,6 @@ m a 6 10
 dock
 chart
 m a 1 10
-xhart
 chart
 m a 7 4 1 10
 chart
@@ -33,9 +32,6 @@ chart
 sh up
 chart
 m a 5 2 10 10
-chart
-chart 6 2 1 10
-n a 6 2 1 10
 chart
 m a 6 2 1 10
 m a 1 9

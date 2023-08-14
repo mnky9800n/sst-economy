@@ -316,6 +316,29 @@ OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
 
+option_names = {
+    "ALL": OPTION_ALL,
+    "TTY": OPTION_TTY,
+    "IOMODES": OPTION_IOMODES,
+    "PLANETS": OPTION_PLANETS,
+    "THOLIAN": OPTION_THOLIAN,
+    "THINGY": OPTION_THINGY,
+    "PROBE": OPTION_PROBE,
+    "SHOWME": OPTION_SHOWME,
+    "RAMMING": OPTION_RAMMING,
+    "MVBADDY": OPTION_MVBADDY,
+    "BLKHOLE": OPTION_BLKHOLE,
+    "BASE": OPTION_BASE,
+    "WORLDS": OPTION_WORLDS,
+    "AUTOSCAN": OPTION_AUTOSCAN,
+    "CAPTURE": OPTION_CAPTURE,
+    "CLOAK": OPTION_CLOAK,
+    "PLAIN": OPTION_PLAIN,
+    "ALMY": OPTION_ALMY,
+    "COLOR": OPTION_COLOR,
+    "DOTFILL": OPTION_DOTFILL,
+    }
+
 # Define devices
 DSRSENS         = 0
 DLRSENS         = 1
@@ -5581,6 +5604,42 @@ def eta():
             skip(1)
             return
 
+# This is new in SST2K.
+
+def goptions():
+    mode = scanner.nexttok()
+    if mode == "IHEOL":
+        active = []
+        for k, v in option_names.items():
+            if (v & game.options) and k != "ALL":
+                active.append(k)
+        active.sort()
+        prout(str(" ".join(active)))
+    elif scanner.token in {"set", "clear"}:
+        mode = scanner.token
+        changemask = 0
+        while True:
+            scanner.nexttok()
+            if scanner.type == "IHEOL":
+                break
+            if scanner.token.upper() in option_names:
+                changemask |= option_names[scanner.token.upper()]
+            else:
+                prout(_("No such option as ") + scanner.token)
+        if mode == "set":
+            if (not (game.options & OPTION_CURSES)) and (changemask & OPTION_CURSES):
+                iostart()
+            game.options |= changemask
+        elif mode == "clear":
+            if (game.options & OPTION_CURSES) and (not (changemask & OPTION_CURSES)):
+                ioend()
+            game.options &=~ changemask
+        prout(_("Acknowledged, Captain."))
+    else:
+        huh()
+    scanner.chew()
+    skip(1)
+
 # Code from setup.c begins here
 
 def prelim():
@@ -6217,7 +6276,9 @@ commands = [
     ("PROBE",            OPTION_PROBE),
     ("SAVE",             0),
     ("FREEZE",           0),        # Synonym for SAVE
+    ("OPTIONS",          0),
     ("ABANDON",          0),
+    # No abbreviations accepted after this point
     ("DESTRUCT",         0),
     ("DEATHRAY",         0),
     ("CAPTURE",          OPTION_CAPTURE),
@@ -6229,7 +6290,7 @@ commands = [
     ("QUIT",             0),
     ("HELP",             0),
     ("SCORE",            0),
-    ("CURSES",            0),
+    ("CURSES",           0),
     ("",                 0),
 ]
 
@@ -6453,6 +6514,8 @@ def makemoves():
         elif cmd == "CURSES":
             game.options |= (OPTION_CURSES | OPTION_COLOR)
             iostart()
+        elif cmd == "OPTIONS":
+            goptions()
         while True:
             if game.alldone:
                 break                # Game has ended

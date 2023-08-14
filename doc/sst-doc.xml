@@ -942,7 +942,7 @@ will hurt your final score.</para>
 
 <literallayout>
 Mnemonic:  CAPTURE
-Shortest abbreviation:  CA
+Shortest abbreviation:  CAPTURE
 Full commands:  CAPTURE
 </literallayout>
 
@@ -1502,6 +1502,20 @@ Full command:  CURSES
 debugging, when continuing a replayed game.</para>
 
 </sect1>
+<sect1><title>Option setting</title>
+
+<literallayout>
+Mnemonic:  OP
+Full command:  OPTIONS
+               OPTIONS SET
+	       OPTIONS CLEAR
+</literallayout>
+
+<para>Set or clear feature flags. With no argument, list feature flags. The verbs SET and CLEAR
+are available to set or clear a list of feature flags following on the line.  Mainly useful
+for development and improving test coverage.</para>
+
+</sect1>
 </chapter>
 <chapter><title>Miscellaneous Notes</title>
 
@@ -1657,6 +1671,7 @@ orientation</quote>.</para>
  T         TRANSPORT                              transporter
  W         WARP &lt;FACTOR&gt;                          (none)
  CU        CURSES                                 (none)
+ OP        OPTIONS                                (none)
  
  L. R. Scan:   thousands digit:   supernova
                hundreds digit:    Klingons

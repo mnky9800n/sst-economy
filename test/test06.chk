@@ -158,17 +158,6 @@ COMMAND> orbit
 
 Helmsman Sulu-  "Entering standard orbit, Sir."
 Sulu-  "Entered orbit at altitude 7779.00 kilometers."
-COMMAND> beam
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
 COMMAND> shuttle
 
 Spock-  "Captain, we have no information on this planet

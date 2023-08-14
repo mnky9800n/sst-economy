@@ -51,17 +51,6 @@ Entering Quadrant 4 - 1.
 Enemy attack reduces shield strength to 87%,   torpedoes left 10
 
 Enemy attack reduces shield strength to 78%,   torpedoes left 10
-COMMAND> laser auto
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
 COMMAND> p a
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."

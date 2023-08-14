@@ -137,17 +137,6 @@ COMMAND> chart
 
 COMMAND> m a 1 10
 
-COMMAND> xhart
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
@@ -227,41 +216,6 @@ COMMAND> m a 5 2 10 10
 Ensign Chekov- "Course laid in, Captain."
 
 Entering Quadrant 5 - 2.
-COMMAND> chart
-       STAR CHART FOR THE KNOWN GALAXY
-      1    2    3    4    5    6    7    8
-1 | ..3  ..4  ..4  ..1  ..7  ..5  ..3  ..3   |
-2 | ...  ...  ...  .1.  .1.  ...  ..7  ..3   |
-3 | ...  ...  ...  ...  ...  ...  ...  ...   |
-4 | ..1  ..2  ..7  ...  ...  ...  ...  ...   |
-5 | 209 <..5> ..2  ...  ...  ...  ...  ...   |
-6 | ..7  207  ..2  ..5  ..2  ...  ...  ...   |
-7 | ..1  ..8  .11  ..5  ..4  ...  ...  ...   |
-8 | ..5  ..7  .19  ..5  ..7  ...  ...  ...   |
-
-COMMAND> chart 6 2 1 10
-       STAR CHART FOR THE KNOWN GALAXY
-      1    2    3    4    5    6    7    8
-1 | ..3  ..4  ..4  ..1  ..7  ..5  ..3  ..3   |
-2 | ...  ...  ...  .1.  .1.  ...  ..7  ..3   |
-3 | ...  ...  ...  ...  ...  ...  ...  ...   |
-4 | ..1  ..2  ..7  ...  ...  ...  ...  ...   |
-5 | 209 <..5> ..2  ...  ...  ...  ...  ...   |
-6 | ..7  207  ..2  ..5  ..2  ...  ...  ...   |
-7 | ..1  ..8  .11  ..5  ..4  ...  ...  ...   |
-8 | ..5  ..7  .19  ..5  ..7  ...  ...  ...   |
-
-COMMAND> n a 6 2 1 10
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-ABANDON      DESTRUCT     DEATHRAY     CAPTURE      CLOAK        
-DEBUG        MAYDAY       SOS          CALL         QUIT         
-HELP         SCORE        CURSES                    
 COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
