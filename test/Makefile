@@ -24,7 +24,7 @@ buildregress:
 	    fi \
 	done
 regress:
-	echo "1..$$(ls *.log | wc -l)"
+	@echo "1..$$(ls *.log | wc -l)"
 	@for test in $(TESTLOADS); \
 	do \
 	    if [ ! -f $${test}.tst ] ; \
