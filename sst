@@ -6843,7 +6843,8 @@ if __name__ == '__main__':
                 if replayfp:
                     break
                 skip(1)
-                stars()
+                if (game.options & OPTION_TTY):
+                    stars()
                 skip(1)
                 if game.tourn and game.alldone:
                     proutn(_("Do you want your score recorded?"))
@@ -6852,8 +6853,11 @@ if __name__ == '__main__':
                         scanner.push("\n")
                         freeze(False)
                 scanner.chew()
-                proutn(_("Do you want to play again? "))
-                if not ja():
+                if (game.options & OPTION_TTY):
+                    proutn(_("Do you want to play again? "))
+                    if not ja():
+                        break
+                else:
                     break
             skip(1)
             prout(_("May the Great Bird of the Galaxy roost upon your home planet."))
