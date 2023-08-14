@@ -11,8 +11,7 @@ Stas Sergeev, and Eric S. Raymond.
 See the doc/HACKING file in the distribution for designers notes and advice
 on how to modify (and how not to modify!) this code.
 """
-from __future__ import print_function, division
-# Runs under Python 2 an Python 3. Preserve this property!
+# Copyright by Eric S. Raymond
 # SPDX-License-Identifier: BSD-2-clause
 
 # pylint: disable=line-too-long,superfluous-parens,too-many-lines,invalid-name,missing-function-docstring,missing-class-docstring,multiple-statements,too-many-branches,too-many-statements,too-many-locals,too-many-nested-blocks,too-many-return-statements,too-many-instance-attributes,global-statement,no-else-break,no-else-return,no-else-continue,too-few-public-methods,too-many-boolean-expressions,consider-using-f-string,consider-using-enumerate,consider-using-with,unspecified-encoding
@@ -30,12 +29,6 @@ try:
 except ImportError:
     pass
 
-# Prevent lossage under Python 3
-try:
-    my_input = raw_input
-except NameError:
-    my_input = input
-
 version = "2.7"
 
 docpath  	= (".", "doc/", "/usr/share/doc/sst/")
@@ -44,8 +37,8 @@ def _(st):
     return gettext.gettext(st)
 
 # Rolling our own LCG because Python changed its incompatibly in 3.2.
-# Thus, we need to have our own to be 2/3 polyglot, which will also
-# be helpful when we forwrard-port.
+# Thus, we needed to have our own to be 2/3 polyglot; it will be
+# helpful when and if we ever forward-port to another language.
 
 class randomizer:
     # LCG PRNG parameters tested against
@@ -3491,7 +3484,7 @@ def pause_game():
         sys.stdout.write('\n')
         proutn(prompt)
         if not replayfp:
-            my_input()
+            input()
         sys.stdout.write('\n' * rows)
         linecount = 0
 
@@ -3563,7 +3556,7 @@ def cgetline():
                     break
         else:
             try:
-                linein = my_input() + "\n"
+                linein = input() + "\n"
             except EOFError:
                 prout("")
                 sys.exit(0)
