@@ -1,0 +1,119 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 2982. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 10 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 4 supporting starbases.
+Starbase locations-  e2  b5  g3  b3  
+
+The Enterprise is currently in Quadrant h8 Sector c8
+
+Good Luck!
+COMMAND> # SST2K version 2.7
+# Test self-destruct
+# recorded by esr@snark.thyrsus.com on Tue Aug 15 05:53:14 2023
+destruct
+---WORKING---
+SELF-DESTRUCT-SEQUENCE-ACTIVATED
+   10
+       9
+          8
+             7
+                6
+
+ENTER-CORRECT-PASSWORD-TO-CONTINUE-
+
+SELF-DESTRUCT-SEQUENCE-OTHERWISE-
+
+SELF-DESTRUCT-SEQUENCE-WILL-BE-ABORTED
+
+
+PASSWORD-REJECTED;
+CONTINUITY-EFFECTED
+
+COMMAND> rep
+You were playing a medium novice game.
+Your secret password is "srl"
+0 of 10 Klingons have been killed.
+There are 4 bases.
+No Starbase is currently under attack.
+You have 4 deep space probes.
+
+COMMAND> destruct
+---WORKING---
+SELF-DESTRUCT-SEQUENCE-ACTIVATED
+   10
+       9
+          8
+             7
+                6
+
+ENTER-CORRECT-PASSWORD-TO-CONTINUE-
+
+SELF-DESTRUCT-SEQUENCE-OTHERWISE-
+
+SELF-DESTRUCT-SEQUENCE-WILL-BE-ABORTED
+
+srl
+PASSWORD-ACCEPTED
+                   5
+                      4
+                         3
+                            2
+                              1
+******************************************************
+************ Entropy of Enterprise maximized *********
+******************************************************
+
+***Commander at Sector f8 destroyed.
+
+
+
+It is stardate 2982.6.
+
+Your starship is now an expanding cloud of subatomic particles
+The Federation will be destroyed.
+
+
+Your score --
+     1 Klingon commanders destroyed          50
+  0.00 Klingons per stardate                  0
+     1 ship(s) lost or destroyed           -100
+Penalty for getting yourself killed        -200
+[PRESS ENTER TO CONTINUE]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TOTAL SCORE                                -250
+
+May the Great Bird of the Galaxy roost upon your home planet.
