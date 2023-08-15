@@ -18,7 +18,7 @@ on how to modify (and how not to modify!) this code.
 
 # pylint: disable=multiple-imports
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
-import getopt, socket, locale, getpass
+import getopt, socket, locale
 import codecs
 
 # This import only works on Unixes.  The intention is to enable
