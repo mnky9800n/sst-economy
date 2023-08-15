@@ -6653,14 +6653,14 @@ class sstscanner:
         s = Coord()
         self.nexttok()
         if (game.options & OPTION_ALPHAMERIC):
-            if (self.type == "IHALPHA") and (self.token[0] in "abcdefghij") and (self.token[1] in "0123456789"):
-                s.i = ord(self.token[0]) - ord("a")
-                try:
-                    s.j = int(self.token[-1:])-1
-                except TypeError:
-                    huh()
-                    return None
-                return s
+            try:
+                if (self.type == "IHALPHA") and (self.token[0] in "abcdefghij") and (self.token[1] in "0123456789"):
+                    s.i = ord(self.token[0]) - ord("a")
+                    s.j = int(self.token[1:])-1
+                    return s
+            except (TypeError, IndexError):
+                huh()
+                return None
         if self.type != "IHREAL":
             huh()
             return None

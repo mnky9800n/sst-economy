@@ -1,0 +1,58 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 2877. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 9 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 2 supporting starbases.
+Starbase locations-  b1  b5  
+
+The Enterprise is currently in Quadrant b6 Sector c3
+
+Good Luck!
+COMMAND> # SST2K version 2.7
+# Test edge and failure cases in coordinate parsing
+# recorded by esr@snark.thyrsus.com on Tue Aug 15 06:05:57 2023
+sr
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+a   . . . . . . . . . . 
+b   . . . * . . . . . . 
+c   . . E . .   . . . . 
+d   . . . . . . . . . . 
+e   . . . . . . . . . . 
+f   . . . . .   . . . . 
+g   . . . . . . . . . . 
+h   . . . . . . . . . . 
+i   . @ . . . . . . . . 
+j   . . . . . . . . * . 
+COMMAND> m a a 3
+
+Beg your pardon, Captain?
+COMMAND> m a a3
+
+COMMAND> sr
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+a   . . E . . . . . . . 
+b   . . . * . . . . . . 
+c   . . . . .   . . . . 
+d   . . . . . . . . . . 
+e   . . . . . . . . . . 
+f   . . . . .   . . . . 
+g   . . . . . . . . . . 
+h   . . . . . . . . . . 
+i   . @ . . . . . . . . 
+j   . . . . . . . . * . 
+COMMAND> m a a10
+
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
