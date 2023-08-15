@@ -101,7 +101,7 @@ FOREVER 	= 1e30		# Time for the indefinite future
 MAXBURST	= 3		# Max # of torps you can launch in one turn
 MINCMDR 	= 10		# Minimum number of Klingon commanders
 DOCKFAC		= 0.25		# Repair faster when docked
-PHASEFAC	= 2.0		# Unclear what this is, it was in the C version
+PHASEFAC	= 2.0		# Phaser attenuation factor
 
 ALGERON		= 2311		# Date of the Treaty of Algeron
 
@@ -3172,13 +3172,14 @@ def finish(ifin):
         prout(_("Your starship is now an expanding cloud of subatomic particles"))
     elif ifin == FMATERIALIZE:
         prout(_("Starbase was unable to re-materialize your starship."))
-        prout(_("Sic transit gloria mundi"))
+        prout(_("Sic transit gloria mundi."))
     elif ifin == FPHASER:
         prout(_("The %s has been cremated by its own phasers.") % crmshp())
     elif ifin == FLOST:
         prout(_("You and your landing party have been"))
         prout(_("converted to energy, dissipating through space."))
     elif ifin == FMINING:
+        # This does not seem to be reachable from any code path.
         prout(_("You are left with your landing party on"))
         prout(_("a wild jungle planet inhabited by primitive cannibals."))
         skip(1)
