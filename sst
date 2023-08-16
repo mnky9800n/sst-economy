@@ -6802,43 +6802,47 @@ if __name__ == '__main__':
         else:
             game.options |= OPTION_TTY
         seed = int(time.time())
-        (options, arguments) = getopt.getopt(sys.argv[1:], "cr:s:txV")
-        for (switch, val) in options:
-            if switch == '-r':
-                # pylint: disable=raise-missing-from
-                try:
-                    replayfp = open(val, "r")
-                except IOError:
-                    sys.stderr.write("sst: can't open replay file %s\n" % val)
+        try:
+            (options, arguments) = getopt.getopt(sys.argv[1:], "cr:s:txV")
+            for (switch, val) in options:
+                if switch == '-r':
+                    # pylint: disable=raise-missing-from
+                    try:
+                        replayfp = open(val, "r")
+                    except IOError:
+                        sys.stderr.write("sst: can't open replay file %s\n" % val)
+                        raise SystemExit(1)
+                    # pylint: disable=raise-missing-from
+                    try:
+                        line = replayfp.readline().strip()
+                        (leader, __, seed) = line.split()
+                        # pylint: disable=eval-used
+                        seed = eval(seed)
+                        line = replayfp.readline().strip()
+                        arguments += line.split()[2:]
+                    except ValueError:                # pragma: no cover
+                        sys.stderr.write("sst: replay file %s is ill-formed\n"% val)
+                        raise SystemExit(1)
+                    game.options |= OPTION_TTY
+                    game.options &=~ OPTION_CURSES
+                elif switch == '-s':                # pragma: no cover
+                    seed = int(val)
+                elif switch == '-t':	# pragma: no cover
+                    game.options |= OPTION_TTY
+                    game.options &=~ OPTION_CURSES
+                elif switch == '-x':                # pragma: no cover
+                    game.idebug = True
+                elif switch == '-c':	# Enable curses debugging - undocumented
+                    game.cdebug = True
+                elif switch == '-V':                # pragma: no cover
+                    print("SST2K", version)
+                    raise SystemExit(0)
+                else:                # pragma: no cover
+                    sys.stderr.write("usage: sst [-t] [-x] [startcommand...].\n")
                     raise SystemExit(1)
-                # pylint: disable=raise-missing-from
-                try:
-                    line = replayfp.readline().strip()
-                    (leader, __, seed) = line.split()
-                    # pylint: disable=eval-used
-                    seed = eval(seed)
-                    line = replayfp.readline().strip()
-                    arguments += line.split()[2:]
-                except ValueError:                # pragma: no cover
-                    sys.stderr.write("sst: replay file %s is ill-formed\n"% val)
-                    raise SystemExit(1)
-                game.options |= OPTION_TTY
-                game.options &=~ OPTION_CURSES
-            elif switch == '-s':                # pragma: no cover
-                seed = int(val)
-            elif switch == '-t':	# pragma: no cover
-                game.options |= OPTION_TTY
-                game.options &=~ OPTION_CURSES
-            elif switch == '-x':                # pragma: no cover
-                game.idebug = True
-            elif switch == '-c':	# Enable curses debugging - undocumented
-                game.cdebug = True
-            elif switch == '-V':                # pragma: no cover
-                print("SST2K", version)
-                raise SystemExit(0)
-            else:                # pragma: no cover
-                sys.stderr.write("usage: sst [-t] [-x] [startcommand...].\n")
-                raise SystemExit(1)
+        except getopt.GetoptError as e:
+            print(e)
+            raise SystemExit(1)
         # where to save the input in case of bugs
         if "TMPDIR" in os.environ:                # pragma: no cover
             tmpdir = os.environ['TMPDIR']
