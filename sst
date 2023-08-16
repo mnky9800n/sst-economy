@@ -163,9 +163,9 @@ class Coord:
         return Coord(self.i//other, self.j//other)
     def __mod__(self, other):
         return Coord(self.i % other, self.j % other)
-    def __rtruediv__(self, other):
+    def __rtruediv__(self, other):  # pragma: no cover
         return Coord(self.i/other, self.j/other)
-    def __rfloordiv__(self, other):
+    def __rfloordiv__(self, other):  # pragma: no cover
         return Coord(self.i//other, self.j//other)
     def roundtogrid(self):
         return Coord(int(round(self.i)), int(round(self.j)))
@@ -240,7 +240,7 @@ class Quadrant:
         self.charted = False
         self.status = "secure"        # Could be "secure", "distressed", "enslaved"
     def __str__(self):
-        return "<Quadrant: %(klingons)d>" % self.__dict__
+        return "<Quadrant: %(klingons)d>" % self.__dict__  # pragma: no cover
     __repr__ = __str__
 
 class Page:
@@ -421,7 +421,7 @@ class Enemy:
                 game.enemies.remove(self)
         return motion
     def __repr__(self):
-        return "<%s,%s.%f>" % (self.type, self.location, self.power)  # pragma: no cover
+        return "<%s,%s,%f>" % (self.type, self.location, self.power)  # pragma: no cover
 
 class Gamestate:
     def __init__(self):
@@ -973,7 +973,7 @@ def movetholian():
     elif game.tholian.location.i == QUADSIZE-1 and game.tholian.location.j == 0:
         tid.i = 0
         tid.j = 0
-    else:
+    else:  # pragma: no cover
         # something is wrong!
         game.tholian.move(None)
         prout("***Internal error: Tholian in a bad spot.")
@@ -1246,7 +1246,7 @@ def collision(rammed, enemy):
         proutn(_(" (original position)"))
     skip(1)
     deadkl(enemy.location, enemy.type, game.sector)
-    proutn("***" + crmshp() + " heavily damaged.")
+    prout("***" + crmshp() + " heavily damaged.")
     icas = rnd.integer(10, 30)
     prout(_("***Sickbay reports %d casualties") % icas)
     game.casual += icas
@@ -3843,11 +3843,11 @@ def imove(icourse=None, noattack=False):
             stopegy = 50.0*icourse.distance/game.optime
             if iquad in ('T', 'K', 'C', 'S', 'R', '?'):
                 for enemy in game.enemies:
-                    if enemy.location == game.sector:
+                    if enemy.location == h:
                         collision(rammed=False, enemy=enemy)
                         return True
                 # This should not happen
-                prout(_("Which way did he go?"))
+                prout(_("Which way did he go?")) # pragma: no cover
                 return False
             elif iquad == ' ':
                 skip(1)
@@ -5306,8 +5306,8 @@ def damagereport():
     for i in range(NDEVICES):
         if damaged(i):
             if not jdam:
-                prout(_("\tDEVICE\t\t\t-REPAIR TIMES-"))
-                prout(_("\t\t\tIN FLIGHT\t\tDOCKED"))
+                prout(_("DEVICE                             REPAIR TIMES"))
+                prout(_("                                   IN FLIGHT                DOCKED"))
                 jdam = True
             prout("  %-26s\t%8.2f\t\t%8.2f" % (device[i],
                                                game.damage[i]+0.05,
