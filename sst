@@ -18,7 +18,7 @@ on how to modify (and how not to modify!) this code.
 
 # pylint: disable=multiple-imports
 import os, sys, math, curses, time, pickle, copy, gettext, getpass
-import getopt, socket, locale
+import getopt, socket
 import codecs
 
 # This import only works on Unixes.  The intention is to enable
@@ -3412,11 +3412,6 @@ curwnd = None
 
 def iostart():
     global stdscr, rows
-    # for some recent versions of python2, the following enables UTF8
-    # for the older ones we probably need to set C locale, and python3
-    # has no problems at all
-    if sys.version_info[0] < 3:
-        locale.setlocale(locale.LC_ALL, "")
     gettext.bindtextdomain("sst", "/usr/local/share/locale")
     gettext.textdomain("sst")
     if not (game.options & OPTION_CURSES):
