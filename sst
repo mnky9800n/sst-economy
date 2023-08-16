@@ -195,11 +195,6 @@ class Coord:
         return self.roundtogrid() // QUADSIZE
     def sector(self):
         return self.roundtogrid() % QUADSIZE
-    def scatter(self):
-        s = Coord()
-        s.i = self.i + rnd.integer(-1, 2)
-        s.j = self.j + rnd.integer(-1, 2)
-        return s
     def __str__(self):
         if self.i is None or self.j is None:
             return "Nowhere"  # pragma: no cover
@@ -3420,7 +3415,7 @@ def iostart():
             rows = ln_env
         else:
             rows = 25
-    else:
+    else:	# pragma: no cover
         stdscr = curses.initscr()
         stdscr.keypad(True)
         curses.nonl()
@@ -3451,7 +3446,7 @@ def iostart():
 
 def ioend():
     "Wrap up I/O."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         stdscr.keypad(False)
         curses.echo()
         curses.nocbreak()
@@ -3459,7 +3454,7 @@ def ioend():
 
 def waitfor():
     "Wait for user action -- OK to do nothing if on a TTY"
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         stdscr.getch()
 
 def announce():
@@ -3473,7 +3468,7 @@ def pause_game():
     else:
         prompt = _("[PRESS ENTER TO CONTINUE]")
 
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         drawmaps(0)
         setwnd(prompt_window)
         prompt_window.clear()
@@ -3494,7 +3489,7 @@ def pause_game():
 def skip(i):
     "Skip i lines.  Pause game if this would cause a scrolling event."
     for _dummy in range(i):
-        if game.options & OPTION_CURSES:
+        if game.options & OPTION_CURSES:	# pragma: no cover
             (y, _x) = curwnd.getyx()
             try:
                 curwnd.move(y+1, 0)
@@ -3510,7 +3505,7 @@ def skip(i):
 
 def proutn(proutntline):
     "Utter a line with no following line feed."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         (y, x) = curwnd.getyx()
         (my, _mx) = curwnd.getmaxyx()
         if curwnd == message_window and y >= my - 2:
@@ -3534,7 +3529,7 @@ def prouts(proutsline):
         if not replayfp or replayfp.closed:        # Don't slow down replays
             time.sleep(0.03)
         proutn(c)
-        if game.options & OPTION_CURSES:
+        if game.options & OPTION_CURSES:	# pragma: no cover
             curwnd.refresh()
         else:
             sys.stdout.flush()
@@ -3543,7 +3538,7 @@ def prouts(proutsline):
 
 def cgetline():
     "Get a line of input."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         linein = codecs.decode(curwnd.getstr()) + "\n"
         curwnd.refresh()
     else:
@@ -3570,7 +3565,7 @@ def cgetline():
 def setwnd(wnd):
     "Change windows -- OK for this to be a no-op in tty mode."
     global curwnd
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         if game.cdebug and logfp:
             if wnd == fullscreen_window:
                 legend = "fullscreen"
@@ -3598,21 +3593,21 @@ def setwnd(wnd):
 
 def clreol():
     "Clear to end of line -- can be a no-op in tty mode"
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         curwnd.clrtoeol()
         curwnd.refresh()
 
 def clrscr():
     "Clear screen -- can be a no-op in tty mode."
     global linecount
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         curwnd.clear()
         curwnd.move(0, 0)
         curwnd.refresh()
     linecount = 0
 
 def textcolor(color=DEFAULT):
-    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):
+    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):	# pragma: no cover
         if color == DEFAULT:
             curwnd.attrset(0)
         elif color ==  BLACK:
@@ -3649,7 +3644,7 @@ def textcolor(color=DEFAULT):
             curwnd.attron(curses.color_pair(curses.COLOR_WHITE) | curses.A_BOLD)
 
 def highvideo():
-    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):
+    if (game.options & OPTION_COLOR) and (game.options & OPTION_CURSES):	# pragma: no cover
         curwnd.attron(curses.A_REVERSE)
 
 #
@@ -3658,7 +3653,7 @@ def highvideo():
 
 def drawmaps(mode):
     "Hook to be called after moving to redraw maps."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         if mode == 1:
             sensor()
         setwnd(srscan_window)
@@ -3685,7 +3680,7 @@ def put_srscan_sym(w, sym):
 
 def boom(w):
     "Enemy fall down, go boom."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         drawmaps(0)
         setwnd(srscan_window)
         srscan_window.attron(curses.A_REVERSE)
@@ -3700,19 +3695,19 @@ def boom(w):
 
 def warble():
     "Sound and visual effects for teleportation."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         drawmaps(2)
         setwnd(message_window)
         #sound(50)
     prouts("     . . . . .     ")
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         #curses.delay_output(1000)
         #nosound()
         pass
 
 def tracktorpedo(w, step, i, n, iquad):
     "Torpedo-track animation."
-    if not game.options & OPTION_CURSES:
+    if not game.options & OPTION_CURSES:	# pragma: no cover
         if step == 1:
             if n != 1:
                 skip(1)
@@ -3747,7 +3742,7 @@ def tracktorpedo(w, step, i, n, iquad):
 
 def makechart():
     "Display the current galaxy chart."
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         setwnd(message_window)
         message_window.clear()
     chart()
@@ -3758,14 +3753,14 @@ NSYM        = 14
 
 def prstat(txt, data):
     proutn(txt)
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         skip(1)
         setwnd(status_window)
     else:
         proutn(" " * (NSYM - len(txt)))
     proutn(data)
     skip(1)
-    if game.options & OPTION_CURSES:
+    if game.options & OPTION_CURSES:	# pragma: no cover
         setwnd(report_window)
 
 # Code from moving.c begins here
@@ -4585,7 +4580,7 @@ def mayday():
             break
         prout(_("fails."))
         textcolor(DEFAULT)
-        if game.options & OPTION_CURSES:
+        if game.options & OPTION_CURSES:	# pragma: no cover
             curses.delay_output(500)
     if m > 3:
         game.quad[game.sector.i][game.sector.j]='?'
@@ -5629,11 +5624,11 @@ def goptions():
             else:
                 prout(_("No such option as ") + scanner.token)
         if mode == "set":
-            if (not (game.options & OPTION_CURSES)) and (changemask & OPTION_CURSES):
+            if (not (game.options & OPTION_CURSES)) and (changemask & OPTION_CURSES):	# pragma: no cover
                 iostart()
             game.options |= changemask
         elif mode == "clear":
-            if (game.options & OPTION_CURSES) and (not (changemask & OPTION_CURSES)):
+            if (game.options & OPTION_CURSES) and (not (changemask & OPTION_CURSES)):	# pragma: no cover
                 ioend()
             game.options &=~ changemask
         prout(_("Acknowledged, Captain."))
@@ -6382,7 +6377,7 @@ def makemoves():
             clrscr()
             proutn("COMMAND> ")
             if scanner.nexttok() == "IHEOL":
-                if game.options & OPTION_CURSES:
+                if game.options & OPTION_CURSES:	# pragma: no cover
                     makechart()
                 continue
             elif scanner.token == "":
@@ -6408,7 +6403,7 @@ def makemoves():
                 huh()
             else:
                 break
-        if game.options & OPTION_CURSES:
+        if game.options & OPTION_CURSES:	# pragma: no cover
             prout("COMMAND> %s" % cmd)
         if cmd == "SRSCAN":                # srscan
             srscan()
@@ -6516,7 +6511,7 @@ def makemoves():
             helpme()                        # get help
         elif cmd == "SCORE":
             score()                         # see current score
-        elif cmd == "CURSES":
+        elif cmd == "CURSES":	# pragma: no cover
             game.options |= (OPTION_CURSES | OPTION_COLOR)
             iostart()
         elif cmd == "OPTIONS":
@@ -6788,7 +6783,7 @@ if __name__ == '__main__':
         logfp = None
         game.options = OPTION_ALL &~ (OPTION_IOMODES | OPTION_PLAIN | OPTION_ALMY)
         if os.getenv("TERM"):
-            game.options |= OPTION_CURSES
+            game.options |= OPTION_CURSES	# pragma: no cover
         else:
             game.options |= OPTION_TTY
         seed = int(time.time())
@@ -6816,7 +6811,7 @@ if __name__ == '__main__':
                 game.options &=~ OPTION_CURSES
             elif switch == '-s':                # pragma: no cover
                 seed = int(val)
-            elif switch == '-t':
+            elif switch == '-t':	# pragma: no cover
                 game.options |= OPTION_TTY
                 game.options &=~ OPTION_CURSES
             elif switch == '-x':                # pragma: no cover
