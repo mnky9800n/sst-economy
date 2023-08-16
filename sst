@@ -215,9 +215,6 @@ class Thingy():
     "Do not anger the Space Thingy!"
     def __init__(self):
         self.location = Coord()
-        self.angered = False
-    def angry(self):
-        self.angered = True
     def at(self, q):
         return (q.i, q.j) == (self.location.i, self.location.j)
 
@@ -301,7 +298,6 @@ OPTION_CURSES     = 0x00000002        # new interface
 OPTION_IOMODES    = 0x00000003        # cover both interfaces
 OPTION_PLANETS    = 0x00000004        # planets and mining
 OPTION_THOLIAN    = 0x00000008        # Tholians and their webs (UT 1979 version)
-OPTION_THINGY     = 0x00000010        # Space Thingy can shoot back (Stas, 2005)
 OPTION_PROBE      = 0x00000020        # deep-space probes (DECUS version, 1980)
 OPTION_SHOWME     = 0x00000040        # bracket Enterprise in chart
 OPTION_RAMMING    = 0x00000080        # enemies may ram Enterprise (Almy)
@@ -323,8 +319,6 @@ option_names = {
     "TTY": OPTION_TTY,
     "IOMODES": OPTION_IOMODES,
     "PLANETS": OPTION_PLANETS,
-    "THOLIAN": OPTION_THOLIAN,
-    "THINGY": OPTION_THINGY,
     "PROBE": OPTION_PROBE,
     "SHOWME": OPTION_SHOWME,
     "RAMMING": OPTION_RAMMING,
@@ -1420,21 +1414,15 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                 prout(crmena(True, '*', "sector", w) + _(" unaffected by photon blast."))
             return None
         elif iquad == '?': # Hit a thingy
-            if not (game.options & OPTION_THINGY) or rnd.withprob(0.3):
-                skip(1)
-                prouts(_("AAAAIIIIEEEEEEEEAAAAAAAAUUUUUGGGGGHHHHHHHHHHHH!!!"))
-                skip(1)
-                prouts(_("    HACK!     HACK!    HACK!        *CHOKE!*  "))
-                skip(1)
-                proutn(_("Mr. Spock-"))
-                prouts(_("  \"Fascinating!\""))
-                skip(1)
-                deadkl(w, iquad, w)
-            else:
-                # Stas Sergeev added the possibility that
-                # you can shove the Thingy and piss it off.
-                # It then becomes an enemy and may fire at you.
-                thing.angry()
+            skip(1)
+            prouts(_("AAAAIIIIEEEEEEEEAAAAAAAAUUUUUGGGGGHHHHHHHHHHHH!!!"))
+            skip(1)
+            prouts(_("    HACK!     HACK!    HACK!        *CHOKE!*  "))
+            skip(1)
+            proutn(_("Mr. Spock-"))
+            prouts(_("  \"Fascinating!\""))
+            skip(1)
+            deadkl(w, iquad, w)
             return None
         elif iquad == ' ': # Black hole
             skip(1)
@@ -1553,7 +1541,7 @@ def attack(torps_ok):
                         prout("Sector %s." % goto)
         sortenemies()
     # if no enemies remain after movement, we're done
-    if len(game.enemies) == 0 or (len(game.enemies) == 1 and thing.at(game.quadrant) and not thing.angered):
+    if len(game.enemies) == 0 or (len(game.enemies) == 1 and thing.at(game.quadrant)):
         return
     # set up partial hits if attack happens during shield status change
     pfac = 1.0/game.inshld
@@ -1573,7 +1561,7 @@ def attack(torps_ok):
             r *= 0.25
         if enemy.power < 500:
             r *= 0.25
-        if enemy.type == 'T' or (enemy.type == '?' and not thing.angered):
+        if enemy.type in ('T', '?'):
             continue
         # different enemies have different probabilities of throwing a torp
         usephasers = not torps_ok or \
@@ -1916,8 +1904,6 @@ def hittem(hits):
         else:
             proutn(_("Very small hit on "))
         ienm = game.quad[w.i][w.j]
-        if ienm == '?':
-            thing.angry()
         proutn(crmena(False, ienm, "sector", w))
         skip(1)
         if kpow == 0:
@@ -6062,11 +6048,11 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_THINGY | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
-        game.options &=~ (OPTION_THINGY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+        game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
         pass

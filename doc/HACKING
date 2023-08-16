@@ -40,9 +40,8 @@ Dave also says the Space Thingy should not be preserved across saved
 games, so you can't prove to others that you've seen it.  He says it
 shouldn't fire back, either.  It should do nothing except scream and
 disappear when hit by photon torpedos.  It's OK that it may move
-when attacked, but it didn't in the original.  (Whether the Thingy
-can fire back is now controlled by OPTION_THINGY and turned off if the
-game type is "plain" or "almy".  The no-save behavior has been restored.)
+when attacked, but it didn't in the original. (The no-save behavior
+has been restored.)
 
 The Faerie Queen, black holes, and time warping were in the original.
 
