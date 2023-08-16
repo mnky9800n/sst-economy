@@ -28,3 +28,17 @@ regress:
 	    fi \
 	done
 	@rm -f /tmp/regress
+
+coverage:
+	@coverage erase
+	@for test in $(TESTLOADS); \
+	do \
+	    if [ ! -f $${test}.tst ] ; \
+	    then \
+		coverage run -a ../sst -r "$${test}.log" >/dev/null; \
+	    fi \
+	done
+	@coverage html
+
+clean:
+	rm -f .coverage htmlcov/index.html

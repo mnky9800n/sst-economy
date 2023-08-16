@@ -26,7 +26,7 @@ import codecs
 try:
     # pylint: disable=unused-import
     import readline
-except ImportError:
+except ImportError:  # pragma: no cover
     pass
 
 version = "2.7"
@@ -155,11 +155,11 @@ class Coord:
         return Coord(self.i*other, self.j*other)
     def __rmul__(self, other):
         return Coord(self.i*other, self.j*other)
-    def __div__(self, other):
+    def __div__(self, other):  # pragma: no cover
         return Coord(self.i/other, self.j/other)
-    def __truediv__(self, other):
+    def __truediv__(self, other):  # pragma: no cover
         return Coord(self.i/other, self.j/other)
-    def __floordiv__(self, other):
+    def __floordiv__(self, other):  # pragma: no cover
         return Coord(self.i//other, self.j//other)
     def __mod__(self, other):
         return Coord(self.i % other, self.j % other)
@@ -202,7 +202,7 @@ class Coord:
         return s
     def __str__(self):
         if self.i is None or self.j is None:
-            return "Nowhere"
+            return "Nowhere"  # pragma: no cover
         if (game.options & OPTION_ALPHAMERIC):
             return letterize(self.i + 1) + str(self.j + 1)
         return "%s - %s" % (self.i+1, self.j+1)
@@ -249,7 +249,7 @@ class Page:
         self.starbase = False
         self.klingons = None
     def __repr__(self):
-        return "<%s,%s,%s>" % (self.klingons, self.starbase, self.stars)
+        return "<%s,%s,%s>" % (self.klingons, self.starbase, self.stars)  # pragma: no cover
 
 def fill2d(size, fillfun):
     "Fill an empty list in 2D."
@@ -388,7 +388,7 @@ NEVENTS = 12
 
 # Abstract out the event handling -- underlying data structures will change
 # when we implement stateful events
-def findevent(evtype):
+def findevent(evtype):  # pragma: no cover
     return game.future[evtype]
 
 class Enemy:
@@ -421,7 +421,7 @@ class Enemy:
                 game.enemies.remove(self)
         return motion
     def __repr__(self):
-        return "<%s,%s.%f>" % (self.type, self.location, self.power)        # For debugging
+        return "<%s,%s.%f>" % (self.type, self.location, self.power)  # pragma: no cover
 
 class Gamestate:
     def __init__(self):
@@ -773,7 +773,7 @@ def movebaddy(enemy):
 def moveklings():
     "Sequence Klingon tactical movement."
     if game.idebug:
-        prout("== MOVCOM")
+        prout("== MOVCOM")        # pragma: no cover
     # Figure out which Klingon is the commander (or Supercommander)
     # and do move
     tacmoves = []
@@ -1226,10 +1226,10 @@ def randdevice():
         wsum += w
         if idx < wsum:
             return i
-    return None        # we should never get here
+    return None                # pragma: no cover
 
 def collision(rammed, enemy):
-    "Collision handling for rammong events."
+    "Collision handling for ramming events."
     prouts(_("***RED ALERT!  RED ALERT!"))
     skip(1)
     prout(_("***COLLISION IMMINENT."))
@@ -1251,7 +1251,7 @@ def collision(rammed, enemy):
     prout(_("***Sickbay reports %d casualties") % icas)
     game.casual += icas
     game.state.crew -= icas
-    # In the pre-SST2K version, all devices got equiprobably damaged,
+    # In the pre-SST2K versions, all devices got equiprobably damaged,
     # which was silly.  Instead, pick up to half the devices at
     # random according to our weighting table,
     ncrits = rnd.integer(NDEVICES//2)
@@ -1370,7 +1370,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                             tenemy.kdist = tenemy.kavgd = (game.sector-tenemy.location).distance()
                         sortenemies()
                     break
-            else:
+            else:                # pragma: no cover
                 prout("Internal error, no enemy where expected!")
                 raise SystemExit(1)
             return None
@@ -1521,7 +1521,7 @@ def attack(torps_ok):
     chgfac = 1.0
     where = "neither"
     if game.idebug:
-        prout("=== ATTACK!")
+        prout("=== ATTACK!")                # pragma: no cover
     # Tholian gets to move before attacking
     if game.tholian:
         movetholian()
@@ -2375,7 +2375,7 @@ def events():
             game.isatb = 0
         else:
             game.battle.invalidate()
-    if game.idebug:
+    if game.idebug:                # pragma: no cover
         prout("=== EVENTS from %.2f to %.2f:" % (game.state.date, fintim))
         for i in range(1, NEVENTS):
             if   i == FSNOVA:  proutn("=== Supernova       ")
@@ -2405,7 +2405,7 @@ def events():
             if game.future[l].date < datemin:
                 evcode = l
                 if game.idebug:
-                    prout("== Event %d fires" % evcode)
+                    prout("== Event %d fires" % evcode)                # pragma: no cover
                 datemin = game.future[l].date
         xtime = datemin-game.state.date
         if game.iscloaked:
@@ -2607,7 +2607,7 @@ def events():
                     break
             else:
                 # can't seem to find one; ignore this call
-                if game.idebug:
+                if game.idebug:                # pragma: no cover
                     prout("=== Couldn't find location for distress event.")
                 continue
             # got one!!  Schedule its enslavement
@@ -2893,7 +2893,7 @@ def supernova(w):
                     break
             if num <=0:
                 break
-        if game.idebug:
+        if game.idebug:                # pragma: no cover
             proutn("=== Super nova here?")
             if ja():
                 nq = game.quadrant
@@ -3192,6 +3192,7 @@ def finish(ifin):
         prout(_("That was a great shot."))
         skip(1)
     elif ifin == FSSC:
+        # This does not seem to be reachable from any code path.
         prout(_("The Galileo is instantly annihilated by the supernova."))
         prout(_("You and your mining party are atomized."))
         skip(1)
@@ -6067,7 +6068,7 @@ def choose():
     elif len(scanner.token):
         proutn(_("What is \"%s\"?") % scanner.token)
     setpassword()
-    if game.passwd == "debug":
+    if game.passwd == "debug":                # pragma: no cover
         game.idebug = True
         prout("=== Debug mode enabled.")
     # Use parameters to generate initial values of things
@@ -6301,8 +6302,10 @@ commands = [
     ("",                 0),
 ]
 
-def listCommands():
+def listCommands():                # pragma: no cover
     "Generate a list of legal commands."
+    # Coverage-disabled because testing for this is fragile
+    # in the presence of changes in the command set.
     prout(_("LEGAL COMMANDS ARE:"))
     emitted = 0
     for (key, opt) in commands:
@@ -6403,7 +6406,7 @@ def makemoves():
                 if cmd == scanner.token.upper() or (not abandon_passed \
                         and cmd.startswith(scanner.token.upper())):
                     break
-            if cmd == "":
+            if cmd == "":                # pragma: no cover
                 listCommands()
                 continue
             elif opt and not (opt & game.options):
@@ -6561,7 +6564,7 @@ def cramen(ch):
     elif ch == '#': s = _("Tholian web")
     elif ch == '?': s = _("Stranger")
     elif ch == '@': s = _("Inhabited World")
-    else: s = "Unknown??"
+    else: s = "Unknown??"                # pragma: no cover
     return s
 
 def crmena(loud, enemy, loctype, w):
@@ -6672,7 +6675,7 @@ class sstscanner:
             return None
         s.j = self.int()-1
         return s
-    def __repr__(self):
+    def __repr__(self):                # pragma: no cover
         return "<sstcanner: token=%s, type=%s, queue=%s>" % (self.token, self.type, self.inqueue)
 
 def ja():
@@ -6693,7 +6696,7 @@ def huh():
     skip(1)
     prout(_("Beg your pardon, Captain?"))
 
-def debugme():
+def debugme():                # pragma: no cover
     "Access to the internals for debugging."
     proutn("Reset levels? ")
     if ja():
@@ -6811,34 +6814,34 @@ if __name__ == '__main__':
                     seed = eval(seed)
                     line = replayfp.readline().strip()
                     arguments += line.split()[2:]
-                except ValueError:
+                except ValueError:                # pragma: no cover
                     sys.stderr.write("sst: replay file %s is ill-formed\n"% val)
                     raise SystemExit(1)
                 game.options |= OPTION_TTY
                 game.options &=~ OPTION_CURSES
-            elif switch == '-s':
+            elif switch == '-s':                # pragma: no cover
                 seed = int(val)
             elif switch == '-t':
                 game.options |= OPTION_TTY
                 game.options &=~ OPTION_CURSES
-            elif switch == '-x':
+            elif switch == '-x':                # pragma: no cover
                 game.idebug = True
             elif switch == '-c':	# Enable curses debugging - undocumented
                 game.cdebug = True
-            elif switch == '-V':
+            elif switch == '-V':                # pragma: no cover
                 print("SST2K", version)
                 raise SystemExit(0)
-            else:
+            else:                # pragma: no cover
                 sys.stderr.write("usage: sst [-t] [-x] [startcommand...].\n")
                 raise SystemExit(1)
         # where to save the input in case of bugs
-        if "TMPDIR" in os.environ:
+        if "TMPDIR" in os.environ:                # pragma: no cover
             tmpdir = os.environ['TMPDIR']
         else:
             tmpdir = "/tmp"
         try:
             logfp = open(os.path.join(tmpdir, "sst-input.log"), "w")
-        except IOError:
+        except IOError:                # pragma: no cover
             sys.stderr.write("sst: warning, can't open logfile\n")
             sys.exit(1)
         if logfp:
@@ -6887,7 +6890,7 @@ if __name__ == '__main__':
         finally:
             ioend()
         raise SystemExit(0)
-    except KeyboardInterrupt:
+    except KeyboardInterrupt:                # pragma: no cover
         if logfp:
             logfp.close()
         print("")
