@@ -3846,7 +3846,7 @@ def imove(icourse=None, noattack=False):
                         return True
                 # This should not happen
                 prout(_("Which way did he go?")) # pragma: no cover
-                return False
+                return False # pragma: no cover
             elif iquad == ' ':
                 skip(1)
                 prouts(_("***RED ALERT!  RED ALERT!"))

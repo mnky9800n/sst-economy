@@ -1,0 +1,75 @@
+
+
+-SUPER- STAR TREK
+
+
+
+Stardate 4912.
+
+57 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+14 stardates.
+4 starbases in d7  c7  a4  d8  
+
+The Enterprise is currently in Quadrant a2 Sector c10
+
+Good Luck!
+  YOU'LL NEED IT.
+COMMAND> # SST2K version 2.7
+$ Capture successful
+LEGAL COMMANDS ARE:
+SRSCAN       STATUS       REQUEST      LRSCAN       
+PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
+DOCK         DAMAGES      CHART        IMPULSE      REST         
+WARP         SENSORS      ORBIT        TRANSPORT    MINE         
+CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
+COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
+OPTIONS      ABANDON      DESTRUCT     DEATHRAY     CAPTURE      
+CLOAK        DEBUG        MAYDAY       SOS          CALL         
+QUIT         HELP         SCORE        CURSES                    
+
+COMMAND> # recorded by esr@snark.thyrsus.com on Wed Aug 16 14:33:01 2023
+phasers
+
+Weapons Officer Sulu-  "High-speed shield control enabled, sir."
+Manual or automatic? a
+Phasers locked on target. Energy available: 4800.00
+1657 units required. Units to fire= 1657
+
+Shields lowered.
+
+299 unit hit on Klingon at Sector a8
+***Klingon at Sector a8 destroyed.
+330 unit hit on Klingon at Sector a7
+***Klingon at Sector a7 destroyed.
+210 unit hit on Klingon at Sector b5
+***Mr. Spock-  "Captain, the vessel at Sector b5
+   has just lost its firepower."
+661 expended on empty space.
+
+Shields raised.
+
+Enemy attack reduces shield strength to 96%,   torpedoes left 10
+COMMAND> torpedo 1 i8
+
+Torpedo track- d10   e9   f9   
+Star at Sector f9 novas.
+***Star at Sector g10 novas.
+
+Enemy attack reduces shield strength to 92%,   torpedoes left 9
+COMMAND> torpedo 1 i7
+
+Torpedo track- d9   e9   f8   
+g8   h7   i7   
+***Klingon at Sector i7 destroyed.
+
+Enemy attack reduces shield strength to 92%,   torpedoes left 8
+COMMAND> capture
+Klingon captain at b5 surrenders.
+149 Klingons commit suicide rather than be taken captive.
+50 captives taken
+***Klingon at Sector c10 destroyed.
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
