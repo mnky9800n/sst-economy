@@ -88,6 +88,14 @@ class randomizer:
         #    logfp.write("#seed(%d)\n" % n)
         game.lcg_x = n % randomizer.LCG_M
 
+    @staticmethod
+    def getrngstate():
+        return game.lcg_x
+
+    @staticmethod
+    def setrngstate(n):
+        game.lcg_x = n
+
 GALSIZE 	= 8		# Galaxy size in quadrants
 NINHAB  	= (GALSIZE * GALSIZE // 2)	# Number of inhabited worlds
 MAXUNINHAB	= 10		# Maximum uninhabited worlds
@@ -5930,13 +5938,17 @@ def setup():
     # Place thing (in tournament game, we don't want one!)
     # New in SST2K: never place the Thing near a starbase.
     # This makes sense and avoids a special case in the old code.
-    #global thing
-    #if game.tourn is None:
-    #    while True:
-    #        thing.location = randplace(GALSIZE)
-    #        # Put it somewhere a starbase is not
-    #        if thing.location not in game.state.baseq:
-    #            break
+    if game.tourn is None:
+        # Avoid distrubing the RNG chain.  This code
+        # was a late fix and we don't want to mess up
+        # all the regression tests.
+        state = randomizer.getrngstate()
+        while True:
+            thing.location = randplace(GALSIZE)
+            # Put it somewhere a starbase is not
+            if thing.location not in game.state.baseq:
+                break
+        randomizer.setrngstate(state)
     skip(2)
     game.state.snap = False
     if game.skill == SKILL_NOVICE:

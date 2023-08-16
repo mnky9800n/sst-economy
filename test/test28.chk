@@ -1,0 +1,60 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 4827. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 10 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 5 supporting starbases.
+Starbase locations-  f1  g6  e2  a1  a8  
+
+The Enterprise is currently in Quadrant d6 Sector h8
+
+Good Luck!
+COMMAND> # SST2K version 2.7
+# Encounter and destroy Space Thingy
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 08:28:50 2023
+m a e8
+
+COMMAND> m a a1
+
+COMMAND> m a c2 j10
+
+Ensign Chekov- "Course laid in, Captain."
+
+Entering Quadrant c2.
+
+Mr. Spock- "Captain, this is most unusual.
+    Please examine your short-range scan."
+COMMAND> sr
+     Short-range scan
+    1 2 3 4 5 6 7 8 9 10
+a   . . . . . . . . . . 
+b   . . . . . . . . . . 
+c   . . . . . . . . . . 
+d   ? . . . . . . . . * 
+e   . . . . . . . .   . 
+f   . . . . . . . . . . 
+g   . . .   . . . . . . 
+h   . . . * . . . . . . 
+i   . . P . . . . . . . 
+j   . . . * . . . . . E 
+COMMAND> torp 1 d1
+
+Torpedo track- i9   i8   h7   
+g6   g5   f4   e3   d2   
+d1   
+
+AAAAIIIIEEEEEEEEAAAAAAAAUUUUUGGGGGHHHHHHHHHHHH!!!
+    HACK!     HACK!    HACK!        *CHOKE!*  
+Mr. Spock-  "Fascinating!"
+***Stranger at Sector d1 destroyed.
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
