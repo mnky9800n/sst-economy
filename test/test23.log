@@ -1,0 +1,10 @@
+# seed 1692177676
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test torpedoing inhabited planet and starbase
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:21:16 2023
+m a c0
+m a c9
+torpedo 1 c 2
+torpedo 1 f10
+quit

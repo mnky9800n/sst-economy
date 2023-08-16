@@ -1,0 +1,7 @@
+# seed 1692178191
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test damage-report command (no damage)
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:29:51 2023
+damage
+quit

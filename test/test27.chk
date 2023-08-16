@@ -1,0 +1,48 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 3804. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 9 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 3 supporting starbases.
+Starbase locations-  c2  a8  c6  
+
+The Enterprise is currently in Quadrant c7 Sector e7
+
+Good Luck!
+
+LT. Uhura- "Captain, an urgent message.
+  I'll put it on audio."  CLICK
+
+INTRUDER! YOU HAVE VIOLATED THE ROMULAN NEUTRAL ZONE.
+LEAVE AT ONCE, OR YOU WILL BE DESTROYED!
+COMMAND> # SST2K version 2.7
+# Test simple collision and damage treport.
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:35:40 2023
+m a j7
+
+***RED ALERT!  RED ALERT!
+***COLLISION IMMINENT.
+
+
+***Enterprise rams Romulan at Sector j7
+***Romulan at Sector i7 destroyed.
+***Enterprise heavily damaged.
+***Sickbay reports 20 casualties
+***Shields are down.
+
+[ANNOUNCEMENT ARRIVING...]
+DEVICE                             REPAIR TIMES
+                                   IN FLIGHT                DOCKED
+  Transporter               	   11.63		    2.90
+Collision detected
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.

@@ -1,0 +1,12 @@
+# seed 1692177971
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test use of death ray (successful)
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:26:11 2023
+m a d1
+sh up
+chart
+m a a1 d10
+deathray
+y
+quit

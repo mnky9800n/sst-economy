@@ -1,0 +1,38 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 4956. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 7 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 3 supporting starbases.
+Starbase locations-  g2  b2  b3  
+
+The Enterprise is currently in Quadrant b2 Sector e9
+
+Good Luck!
+COMMAND> # SST2K version 2.7
+# Test torpedoing inhabited planet and starbase
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:21:16 2023
+m a c0
+
+Beg your pardon, Captain?
+COMMAND> m a c9
+
+COMMAND> torpedo 1 c 2
+
+Beg your pardon, Captain?
+COMMAND> torpedo 1 f10
+
+Torpedo track- d9   e10   f10   
+
+***STARBASE DESTROYED..
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.

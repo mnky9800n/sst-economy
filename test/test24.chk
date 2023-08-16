@@ -1,0 +1,32 @@
+
+
+-SUPER- STAR TREK
+
+
+
+It is stardate 2588. The Federation is being attacked by
+a deadly Klingon invasion force. As captain of the United
+Starship U.S.S. Enterprise, it is your mission to seek out
+and destroy this invasion force of 6 battle cruisers.
+You have an initial allotment of 14 stardates to complete
+your mission.  As you proceed you may be given more time.
+
+You will have 3 supporting starbases.
+Starbase locations-  g4  f3  d7  
+
+The Enterprise is currently in Quadrant h6 Sector a6
+
+Good Luck!
+COMMAND> # SST2K version 2.7
+# Test cloaking device with no enemies present
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:24:35 2023
+cloak
+Switch cloaking device on? y
+Spock- "Captain, using the cloaking device is a violation
+  of the Treaty of Algeron. Considering the alternatives,
+  are you sure this is wise? y
+Engineer Scott- "Cloaking device has engaging, Sir..."
+Engineer Scott- "Cloaking device has engaged, Sir."
+COMMAND> quit
+
+May the Great Bird of the Galaxy roost upon your home planet.
