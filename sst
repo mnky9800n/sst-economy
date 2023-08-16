@@ -688,7 +688,7 @@ def movebaddy(enemy):
             if game.condition == "docked" and (game.options & OPTION_BASE): # protected by base -- back off !
                 motion -= game.skill*(2.0-rnd.real()**2)
         if game.idebug:
-            proutn("=== MOTION = %d, FORCES = %1.2f, " % (motion, forces))
+            proutn("=== MOTION = %d, FORCES = %1.2f, " % (motion, forces))	# pragma: no cover
         # don't move if no motion
         if motion == 0:
             return []
@@ -705,7 +705,7 @@ def movebaddy(enemy):
     nsteps = min(nsteps, QUADSIZE) # This shouldn't be necessary
     nsteps = max(nsteps, 1) # This shouldn't be necessary
     if game.idebug:
-        proutn("NSTEPS = %d:" % nsteps)
+        proutn("NSTEPS = %d:" % nsteps)	# pragma: no cover
     # Compute preferred values of delta X and Y
     m = game.sector - enemy.location
     if 2.0 * abs(m.i) < abs(m.j):
@@ -717,7 +717,7 @@ def movebaddy(enemy):
     # main move loop
     for ll in range(nsteps):
         if game.idebug:
-            proutn(" %d" % (ll+1))
+            proutn(" %d" % (ll+1))	# pragma: no cover
         # Check if preferred position available
         look = goto + m
         if m.i < 0:
@@ -765,11 +765,11 @@ def movebaddy(enemy):
         if success:
             goto = look
             if game.idebug:
-                proutn(repr(goto))
+                proutn(repr(goto))	# pragma: no cover
         else:
             break # done early
     if game.idebug:
-        skip(1)
+        skip(1)	# pragma: no cover
     # Enemy moved, but is still in sector
     return [(False, enemy, old_dist, goto)]
 
@@ -845,7 +845,7 @@ def supercommander():
     idelta = Coord()
     basetbl = []
     if game.idebug:
-        prout("== SUPERCOMMANDER")
+        prout("== SUPERCOMMANDER")	# pragma: no cover
     # Decide on being active or passive
     avoid = ((game.incom - len(game.state.kcmdr) + game.inkling - game.remkl())/(game.state.date+0.01-game.indate) < 0.1*game.skill*(game.skill+1.0) or \
             (game.state.date-game.indate) < 3.0)
@@ -2610,8 +2610,8 @@ def events():
                     break
             else:
                 # can't seem to find one; ignore this call
-                if game.idebug:                # pragma: no cover
-                    prout("=== Couldn't find location for distress event.")
+                if game.idebug:
+                    prout("=== Couldn't find location for distress event.")	# pragma: no cover
                 continue
             # got one!!  Schedule its enslavement
             ev = schedule(FENSLV, expran(game.intime))
@@ -4269,7 +4269,7 @@ def warp(wcourse, involuntary):
         # Decide if time warp will occur
         if 0.5*wcourse.distance*math.pow(7.0,game.warpfac-10.0) > rnd.real():
             twarp = True
-        if game.idebug and game.warpfac==10 and not twarp:
+        if game.idebug and game.warpfac==10 and not twarp:                # pragma: no cover
             blooey = False
             proutn("=== Force time warp? ")
             if ja():
@@ -5828,7 +5828,7 @@ def setup():
             game.state.galaxy[i][j].stars = k
     # Locate star bases in galaxy
     if game.idebug:
-        prout("=== Allocating %d bases" % game.inbase)
+        prout("=== Allocating %d bases" % game.inbase)                # pragma: no cover
     for i in range(game.inbase):
         while True:
             while True:
@@ -5844,15 +5844,15 @@ def setup():
                 if distq < 6.0*(BASEMAX+1-game.inbase) and rnd.withprob(0.75):
                     contflag = True
                     if game.idebug:
-                        prout("=== Abandoning base #%d at %s" % (i, w))
+                        prout("=== Abandoning base #%d at %s" % (i, w))                # pragma: no cover
                     break
                 elif distq < 6.0 * (BASEMAX+1-game.inbase):
                     if game.idebug:
-                        prout("=== Saving base #%d, close to #%d" % (i, j))
+                        prout("=== Saving base #%d, close to #%d" % (i, j))                # pragma: no cover
             if not contflag:
                 break
         if game.idebug:
-            prout("=== Placing base #%d in quadrant %s" % (i, w))
+            prout("=== Placing base #%d in quadrant %s" % (i, w))                # pragma: no cover
         game.state.baseq.append(w)
         game.state.galaxy[w.i][w.j].starbase = game.state.chart[w.i][w.j].starbase = True
     # Position ordinary Klingon Battle Cruisers
@@ -6553,7 +6553,7 @@ def makemoves():
         if game.alldone:
             break
     if game.idebug:
-        prout("=== Ending")
+        prout("=== Ending")                # pragma: no cover
 
 def cramen(ch):
     "Emit the name of an enemy or feature."
@@ -6718,7 +6718,7 @@ def debugme():                # pragma: no cover
     proutn("Toggle debug flag? ")
     if ja():
         game.idebug = not game.idebug
-        if game.idebug:
+        if game.idebug:                # pragma: no cover
             prout("Debug output ON")
         else:
             prout("Debug output OFF")
@@ -6840,9 +6840,9 @@ if __name__ == '__main__':
                 else:                # pragma: no cover
                     sys.stderr.write("usage: sst [-t] [-x] [startcommand...].\n")
                     raise SystemExit(1)
-        except getopt.GetoptError as e:
-            print(e)
-            raise SystemExit(1)
+        except getopt.GetoptError as err:
+            print(err)
+            raise SystemExit(1) from err
         # where to save the input in case of bugs
         if "TMPDIR" in os.environ:                # pragma: no cover
             tmpdir = os.environ['TMPDIR']
