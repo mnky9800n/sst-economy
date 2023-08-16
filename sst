@@ -203,15 +203,15 @@ class Coord:
         return "%s - %s" % (self.i+1, self.j+1)
     __repr__ = __str__
 
-class Thingy(Coord):
+class Thingy():
     "Do not anger the Space Thingy!"
     def __init__(self):
-        Coord.__init__(self)
+        self.location = Coord()
         self.angered = False
     def angry(self):
         self.angered = True
     def at(self, q):
-        return (q.i, q.j) == (self.i, self.j)
+        return (q.i, q.j) == (self.location.i, self.location.j)
 
 class Planet:
     def __init__(self):
@@ -5930,12 +5930,13 @@ def setup():
     # Place thing (in tournament game, we don't want one!)
     # New in SST2K: never place the Thing near a starbase.
     # This makes sense and avoids a special case in the old code.
-    global thing
-    if game.tourn is None:
-        while True:
-            thing = randplace(GALSIZE)
-            if thing not in game.state.baseq:
-                break
+    #global thing
+    #if game.tourn is None:
+    #    while True:
+    #        thing.location = randplace(GALSIZE)
+    #        # Put it somewhere a starbase is not
+    #        if thing.location not in game.state.baseq:
+    #            break
     skip(2)
     game.state.snap = False
     if game.skill == SKILL_NOVICE:
@@ -5971,7 +5972,7 @@ def setup():
     clrscr()
     setwnd(message_window)
     newqad()
-    if len(game.enemies) - (thing == game.quadrant) - (game.tholian is not None):
+    if len(game.enemies) - (thing.location == game.quadrant) - (game.tholian is not None):
         game.shldup = True
     if game.neutz:        # bad luck to start in a Romulan Neutral Zone
         attack(torps_ok=False)
@@ -5979,7 +5980,8 @@ def setup():
 def choose():
     "Choose your game type."
     while True:
-        game.tourn = game.length = 0
+        game.tourn = None
+        game.length = 0
         game.thawed = False
         game.skill = SKILL_NONE
         # Do not chew here, we want to use command-line tokens
@@ -5987,6 +5989,7 @@ def choose():
             proutn(_("Would you like a regular, tournament, or saved game? "))
         scanner.nexttok()
         if scanner.sees("tournament"):
+            game.tourn = 0
             while scanner.nexttok() == "IHEOL":
                 proutn(_("Type in tournament number-"))
             if scanner.real == 0:
@@ -6174,7 +6177,7 @@ def newqad():
             prout(_("INTRUDER! YOU HAVE VIOLATED THE ROMULAN NEUTRAL ZONE."))
             prout(_("LEAVE AT ONCE, OR YOU WILL BE DESTROYED!"))
     # Put in THING if needed
-    if thing == game.quadrant:
+    if thing.location == game.quadrant:
         Enemy(etype='?', loc=dropin(),
               power=rnd.real(6000,6500.0)+250.0*game.skill)
         if not damaged(DSRSENS):
