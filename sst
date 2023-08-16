@@ -3546,7 +3546,7 @@ def cgetline():
             while True:
                 linein = replayfp.readline()
                 proutn(linein)
-                if linein == '':
+                if linein == '':    # pragma: no cover
                     prout("*** Replay finished")
                     replayfp.close()
                     break
@@ -3672,7 +3672,7 @@ def drawmaps(mode):
             lrscan_window.move(0, 0)
             lrscan(silent=False)
 
-def put_srscan_sym(w, sym):
+def put_srscan_sym(w, sym):    # pragma: no cover
     "Emit symbol for short-range scan."
     srscan_window.move(w.i+1, w.j*2+2)
     srscan_window.addch(sym)
@@ -3707,7 +3707,7 @@ def warble():
 
 def tracktorpedo(w, step, i, n, iquad):
     "Torpedo-track animation."
-    if not game.options & OPTION_CURSES:	# pragma: no cover
+    if not game.options & OPTION_CURSES:
         if step == 1:
             if n != 1:
                 skip(1)
@@ -3718,7 +3718,7 @@ def tracktorpedo(w, step, i, n, iquad):
         elif step in {4, 9}:
             skip(1)
         proutn("%s   " % w)
-    else:
+    else:	# pragma: no cover
         if not damaged(DSRSENS) or game.condition=="docked":
             if i != 0 and step == 1:
                 drawmaps(2)
@@ -5363,7 +5363,7 @@ def sectscan(goodScan, i, j):
     if goodScan or (abs(i-game.sector.i)<= 1 and abs(j-game.sector.j) <= 1):
         if game.quad[i][j] in ('E', 'F'):
             if game.iscloaked:
-                highvideo()
+                highvideo()	# pragma: no cover
             textcolor({"green":GREEN,
                        "yellow":YELLOW,
                        "red":RED,
