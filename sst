@@ -309,7 +309,6 @@ OPTION_AUTOSCAN   = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006
 OPTION_CAPTURE    = 0x00002000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_CLOAK      = 0x80004000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_PLAIN      = 0x01000000        # user chose plain game
-OPTION_ALMY       = 0x02000000        # user chose Almy variant
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
 OPTION_ALPHAMERIC = 0x10000000        # Alpha Y coordinates (ESR, 2023)
@@ -330,7 +329,6 @@ option_names = {
     "CAPTURE": OPTION_CAPTURE,
     "CLOAK": OPTION_CLOAK,
     "PLAIN": OPTION_PLAIN,
-    "ALMY": OPTION_ALMY,
     "COLOR": OPTION_COLOR,
     "DOTFILL": OPTION_DOTFILL,
     }
@@ -6053,7 +6051,6 @@ def choose():
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
         game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-        game.options |= OPTION_ALMY
     elif scanner.sees("fancy") or scanner.sees("\n"):
         pass
     elif len(scanner.token):
@@ -6782,7 +6779,7 @@ if __name__ == '__main__':
         game = Gamestate()
         rnd = randomizer()
         logfp = None
-        game.options = OPTION_ALL &~ (OPTION_IOMODES | OPTION_PLAIN | OPTION_ALMY)
+        game.options = OPTION_ALL &~ (OPTION_IOMODES | OPTION_PLAIN)
         if os.getenv("TERM"):
             game.options |= OPTION_CURSES	# pragma: no cover
         else:
