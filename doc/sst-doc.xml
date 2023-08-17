@@ -255,10 +255,9 @@ The Emeritus game is strictly for masochists.</para>
 blank answer or 'fancy' enables all SST2K features.  The option
 'plain' approximated the original CDC 6600 FORTRAN game from UT Austin
 and disables a number of features: Tholians, planets &amp; dilithium,
-Thingies shooting back, deep-space-probes, Klingon ramming and
-movement, time-warping through black holes, death-ray
-upgrade. inhabited worlds.  The option 'almy' approximates Tom Almy's
-C translation from 1979, disabling Thingies shooting back, base
+deep-space-probes, Klingon ramming and movement, time-warping through
+black holes, death-ray upgrade, inhabited worlds.  The option 'almy'
+approximates Tom Almy's C translation from 1979, disabling base
 shields, time-warping through black holes, and inhabited
 worlds.</para>
 
