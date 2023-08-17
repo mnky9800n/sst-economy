@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test commander destruction and supernova alert
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 13:31:26 2023
+#
 m 6 4
 m a 1 9
 srscan

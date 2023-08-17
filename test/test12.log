@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test dilithium mining
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 14:30:15 2023
+#
 status
 sensors
 m a 3 10

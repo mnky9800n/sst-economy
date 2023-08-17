@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test behavior of Tholian
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 14:51:27 2023
+#
 srscan
 m a 1 10
 # Observe that the Tolian doesn't spin a web..

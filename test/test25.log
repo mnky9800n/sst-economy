@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test death ray (successful)
 # recorded by esr@snark.thyrsus.com on Thu Aug 17 05:19:31 2023
+#
 deathray
 y
 quit

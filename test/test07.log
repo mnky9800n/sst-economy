@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test supercommander destruction.
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 17:23:51 2023
+#
 sh up
 phasers
 a

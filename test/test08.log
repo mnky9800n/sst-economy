@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test game-win condition
 # recorded by esr@snark.thyrsus.com on Sat Aug 12 05:18:43 2023
+#
 chart
 probe
 y

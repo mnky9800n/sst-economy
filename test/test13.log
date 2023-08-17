@@ -3,28 +3,22 @@
 # SST2K version 2.5
 # Test multiple critical hits ending in defeat by Supercommander
 # recorded by esr@snark.thyrsus.com on Fri Apr 26 11:21:47 2019
+#
 torp 3 7 4 8 4 9 2
-
 torp 3 6 6 8 10 10 8
-
 p a
 754
-
 sh down
 m a 7 7
 m a 1 7
 sh up
 m a 1 2 10 7
 torp 1 7 4
-
 rep
-
 m a 5 2 1 1
-
 sh down 
 m a 10 5
 sh up
-
 m a 6 2 1 5
 torp 1 3 7
 p a

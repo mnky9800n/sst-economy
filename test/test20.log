@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test self-destruct
 # recorded by esr@snark.thyrsus.com on Tue Aug 15 05:53:14 2023
+#
 destruct
 
 rep

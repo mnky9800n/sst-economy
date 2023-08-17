@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test death ray - failure (kaboom)
 # recorded by esr@snark.thyrsus.com on Wed Aug 16 15:02:57 2023
+#
 chart
 m a d10
 sh up

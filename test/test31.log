@@ -3,5 +3,6 @@
 # SST2K version 2.7
 # Test death ray - fail (mutation)
 # recorded by esr@snark.thyrsus.com on Thu Aug 17 05:15:09 2023
+#
 deathray
 y

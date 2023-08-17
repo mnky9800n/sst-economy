@@ -19,10 +19,9 @@ Good Luck!
 COMMAND> # SST2K version 2.5
 # Test loss by energy exhaustion.
 # recorded by esr@snark.thyrsus.com on Thu Apr 25 13:21:59 2019
+#
+m a 1 4
 
-COMMAND> m a 1 4
-
-COMMAND> 
 COMMAND> sh up
 Shields raised.
 COMMAND> m a 5 6 10 5
@@ -65,8 +64,6 @@ Klingon captain at c4 surrenders.
 47 Klingons commit suicide rather than be taken captive.
 152 captives taken
 ***Klingon at Sector j5 destroyed.
-COMMAND> 
-COMMAND> 
 COMMAND> sh down
 Shields lowered.
 COMMAND> m a 10 8
@@ -80,7 +77,6 @@ Message from Starfleet Command       Stardate 2737.23
      Supernova in Quadrant e4; caution advised.
 COMMAND> sh up
 Shields raised.
-COMMAND> 
 COMMAND> m a 4 6 10 8
 
 Ensign Chekov- "Course laid in, Captain."
@@ -216,7 +212,6 @@ Shields lowered.
 ***Klingon at Sector b2 destroyed.
 
 Shields raised.
-COMMAND> 
 COMMAND> m a 8 1
 
 
@@ -224,7 +219,6 @@ COMMAND> m a 8 1
 
 Message from Starfleet Command       Stardate 2737.64
      Supernova in Quadrant c6; caution advised.
-COMMAND> 
 COMMAND> m a 3 5 10 10
 
 Ensign Chekov- "Course laid in, Captain."
@@ -233,8 +227,6 @@ Ensign Chekov- "Course laid in, Captain."
 
 ***Enterprise caught in long range tractor beam--
 Enterprise is pulled to Quadrant e6, Sector e1
-COMMAND> 
-COMMAND> 
 COMMAND> m a 3 5 10 10
 
 Ensign Chekov- "Course laid in, Captain."

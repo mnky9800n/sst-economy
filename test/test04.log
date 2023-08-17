@@ -3,6 +3,7 @@
 # SST2K version 2.4
 # Test starbase destruction, planet destruction, docking after destruction.
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 08:59:1 3 2023
+#
 chart
 m a 3 7 1 2
 sh up

@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test behavior when emy is buffered into black hole
 # recorded by esr@snark.thyrsus.com on Fri Aug 11 16:43:02 2023
+#
 chart
 probe
 y

@@ -3,6 +3,7 @@
 # SST2K version 2.7
 # Test cloaking device with no enemies present
 # recorded by esr@snark.thyrsus.com on Wed Aug 16 05:24:35 2023
+#
 cloak
 y
 y

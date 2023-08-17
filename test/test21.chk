@@ -20,6 +20,7 @@ Good Luck!
 COMMAND> # SST2K version 2.7
 # Test edge and failure cases in coordinate parsing
 # recorded by esr@snark.thyrsus.com on Tue Aug 15 06:05:57 2023
+#
 sr
      Short-range scan
     1 2 3 4 5 6 7 8 9 10

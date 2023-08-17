@@ -19,6 +19,7 @@ Good Luck!
 COMMAND> # SST2K version 2.5
 # Test multiple critical hits ending in defeat by Supercommander
 # recorded by esr@snark.thyrsus.com on Fri Apr 26 11:21:47 2019
+#
 torp 3 7 4 8 4 9 2
 
 Track for torpedo number 1-  g4   
@@ -34,7 +35,6 @@ Track for torpedo number 3-  h3   i2
 
 
 Energy left 4961    shields up 76%,   torpedoes left 7
-COMMAND> 
 COMMAND> torp 3 6 6 8 10 10 8
 
 Track for torpedo number 1-  g4   f5   f6   
@@ -52,7 +52,6 @@ i7   j8
 
 
 Energy left 4890    shields up 69%,   torpedoes left 4
-COMMAND> 
 COMMAND> p a
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
@@ -65,7 +64,6 @@ Shields lowered.
 ***Commander at Sector d9 destroyed.
 
 Shields raised.
-COMMAND> 
 COMMAND> sh down
 Shields lowered.
 COMMAND> m a 7 7
@@ -93,7 +91,6 @@ COMMAND> torp 1 7 4
 
 Torpedo track- i6   h5   g4   
 ***Commander at Sector g4 destroyed.
-COMMAND> 
 COMMAND> rep
 You were playing a short good game.
 Your secret password is "fgy"
@@ -103,7 +100,6 @@ There are 3 bases.
 No Starbase is currently under attack.
 You have 4 deep space probes.
 
-COMMAND> 
 COMMAND> m a 5 2 1 1
 
 Ensign Chekov- "Course laid in, Captain."
@@ -111,7 +107,6 @@ Ensign Chekov- "Course laid in, Captain."
 Entering Quadrant e2.
 Uhura- Captain, Medusa in Quadrant f2 reports it is under attack
 by a Klingon invasion fleet.
-COMMAND> 
 COMMAND> sh down 
 Shields lowered.
 COMMAND> m a 10 5
@@ -128,7 +123,6 @@ Lt. Uhura-  "Captain, Starfleet Intelligence reports
    by the Super-commander."
 COMMAND> sh up
 Shields raised.
-COMMAND> 
 COMMAND> m a 6 2 1 5
 
 Ensign Chekov- "Course laid in, Captain."
