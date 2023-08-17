@@ -6802,12 +6802,17 @@ if __name__ == '__main__':
                         raise SystemExit(1)
                     # pylint: disable=raise-missing-from
                     try:
-                        line = replayfp.readline().strip()
-                        (leader, __, seed) = line.split()
-                        # pylint: disable=eval-used
-                        seed = eval(seed)
-                        line = replayfp.readline().strip()
-                        arguments += line.split()[2:]
+                        while True:
+                            line = replayfp.readline().strip()
+                            print(line)
+                            if line == "#":
+                                break
+                            if line.startswith("# seed"):
+                                (__, __, seed) = line.split()
+                                # pylint: disable=eval-used
+                                seed = eval(seed)
+                            elif line.startswith("# arguments"):
+                                arguments += line.split()[2:]
                     except ValueError:                # pragma: no cover
                         sys.stderr.write("sst: replay file %s is ill-formed\n"% val)
                         raise SystemExit(1)

@@ -1,3 +1,9 @@
+# seed 1691779887
+# arguments regular medium good fancy
+# SST2K version 2.7
+# Test behavior of Tholian
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 14:51:27 2023
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant d4 Sector a7
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.7
-# Test behavior of Tholian
-# recorded by esr@snark.thyrsus.com on Fri Aug 11 14:51:27 2023
-#
-srscan
+COMMAND> srscan
      Short-range scan
     1 2 3 4 5 6 7 8 9 10
 a   T . . . . . E . . . 

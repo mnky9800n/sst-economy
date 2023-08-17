@@ -1,3 +1,9 @@
+# seed 1691789031
+# arguments regular medium good fancy
+# SST2K version 2.7
+# Test supercommander destruction.
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 17:23:51 2023
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant e1 Sector j3
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.7
-# Test supercommander destruction.
-# recorded by esr@snark.thyrsus.com on Fri Aug 11 17:23:51 2023
-#
-sh up
+COMMAND> sh up
 Shields already up.
 COMMAND> phasers
 

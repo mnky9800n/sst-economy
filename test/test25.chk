@@ -1,3 +1,9 @@
+# seed 1692263971
+# arguments regular medium expert fancy
+# SST2K version 2.7
+# Test death ray (successful)
+# recorded by esr@snark.thyrsus.com on Thu Aug 17 05:19:31 2023
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant g7 Sector e6
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.7
-# Test death ray (successful)
-# recorded by esr@snark.thyrsus.com on Thu Aug 17 05:19:31 2023
-#
-deathray
+COMMAND> deathray
 
 Spock-  "Captain, the 'Experimental Death Ray'
   is highly unpredictible.  Considering the alternatives,

@@ -1,3 +1,9 @@
+# seed 1692212577
+# arguments regular medium expert fancy
+# SST2K version 2.7
+# Test death ray - failure (kaboom)
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 15:02:57 2023
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant d2 Sector h6
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.7
-# Test death ray - failure (kaboom)
-# recorded by esr@snark.thyrsus.com on Wed Aug 16 15:02:57 2023
-#
-chart
+COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
 a | .1.  ...  ...  ...  ...  ...  ...  ...   |

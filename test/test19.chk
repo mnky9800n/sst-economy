@@ -1,12 +1,14 @@
+# seed 1692088612
+# arguments regular medium novice plain
+# SST2K version 2.7
+# Test plain interface and old-fashioned coordinates
+# recorded by esr@snark.thyrsus.com on Tue Aug 15 04:36:52 2023
+#
 
 
 -SUPER- STAR TREK
 
-Please type in a secret password- # SST2K version 2.7
-# Test plain interface and old-fashioned coordinates
-# recorded by esr@snark.thyrsus.com on Tue Aug 15 04:36:52 2023
-#
-foo
+Please type in a secret password- foo
 
 
 It is stardate 4349. The Federation is being attacked by

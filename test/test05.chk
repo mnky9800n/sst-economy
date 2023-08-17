@@ -1,3 +1,8 @@
+# seed 1556120044
+# arguments regular short good fancy
+# Test deep-space probes
+# recorded by esr@snark.thyrsus.com on Wed Apr 24 11:34:04 2019
+#
 
 
 -SUPER- STAR TREK
@@ -16,10 +21,7 @@ The Enterprise is currently in Quadrant b6 Sector g7
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # Test deep-space probes
-# recorded by esr@snark.thyrsus.com on Wed Apr 24 11:34:04 2019
-#
-chart
+COMMAND> chart
        STAR CHART FOR THE KNOWN GALAXY
       1    2    3    4    5    6    7    8
 a | ...  ...  ...  ...  ..8  ..5  106  ...   |

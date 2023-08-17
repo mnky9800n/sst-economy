@@ -1,3 +1,9 @@
+# seed 1692177676
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test torpedoing inhabited planet and starbase
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:21:16 2023
+#
 
 
 -SUPER- STAR TREK
@@ -17,11 +23,7 @@ Starbase locations-  g2  b2  b3
 The Enterprise is currently in Quadrant b2 Sector e9
 
 Good Luck!
-COMMAND> # SST2K version 2.7
-# Test torpedoing inhabited planet and starbase
-# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:21:16 2023
-#
-m a c0
+COMMAND> m a c0
 
 Beg your pardon, Captain?
 COMMAND> m a c9

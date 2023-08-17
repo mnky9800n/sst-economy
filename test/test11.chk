@@ -1,3 +1,9 @@
+# seed 1556212919
+# arguments regular short good fancy
+# SST2K version 2.5
+# Test loss by energy exhaustion.
+# recorded by esr@snark.thyrsus.com on Thu Apr 25 13:21:59 2019
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant f6 Sector f9
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.5
-# Test loss by energy exhaustion.
-# recorded by esr@snark.thyrsus.com on Thu Apr 25 13:21:59 2019
-#
-m a 1 4
+COMMAND> m a 1 4
 
 COMMAND> sh up
 Shields raised.

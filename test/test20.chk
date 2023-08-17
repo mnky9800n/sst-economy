@@ -1,3 +1,9 @@
+# seed 1692093194
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test self-destruct
+# recorded by esr@snark.thyrsus.com on Tue Aug 15 05:53:14 2023
+#
 
 
 -SUPER- STAR TREK
@@ -17,11 +23,7 @@ Starbase locations-  e2  b5  g3  b3
 The Enterprise is currently in Quadrant h8 Sector c8
 
 Good Luck!
-COMMAND> # SST2K version 2.7
-# Test self-destruct
-# recorded by esr@snark.thyrsus.com on Tue Aug 15 05:53:14 2023
-#
-destruct
+COMMAND> destruct
 ---WORKING---
 SELF-DESTRUCT-SEQUENCE-ACTIVATED
    10

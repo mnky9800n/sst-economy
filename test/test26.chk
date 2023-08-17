@@ -1,3 +1,9 @@
+# seed 1692178191
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test damage-report command (no damage)
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:29:51 2023
+#
 
 
 -SUPER- STAR TREK
@@ -17,11 +23,7 @@ Starbase locations-  g4  g7
 The Enterprise is currently in Quadrant c1 Sector g6
 
 Good Luck!
-COMMAND> # SST2K version 2.7
-# Test damage-report command (no damage)
-# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:29:51 2023
-#
-damage
+COMMAND> damage
 All devices functional.
 COMMAND> quit
 

@@ -1,3 +1,9 @@
+# seed 1556292107
+# arguments regular short good fancy
+# SST2K version 2.5
+# Test multiple critical hits ending in defeat by Supercommander
+# recorded by esr@snark.thyrsus.com on Fri Apr 26 11:21:47 2019
+#
 
 
 -SUPER- STAR TREK
@@ -16,11 +22,7 @@ The Enterprise is currently in Quadrant b2 Sector g3
 
 Good Luck!
   YOU'LL NEED IT.
-COMMAND> # SST2K version 2.5
-# Test multiple critical hits ending in defeat by Supercommander
-# recorded by esr@snark.thyrsus.com on Fri Apr 26 11:21:47 2019
-#
-torp 3 7 4 8 4 9 2
+COMMAND> torp 3 7 4 8 4 9 2
 
 Track for torpedo number 1-  g4   
 ***Klingon at Sector g4 destroyed.

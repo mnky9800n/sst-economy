@@ -1,3 +1,9 @@
+# seed 1691766356
+# arguments regular medium good fancy
+# SST2K version 2.7
+# Test encounter with Romulan and multiline torpedo firing
+# recorded by esr@snark.thyrsus.com on Fri Aug 11 11:05:56 2023
+#
 
 
 -SUPER- STAR TREK
@@ -22,11 +28,7 @@ LT. Uhura- "Captain, an urgent message.
 
 INTRUDER! YOU HAVE VIOLATED THE ROMULAN NEUTRAL ZONE.
 LEAVE AT ONCE, OR YOU WILL BE DESTROYED!
-COMMAND> # SST2K version 2.7
-# Test encounter with Romulan and multiline torpedo firing
-# recorded by esr@snark.thyrsus.com on Fri Aug 11 11:05:56 2023
-#
-m a 5 9
+COMMAND> m a 5 9
 
 
 Enemy attack reduces shield strength to 94%,   torpedoes left 10

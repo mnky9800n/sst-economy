@@ -1,3 +1,9 @@
+# seed 1691834337
+# arguments regular medium novice fancy
+# SST2K version 2.7
+# Test game timeout condition
+# recorded by esr@snark.thyrsus.com on Sat Aug 12 05:58:57 2023
+#
 
 
 -SUPER- STAR TREK
@@ -17,11 +23,7 @@ Starbase locations-  b5  c4  h2  d7  g1
 The Enterprise is currently in Quadrant a8 Sector c1
 
 Good Luck!
-COMMAND> # SST2K version 2.7
-# Test game timeout condition
-# recorded by esr@snark.thyrsus.com on Sat Aug 12 05:58:57 2023
-#
-rest
+COMMAND> rest
 How long? 16
 Are you sure? y
 
