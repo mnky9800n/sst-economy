@@ -43,7 +43,10 @@ disappear when hit by photon torpedos.  It's OK that it may move
 when attacked, but it didn't in the original. (The no-save behavior
 has been restored.)
 
-The Faerie Queen, black holes, and time warping were in the original.
+Dave says the Faerie Queen, black holes, and time warping were in the original.
+However, eithrt he is misremembering about time watping or
+the original implementation was lost during the FORTRAN-to-C translation, as
+Stas Sergeev added a time-warping feature in 2006.
 
 Here are Tom Almy's changes:
 
