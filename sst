@@ -302,12 +302,13 @@ OPTION_PROBE      = 0x00000020        # deep-space probes (DECUS version, 1980)
 OPTION_SHOWME     = 0x00000040        # bracket Enterprise in chart (ESR, 2005)
 OPTION_RAMMING    = 0x00000080        # enemies may ram Enterprise (Almy, 1979)
 OPTION_MVBADDY    = 0x00000100        # more enemies can move (Almy, 1979?)
-OPTION_BLKHOLE    = 0x00000200        # black hole may timewarp you (Stas, 2005)
-OPTION_BASE       = 0x00000400        # bases have good shields (Stas, 2005)
-OPTION_WORLDS     = 0x00000800        # logic for inhabited worlds (ESR, 2006)
-OPTION_AUTOSCAN   = 0x00001000        # automatic LRSCAN before CHART (ESR, 2006)
-OPTION_CAPTURE    = 0x00002000        # Enable BSD-Trek capture (Almy, 2013).
-OPTION_CLOAK      = 0x80004000        # Enable BSD-Trek capture (Almy, 2013).
+OPTION_AUTOPASS   = 0x00000200        # Autogenerate password (Almy, 1997?)
+OPTION_BLKHOLE    = 0x00000400        # black hole may timewarp you (Stas, 2005)
+OPTION_BASE       = 0x00000800        # bases have good shields (Stas, 2005)
+OPTION_WORLDS     = 0x00001000        # logic for inhabited worlds (ESR, 2006)
+OPTION_AUTOSCAN   = 0x00002000        # automatic LRSCAN before CHART (ESR, 2006)
+OPTION_CAPTURE    = 0x00004000        # Enable BSD-Trek capture (Almy, 2013).
+OPTION_CLOAK      = 0x80008000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_PLAIN      = 0x01000000        # user chose plain game
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
@@ -322,6 +323,7 @@ option_names = {
     "SHOWME": OPTION_SHOWME,
     "RAMMING": OPTION_RAMMING,
     "MVBADDY": OPTION_MVBADDY,
+    "AUTOPASS": OPTION_AUTOPASS,
     "BLKHOLE": OPTION_BLKHOLE,
     "BASE": OPTION_BASE,
     "WORLDS": OPTION_WORLDS,
@@ -331,6 +333,7 @@ option_names = {
     "PLAIN": OPTION_PLAIN,
     "COLOR": OPTION_COLOR,
     "DOTFILL": OPTION_DOTFILL,
+    "ALPHAMERIC": OPTION_ALPHAMERIC,
     }
 
 # Define devices
@@ -6046,7 +6049,7 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         game.options |= OPTION_PLAIN
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
@@ -6225,7 +6228,12 @@ def newqad():
 
 def setpassword():
     "Set the self-destruct password."
-    if game.options & OPTION_PLAIN:
+    if game.options & OPTION_AUTOPASS:
+        game.passwd = ""
+        game.passwd += chr(ord('a')+rnd.integer(26))
+        game.passwd += chr(ord('a')+rnd.integer(26))
+        game.passwd += chr(ord('a')+rnd.integer(26))
+    else:
         while True:
             scanner.chew()
             proutn(_("Please type in a secret password- "))
@@ -6234,11 +6242,6 @@ def setpassword():
             #game.passwd = getpass.getpass("Please type in a secret password- ")
             if game.passwd is not None:
                 break
-    else:
-        game.passwd = ""
-        game.passwd += chr(ord('a')+rnd.integer(26))
-        game.passwd += chr(ord('a')+rnd.integer(26))
-        game.passwd += chr(ord('a')+rnd.integer(26))
 
 # Code from sst.c begins here
 
