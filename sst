@@ -6015,7 +6015,7 @@ def choose():
             return True
         if scanner.sees("regular"):
             break
-        proutn(_("What is \"%s\"? ") % scanner.token)
+        proutn(_("What game type is \"%s\"? ") % scanner.token)
         scanner.chew()
     while game.length==0 or game.skill==SKILL_NONE:
         if scanner.nexttok() == "IHALPHA":
@@ -6036,7 +6036,7 @@ def choose():
             elif scanner.sees("emeritus"):
                 game.skill = SKILL_EMERITUS
             else:
-                proutn(_("What is \""))
+                proutn(_("What skill level is is \""))
                 proutn(scanner.token)
                 prout("\"?")
         else:
@@ -6059,7 +6059,7 @@ def choose():
     elif scanner.sees("fancy") or scanner.sees("\n"):
         pass
     elif len(scanner.token):
-        proutn(_("What is \"%s\"?") % scanner.token)
+        proutn(_("What game style is \"%s\"?") % scanner.token)
     setpassword()
     if game.passwd == "debug":                # pragma: no cover
         game.idebug = True
