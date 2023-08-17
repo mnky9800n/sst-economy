@@ -1,7 +1,7 @@
 # seed 1692263709
 # arguments regular medium expert fancy
 # SST2K version 2.7
-# Death ray fail (mutation)
+# Test death ray - fail (mutation)
 # recorded by esr@snark.thyrsus.com on Thu Aug 17 05:15:09 2023
 deathray
 y

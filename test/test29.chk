@@ -17,19 +17,8 @@ The Enterprise is currently in Quadrant a2 Sector c10
 Good Luck!
   YOU'LL NEED IT.
 COMMAND> # SST2K version 2.7
-$ Capture successful
-LEGAL COMMANDS ARE:
-SRSCAN       STATUS       REQUEST      LRSCAN       
-PHASERS      TORPEDO      PHOTONS      MOVE         SHIELDS      
-DOCK         DAMAGES      CHART        IMPULSE      REST         
-WARP         SENSORS      ORBIT        TRANSPORT    MINE         
-CRYSTALS     SHUTTLE      PLANETS      REPORT       COMPUTER     
-COMMANDS     EMEXIT       PROBE        SAVE         FREEZE       
-OPTIONS      ABANDON      DESTRUCT     DEATHRAY     CAPTURE      
-CLOAK        DEBUG        MAYDAY       SOS          CALL         
-QUIT         HELP         SCORE        CURSES                    
-
-COMMAND> # recorded by esr@snark.thyrsus.com on Wed Aug 16 14:33:01 2023
+# Test capture - trdsuccessful
+# recorded by esr@snark.thyrsus.com on Wed Aug 16 14:33:01 2023
 phasers
 
 Weapons Officer Sulu-  "High-speed shield control enabled, sir."
