@@ -4,46 +4,22 @@
 
 
 
-It is stardate 2116. The Federation is being attacked by
-a deadly Klingon invasion force. As captain of the United
-Starship U.S.S. Enterprise, it is your mission to seek out
-and destroy this invasion force of 7 battle cruisers.
-You have an initial allotment of 14 stardates to complete
-your mission.  As you proceed you may be given more time.
+Stardate 4176.
 
-You will have 4 supporting starbases.
-Starbase locations-  d8  b6  f3  f2  
+57 Klingons.
+An unknown number of Romulans.
+And one (GULP) Super-Commander.
+14 stardates.
+4 starbases in h5  d5  h8  b7  
 
-The Enterprise is currently in Quadrant a2 Sector g9
+The Enterprise is currently in Quadrant g7 Sector e6
 
 Good Luck!
+  YOU'LL NEED IT.
 COMMAND> # SST2K version 2.7
-# Test use of death ray (successful)
-# recorded by esr@snark.thyrsus.com on Wed Aug 16 05:26:11 2023
-m a d1
-
-COMMAND> sh up
-Shields raised.
-COMMAND> chart
-       STAR CHART FOR THE KNOWN GALAXY
-      1    2    3    4    5    6    7    8
-a | 102 <..8> ..1  ...  ...  ...  ...  ...   |
-b | ..8  ..3  ..5  ...  ...  .1.  ...  ...   |
-c | ...  ...  ...  ...  ...  ...  ...  ...   |
-d | ...  ...  ...  ...  ...  ...  ...  .1.   |
-e | ...  ...  ...  ...  ...  ...  ...  ...   |
-f | ...  .1.  .1.  ...  ...  ...  ...  ...   |
-g | ...  ...  ...  ...  ...  ...  ...  ...   |
-h | ...  ...  ...  ...  ...  ...  ...  ...   |
-
-COMMAND> m a a1 d10
-
-Ensign Chekov- "Course laid in, Captain."
-
-Entering Quadrant a1.
-
-Enemy attack reduces shield strength to 95%,   torpedoes left 10
-COMMAND> deathray
+# Test death ray (successful)
+# recorded by esr@snark.thyrsus.com on Thu Aug 17 05:19:31 2023
+deathray
 
 Spock-  "Captain, the 'Experimental Death Ray'
   is highly unpredictible.  Considering the alternatives,
@@ -61,7 +37,11 @@ Kirk-  "Engage!"
 WHIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 Sulu- "Captain!  It's working!"
 
-***Klingon at Sector a6 destroyed.
+***Klingon at Sector j8 destroyed.
+***Klingon at Sector h2 destroyed.
+***Klingon at Sector b4 destroyed.
+***Klingon at Sector b8 destroyed.
+***Klingon at Sector e9 destroyed.
 Ensign Chekov-  "Congratulations, Captain!"
 Spock-  "Captain, I believe the `Experimental Death Ray'
    has been rendered nonfunctional."

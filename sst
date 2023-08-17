@@ -5080,8 +5080,10 @@ def deathray():
     prouts(_("WHIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"))
     skip(1)
     dprob = 0.30
-    # FIX-ME: This test looks inverted
-    if not (game.options & OPTION_ALMY):
+    # Ugh. This test (For Tom Almy's death-ray upgrade) was inverted for a long time.
+    # Furthermore, somebody (ESR or Stas?) changed Tom Almy's 0.7 upgraded chance of
+    # working to 0.5.
+    if game.options & OPTION_ALMY:
         dprob = 0.5
     r = rnd.real()
     if r > dprob:

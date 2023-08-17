@@ -1,7 +1,7 @@
 # seed 1692212577
 # arguments regular medium expert fancy
 # SST2K version 2.7
-# Test bad-guy movement code; demonstrate energy exhausion
+# Death ray failure (kaboom)
 # recorded by esr@snark.thyrsus.com on Wed Aug 16 15:02:57 2023
 chart
 m a d10
@@ -27,57 +27,3 @@ m a g 7
 m a g7
 deathray
 y
-chart
-sh down
-m a i1
-m a e7 i10
-chart
-m a f7 a10
-torp 1 i6
-m a f10
-torp 1 i6
-chart
-sh down
-m a f1
-chart
-m a h5 a10
-m a e3
-m a e7
-m a e3
-dock
-damage
-rest
-3
-damage
-r 1
-rest
-1
-y
-m a a5
-sh up
-m a g5 j5
-phasers
-a
-340
-planets
-sh down
-m a c4
-m a a4
-sh up
-m a f5 j4
-phasers
-a
-1851
-phasers
-a
-491
-m a c7
-torp 1 a1
-sh down
-m a c1
-sh up
-m a f4 c10
-torp 1 f1
-torp 1 i10
-chart
-m a h5 a1
