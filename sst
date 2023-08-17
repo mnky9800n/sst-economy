@@ -309,7 +309,7 @@ OPTION_WORLDS     = 0x00001000        # logic for inhabited worlds (ESR, 2006)
 OPTION_AUTOSCAN   = 0x00002000        # automatic LRSCAN before CHART (ESR, 2006)
 OPTION_CAPTURE    = 0x00004000        # Enable BSD-Trek capture (Almy, 2013).
 OPTION_CLOAK      = 0x80008000        # Enable BSD-Trek capture (Almy, 2013).
-OPTION_PLAIN      = 0x01000000        # user chose plain game
+OPTION_ALMY       = 0x01000000        # Almy's death ray upgrade (1997?)
 OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
 OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
 OPTION_ALPHAMERIC = 0x10000000        # Alpha Y coordinates (ESR, 2023)
@@ -330,7 +330,7 @@ option_names = {
     "AUTOSCAN": OPTION_AUTOSCAN,
     "CAPTURE": OPTION_CAPTURE,
     "CLOAK": OPTION_CLOAK,
-    "PLAIN": OPTION_PLAIN,
+    "ALMY": OPTION_ALMY,
     "COLOR": OPTION_COLOR,
     "DOTFILL": OPTION_DOTFILL,
     "ALPHAMERIC": OPTION_ALPHAMERIC,
@@ -4813,7 +4813,7 @@ def beam():
         if not ja():
             scanner.chew()
             return
-    if not (game.options & OPTION_PLAIN):
+    if (game.options & OPTION_ALMY):
         nrgneed = 50 * game.skill + game.height / 100.0
         if nrgneed > game.energy:
             prout(_("Engineering to bridge--"))
@@ -5080,7 +5080,8 @@ def deathray():
     prouts(_("WHIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"))
     skip(1)
     dprob = 0.30
-    if game.options & OPTION_PLAIN:
+    # FIX-ME: This test looks inverted
+    if not (game.options & OPTION_ALMY):
         dprob = 0.5
     r = rnd.real()
     if r > dprob:
@@ -5091,7 +5092,7 @@ def deathray():
         prout(_("Ensign Chekov-  \"Congratulations, Captain!\""))
         if game.unwon() == 0:
             finish(FWON)
-        if (game.options & OPTION_PLAIN) == 0:
+        if (game.options & OPTION_ALMY):
             prout(_("Spock-  \"Captain, I believe the `Experimental Death Ray'"))
             if rnd.withprob(0.05):
                 prout(_("   is still operational.\""))
@@ -6049,8 +6050,7 @@ def choose():
         scanner.nexttok()
     if scanner.sees("plain"):
         # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-        game.options |= OPTION_PLAIN
+        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
     elif scanner.sees("almy"):
         # Approximates Tom Almy's version.
         game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
@@ -6782,7 +6782,7 @@ if __name__ == '__main__':
         game = Gamestate()
         rnd = randomizer()
         logfp = None
-        game.options = OPTION_ALL &~ (OPTION_IOMODES | OPTION_PLAIN)
+        game.options = OPTION_ALL &~ OPTION_IOMODES
         if os.getenv("TERM"):
             game.options |= OPTION_CURSES	# pragma: no cover
         else:
