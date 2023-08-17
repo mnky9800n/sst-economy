@@ -1282,7 +1282,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
     # Loop to move a single torpedo
     setwnd(message_window)
     for step in range(1, QUADSIZE*2):
-        if not track.nexttok():
+        if not track.nextstep():
             break
         w = track.sector()
         if not w.valid_sector():
@@ -1306,7 +1306,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
             # In the C/FORTRAN version, dispersion was 2.5 radians, which
             # is 143 degrees, which is almost exactly 4.8 clockface units
             displacement = course(track.bearing+rnd.real(-2.4, 2.4), distance=2**0.5)
-            displacement.nexttok()
+            displacement.nextstep()
             bumpto = displacement.sector()
             if not bumpto.valid_sector():
                 return hit
@@ -1348,7 +1348,7 @@ def torpedo(origin, bearing, dispersion, number, nburst):
                         return None
                     proutn(crmena(True, iquad, "sector", w))
                     displacement = course(track.bearing+rnd.real(-2.4, 2.4), distance=2**0.5, origin=w)
-                    displacement.nexttok()
+                    displacement.nextstep()
                     bumpto = displacement.sector()
                     if game.quad[bumpto.i][bumpto.j] == ' ':
                         prout(_(" buffeted into black hole."))
@@ -2550,7 +2550,7 @@ def events():
                 supercommander()
         elif evcode == FDSPROB: # Move deep space probe
             schedule(FDSPROB, 0.01)
-            if not game.probe.nexttok():
+            if not game.probe.nextstep():
                 if not game.probe.quadrant().valid_quadrant() or \
                     game.state.galaxy[game.probe.quadrant().i][game.probe.quadrant().j].supernova:
                     # Left galaxy or ran into supernova
@@ -3887,7 +3887,7 @@ def imove(icourse=None, noattack=False):
     # Move out
     game.quad[game.sector.i][game.sector.j] = '.'
     for _m in range(icourse.moves):
-        icourse.nexttok()
+        icourse.nextstep()
         w = icourse.sector()
         if icourse.origin.quadrant() != icourse.location.quadrant():
             newquadrant(noattack)
@@ -4118,7 +4118,7 @@ class course:
         self.step = 0
     def arrived(self):
         return self.location.roundtogrid() == self.final
-    def nexttok(self):
+    def nextstep(self):
         "Next step on course."
         self.step += 1
         self.nextlocation = self.location + self.increment
@@ -4267,7 +4267,7 @@ def warp(wcourse, involuntary):
             look = wcourse.moves
             while look > 0:
                 look -= 1
-                wcourse.nexttok()
+                wcourse.nextstep()
                 w = wcourse.sector()
                 if not w.valid_sector():
                     break
