@@ -43,10 +43,12 @@ disappear when hit by photon torpedos.  It's OK that it may move
 when attacked, but it didn't in the original. (The no-save behavior
 has been restored.)
 
-Dave says the Faerie Queen, black holes, and time warping were in the original.
-However, eithrt he is misremembering about time watping or
-the original implementation was lost during the FORTRAN-to-C translation, as
-Stas Sergeev added a time-warping feature in 2006.
+Dave says the Faerie Queen, black holes, and time warping were in the
+original.  However, either he is misremembering about time warping or
+the original implementation was lost during the FORTRAN-to-C
+translation, as Stas Sergeev added a time-warping feature not
+previiusly present in 2006.  Tom Almy also claims to have added
+timewarping!
 
 Here are Tom Almy's changes:
 
@@ -300,3 +302,7 @@ clockface-to-radian conversions.  For this reason, and others, the
 trig code is still a bit wacky and obscure.  Modify with caution
 and test thoroughly.
 
+Adding or remobing random() calls is very likely to break lots of
+regression tests. If you have to add new one, wrap them in a
+save/restore of the LCG state; there's an example of this around
+the setup for the Space Thingy.
