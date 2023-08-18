@@ -5986,8 +5986,8 @@ def choose():
     game.thawed = False
     game.skill = SKILL_NONE
     gametype = None
-    mode = None
-    while gametype is None or game.length == 0 or game.skill == SKILL_NONE or mode is None:
+    wayback = 0
+    while gametype is None or game.length == 0 or game.skill == SKILL_NONE or wayback == 0:
         eol_is_fancy = False
         if not scanner.inqueue or scanner.token == "IHEOL": # Can start with command line options
             if gametype is None:
@@ -5996,8 +5996,8 @@ def choose():
                 proutn(_("Would you like a Short, Medium, or Long game? "))
             elif game.skill == SKILL_NONE:
                 proutn(_("Are you a Novice, Fair, Good, Expert, or Emeritus player? "))
-            elif mode is None:
-                proutn(_("Choose your game style (plain, almy, fancy or just press enter): "))
+            elif wayback == 0:
+                proutn(_("Wayback setting (press enter for current year): "))
                 eol_is_fancy = True
         scanner.nexttok()
         if game.idebug:
@@ -6046,18 +6046,16 @@ def choose():
             game.skill = SKILL_EXPERT
         elif scanner.token.startswith("em"):	# emeritus
             game.skill = SKILL_EMERITUS
-        elif scanner.token.startswith("p"):		# plain
-            # Approximates the UT FORTRAN version.
-            game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-            mode = "plain"
-        elif scanner.token.startswith("almy"):	# almy
-            # Approximates Tom Almy's version.
-            mode = "almy"
-            game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-        elif scanner.token.startswith("f"):		# fancy
-            mode = "fancy"
+        elif scanner.type == "IHREAL":
+            wayback = scanner.int()
+            if wayback <= 1973:
+                # Approximates the UT FORTRAN version.
+                game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+            elif scanner.int() < 1980:
+                # Approximates Tom Almy's 1979 version.
+                game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         elif (eol_is_fancy and scanner.token.startswith("\n")):
-            mode = "fancy"
+            wayback = time.localtime().tm_year
         elif scanner.token.startswith("\n"):
             continue
         elif scanner.token.startswith("idebug"):
@@ -6070,7 +6068,7 @@ def choose():
         game.idebug = True
         prout("=== Debug mode enabled.")
     if game.idebug:
-        prout("--- Setup: type=%s length=%s skill=%s mode=%s" % (gametype, game.length, game.skill, mode))
+        prout("--- Setup: type=%s length=%s skill=%s wayback=%s" % (gametype, game.length, game.skill, wayback))
     # Use parameters to generate initial values of things
     game.damfac = 0.5 * game.skill
     game.inbase = rnd.integer(BASEMIN, BASEMAX+1)
