@@ -4184,7 +4184,7 @@ def impulse():
     return
 
 def warp(wcourse, involuntary):
-    "ove under warp drive."
+    "Move under warp drive."
     blooey = False; twarp = False
     if not involuntary: # Not WARPX entry
         game.ididit = False
@@ -5981,28 +5981,45 @@ def setup():
 
 def choose():
     "Choose your game type."
-    while True:
-        game.tourn = None
-        game.length = 0
-        game.thawed = False
-        game.skill = SKILL_NONE
-        # Do not chew here, we want to use command-line tokens
-        if not scanner.inqueue: # Can start with command line options
-            proutn(_("Would you like a regular, tournament, or saved game? "))
+    game.tourn = None
+    game.length = 0
+    game.thawed = False
+    game.skill = SKILL_NONE
+    gametype = None
+    mode = None
+    while gametype is None or game.length == 0 or game.skill == SKILL_NONE or mode is None:
+        eol_is_fancy = False
+        if not scanner.inqueue or scanner.token == "IHEOL": # Can start with command line options
+            if gametype is None:
+                proutn(_("Would you like a regular, tournament, or saved game? "))
+            elif game.length==0:
+                proutn(_("Would you like a Short, Medium, or Long game? "))
+            elif game.skill == SKILL_NONE:
+                proutn(_("Are you a Novice, Fair, Good, Expert, or Emeritus player? "))
+            elif mode is None:
+                proutn(_("Choose your game style (plain, almy, fancy or just press enter): "))
+                eol_is_fancy = True
         scanner.nexttok()
-        if scanner.sees("tournament"):
+        if game.idebug:
+            prout("-- Token: %s=%s" % (scanner.type, repr(scanner.token)))
+        if scanner.token == "":
+            raise SystemExit(0)	# Early end of replay
+        if scanner.token.startswith("r"):	# regular
+            gametype = "regular"
+        elif scanner.token.startswith("t"):
+            gametype = "tournament"
+            proutn(_("Type in tournament number-"))
             game.tourn = 0
             while scanner.nexttok() == "IHEOL":
-                proutn(_("Type in tournament number-"))
-            if scanner.real == 0:
-                scanner.chew()
-                continue # We don't want a blank entry
+                if scanner.real == 0:
+                    scanner.chew()
+                    continue # We don't want a blank entry
             game.tourn = int(round(scanner.real))
             rnd.seed(scanner.real)
             if logfp:
                 logfp.write("# rnd.seed(%d)\n" % scanner.real)
-            break
-        if scanner.sees("saved") or scanner.sees("frozen"):
+        elif scanner.token.startswith("sa") or scanner.token.startswith("fr"):	# saved or frozen
+            gametype = "saved"
             if thaw():
                 continue
             scanner.chew()
@@ -6013,57 +6030,47 @@ def choose():
             report()
             waitfor()
             return True
-        if scanner.sees("regular"):
-            break
-        proutn(_("What game type is \"%s\"? ") % scanner.token)
-        scanner.chew()
-    while game.length==0 or game.skill==SKILL_NONE:
-        if scanner.nexttok() == "IHALPHA":
-            if scanner.sees("short"):
-                game.length = 1
-            elif scanner.sees("medium"):
-                game.length = 2
-            elif scanner.sees("long"):
-                game.length = 4
-            elif scanner.sees("novice"):
-                game.skill = SKILL_NOVICE
-            elif scanner.sees("fair"):
-                game.skill = SKILL_FAIR
-            elif scanner.sees("good"):
-                game.skill = SKILL_GOOD
-            elif scanner.sees("expert"):
-                game.skill = SKILL_EXPERT
-            elif scanner.sees("emeritus"):
-                game.skill = SKILL_EMERITUS
-            else:
-                proutn(_("What skill level is is \""))
-                proutn(scanner.token)
-                prout("\"?")
+        elif scanner.token.startswith("s"):		# short
+            game.length = 1
+        elif scanner.token.startswith("m"):		# medium
+            game.length = 2
+        elif scanner.token.startswith("l"):		# long
+            game.length = 4
+        elif scanner.token.startswith("n"):		# novice
+            game.skill = SKILL_NOVICE
+        elif (game.skill is None) and scanner.token.startswith("f"):		# fair
+            game.skill = SKILL_FAIR
+        elif scanner.token.startswith("g"):		# good
+            game.skill = SKILL_GOOD
+        elif scanner.token.startswith("e"):		# expert
+            game.skill = SKILL_EXPERT
+        elif scanner.token.startswith("em"):	# emeritus
+            game.skill = SKILL_EMERITUS
+        elif scanner.token.startswith("p"):		# plain
+            # Approximates the UT FORTRAN version.
+            game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+            mode = "plain"
+        elif scanner.token.startswith("almy"):	# almy
+            # Approximates Tom Almy's version.
+            mode = "almy"
+            game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
+        elif scanner.token.startswith("f"):		# fancy
+            mode = "fancy"
+        elif (eol_is_fancy and scanner.token.startswith("\n")):
+            mode = "fancy"
+        elif scanner.token.startswith("\n"):
+            continue
+        elif scanner.token.startswith("idebug"):
+            game.idebug = True
         else:
-            scanner.chew()
-            if game.length==0:
-                proutn(_("Would you like a Short, Medium, or Long game? "))
-            elif game.skill == SKILL_NONE:
-                proutn(_("Are you a Novice, Fair, Good, Expert, or Emeritus player? "))
-    # Choose game options -- added by ESR for SST2K
-    if scanner.nexttok() != "IHALPHA":
-        scanner.chew()
-        proutn(_("Choose your game style (plain, almy, fancy or just press enter): "))
-        scanner.nexttok()
-    if scanner.sees("plain"):
-        # Approximates the UT FORTRAN version.
-        game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-    elif scanner.sees("almy"):
-        # Approximates Tom Almy's version.
-        game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-    elif scanner.sees("fancy") or scanner.sees("\n"):
-        pass
-    elif len(scanner.token):
-        proutn(_("What game style is \"%s\"?") % scanner.token)
+            # Unrecognized token
+            prout(_("Can't interpret %s") % repr(scanner.token))
     setpassword()
     if game.passwd == "debug":                # pragma: no cover
         game.idebug = True
         prout("=== Debug mode enabled.")
+    if game.idebug:
+        prout("--- Setup: type=%s length=%s skill=%s mode=%s" % (gametype, game.length, game.skill, mode))
     # Use parameters to generate initial values of things
     game.damfac = 0.5 * game.skill
     game.inbase = rnd.integer(BASEMIN, BASEMAX+1)
