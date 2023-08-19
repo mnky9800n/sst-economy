@@ -315,44 +315,26 @@ OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
 OPTION_ALPHAMERIC = 0x10000000        # Alpha Y coordinates (ESR, 2023)
 
 option_names = {
-    "ALL": OPTION_ALL,
-    "TTY": OPTION_TTY,
-    "IOMODES": OPTION_IOMODES,
-    "PLANETS": OPTION_PLANETS,
-    "PROBE": OPTION_PROBE,
-    "SHOWME": OPTION_SHOWME,
-    "RAMMING": OPTION_RAMMING,
-    "MVBADDY": OPTION_MVBADDY,
-    "AUTOPASS": OPTION_AUTOPASS,
-    "BLKHOLE": OPTION_BLKHOLE,
-    "BASE": OPTION_BASE,
-    "WORLDS": OPTION_WORLDS,
-    "AUTOSCAN": OPTION_AUTOSCAN,
-    "CAPTURE": OPTION_CAPTURE,
-    "CLOAK": OPTION_CLOAK,
-    "ALMY": OPTION_ALMY,
-    "COLOR": OPTION_COLOR,
-    "DOTFILL": OPTION_DOTFILL,
-    "ALPHAMERIC": OPTION_ALPHAMERIC,
-}
-
-option_years = {
-    OPTION_PLANETS: 1979,
-    OPTION_PROBE: 1980,
-    OPTION_SHOWME: 2005,
-    OPTION_RAMMING: 1979,
-    OPTION_MVBADDY: 1979,
-    OPTION_AUTOPASS: 1997,
-    OPTION_BLKHOLE: 2005,
-    OPTION_BASE: 2005,
-    OPTION_WORLDS: 2996,
-    OPTION_AUTOSCAN: 2006,
-    OPTION_CAPTURE: 2013,
-    OPTION_CLOAK: 2013,
-    OPTION_ALMY: 1997,
-    OPTION_COLOR: 2010,
-    OPTION_DOTFILL: 2019,
-    OPTION_ALPHAMERIC: 2023,
+    "ALL": (OPTION_ALL, 0),
+    "TTY": (OPTION_TTY, 0),
+    "IOMODES": (OPTION_IOMODES, 0),
+    "PLANETS": (OPTION_PLANETS, 1974),
+    "THOLIAN": (OPTION_THOLIAN, 1979),
+    "PROBE": (OPTION_PROBE, 1980),
+    "SHOWME": (OPTION_SHOWME, 2006),
+    "RAMMING": (OPTION_RAMMING, 1979),
+    "MVBADDY": (OPTION_MVBADDY, 1979),
+    "AUTOPASS": (OPTION_AUTOPASS, 1997),
+    "BLKHOLE": (OPTION_BLKHOLE, 2006),
+    "BASE": (OPTION_BASE, 2005),
+    "WORLDS": (OPTION_WORLDS, 2006),
+    "AUTOSCAN": (OPTION_AUTOSCAN, 2000),
+    "CAPTURE": (OPTION_CAPTURE, 2013),
+    "CLOAK": (OPTION_CLOAK, 2013),
+    "ALMY": (OPTION_ALMY, 1997),
+    "COLOR": (OPTION_COLOR, 2010),
+    "DOTFILL": (OPTION_DOTFILL, 2019),
+    "ALPHAMERIC": (OPTION_ALPHAMERIC, 2023)
 }
 
 # Define devices
@@ -5625,7 +5607,7 @@ def goptions():
     if mode == "IHEOL":
         active = []
         for k, v in option_names.items():
-            if (v & game.options) and k != "ALL":
+            if (v[0] & game.options) and k != "ALL":
                 active.append(k)
         active.sort()
         prout(str(" ".join(active)))
@@ -5637,7 +5619,7 @@ def goptions():
             if scanner.type == "IHEOL":
                 break
             if scanner.token.upper() in option_names:
-                changemask |= option_names[scanner.token.upper()]
+                changemask |= option_names[scanner.token.upper()][0]
             else:
                 prout(_("No such option as ") + scanner.token)
         if mode == "set":
@@ -6067,12 +6049,6 @@ def choose():
             game.skill = SKILL_EMERITUS
         elif scanner.type == "IHREAL":
             wayback = scanner.int()
-            if wayback <= 1973:
-                # Approximates the UT FORTRAN version.
-                game.options &=~ (OPTION_THOLIAN | OPTION_PLANETS | OPTION_PROBE | OPTION_RAMMING | OPTION_MVBADDY | OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_CAPTURE | OPTION_CLOAK | OPTION_ALMY | OPTION_AUTOPASS | OPTION_DOTFILL | OPTION_ALPHAMERIC)
-            elif scanner.int() < 1980:
-                # Approximates Tom Almy's 1979 version.
-                game.options &=~ (OPTION_BLKHOLE | OPTION_BASE | OPTION_WORLDS | OPTION_COLOR | OPTION_DOTFILL | OPTION_ALPHAMERIC)
         elif (eol_is_fancy and scanner.token.startswith("\n")):
             wayback = time.localtime().tm_year
         elif scanner.token.startswith("\n"):
@@ -6082,6 +6058,9 @@ def choose():
         else:
             # Unrecognized token
             prout(_("Can't interpret %s") % repr(scanner.token))
+    for (name, (option, year)) in option_names.items():
+        if wayback < year:
+            game.options &=~ option
     setpassword()
     if game.passwd == "debug":                # pragma: no cover
         game.idebug = True
