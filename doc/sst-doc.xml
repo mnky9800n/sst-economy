@@ -251,15 +251,84 @@ game&mdash;but, of course, the level of game you play is up to you.  If
 you want to start at the Expert level, go ahead.  It's your funeral.
 The Emeritus game is strictly for masochists.</para>
 
-<para>The fourth question, new in SST2K, sets your game options.  A
-blank answer or 'fancy' enables all SST2K features.  The option
-'plain' approximated the original CDC 6600 FORTRAN game from UT Austin
-and disables a number of features: Tholians, planets &amp; dilithium,
-deep-space-probes, Klingon ramming and movement, time-warping through
-black holes, death-ray upgrade, inhabited worlds.  The option 'almy'
-approximates Tom Almy's C translation from 1979, disabling base
-shields, time-warping through black holes, and inhabited
-worlds.</para>
+<para>The fourth question, new in SST2K, sets the wayback machine.  A
+blank answer enables all SST2K features.  Given a year, it will disable
+features not implemented in that year or earlier. The year
+'1973' approximated the original CDC 6600 FORTRAN game from UT Austin.
+Here is a mapping of years to features:
+
+<variablelist>
+<varlistentry>
+<term>1974</term>
+<listitem>Planets and dilithium mining</listitem>
+</varlistentry>
+<varlistentry>
+<term>1979</term>
+<listitem>Tholians and their webs.</listitem>
+</varlistentry>
+<varlistentry>
+<term>1980</term>
+<listitem>Deep-space probes.</listitem>
+</varlistentry>
+<varlistentry>
+<term>1981</term>
+<listitem>Bad guys do tactical movement.</listitem>
+</varlistentry>
+<varlistentry>
+<term>1982</term>
+<listitem>Bad guys can ram you.</listitem>
+</varlistentry>
+<varlistentry>
+<term>1997</term>
+<listitem>Death ray gets an upgrade.</listitem>
+</varlistentry>
+<varlistentry>
+<term>1998</term>
+<listitem>Automatic generation of self-destruct password.</listitem>
+</varlistentry>
+<varlistentry>
+<term>2004</term>
+<listitem>Upgraded shields for bases, and chance of time-waeping through a black hole.</listitem>
+<varlistentry>
+<term>2005</term>
+<listitem>Our ship is bracketed in the chart/</listitem>
+</varlistentry>
+</varlistentry>
+<varlistentry>
+<term>2006</term>
+<listitem>Logic for inhabited worlds and Klingon captures.</listitem>
+</varlistentry>
+<varlistentry>
+<term>2007</term>
+<listitem>Automatically update the long-range scan when displaying the chart.</listitem>
+</varlistentry><varlistentry>
+<varlistentry>
+<term>2010</term>
+<listitem>Use color in interface.</listitem>
+</varlistentry>
+<term>2013</term>
+<listitem>Defeated Klingons can be captured.</listitem>
+<varlistentry>
+<term>2014</term>
+<listitem>The cloaking device.</listitem>
+</varlistentry>
+<varlistentry>
+<term>2019</term>
+<listitem>Consistent dot-filling in the galaxy chart.</listitem>
+</varlistentry>
+<varlistentry>
+<term>2023</term>
+<listitem>Alphameric coordinates.</listitem>
+</varlistentry>
+</varlistentry>
+</variablelist>
+
+<para>Some caveats apply.  The development history of this game is obscure; some
+years of introduction have had to be guessed, and we have chosen guesses to
+make support as many interesting wayback options as possible.  Some options
+are not affected by the wayback setting - notably, the TUI interface is always
+available even though it wasn't written until 2005.  Some early features,
+notably "clockface" course setting, couldn't be reconstructed.</para>
 
 </chapter>
 <chapter><title>How To Issue Commands</title>

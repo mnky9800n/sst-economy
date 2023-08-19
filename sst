@@ -298,21 +298,21 @@ OPTION_CURSES     = 0x00000002        # new interface
 OPTION_IOMODES    = 0x00000003        # cover both interfaces
 OPTION_PLANETS    = 0x00000004        # planets and mining (> 1974)
 OPTION_THOLIAN    = 0x00000008        # Tholians and their webs (UT 1979 version)
-OPTION_PROBE      = 0x00000020        # deep-space probes (DECUS version, 1980)
-OPTION_SHOWME     = 0x00000040        # bracket Enterprise in chart (ESR, 2005)
-OPTION_RAMMING    = 0x00000080        # enemies may ram Enterprise (Almy, 1979)
-OPTION_MVBADDY    = 0x00000100        # more enemies can move (Almy, 1979?)
-OPTION_AUTOPASS   = 0x00000200        # Autogenerate password (Almy, 1997?)
+OPTION_PROBE      = 0x00000010        # deep-space probes (DECUS version, 1980)
+OPTION_MVBADDY    = 0x00000020        # more enemies can move (Almy, 1979?)
+OPTION_RAMMING    = 0x00000040        # enemies may ram Enterprise (Almy, 1979?)
+OPTION_ALMY       = 0x00000080        # Almy's death ray upgrade (1997?)
+OPTION_AUTOPASS   = 0x00000100        # Autogenerate password (Almy, 1997?)
+OPTION_BASE       = 0x00000200        # bases have good shields (Stas, 2005)
 OPTION_BLKHOLE    = 0x00000400        # black hole may timewarp you (Stas, 2005)
-OPTION_BASE       = 0x00000800        # bases have good shields (Stas, 2005)
+OPTION_SHOWME     = 0x00000800        # bracket Enterprise in chart (ESR, 2005)
 OPTION_WORLDS     = 0x00001000        # logic for inhabited worlds (ESR, 2006)
 OPTION_AUTOSCAN   = 0x00002000        # automatic LRSCAN before CHART (ESR, 2006)
-OPTION_CAPTURE    = 0x00004000        # Enable BSD-Trek capture (Almy, 2013).
-OPTION_CLOAK      = 0x80008000        # Enable BSD-Trek capture (Almy, 2013).
-OPTION_ALMY       = 0x01000000        # Almy's death ray upgrade (1997?)
-OPTION_COLOR      = 0x04000000        # enable color display (ESR, 2010)
-OPTION_DOTFILL    = 0x08000000        # fix dotfill glitch in chart (ESR, 2019)
-OPTION_ALPHAMERIC = 0x10000000        # Alpha Y coordinates (ESR, 2023)
+OPTION_COLOR      = 0x00004000        # enable color display (ESR, 2010)
+OPTION_CAPTURE    = 0x00008000        # Enable BSD-Trek capture (Almy, 2013).
+OPTION_CLOAK      = 0x80010000        # Enable BSD-Trek capture (Almy, 2013).
+OPTION_DOTFILL    = 0x08200000        # fix dotfill glitch in chart (ESR, 2019)
+OPTION_ALPHAMERIC = 0x00400000        # Alpha Y coordinates (ESR, 2023)
 
 option_names = {
     "ALL": (OPTION_ALL, 0),
@@ -321,18 +321,18 @@ option_names = {
     "PLANETS": (OPTION_PLANETS, 1974),
     "THOLIAN": (OPTION_THOLIAN, 1979),
     "PROBE": (OPTION_PROBE, 1980),
-    "SHOWME": (OPTION_SHOWME, 2006),
-    "RAMMING": (OPTION_RAMMING, 1979),
-    "MVBADDY": (OPTION_MVBADDY, 1979),
-    "AUTOPASS": (OPTION_AUTOPASS, 1997),
-    "BLKHOLE": (OPTION_BLKHOLE, 2006),
-    "BASE": (OPTION_BASE, 2005),
-    "WORLDS": (OPTION_WORLDS, 2006),
-    "AUTOSCAN": (OPTION_AUTOSCAN, 2000),
-    "CAPTURE": (OPTION_CAPTURE, 2013),
-    "CLOAK": (OPTION_CLOAK, 2013),
+    "MVBADDY": (OPTION_MVBADDY, 1981),   # year bumped to make it distinct
+    "RAMMING": (OPTION_RAMMING, 1982),   # year bumped to make it distinct
     "ALMY": (OPTION_ALMY, 1997),
+    "AUTOPASS": (OPTION_AUTOPASS, 1998), # year bumped to make it distinct
+    "BASE": (OPTION_BASE, 2004), 	 # year bumped to make it distinct
+    "BLKHOLE": (OPTION_BLKHOLE, 2004),   # year bumped to make it distinct
+    "SHOWME": (OPTION_SHOWME, 2005),
+    "WORLDS": (OPTION_WORLDS, 2006),
+    "AUTOSCAN": (OPTION_AUTOSCAN, 2007),  # year bumped to make it distinct
     "COLOR": (OPTION_COLOR, 2010),
+    "CAPTURE": (OPTION_CAPTURE, 2013),
+    "CLOAK": (OPTION_CLOAK, 2014),        # year bumped to make it distinct
     "DOTFILL": (OPTION_DOTFILL, 2019),
     "ALPHAMERIC": (OPTION_ALPHAMERIC, 2023)
 }

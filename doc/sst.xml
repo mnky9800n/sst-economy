@@ -39,7 +39,7 @@ invasion fleet and make the galaxy safe for democracy.</para>
 
 <para>This is one of the great early classic computer games from the
 1970s and still has a remarkable amount of play value. Run
-<command>sst.py</command> in a terminal window to start it.  Typing
+<command>sst</command> in a terminal window to start it.  Typing
 'commands' at the prompt will list all commands; help is available for
 each one individually as well.  Full documentation is <ulink
 url='&projecthome;/sst-doc.html'>browseable</ulink>.  On
